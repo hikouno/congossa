@@ -9,15 +9,39 @@
     </h1>
   </div>
 
-  <div id="buttons">
+  <ion-card id="loginCardButtons">
     <p id="loginExplaination">
-      Connectez vous à votre compte Google, Facebook ou LinkedIn pour utiliser nos services
+      Inscrivez vous pour accéder à nos services
     </p>
-    <button ion-button id="FirstLoginButton" color="danger" (click)="glogin()" round>Google+</button>
-    <button ion-button class="LoginButton" color="fbBlue" round>Facebook</button>
-    <button ion-button class="LoginButton" color="lBlue" round>LinkedIn</button>
+    <button ion-button class="LoginButton" color="fbBlue" round> <ion-icon name="logo-facebook"></ion-icon> </button>
+    <button ion-button class="LoginButton"  color="danger" (click)="glogin()" round> <ion-icon name="logo-google"></ion-icon> </button>
+    <button ion-button class="LoginButton" color="lBlue" round> <ion-icon name="logo-linkedin"></ion-icon> </button>
     <!--  <button ion-button (click)="skip_login()">(skip login)</button> -->
-  </div>
+  </ion-card>
+
+  <p id="ou">
+    OU
+  </p>
+
+  <ion-card id="loginCard">
+    <ion-list>
+
+      <ion-item class="standardInscription">
+        <ion-input type="text" placeholder="Username"></ion-input>
+      </ion-item>
+
+      <ion-item class="standardInscription">
+        <ion-input type="password" placeholder="Password"></ion-input>
+      </ion-item>
+
+      <ion-item class="standardInscription">
+        <ion-input type="password" placeholder="Confirm password"></ion-input>
+      </ion-item>
+
+      <button ion-button id="inscription" color="lBlue" round> Inscription </button>
+
+    </ion-list>
+  </ion-card>
 
 
 </ion-content>

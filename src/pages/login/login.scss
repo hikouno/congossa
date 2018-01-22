@@ -1,10 +1,9 @@
 page-login {
 
-  #FirstLoginButton {
-  }
 
-  .LoginButton, #FirstLoginButton {
-    width: 80%;
+
+  .LoginButton {
+    width: 31%;
   }
 
   .WelcomeTitle {
@@ -14,12 +13,31 @@ page-login {
 
   }
 
-  #buttons {
+  .item {
+    background: rgba(232, 230, 230, 0px);
+    border: medium none;
+  }
+
+  #loginCardButtons {
     position: relative;
+    background: rgba(232, 230, 230, 0.6px);
+    padding: 20px 20px 20px 20px;
     width:100%;
-    height:300px;
     top: 100%;
-    margin:-300px 0 0 0;
+    margin:-500px 0 0 0;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  #loginCard {
+    position: relative;
+    background: rgba(232, 230, 230, 0.6px);
+    padding: 0px 0px 10px 0px;
+    width:100%;
+    top: 100%;
+    margin:-50px 0 0 0;
+    text-align: center;
+    border-radius: 10px;
   }
 
   #title {
@@ -28,17 +46,33 @@ page-login {
   }
 
   #loginExplaination {
+    font-size: 0.8em;
     position: relative;
-    left: 32px;
     color: #7F7F7F;
     font-weight: bold;
-    width:80%;
+    width:100%;
+    padding: 0px 20px 3px 20px;
+  }
+
+  #ou {
+    font-size: 125%;
+    padding: 20px 0px 0px 0px;
+    color: Black;
+    font-weight: bold;
+  }
+
+  #inscription {
+    width: 90%;
+    background: #FF8C00;
+  }
+
+  .standardInscription {
+
   }
 
   .View {
     width:100%;
     text-align: center;
-    margin-left: 0;
   }
 
   .no-scroll .scroll-content{
