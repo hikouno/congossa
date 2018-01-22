@@ -1,15 +1,19 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Congossa
-    </ion-title>
-  </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
-  Welcome to Congossa
-  
-  <button ion-button (click)="glogin()" >Google Login</button>
-  <button ion-button (click)="skip_login()">(skip login)</button>
-  
+<ion-content padding class="View">
+
+  <strong class="WelcomeTitle">
+    Welcome to Congossa
+  </strong>
+
+
+  <ion-content class="LoginButtons">
+    <button ion-button class="LoginButton" color="danger" (click)="glogin()" round>Google+</button>
+    <button ion-button class="LoginButton" color="fbBlue" round>Facebook</button>
+    <button ion-button class="LoginButton" color="lBlue" round>LinkedIn</button>
+    <!--  <button ion-button (click)="skip_login()">(skip login)</button> -->
+  </ion-content>
+
 </ion-content>
