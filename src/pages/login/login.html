@@ -3,17 +3,21 @@
 </ion-header>
 
 <ion-content padding class="View">
+  <div id="title">
+    <h1 class="WelcomeTitle">
+    Bienvenue dans Congossa
+    </h1>
+  </div>
 
-  <strong class="WelcomeTitle">
-    Welcome to Congossa
-  </strong>
-
-
-  <ion-content class="Buttons">
-    <button ion-button class="LoginButton" color="danger" (click)="glogin()" round>Google+</button>
+  <div id="buttons">
+    <p id="loginExplaination">
+      Connectez vous à votre compte Google, Facebook ou LinkedIn pour utiliser nos services
+    </p>
+    <button ion-button id="FirstLoginButton" color="danger" (click)="glogin()" round>Google+</button>
     <button ion-button class="LoginButton" color="fbBlue" round>Facebook</button>
     <button ion-button class="LoginButton" color="lBlue" round>LinkedIn</button>
     <!--  <button ion-button (click)="skip_login()">(skip login)</button> -->
-  </ion-content>
+  </div>
+
 
 </ion-content>

@@ -1,22 +1,47 @@
 page-login {
-  .LoginButton {
-    width: 80%;
+
+  #FirstLoginButton {
   }
 
-  .Buttons {
-    width: 100%;
+  .LoginButton, #FirstLoginButton {
+    width: 80%;
   }
 
   .WelcomeTitle {
     color: Black;
     font-size: 3em;
-    margin: auto;
+    font-weight: bold;
+
+  }
+
+  #buttons {
+    position: relative;
     width:100%;
+    height:300px;
+    top: 100%;
+    margin:-300px 0 0 0;
+  }
+
+  #title {
+    position: relative;
+    top: 10%;
+  }
+
+  #loginExplaination {
+    position: relative;
+    left: 32px;
+    color: #7F7F7F;
+    font-weight: bold;
+    width:80%;
   }
 
   .View {
-    margin: auto;
     width:100%;
     text-align: center;
+    margin-left: 0;
   }
+
+  .no-scroll .scroll-content{
+    overflow: hidden;
+}
 }
