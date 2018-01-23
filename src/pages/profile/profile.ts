@@ -7,8 +7,11 @@ import { NavController } from 'ionic-angular';
 })
 export class ProfilePage {
 
+	//firstname: string; 
+	//document.getElementById("firstname");
+	
   constructor(public navCtrl: NavController) {
-    
+    //firstname.insertAdjacentHTML("Alexis");
   }
   
 
