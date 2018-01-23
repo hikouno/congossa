@@ -8,7 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 // Pages
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
-import { ProfilPage } from '../pages/profil/profil';
+import { ProfilePage } from '../pages/profile/profile';
 import { HomePage } from '../pages/home/home';
 import { FirstPage } from '../pages/first/first';
 import { SubPage } from '../pages/sub/sub';
@@ -17,7 +17,7 @@ import { SubPage } from '../pages/sub/sub';
   declarations: [
     MyApp,
     LoginPage,
-    ProfilPage,
+    ProfilePage,
     HomePage,
     FirstPage,
     SubPage
@@ -30,7 +30,7 @@ import { SubPage } from '../pages/sub/sub';
   entryComponents: [
     MyApp,
     LoginPage,
-    ProfilPage,
+    ProfilePage,
     FirstPage,
     LoginPage,
     SubPage,

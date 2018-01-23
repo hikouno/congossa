@@ -4,7 +4,7 @@ import { AlertController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
 
 // Pages 
-import { ProfilPage } from '../profil/profil';
+import { ProfilePage } from '../profile/profile';
 
 @Component({
   selector: 'page-login',
@@ -34,7 +34,7 @@ glogin(){
 }
 
 goToProfil() {
-	this.navCtrl.push(ProfilPage);
+	this.navCtrl.push(ProfilePage);
 
 }
 
