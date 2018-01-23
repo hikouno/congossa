@@ -3,6 +3,9 @@ import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
 
+// Pages 
+import { ProfilPage } from '../profil/profil';
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
@@ -28,6 +31,11 @@ glogin(){
   this.googlePlus.login({})
   .then(res => {console.log(res); alert("success "+JSON.stringify(res)); })
   .catch(err => {console.error(err); alert("error "+JSON.stringify(err));});
+}
+
+goToProfil() {
+	this.navCtrl.push(ProfilPage);
+
 }
 
 }

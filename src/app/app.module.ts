@@ -5,13 +5,17 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+// Pages
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
+import { ProfilPage } from '../pages/profil/profil';
+
 
 @NgModule({
   declarations: [
     MyApp,
-    LoginPage
+    LoginPage,
+    ProfilPage
   ],
   imports: [
     BrowserModule,
@@ -20,7 +24,8 @@ import { LoginPage } from '../pages/login/login';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginPage
+    LoginPage,
+    ProfilPage
   ],
   providers: [
     StatusBar,
