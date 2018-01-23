@@ -92,4 +92,5 @@
     <plugin name="cordova-plugin-linkedin" spec="^1.2.1">
         <variable name="APP_ID" value="86mmdpncnowi32" />
     </plugin>
+    <engine name="android" spec="~7.0.0" />
 </widget>
