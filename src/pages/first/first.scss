@@ -1,0 +1,43 @@
+page-first {
+
+  .WelcomeTitle {
+    color: Black;
+    font-size: 3em;
+    font-weight: bold;
+
+  }
+
+  .item {
+    background: rgba(232, 230, 230, 0px);
+    border: medium none;
+  }
+
+
+  .listeBouttons {
+    position: relative;
+    padding: 12px 0px 10px 0px;
+    width:100%;
+    top: 100%;
+    margin:-225px 0 0 0;
+    text-align: center;
+  }
+
+  #title {
+    position: relative;
+    top: 10%;
+  }
+
+  .bouttons {
+    width: 90%;
+    margin:10px 10px 10px 10px;
+  }
+
+  .View {
+    width:100%;
+    text-align: center;
+  }
+
+  .no-scroll .scroll-content{
+    overflow: hidden;
+}
+}
