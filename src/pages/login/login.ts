@@ -3,6 +3,9 @@ import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
 
+// Pages 
+import { ProfilPage } from '../profil/profil';
+
 
 import { AngularFireAuth } from 'angularfire2/auth'
 import firebase from 'firebase';
@@ -35,15 +38,9 @@ export class LoginPage {
     .catch(err => {console.error(err); alert("error "+JSON.stringify(err));});
   }
 
-  loginWithFacebook(){
-    this.fire.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
-    .then(res =>{
-       console.log(res);
-    })
-  }
+goToProfil() {
+	this.navCtrl.push(ProfilPage);
 
-  logoutOfFacebook() {
-    this.fire.auth.signOut();
-  }
+}
 
 }
