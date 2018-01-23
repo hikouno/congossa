@@ -1,0 +1,39 @@
+page-conversation {
+
+}
+
+page-conversation .user_message, page-conversation .nonuser_message {
+    max-width:80%;
+    display:inline-block;
+}
+
+page-conversation .user_message {
+    float:right;
+}
+
+page-conversation .user_message .text, page-conversation .nonuser_message .text {
+    border-radius:1em;
+    padding:1em;
+}
+
+page-conversation .user_message .time, page-conversation .nonuser_message .time {
+    font-size:0.8em;
+    color:#333333;
+}
+
+page-conversation .user_message .text {
+    background:#DDDDDD;
+}
+
+page-conversation .user_message .time {
+    margin-right:1em;
+}
+
+page-conversation .nonuser_message .text {
+    background:#2783EA;
+    color:#FFFFFF;
+}
+
+page-conversation .nonuser_message .time {
+    margin-left:1em;
+}
