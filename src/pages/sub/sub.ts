@@ -2,6 +2,13 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
+
+import { LinkedIn } from '@ionic-native/linkedin';
+
+import { ProfilePage } from '../profile/profile';
+
+import { AngularFireAuth } from 'angularfire2/auth';
+import firebase from 'firebase';
 /**
  * Generated class for the SubPage page.
  *
@@ -15,10 +22,14 @@ import { GooglePlus } from '@ionic-native/google-plus';
 })
 export class SubPage {
 
+  scopes: ['r_basicprofile', 'r_emailaddress', 'rw_company_admin', 'w_share'];
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public alertCtrl: AlertController,
-              private googlePlus: GooglePlus) {
+              private googlePlus: GooglePlus,
+              private fire: AngularFireAuth,
+              private linkedin: LinkedIn) {
   }
 
   skip_login() {
@@ -39,5 +50,26 @@ export class SubPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SubPage');
   }
+
+  loginWithFacebook(){
+    this.fire.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
+    .then(res =>{
+       console.log(res);
+    })
+  }
+
+  logoutOfFacebook() {
+    this.fire.auth.signOut();
+  }
+
+  loginWithLinkedIn() {
+    this.linkedin.login(this.scopes, true)
+      .then(() => console.log('Logged in!'))
+      .catch(e => console.log('Error logging in', e));
+}
+
+goToProfil() {
+	this.navCtrl.push(ProfilePage);
+}
 
 }
