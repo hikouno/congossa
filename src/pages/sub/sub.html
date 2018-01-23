@@ -9,13 +9,19 @@
     </h1>
   </div>
 
-
-  <div id="loginCardButtons">
+  <ion-card id="loginCardButtons">
+    <p id="loginExplaination">
+      Inscrivez vous pour accéder à nos services
+    </p>
     <button ion-button class="LoginButton" color="fbBlue" round> <ion-icon name="logo-facebook"></ion-icon> </button>
     <button ion-button class="LoginButton"  color="danger" (click)="glogin()" round> <ion-icon name="logo-google"></ion-icon> </button>
     <button ion-button class="LoginButton" color="lBlue" round> <ion-icon name="logo-linkedin"></ion-icon> </button>
     <!--  <button ion-button (click)="skip_login()">(skip login)</button> -->
-  </div>
+  </ion-card>
+
+  <p id="ou">
+    OU
+  </p>
 
   <ion-card id="loginCard">
     <ion-list>
@@ -28,7 +34,11 @@
         <ion-input type="password" placeholder="Password"></ion-input>
       </ion-item>
 
-      <button ion-button color="orange" id="inscription" round> Inscription </button>
+      <ion-item class="standardInscription">
+        <ion-input type="password" placeholder="Confirm password"></ion-input>
+      </ion-item>
+
+      <button ion-button id="inscription" color="lBlue" round> Inscription </button>
 
     </ion-list>
   </ion-card>
