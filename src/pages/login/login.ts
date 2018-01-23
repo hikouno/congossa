@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
 
-// Pages 
+// Pages
 import { ProfilPage } from '../profil/profil';
 
 
@@ -36,6 +36,17 @@ export class LoginPage {
     this.googlePlus.login({})
     .then(res => {console.log(res); alert("success "+JSON.stringify(res)); })
     .catch(err => {console.error(err); alert("error "+JSON.stringify(err));});
+  }
+
+  loginWithFacebook(){
+    this.fire.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
+    .then(res =>{
+       console.log(res);
+    })
+  }
+
+  logoutOfFacebook() {
+    this.fire.auth.signOut();
   }
 
 goToProfil() {
