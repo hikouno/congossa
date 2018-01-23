@@ -20,13 +20,11 @@ page-sub {
 
   #loginCardButtons {
     position: relative;
-    background: rgba(232, 230, 230, 0.6px);
-    padding: 20px 20px 20px 20px;
+    padding: 40px 5px 10px 5px;
     width:100%;
     top: 100%;
-    margin:-500px 0 0 0;
+    margin:-380px 0 0 0;
     text-align: center;
-    border-radius: 10px;
   }
 
   #loginCard {
@@ -35,7 +33,7 @@ page-sub {
     padding: 0px 0px 10px 0px;
     width:100%;
     top: 100%;
-    margin:-50px 0 0 0;
+    margin:0px 0 0 0;
     text-align: center;
     border-radius: 10px;
   }
@@ -45,14 +43,6 @@ page-sub {
     top: 10%;
   }
 
-  #loginExplaination {
-    font-size: 0.8em;
-    position: relative;
-    color: #7F7F7F;
-    font-weight: bold;
-    width:100%;
-    padding: 0px 20px 3px 20px;
-  }
 
   #ou {
     font-size: 125%;
@@ -63,12 +53,8 @@ page-sub {
 
   #inscription {
     width: 90%;
-    background: #FF8C00;
   }
 
-  .standardInscription {
-
-  }
 
   .View {
     width:100%;
@@ -77,5 +63,5 @@ page-sub {
 
   .no-scroll .scroll-content{
     overflow: hidden;
-  }
+}
 }
