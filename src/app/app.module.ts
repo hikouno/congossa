@@ -13,6 +13,7 @@ import { ProfilePage } from '../pages/profile/profile';
 import { HomePage } from '../pages/home/home';
 import { FirstPage } from '../pages/first/first';
 import { SubPage } from '../pages/sub/sub';
+import { RecherchePage } from '../pages/recherche/recherche';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -33,7 +34,8 @@ var config = {
     ProfilePage,
     HomePage,
     FirstPage,
-    SubPage
+    SubPage,
+    RecherchePage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ var config = {
     FirstPage,
     LoginPage,
     SubPage,
-    HomePage
+    HomePage,
+    RecherchePage
   ],
   providers: [
     StatusBar,
