@@ -2,10 +2,15 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
+<<<<<<< HEAD
 import { LinkedIn } from '@ionic-native/linkedin';
 
 // Pages
 import { ProfilPage } from '../profil/profil';
+=======
+// Pages 
+import { ProfilePage } from '../profile/profile';
+>>>>>>> 1eee8697dd0ea6e4ff3c0c2b7906af819a5664fd
 
 
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -60,7 +65,7 @@ export class LoginPage {
 }
 
 goToProfil() {
-	this.navCtrl.push(ProfilPage);
+	this.navCtrl.push(ProfilePage);
 
 }
 
