@@ -89,4 +89,7 @@
         <variable name="APP_ID" value="145740206125076" />
         <variable name="APP_NAME" value="Congossa" />
     </plugin>
+    <plugin name="cordova-plugin-linkedin" spec="^1.2.1">
+        <variable name="APP_ID" value="86mmdpncnowi32" />
+    </plugin>
 </widget>
