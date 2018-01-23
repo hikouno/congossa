@@ -2,9 +2,12 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
-
 // Pages 
 import { ProfilePage } from '../profile/profile';
+
+
+import { AngularFireAuth } from 'angularfire2/auth'
+import firebase from 'firebase';
 
 @Component({
   selector: 'page-login',
@@ -14,10 +17,11 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController,
               public alertCtrl: AlertController,
-              private googlePlus: GooglePlus) {
-    
+              private googlePlus: GooglePlus,
+              private fire: AngularFireAuth) {
+
   }
-  
+
   skip_login() {
         let alert = this.alertCtrl.create({
           title: 'Login',
@@ -27,11 +31,22 @@ export class LoginPage {
         alert.present();
   }
 
-glogin(){
-  this.googlePlus.login({})
-  .then(res => {console.log(res); alert("success "+JSON.stringify(res)); })
-  .catch(err => {console.error(err); alert("error "+JSON.stringify(err));});
-}
+  glogin(){
+    this.googlePlus.login({})
+    .then(res => {console.log(res); alert("success "+JSON.stringify(res)); })
+    .catch(err => {console.error(err); alert("error "+JSON.stringify(err));});
+  }
+
+  loginWithFacebook(){
+    this.fire.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
+    .then(res =>{
+       console.log(res);
+    })
+  }
+
+  logoutOfFacebook() {
+    this.fire.auth.signOut();
+  }
 
 goToProfil() {
 	this.navCtrl.push(ProfilePage);
