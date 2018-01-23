@@ -17,13 +17,10 @@ import { SubPage } from '../pages/sub/sub';
   declarations: [
     MyApp,
     LoginPage,
-<<<<<<< HEAD
-    ProfilPage
-=======
+    ProfilPage,
     HomePage,
     FirstPage,
     SubPage
->>>>>>> 056fb4de1f01ca16679f56e304dfcb352e0edfe3
   ],
   imports: [
     BrowserModule,
@@ -32,15 +29,12 @@ import { SubPage } from '../pages/sub/sub';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-<<<<<<< HEAD
     LoginPage,
-    ProfilPage
-=======
+    ProfilPage,
     FirstPage,
     LoginPage,
     SubPage,
     HomePage
->>>>>>> 056fb4de1f01ca16679f56e304dfcb352e0edfe3
   ],
   providers: [
     StatusBar,
