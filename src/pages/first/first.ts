@@ -4,6 +4,7 @@ import { AlertController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { LoginPage } from '../login/login';
 import { SubPage } from '../sub/sub';
+import { ListeConversationsPage } from '../listeConversations/listeConversations';
 import { RecherchePage } from '../recherche/recherche';
 
 
@@ -35,6 +36,10 @@ export class FirstPage {
 
   recherche(){
     this.navCtrl.push(RecherchePage);
+  }
+
+  messagerie(){
+    this.navCtrl.push(ListeConversationsPage);
   }
 
 

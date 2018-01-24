@@ -11,11 +11,13 @@ import { AjoutOffrePage } from '../pages/AjoutOffrePage/AjoutOffrePage';
 import { ListEmploi } from '../pages/ListEmploi/ListEmploi';
 
 
-
-
 // Pages
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
+
+import { ListeConversationsPage } from '../pages/listeConversations/listeConversations';
+import { ConversationPage } from '../pages/conversation/conversation';
+
 import { ProfilePage } from '../pages/profile/profile';
 import { HomePage } from '../pages/home/home';
 import { FirstPage } from '../pages/first/first';
@@ -38,15 +40,23 @@ var config = {
     MyApp,
     LoginPage,
 
+    ListeConversationsPage,
+    ConversationPage,
+
     AjoutOffrePage,
     ListEmploi,
 
     ProfilePage,
     HomePage,
     FirstPage,
+<<<<<<< HEAD
     SubPage,
     RecherchePage
 
+=======
+    SubPage
+    
+>>>>>>> 97083e79996c87a1afcb3319597bd1b5a13b4158
   ],
   imports: [
     BrowserModule,
@@ -58,7 +68,9 @@ var config = {
   entryComponents: [
     MyApp,
     LoginPage,
-
+    ListeConversationsPage,
+    ConversationPage,
+    
     AjoutOffrePage,
     ListEmploi,
 
@@ -66,9 +78,13 @@ var config = {
     FirstPage,
     LoginPage,
     SubPage,
+<<<<<<< HEAD
     HomePage,
     RecherchePage
 
+=======
+    HomePage
+>>>>>>> 97083e79996c87a1afcb3319597bd1b5a13b4158
   ],
   providers: [
     StatusBar,

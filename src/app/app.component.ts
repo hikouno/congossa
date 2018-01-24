@@ -8,11 +8,14 @@ import { ListEmploi } from '../pages/ListEmploi/ListEmploi';
 
 //Pages
 import { LoginPage } from '../pages/login/login';
+
+import { ListeConversationsPage } from '../pages/listeConversations/listeConversations';
+import { ConversationPage } from '../pages/conversation/conversation';
+
 import { HomePage } from '../pages/home/home';
 import { FirstPage } from '../pages/first/first';
 import { SubPage } from '../pages/sub/sub';
 import { RecherchePage } from '../pages/recherche/recherche';
-
 
 @Component({
   templateUrl: 'app.html'
@@ -25,10 +28,14 @@ export class MyApp {
 
   rootPage:any = FirstPage;
 
+<<<<<<< HEAD
   pages: Array<{title: string, component: any}>;
 
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+=======
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+>>>>>>> 97083e79996c87a1afcb3319597bd1b5a13b4158
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

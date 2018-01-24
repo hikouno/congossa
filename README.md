@@ -20,7 +20,7 @@ Liste des pages ionic à développer :
 * ConsultationOffrePage : Consultation détaillée d'une offre (après clic dans SwipeOffrePage par exemple).
 * ConsultationDemandePage : Consultation détaillée d'une demande (après clic dans SwipeDemandePage par exemple).
 
-* ListeConversationPage : Liste des conversations de l'utilisateur.
+* ListeConversationsPage : Liste des conversations de l'utilisateur.
 * ConversationPage : Détail d'une conversation de l'utilisateur (liste des messages).
 
 * ParamsPage : Paramètres...
