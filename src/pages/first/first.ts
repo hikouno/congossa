@@ -6,6 +6,7 @@ import { LoginPage } from '../login/login';
 import { SubPage } from '../sub/sub';
 import { ListeConversationsPage } from '../listeConversations/listeConversations';
 import { RecherchePage } from '../recherche/recherche';
+import { ParametresPage } from '../parametres/parametres';
 
 
 /**
@@ -40,6 +41,10 @@ export class FirstPage {
 
   messagerie(){
     this.navCtrl.push(ListeConversationsPage);
+  }
+  
+  parametres(){
+    this.navCtrl.push(ParametresPage);
   }
 
 
