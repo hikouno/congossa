@@ -8,7 +8,7 @@ import { ConversationPage } from '../conversation/conversation';
 })
 export class ListeConversationsPage {
     
-  conversations: Array<{id: int, target: Array<{name: string, avatar: string}>, title: string, teaser: string}>;
+  conversations: Array<{id: number, target: {name: string, avatar: string}, title: string, teaser: string}>;
 
   constructor(public navCtrl: NavController) {
   

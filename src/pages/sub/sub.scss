@@ -1,0 +1,67 @@
+page-sub {
+
+
+
+  .LoginButton {
+    width: 31%;
+  }
+
+  .WelcomeTitle {
+    color: Black;
+    font-size: 3em;
+    font-weight: bold;
+
+  }
+
+  .item {
+    background: rgba(232, 230, 230, 0px);
+    border: medium none;
+  }
+
+  #loginCardButtons {
+    position: relative;
+    padding: 40px 5px 10px 5px;
+    width:100%;
+    top: 100%;
+    margin:-380px 0 0 0;
+    text-align: center;
+  }
+
+  #loginCard {
+    position: relative;
+    background: rgba(232, 230, 230, 0.6px);
+    padding: 0px 0px 10px 0px;
+    width:100%;
+    top: 100%;
+    margin:0px 0 0 0;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  #title {
+    position: relative;
+    top: 10%;
+  }
+
+
+  #ou {
+    font-size: 125%;
+    padding: 20px 0px 0px 0px;
+    color: Black;
+    font-weight: bold;
+  }
+
+  #inscription {
+    width: 90%;
+  }
+
+
+  .View {
+    width:100%;
+    text-align: center;
+  }
+
+  .no-scroll .scroll-content{
+    overflow: hidden;
+}
+}

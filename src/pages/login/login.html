@@ -9,15 +9,28 @@
     </h1>
   </div>
 
-  <div id="buttons">
-    <p id="loginExplaination">
-      Connectez vous à votre compte Google, Facebook ou LinkedIn pour utiliser nos services
-    </p>
-    <button ion-button id="FirstLoginButton" color="danger" (click)="glogin()" round>Google+</button>
-    <button ion-button class="LoginButton" color="fbBlue" round>Facebook</button>
-    <button ion-button class="LoginButton" color="lBlue" round>LinkedIn</button>
+
+  <div id="loginCardButtons">
+    <button ion-button class="LoginButton" color="fbBlue" (click)="loginWithFacebook()" round> <ion-icon name="logo-facebook"></ion-icon> </button>
+    <button ion-button class="LoginButton"  color="danger" (click)="glogin()" round> <ion-icon name="logo-google"></ion-icon> </button>
+    <button ion-button class="LoginButton" color="lBlue" (click)="loginWithLinkedIn()" round> <ion-icon name="logo-linkedin"></ion-icon> </button>
     <!--  <button ion-button (click)="skip_login()">(skip login)</button> -->
   </div>
+  
+  <ion-card id="loginCard">
+    <ion-list>
 
+      <ion-item class="standardInscription">
+        <ion-input type="text" placeholder="Username"></ion-input>
+      </ion-item>
+
+      <ion-item class="standardInscription">
+        <ion-input type="password" placeholder="Password"></ion-input>
+      </ion-item>
+
+      <button ion-button color="orange" id="inscription" (click)="goToProfil()" round> Connexion </button>
+
+    </ion-list>
+  </ion-card>
 
 </ion-content>
