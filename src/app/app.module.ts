@@ -49,14 +49,9 @@ var config = {
     ProfilePage,
     HomePage,
     FirstPage,
-<<<<<<< HEAD
     SubPage,
     RecherchePage
 
-=======
-    SubPage
-    
->>>>>>> 97083e79996c87a1afcb3319597bd1b5a13b4158
   ],
   imports: [
     BrowserModule,
@@ -70,7 +65,7 @@ var config = {
     LoginPage,
     ListeConversationsPage,
     ConversationPage,
-    
+
     AjoutOffrePage,
     ListEmploi,
 
@@ -78,13 +73,9 @@ var config = {
     FirstPage,
     LoginPage,
     SubPage,
-<<<<<<< HEAD
     HomePage,
     RecherchePage
 
-=======
-    HomePage
->>>>>>> 97083e79996c87a1afcb3319597bd1b5a13b4158
   ],
   providers: [
     StatusBar,
