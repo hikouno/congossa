@@ -4,7 +4,7 @@ import { AlertController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { LoginPage } from '../login/login';
 import { SubPage } from '../sub/sub';
-import { RecherchePage } from '../recherche/recherche';
+
 
 /**
  * Generated class for the FirstPage page.
