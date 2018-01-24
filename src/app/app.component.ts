@@ -40,8 +40,11 @@ export class MyApp {
     });
 
     this.pages = [
-      { title: 'Login', component: LoginPage },
-      { title: 'First', component: FirstPage }
+      { title: 'Paramètres', component: FirstPage },
+      { title: 'Messages', component: FirstPage },
+      { title: 'Mes offres', component: FirstPage },
+      { title: 'Mes demandes', component: FirstPage },
+
     ];
   }
 
