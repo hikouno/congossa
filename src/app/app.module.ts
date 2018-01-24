@@ -5,14 +5,12 @@ import { LinkedIn } from '@ionic-native/linkedin';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-<<<<<<< HEAD
-import { MyApp } from './app.component';
-import { LoginPage } from '../pages/login/login';
+
 import { AjoutOffrePage } from '../pages/AjoutOffrePage/AjoutOffrePage';
 import { ListEmploi } from '../pages/ListEmploi/ListEmploi';
 
 
-=======
+
 
 // Pages
 import { MyApp } from './app.component';
@@ -21,7 +19,6 @@ import { ProfilePage } from '../pages/profile/profile';
 import { HomePage } from '../pages/home/home';
 import { FirstPage } from '../pages/first/first';
 import { SubPage } from '../pages/sub/sub';
-import { RecherchePage } from '../pages/recherche/recherche';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -34,22 +31,20 @@ var config = {
     storageBucket: "congossa-a0553.appspot.com",
     messagingSenderId: "196706457181"
   };
->>>>>>> 17a29442462834d2721061cb4066fa4bedea4a25
 
 @NgModule({
   declarations: [
     MyApp,
     LoginPage,
-<<<<<<< HEAD
+
     AjoutOffrePage,
-    ListEmploi
-=======
+    ListEmploi,
+
     ProfilePage,
     HomePage,
     FirstPage,
     SubPage,
-    RecherchePage
->>>>>>> 17a29442462834d2721061cb4066fa4bedea4a25
+
   ],
   imports: [
     BrowserModule,
@@ -61,17 +56,16 @@ var config = {
   entryComponents: [
     MyApp,
     LoginPage,
-<<<<<<< HEAD
+
     AjoutOffrePage,
-    ListEmploi
-=======
+    ListEmploi,
+
     ProfilePage,
     FirstPage,
     LoginPage,
     SubPage,
     HomePage,
-    RecherchePage
->>>>>>> 17a29442462834d2721061cb4066fa4bedea4a25
+
   ],
   providers: [
     StatusBar,

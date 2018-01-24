@@ -33,7 +33,7 @@ export class FirstPage {
   }
 
   recherche(){
-    this.navCtrl.push(RecherchePage);
+    this.navCtrl.push(SubPage);
   }
 
 
