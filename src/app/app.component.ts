@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-//import { LoginPage } from '../pages/login/login';
 import { AjoutOffrePage } from '../pages/AjoutOffrePage/AjoutOffrePage';
 import { ListEmploi } from '../pages/ListEmploi/ListEmploi';
 
@@ -16,6 +15,7 @@ import { HomePage } from '../pages/home/home';
 import { FirstPage } from '../pages/first/first';
 import { SubPage } from '../pages/sub/sub';
 import { RecherchePage } from '../pages/recherche/recherche';
+import { ParametresPage } from '../pages/parametres/parametres';
 
 @Component({
   templateUrl: 'app.html'
@@ -40,8 +40,11 @@ export class MyApp {
     });
 
     this.pages = [
-      { title: 'Login', component: LoginPage },
-      { title: 'First', component: FirstPage }
+      { title: 'Paramètres', component: FirstPage },
+      { title: 'Messages', component: FirstPage },
+      { title: 'Mes offres', component: FirstPage },
+      { title: 'Mes demandes', component: FirstPage },
+
     ];
   }
 
