@@ -5,6 +5,7 @@ import { LinkedIn } from '@ionic-native/linkedin';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { RecherchePage } from '../pages/recherche/recherche';
 
 import { AjoutOffrePage } from '../pages/AjoutOffrePage/AjoutOffrePage';
 import { ListEmploi } from '../pages/ListEmploi/ListEmploi';
@@ -44,6 +45,7 @@ var config = {
     HomePage,
     FirstPage,
     SubPage,
+    RecherchePage
 
   ],
   imports: [
@@ -65,6 +67,7 @@ var config = {
     LoginPage,
     SubPage,
     HomePage,
+    RecherchePage
 
   ],
   providers: [
