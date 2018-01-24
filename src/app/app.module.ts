@@ -6,9 +6,17 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { AjoutOffrePage } from '../pages/AjoutOffrePage/AjoutOffrePage';
+import { ListEmploi } from '../pages/ListEmploi/ListEmploi';
+
+
 // Pages
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
+
+import { ListeConversationsPage } from '../pages/listeConversations/listeConversations';
+import { ConversationPage } from '../pages/conversation/conversation';
+
 import { ProfilePage } from '../pages/profile/profile';
 import { HomePage } from '../pages/home/home';
 import { FirstPage } from '../pages/first/first';
@@ -30,10 +38,18 @@ var config = {
   declarations: [
     MyApp,
     LoginPage,
+
+    ListeConversationsPage,
+    ConversationPage,
+
+    AjoutOffrePage,
+    ListEmploi,
+
     ProfilePage,
     HomePage,
     FirstPage,
     SubPage
+    
   ],
   imports: [
     BrowserModule,
@@ -45,6 +61,12 @@ var config = {
   entryComponents: [
     MyApp,
     LoginPage,
+    ListeConversationsPage,
+    ConversationPage,
+    
+    AjoutOffrePage,
+    ListEmploi,
+
     ProfilePage,
     FirstPage,
     LoginPage,

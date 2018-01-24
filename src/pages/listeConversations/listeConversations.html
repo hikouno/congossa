@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Congossa
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    
+  <!-- Liste des conversations -->
+  <ion-list>
+    <button ion-item *ngFor="let conv of conversations" (click)="convTapped($event, conv)">
+      <ion-avatar item-start>
+        <img [src]="conv.target.avatar" />
+      </ion-avatar>
+        
+      <h2>{{conv.target.name}}</h2>
+      <h3>{{conv.title}}</h3>
+      <p>{{conv.teaser}}</p> <!-- A portion of the last exchanged message. -->
+    </button>
+  </ion-list>
+  
+</ion-content>
