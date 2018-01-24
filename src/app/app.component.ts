@@ -28,14 +28,10 @@ export class MyApp {
 
   rootPage:any = FirstPage;
 
-<<<<<<< HEAD
   pages: Array<{title: string, component: any}>;
 
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-=======
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
->>>>>>> 97083e79996c87a1afcb3319597bd1b5a13b4158
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -48,7 +44,7 @@ export class MyApp {
       { title: 'First', component: FirstPage }
     ];
   }
-  
+
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
