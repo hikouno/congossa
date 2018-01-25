@@ -1,13 +1,55 @@
 <ion-menu [content]="content">
   <ion-header>
-    
+
   </ion-header>
 
-  <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+  <ion-content style="background-color:#E8E6E6;">
+    <ion-list no-lines color="orange">
+      <button ion-button clear small icon-only style="width: 100px;height: 100px ;padding: 0px 0px 0px 0px;margin: 30px 0px 30px 34% ;">
+        <img id="image" src="https://pbs.twimg.com/profile_images/662333810185543680/0NdNCnYu_400x400.jpg" style="height: 100px;width: 100px;border-radius: 50%;padding: 0px 0px 0px 0px;margin: 0px 0px 0px 0px;">
       </button>
+      <button ion-item clear color="lightgrey" style="margin-bottom:2px">
+        <ion-icon name="list-box" color="orange" style="margin-right:20px"></ion-icon>
+        <span style="color:#FF8C00;">Mes offres de Job</span>
+      </button>
+      <button ion-item clear color="lightgrey" style="margin-bottom:2px">
+        <ion-icon name="briefcase" color="orange" style="margin-right:20px"></ion-icon>
+        <span style="color:#FF8C00;">Mes demandes de Job</span>
+      </button>
+      <button ion-item clear color="lightgrey" style="margin-bottom:30px">
+        <ion-icon name="star" color="orange" style="margin-right:20px"></ion-icon>
+        <span style="color:#FF8C00;">Sauvegardées</span>
+      </button>
+      <button ion-item clear color="lightgrey" style="margin-bottom:30px">
+        <ion-icon name="text" color="orange" style="margin-right:20px"></ion-icon>
+        <span style="color:#FF8C00;">Messagerie</span>
+      </button>
+      <button ion-item clear color="lightgrey" style="margin-bottom:2px">
+        <ion-icon name="contact" color="orange" style="margin-right:20px"></ion-icon>
+        <span style="color:#FF8C00;">Mon profil</span>
+      </button>
+      <button ion-item clear color="lightgrey" style="margin-bottom:2px">
+        <ion-icon name="settings" color="orange" style="margin-right:20px"></ion-icon>
+        <span style="color:#FF8C00;">Paramètres</span>
+      </button>
+      <button ion-item clear color="lightgrey" style="margin-bottom:30px">
+        <ion-icon name="trending-up" color="orange" style="margin-right:20px"></ion-icon>
+        <span style="color:#FF8C00;">Statistiques</span>
+      </button>
+      <button ion-item clear color="lightgrey">
+        <ion-icon name="information-circle" color="orange" style="margin-right:20px"></ion-icon>
+        <span style="color:#FF8C00;">À propos</span>
+      </button>
+
+
+
+
+      <!--> <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" style="background-color:#8f8f8f">
+
+        {{p.title}}
+
+      </button>
+      </!-->
     </ion-list>
   </ion-content>
 
