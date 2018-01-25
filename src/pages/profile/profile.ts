@@ -9,6 +9,7 @@ export class ProfilePage {
 
 	firstname: string = "Jacques"; 
 	familyname: string = "Dujardin";
+	age: string = "22";
 	email: string;
 	phone: string = "0678954512";
 	formation : string = "PSMSC Master - Performance in Software, Media and Scientific";
@@ -24,7 +25,6 @@ export class ProfilePage {
     
     //this.firstname.insertAdjacentHTML("Alexis");
   }
-  
 
 
 }
