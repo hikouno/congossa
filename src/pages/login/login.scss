@@ -20,7 +20,7 @@ page-login {
 
   #loginCardButtons {
     position: relative;
-    padding: 40px 5px 10px 5px;
+    padding: 10px 5px 10px 5px;
     width:100%;
     top: 100%;
     margin:-350px 0 0 0;
@@ -41,6 +41,7 @@ page-login {
   #title {
     position: relative;
     top: 10%;
+    text-align: center;
   }
 
 
@@ -55,11 +56,6 @@ page-login {
     width: 90%;
   }
 
-
-  .View {
-    width:100%;
-    text-align: center;
-  }
 
   .no-scroll .scroll-content{
     overflow: hidden;

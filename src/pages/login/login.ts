@@ -14,7 +14,7 @@ import firebase from 'firebase';
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  
+
   scopes: ['r_basicprofile', 'r_emailaddress', 'rw_company_admin', 'w_share'];
 
   constructor(public navCtrl: NavController,
@@ -56,10 +56,14 @@ export class LoginPage {
     this.linkedin.login(this.scopes, true)
       .then(() => console.log('Logged in!'))
       .catch(e => console.log('Error logging in', e));
-}
+  }
 
-goToProfil() {
-	this.navCtrl.push(ProfilePage);
-}
+  goToProfil() {
+  	this.navCtrl.push(ProfilePage);
+  }
+
+  previous() {
+    this.navCtrl.pop();
+  }
 
 }

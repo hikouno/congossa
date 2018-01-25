@@ -72,4 +72,8 @@ goToProfil() {
 	this.navCtrl.push(ProfilePage);
 }
 
+previous() {
+  this.navCtrl.pop();
+}
+
 }
