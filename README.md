@@ -1,5 +1,9 @@
 # congossa
 
+Lien vers le serveur congossa :
+-------------------------------------
+https://github.com/hikouno/congossa-server
+
 Liste des pages ionic à développer :
 -------------------------------------
 

@@ -12,6 +12,7 @@ export class ConversationPage {
   messages: Array<{sentByUser: boolean, text: string, time: string}>;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    
     this.conv_info = navParams.get('conv_info');
     this.messages = [];
     
