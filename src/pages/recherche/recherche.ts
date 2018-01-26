@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ProfilePage } from '../profile/profile';
+import { ListeConversationsPage } from '../listeConversations/listeConversations';
 
 /**
  * Generated class for the RecherchePage page.
@@ -19,6 +21,14 @@ export class RecherchePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecherchePage');
+  }
+
+  openProfilPage(){
+    this.navCtrl.setRoot(ProfilePage);
+  }
+
+  openMessagesPage(){
+    this.navCtrl.setRoot(ListeConversationsPage);
   }
 
 }
