@@ -12,6 +12,8 @@ import { MesOffresPage } from '../pages/mes-offres/mes-offres';
 import { SauvegardePage } from '../pages/sauvegarde/sauvegarde';
 import { StatistiquesPage } from '../pages/statistiques/statistiques';
 import { AboutPage } from '../pages/about/about';
+import { ChercheJobPage } from '../pages/cherche-job/cherche-job';
+import { ProposeJobPage } from '../pages/propose-job/propose-job';
 
 import { AjoutOffrePage } from '../pages/AjoutOffrePage/AjoutOffrePage';
 import { ListEmploi } from '../pages/ListEmploi/ListEmploi';
@@ -33,6 +35,7 @@ import { HttpModule } from '@angular/http';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { ResultatRecherchePage } from "../pages/resultat-recherche/resultat-recherche";
 
 var config = {
     apiKey: "AIzaSyDP3fwr3INchk7uHfW9B8_Em3ow0J3WuMo",
@@ -65,7 +68,10 @@ var config = {
     MesOffresPage,
     SauvegardePage,
     StatistiquesPage,
-    AboutPage
+    AboutPage,
+    ChercheJobPage,
+    ProposeJobPage,
+    ResultatRecherchePage
 
   ],
   imports: [
@@ -97,7 +103,10 @@ var config = {
     MesOffresPage,
     SauvegardePage,
     StatistiquesPage,
-    AboutPage
+    AboutPage,
+    ChercheJobPage,
+    ProposeJobPage,
+    ResultatRecherchePage
 
   ],
   providers: [

@@ -9,6 +9,7 @@ import { RecherchePage } from '../recherche/recherche';
 import { ParametresPage } from '../parametres/parametres';
 import { AjoutOffrePage } from '../AjoutOffrePage/AjoutOffrePage';
 
+import { ResultatRecherchePage } from "../resultat-recherche/resultat-recherche";
 
 
 /**
@@ -44,12 +45,16 @@ export class FirstPage {
   messagerie(){
     this.navCtrl.push(ListeConversationsPage);
   }
-  
+
   parametres(){
     this.navCtrl.push(ParametresPage);
   }
   ajoutoffre(){
     this.navCtrl.push(AjoutOffrePage);
+  }
+
+  resultRecherche(){
+    this.navCtrl.push(ResultatRecherchePage);
   }
 
 
