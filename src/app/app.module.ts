@@ -29,6 +29,8 @@ import { HomePage } from '../pages/home/home';
 import { FirstPage } from '../pages/first/first';
 import { SubPage } from '../pages/sub/sub';
 
+import { HttpModule } from '@angular/http';
+
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
@@ -68,6 +70,7 @@ var config = {
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule
