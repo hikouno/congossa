@@ -12,6 +12,8 @@ import { MesOffresPage } from '../pages/mes-offres/mes-offres';
 import { SauvegardePage } from '../pages/sauvegarde/sauvegarde';
 import { StatistiquesPage } from '../pages/statistiques/statistiques';
 import { AboutPage } from '../pages/about/about';
+import { ChercheJobPage } from '../pages/cherche-job/cherche-job';
+import { ProposeJobPage } from '../pages/propose-job/propose-job';
 
 import { AjoutOffrePage } from '../pages/AjoutOffrePage/AjoutOffrePage';
 import { ListEmploi } from '../pages/ListEmploi/ListEmploi';
@@ -65,7 +67,9 @@ var config = {
     MesOffresPage,
     SauvegardePage,
     StatistiquesPage,
-    AboutPage
+    AboutPage,
+    ChercheJobPage,
+    ProposeJobPage
 
   ],
   imports: [
@@ -97,7 +101,9 @@ var config = {
     MesOffresPage,
     SauvegardePage,
     StatistiquesPage,
-    AboutPage
+    AboutPage,
+    ChercheJobPage,
+    ProposeJobPage
 
   ],
   providers: [
