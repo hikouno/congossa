@@ -7,6 +7,8 @@ import { SubPage } from '../sub/sub';
 import { ListeConversationsPage } from '../listeConversations/listeConversations';
 import { RecherchePage } from '../recherche/recherche';
 import { ParametresPage } from '../parametres/parametres';
+import { AjoutOffrePage } from '../AjoutOffrePage/AjoutOffrePage';
+
 
 
 /**
@@ -45,6 +47,9 @@ export class FirstPage {
   
   parametres(){
     this.navCtrl.push(ParametresPage);
+  }
+  ajoutoffre(){
+    this.navCtrl.push(AjoutOffrePage);
   }
 
 

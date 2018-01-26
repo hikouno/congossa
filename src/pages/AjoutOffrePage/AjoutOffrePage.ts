@@ -6,11 +6,31 @@ import {ListEmploi} from '../ListEmploi/ListEmploi'
   templateUrl: 'AjoutOffrePage.html'
 })
 export class AjoutOffrePage {
+  emploiPropose:String;
+  typeContrat:String;
+  myDateDeDebut:Date;
+  myDateDeFin:Date;
+  localisation:String;
+  description:String;
+
+  
 
   constructor(public navCtrl: NavController,
-              public navParams: NavParams){    
+    public navParams: NavParams) {
+  }
+   myCallbackFunction = (_params) => {
+     return new Promise((resolve, reject) => {
+             resolve();
+             this.emploiPropose=_params;
+             console.error(this.emploiPropose)
+         });
   }
  openPageEmploi(){
-  this.navCtrl.push(ListEmploi, {delegate: this});
+   this.navCtrl.push(ListEmploi, {
+     callback: this.myCallbackFunction
+  });
+  }
+proposer(){
+         console.error(this.emploiPropose)
   }
 }
