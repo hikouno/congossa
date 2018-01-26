@@ -7,6 +7,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { RecherchePage } from '../pages/recherche/recherche';
 import { ParametresPage } from '../pages/parametres/parametres';
+import { MesDemandesPage } from '../pages/mes-demandes/mes-demandes';
+import { MesOffresPage } from '../pages/mes-offres/mes-offres';
+import { SauvegardePage } from '../pages/sauvegarde/sauvegarde';
+import { StatistiquesPage } from '../pages/statistiques/statistiques';
+import { AboutPage } from '../pages/about/about';
 
 import { AjoutOffrePage } from '../pages/AjoutOffrePage/AjoutOffrePage';
 import { ListEmploi } from '../pages/ListEmploi/ListEmploi';
@@ -46,14 +51,19 @@ var config = {
 
     AjoutOffrePage,
     ListEmploi,
-    
+
     ParametresPage,
 
     ProfilePage,
     HomePage,
     FirstPage,
     SubPage,
-    RecherchePage
+    RecherchePage,
+    MesDemandesPage,
+    MesOffresPage,
+    SauvegardePage,
+    StatistiquesPage,
+    AboutPage
 
   ],
   imports: [
@@ -71,7 +81,7 @@ var config = {
 
     AjoutOffrePage,
     ListEmploi,
-    
+
     ParametresPage,
 
     ProfilePage,
@@ -79,7 +89,12 @@ var config = {
     LoginPage,
     SubPage,
     HomePage,
-    RecherchePage
+    RecherchePage,
+    MesDemandesPage,
+    MesOffresPage,
+    SauvegardePage,
+    StatistiquesPage,
+    AboutPage
 
   ],
   providers: [

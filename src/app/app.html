@@ -8,35 +8,35 @@
       <button ion-button clear small icon-only style="width: 100px;height: 100px ;padding: 0px 0px 0px 0px;margin: 30px 0px 30px 34% ;">
         <img id="image" src="https://pbs.twimg.com/profile_images/662333810185543680/0NdNCnYu_400x400.jpg" style="height: 100px;width: 100px;border-radius: 50%;padding: 0px 0px 0px 0px;margin: 0px 0px 0px 0px;">
       </button>
-      <button ion-item clear color="lightgrey" style="margin-bottom:2px">
+      <button ion-item menuClose clear color="lightgrey" style="margin-bottom:2px" (click)="openPage('mes-offres')">
         <ion-icon name="list-box" color="orange" style="margin-right:20px"></ion-icon>
         <span style="color:#FF8C00;">Mes offres de Job</span>
       </button>
-      <button ion-item clear color="lightgrey" style="margin-bottom:2px">
+      <button ion-item menuClose clear color="lightgrey" style="margin-bottom:2px" (click)="openPage('mes-demandes')">
         <ion-icon name="briefcase" color="orange" style="margin-right:20px"></ion-icon>
         <span style="color:#FF8C00;">Mes demandes de Job</span>
       </button>
-      <button ion-item clear color="lightgrey" style="margin-bottom:30px">
+      <button ion-item menuClose clear color="lightgrey" style="margin-bottom:30px" (click)="openPage('sauvegarde')">
         <ion-icon name="star" color="orange" style="margin-right:20px"></ion-icon>
         <span style="color:#FF8C00;">Sauvegardées</span>
       </button>
-      <button ion-item clear color="lightgrey" style="margin-bottom:30px">
+      <button ion-item menuClose clear color="lightgrey" style="margin-bottom:30px" (click)="openPage('messagerie')">
         <ion-icon name="text" color="orange" style="margin-right:20px"></ion-icon>
         <span style="color:#FF8C00;">Messagerie</span>
       </button>
-      <button ion-item clear color="lightgrey" style="margin-bottom:2px">
+      <button ion-item menuClose clear color="lightgrey" style="margin-bottom:2px" (click)="openPage('profil')">
         <ion-icon name="contact" color="orange" style="margin-right:20px"></ion-icon>
         <span style="color:#FF8C00;">Mon profil</span>
       </button>
-      <button ion-item clear color="lightgrey" style="margin-bottom:2px">
+      <button ion-item menuClose clear color="lightgrey" style="margin-bottom:2px" (click)="openPage('parametres')">
         <ion-icon name="settings" color="orange" style="margin-right:20px"></ion-icon>
         <span style="color:#FF8C00;">Paramètres</span>
       </button>
-      <button ion-item clear color="lightgrey" style="margin-bottom:30px">
+      <button ion-item menuClose clear color="lightgrey" style="margin-bottom:30px" (click)="openPage('statistiques')">
         <ion-icon name="trending-up" color="orange" style="margin-right:20px"></ion-icon>
         <span style="color:#FF8C00;">Statistiques</span>
       </button>
-      <button ion-item clear color="lightgrey">
+      <button ion-item menuClose clear color="lightgrey" (click)="openPage('about')">
         <ion-icon name="information-circle" color="orange" style="margin-right:20px"></ion-icon>
         <span style="color:#FF8C00;">À propos</span>
       </button>
