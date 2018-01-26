@@ -1,6 +1,7 @@
 page-recherche {
 
-  #avatarImage{
+  #avatar{
+    background-color: rgb(210, 120, 60);
   }
 
   #item{
@@ -11,5 +12,57 @@ page-recherche {
     margin-right: 10px;
   }
 
+  #image{
+    height: 27px;
+    width: 27px;
+    border-radius: 50%;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+  }
+
+  #boutonImg{
+    width: 30px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 10px 0px 0px;
+  }
+
+  #first-main-image{
+    filter: blur(0px);
+    height: 100%;
+    width: 100%;
+  }
+
+  #first-main-button{
+    height: 47%;
+    width: 100%;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+  }
+
+  #second-main-button{
+    height: 47%;
+    width: 100%;
+    padding: 0px 0px 0px 0px;
+    margin: 15px 0px 0px 0px;
+  }
+
+  .image-card{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    position: relative;
+    text-align: center;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
 
 }

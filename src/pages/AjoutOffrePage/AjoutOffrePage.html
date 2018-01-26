@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar color="orange">
     <ion-title>
       Congossa
     </ion-title>
@@ -9,9 +9,9 @@
 <ion-content padding class="View">
 	<ion-list>
 		<ion-item>
-	   			<button ion-button (click)="openPageEmploi()">Emploi propose</button>
+	  		<ion-label>{{(!emploiPropose) ? 'Emploi' : emploiPropose}}</ion-label>
 	  	</ion-item>
-		
+	
 	    <ion-item>
 	  		<ion-label>Type de contrat</ion-label>
 	  			<ion-select [(ngModel)]="typeContrat">
@@ -33,14 +33,18 @@
 		
 		<ion-item>
     		<ion-label fixed>Localisation</ion-label>
-    		<ion-input type="text" ></ion-input>
+    		<ion-input type="text" [(ngModel)]="localisation"></ion-input>
   		</ion-item>
   		
   		<ion-item>
     		<ion-label fixed>Description</ion-label>
-    		<ion-input class="item-text-wrap" type="text" ></ion-input>
+    	</ion-item>
+  		<ion-item>
+    		<ion-textarea [(ngModel)]="description"></ion-textarea>
   		</ion-item>
-  		
+  		<ion-item>
+	   			<button ion-button full color="orange" (click)="proposer()">Proposer</button>
+	  	</ion-item>
 	</ion-list>
 </ion-content>
 

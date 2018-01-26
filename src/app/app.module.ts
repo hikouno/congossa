@@ -7,6 +7,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { RecherchePage } from '../pages/recherche/recherche';
 import { ParametresPage } from '../pages/parametres/parametres';
+import { MesDemandesPage } from '../pages/mes-demandes/mes-demandes';
+import { MesOffresPage } from '../pages/mes-offres/mes-offres';
+import { SauvegardePage } from '../pages/sauvegarde/sauvegarde';
+import { StatistiquesPage } from '../pages/statistiques/statistiques';
+import { AboutPage } from '../pages/about/about';
+import { ChercheJobPage } from '../pages/cherche-job/cherche-job';
+import { ProposeJobPage } from '../pages/propose-job/propose-job';
 
 import { AjoutOffrePage } from '../pages/AjoutOffrePage/AjoutOffrePage';
 import { ListEmploi } from '../pages/ListEmploi/ListEmploi';
@@ -25,8 +32,11 @@ import { HomePage } from '../pages/home/home';
 import { FirstPage } from '../pages/first/first';
 import { SubPage } from '../pages/sub/sub';
 
+import { HttpModule } from '@angular/http';
+
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { ResultatRecherchePage } from "../pages/resultat-recherche/resultat-recherche";
 
 var config = {
     apiKey: "AIzaSyDP3fwr3INchk7uHfW9B8_Em3ow0J3WuMo",
@@ -47,18 +57,27 @@ var config = {
 
     AjoutOffrePage,
     ListEmploi,
-    
+
     ParametresPage,
     EditProfilePage,
     ProfilePage,
     HomePage,
     FirstPage,
     SubPage,
-    RecherchePage
+    RecherchePage,
+    MesDemandesPage,
+    MesOffresPage,
+    SauvegardePage,
+    StatistiquesPage,
+    AboutPage,
+    ChercheJobPage,
+    ProposeJobPage,
+    ResultatRecherchePage
 
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule
@@ -72,7 +91,7 @@ var config = {
 
     AjoutOffrePage,
     ListEmploi,
-    
+
     ParametresPage,
     EditProfilePage,
     ProfilePage,
@@ -80,7 +99,15 @@ var config = {
     LoginPage,
     SubPage,
     HomePage,
-    RecherchePage
+    RecherchePage,
+    MesDemandesPage,
+    MesOffresPage,
+    SauvegardePage,
+    StatistiquesPage,
+    AboutPage,
+    ChercheJobPage,
+    ProposeJobPage,
+    ResultatRecherchePage
 
   ],
   providers: [

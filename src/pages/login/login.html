@@ -3,6 +3,11 @@
 </ion-header>
 
 <ion-content padding class="View">
+
+  <button id="boutonRetour" ion-button color="orange" (click)="previous()" clear icon-only>
+    <ion-icon name="arrow-back" color="orange"></ion-icon>
+  </button>
+
   <div id="title">
     <h1 class="WelcomeTitle">
     Bienvenue dans Congossa
@@ -16,7 +21,7 @@
     <button ion-button class="LoginButton" color="lBlue" (click)="loginWithLinkedIn()" round> <ion-icon name="logo-linkedin"></ion-icon> </button>
     <!--  <button ion-button (click)="skip_login()">(skip login)</button> -->
   </div>
-  
+
   <ion-card id="loginCard">
     <ion-list>
 
