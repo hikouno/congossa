@@ -31,6 +31,5 @@ export class AjoutOffrePage {
   });
   }
 proposer(){
-         console.error(this.emploiPropose)
   }
 }
