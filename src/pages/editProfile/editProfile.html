@@ -1,13 +1,11 @@
 
 
+
 <ion-header>
-	<ion-navbar >
-		<ion-title>Profile</ion-title>
-		<ion-buttons end>
-			<button ion-button icon-only (click)="goToEditProfile()">
-				Edit
-			</button>
-		</ion-buttons>
+	<ion-navbar>
+		<ion-title>
+			Profile
+		</ion-title>
 	</ion-navbar>
 </ion-header>
 
@@ -16,23 +14,24 @@
 	<p padding> (* Here will be a presentation card of the profil.*) </p>
 	
 		  <ion-item>
-			<ion-label class="profile-label">{{firstname}}</ion-label>
+			<ion-input type="text" [(ngModel)]="firstname"></ion-input>
 		  </ion-item>
 
 		  <ion-item>
-			<ion-label class="profile-label">{{familyname}}</ion-label>
+			<ion-input type="text" [(ngModel)]="familyname"></ion-input>
 		  </ion-item>
 		  
 		  <ion-item>
-			  <ion-label class="profile-label">{{age}}</ion-label>
+			  <ion-input item-start id="input1" type="text" [(ngModel)]="age"></ion-input>
+			  <ion-label item-content id="label2">ans</ion-label>
 		  </ion-item>
 		  
 		  <ion-item>
-			<ion-label class="profile-label">{{email}}</ion-label>
+			<ion-input type="email" placeholder="email" [(ngModel)]="email"></ion-input>
 		  </ion-item>
 		  
 		  <ion-item>
-			<ion-label class="profile-label">{{phone}}</ion-label>
+			<ion-input type="tel" placeholder="téléphone" [(ngModel)]="phone"></ion-input>
 		  </ion-item>
 		  
 		  <ion-card >
@@ -40,7 +39,7 @@
 					Formation
 				</ion-card-header>
 				<ion-card-content >
-					<ion-label class="profile-label">{{formation}}</ion-label>
+					<ion-textarea [(ngModel)]="formation"></ion-textarea>
 				</ion-card-content>
 			</ion-card>
 			
@@ -49,7 +48,7 @@
 					Compétences
 				</ion-card-header>
 				<ion-card-content >
-					<ion-label class="profile-label">{{skills}}</ion-label>
+					<ion-textarea [(ngModel)]="skills"></ion-textarea>
 				</ion-card-content>
 			</ion-card>
 			
@@ -58,7 +57,7 @@
 					Description
 				</ion-card-header>
 				<ion-card-content >
-					<ion-label class="profile-label">{{description}}</ion-label>
+					<ion-textarea [(ngModel)]="description"></ion-textarea>
 				</ion-card-content>
 			</ion-card>
 			
