@@ -7,9 +7,12 @@ import { SubPage } from '../sub/sub';
 import { ListeConversationsPage } from '../listeConversations/listeConversations';
 import { RecherchePage } from '../recherche/recherche';
 import { ParametresPage } from '../parametres/parametres';
+<<<<<<< HEAD
 import { AjoutOffrePage } from '../AjoutOffrePage/AjoutOffrePage';
 
+=======
 import { ResultatRecherchePage } from "../resultat-recherche/resultat-recherche";
+>>>>>>> 7d422c4baba2751ff668cbccc1a1fdd3268b4fac
 
 
 /**

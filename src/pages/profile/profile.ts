@@ -1,30 +1,64 @@
 import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
 
+//pages
+import { EditProfilePage } from '../editProfile/editProfile';
+
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html'
 })
 export class ProfilePage {
-
-	firstname: string = "Jacques"; 
-	familyname: string = "Dujardin";
-	age: string = "22";
+	
+	// online mode enable or not
+	onlineMode: boolean;
+	
+	firstname: string; 
+	familyname: string;
+	age: string;
 	email: string;
-	phone: string = "0678954512";
-	formation : string = "PSMSC Master - Performance in Software, Media and Scientific";
-	skills : string = "Organisé, Cultivé, Interessant, Handsome"
-	description : string = "Looking for an internship in computer science. Quanta autem vis amicitiae sit, ex hoc intellegi \
-	maxime potest, quod ex infinita societate generis humani, quam conciliavit ipsa natura, ita contracta res est et adducta \
-	in angustum ut omnis caritas aut inter duos aut inter paucos iungeretur.";
+	phone: string;
+	formation : string;
+	skills : string;
+	description : string;
+	
 	
   constructor(public navCtrl: NavController) {
-    //this.firstname = navParams.get("firstname");
-    //document.getElementById("firstname");
-    //this.username.value = this.firstname;
-    
-    //this.firstname.insertAdjacentHTML("Alexis");
+	  this.loadData();
+	  console.log("constructor test");
   }
+  
+// Load the data and display them in the view
+// Loading from local or from remote depending
+// if online mode is enable or not.
+loadData() {
+	// Local mode
+	if (!this.onlineMode) {
+		this.firstname = "Jacques"; 
+		this.familyname = "Dujardin";
+		this.age = "22";
+		this.email = "eLiTeZnipErDu31@msn.fr";
+		this.phone = "0678954512";
+		this.formation = "PSMSC Master - Performance in Software, Media and Scientific";
+		this.skills = "Organisé, Cultivé, Interessant, Handsome";
+		this.description = "Looking for an internship in computer science.";
+	} else {
+		// Remote mode
+	}
+}
 
+goToEditProfile() {
+	var profileObject = {
+		firstname: this.firstname,
+		familyname: this.familyname,
+		age: this.age,
+		email: this.email,
+		phone: this.phone,
+		formation: this.formation,
+		skills: this.skills,
+		description: this.description}
+		
+	this.navCtrl.push(EditProfilePage, profileObject);
+}
 
 }
