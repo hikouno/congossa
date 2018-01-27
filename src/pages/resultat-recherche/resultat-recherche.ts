@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ProfilePage } from "../profile/profile";
 
 /**
  * Generated class for the ResultatRecherchePage page.
@@ -15,6 +16,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class ResultatRecherchePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  displayProfil() {
+    this.navCtrl.push(ProfilePage);
+  }
+
+  openProfilPage() {
+    this.navCtrl.push(ProfilePage);
   }
 
   ionViewDidLoad() {
