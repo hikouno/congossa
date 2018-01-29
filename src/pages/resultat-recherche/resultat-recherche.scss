@@ -12,4 +12,56 @@ page-resultat-recherche {
     padding: 0px 0px 0px 0px;
     margin: 0px 10px 0px 0px;
   }
+
+  .cards{
+    background: #F2F0F0;
+    text-align: center;
+    border-radius: 10px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    width: 100%;
+  }
+
+  .items-header-cards{
+    background: #F2F0F0;
+  }
+
+  .under-cards-buttons-left{
+    background: #F2F0F0;
+    text-align: center;
+    margin: 3px 0px 25px 0px;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .under-cards-buttons-right{
+    background: #F2F0F0;
+    text-align: center;
+    margin: 3px 0px 25px 0px;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .titres{
+    text-align: left;
+    color: #696969;
+  }
+
+  .buttons{
+    width: 100%;
+  }
+
+  .text-col-left{
+    padding: 10px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+  }
+
+  .text-col-right{
+    padding: 10px 8px 0px 0px;
+    margin: 0px -20px 0px 10px;
+  }
+
+  .description{
+    font-size: 11px;
+  }
 }
