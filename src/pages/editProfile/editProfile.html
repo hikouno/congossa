@@ -3,9 +3,12 @@
 
 <ion-header>
 	<ion-navbar>
-		<ion-title>
-			Profile
-		</ion-title>
+		<ion-title>Profile</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="saveProfile()">
+				Sauvegarder
+			</button>
+		</ion-buttons>
 	</ion-navbar>
 </ion-header>
 
@@ -61,6 +64,7 @@
 				</ion-card-content>
 			</ion-card>
 			
+			<button ion-button class="bouttons" color="orange" (click)="displayCard()" round> Visualiser la carte </button>
 	
 
 </ion-content>

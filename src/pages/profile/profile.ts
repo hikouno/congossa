@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController} from 'ionic-angular';
+import { NavController, NavParams} from 'ionic-angular';
 
 //pages
 import { EditProfilePage } from '../editProfile/editProfile';
@@ -11,7 +11,7 @@ import { EditProfilePage } from '../editProfile/editProfile';
 export class ProfilePage {
 	
 	// online mode enable or not
-	onlineMode: boolean;
+	onlineMode: boolean = false;
 	
 	firstname: string; 
 	familyname: string;
@@ -23,42 +23,51 @@ export class ProfilePage {
 	description : string;
 	
 	
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private navParams: NavParams) {
 	  this.loadData();
-	  console.log("constructor test");
   }
   
-// Load the data and display them in the view
-// Loading from local or from remote depending
-// if online mode is enable or not.
-loadData() {
-	// Local mode
-	if (!this.onlineMode) {
-		this.firstname = "Jacques"; 
-		this.familyname = "Dujardin";
-		this.age = "22";
-		this.email = "eLiTeZnipErDu31@msn.fr";
-		this.phone = "0678954512";
-		this.formation = "PSMSC Master - Performance in Software, Media and Scientific";
-		this.skills = "Organisé, Cultivé, Interessant, Handsome";
-		this.description = "Looking for an internship in computer science.";
-	} else {
-		// Remote mode
+	// Load the data and display them in the view
+	// Loading from local or from remote depending
+	// if online mode is enable or not.
+	loadData() {
+		// Local mode
+		if (!this.onlineMode) {
+			this.firstname = this.navParams.get('firstname'); 
+			this.familyname = this.navParams.get('familyname');
+			this.age = this.navParams.get('age');
+			this.email = this.navParams.get('email');
+			this.phone = this.navParams.get('phone');
+			this.formation = this.navParams.get('formation');
+			this.skills = this.navParams.get('skills');
+			this.description = this.navParams.get('description');
+		} else {
+			// Remote mode
+			// http request
+		}
 	}
-}
 
-goToEditProfile() {
-	var profileObject = {
-		firstname: this.firstname,
-		familyname: this.familyname,
-		age: this.age,
-		email: this.email,
-		phone: this.phone,
-		formation: this.formation,
-		skills: this.skills,
-		description: this.description}
+	goToEditProfile() {
+		if (!this.onlineMode) {
+			var profileObject = {
+				firstname: this.firstname,
+				familyname: this.familyname,
+				age: this.age,
+				email: this.email,
+				phone: this.phone,
+				formation: this.formation,
+				skills: this.skills,
+				description: this.description}
+				
+			this.navCtrl.push(EditProfilePage, profileObject);
+		} else {
+			// http request
+		}
+	}
+	
+	//Let the user see his card from his profile
+	displayCard() {
 		
-	this.navCtrl.push(EditProfilePage, profileObject);
-}
+	}
 
 }

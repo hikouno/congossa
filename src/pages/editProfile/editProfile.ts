@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams} from 'ionic-angular';
 
+//pages
+import { ProfilePage } from '../profile/profile';
+
 @Component({
   selector: 'page-editProfile',
   templateUrl: 'editProfile.html'
@@ -25,6 +28,25 @@ export class EditProfilePage {
 		this.formation = navParams.get('formation');
 		this.skills = navParams.get('skills');
 		this.description = navParams.get('description');
+	}
+	
+	// Save button Action
+	saveProfile() {
+		var profileObject = {
+		firstname: this.firstname,
+		familyname: this.familyname,
+		age: this.age,
+		email: this.email,
+		phone: this.phone,
+		formation: this.formation,
+		skills: this.skills,
+		description: this.description}
+		
+	this.navCtrl.setRoot(ProfilePage, profileObject);
+	}
+	
+	//Let the user see his card from his profile
+	displayCard() {
 	}
 	
 	
