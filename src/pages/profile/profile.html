@@ -72,30 +72,59 @@
 		<span class="text-title"> Formation et Diplômes</span>
 	</div>
 
-	<button ion-button clear color="primary" block>
-		<span style="color:#488aff;"> Ajouter une formation</span>
+	<button ion-button clear color="primary" block (click)="addDiplome()">
+		<span style="color:#488aff;" > Ajouter une formation</span>
 	</button>
 
-			<ion-card >
-				<ion-card-header>
-					Compétences
-				</ion-card-header>
-				<ion-card-content >
-					<ion-label class="profile-label">{{skills}}</ion-label>
-				</ion-card-content>
-			</ion-card>
+	<ion-list *ngFor="let d of diplomes; let i = index" no-lines>
 
-			<ion-card >
-				<ion-card-header>
-					Description
-				</ion-card-header>
-				<ion-card-content >
-					<ion-label class="profile-label">{{description}}</ion-label>
-				</ion-card-content>
-			</ion-card>
+		<ion-item>
+			<ion-input type="text" placeholder="Diplôme/Formation" [(ngModel)]="diplomes[i].diplome"></ion-input>
+		</ion-item>
 
-			<button ion-button class="bouttons" color="orange" (click)="displayCard()" round> Visualiser la carte </button>
+		<ion-item>
+			<ion-label>Date d'obtention</ion-label>
+			<ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
+		</ion-item>
 
+		<ion-buttons end>
+			<button ion-button color="danger" round small (click)=removeDiplome(i)>
+				Effacer
+			</button>
+		</ion-buttons>
+
+	</ion-list>
+
+	<div class="text-description">
+		<span class="text-title"> Compétences et motivations</span>
+	</div>
+
+	<ion-list class="listes" no-lines>
+
+		<ion-item>
+			<ion-label stacked color="grey" style="text-weight:bold;">Vos compétences (espacées par une virgule)</ion-label>
+			<ion-textarea></ion-textarea>
+		</ion-item>
+
+	</ion-list>
+
+	<ion-list class="listes" no-lines>
+
+		<ion-item>
+			<ion-label stacked color="grey" style="text-weight:bold;">Description plus détaillée de vous et vos motivations</ion-label>
+			<ion-textarea></ion-textarea>
+		</ion-item>
+
+	</ion-list>
+
+<ion-row>
+	<ion-col>
+		<button ion-button class="bouttons" color="orange" (click)="displayCard()" round> Visualiser la carte </button>
+	</ion-col>
+	<ion-col>
+		<button ion-button class="bouttons" color="orange" (click)="displayCard()" round> Enregistrer </button>
+	</ion-col>
+</ion-row>
 
 
 
