@@ -1,11 +1,44 @@
 page-profile {
 
-}
+  #View{
+    background-color: #F2F0F0;
+  }
 
-.profile-label {
+  .profile-label {
     white-space: normal;
-}
+  }
 
-.title {
-	align: center;
+  .text{
+    font-weight: bold;
+    font-size: 10px;
+    color: #696969;
+    padding-bottom: 4px;
+  }
+
+  .text-title{
+    font-size: 18px;
+    font-weight: bold;
+    color: #696969;
+    padding-bottom: 4px;
+
+  }
+
+  .bouttons{
+    width:100%;
+  }
+
+  .text-description{
+    padding-left: 10px;
+    padding-bottom: 4px;
+  }
+
+  .title {
+  	align: center;
+  }
+
+  .inputs{
+  }
+
+  .listes{
+  }
 }
