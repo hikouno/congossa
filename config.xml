@@ -96,4 +96,5 @@
         <variable name="APP_ID" value="86mmdpncnowi32" />
     </plugin>
     <engine name="android" spec="~7.0.0" />
+    <plugin name="cordova-plugin-browsertab" spec="~0.2.0" />
 </widget>

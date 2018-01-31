@@ -22,10 +22,18 @@ import { SauvegardePage } from "../pages/sauvegarde/sauvegarde";
 import { ProfilePage } from "../pages/profile/profile";
 import { StatistiquesPage } from "../pages/statistiques/statistiques";
 import { AboutPage } from "../pages/about/about";
-
+// Adresse du serveur
+export const serveurAdress = 'http://localhost/congossa-server/' //A changer apres c est juste pour que je puisse tester
+// definition de toutes les fonctions
+export const addProfile = 'addProfile';
+export const getProfile = 'getProfile';
+export const sendProfile = 'sendProfile';
+export const test = 'hello.php'
 @Component({
   templateUrl: 'app.html'
 })
+
+
 export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
