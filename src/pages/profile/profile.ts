@@ -18,17 +18,16 @@ export class ProfilePage {
 	age: string;
 	email: string;
 	phone: string;
-	formation : string;
 	skills : string;
 	description : string;
-  tmpDiplome : string;
 
   diplomes: Array<{title:string, diplome:string}>;
-
+  formations: Array<{title:string, formation:string}>;
 
   constructor(public navCtrl: NavController, private navParams: NavParams) {
 	  this.loadData();
     this.diplomes= [];
+    this.formations= [];
   }
 
 
@@ -48,9 +47,28 @@ export class ProfilePage {
     console.log(this.diplomes);
   }
 
+  addFormation(){
+    if (this.formations.length == 0){
+      this.formations.push({title: "newFormation", formation: ""});
+      console.log(this.formations);
+      console.log(this.formations.length);
+    }
+
+    if (this.formations[this.formations.length - 1].formation != ""){
+      this.formations.push({title: "newFormation1", formation:""});
+      console.log(this.formations);
+    }
+
+    console.log(this.formations);
+  }
+
 
   removeDiplome(i){
     this.diplomes.splice(i, 1);
+  }
+
+  removeFormation(i){
+    this.formations.splice(i, 1);
   }
 
 
@@ -65,7 +83,8 @@ export class ProfilePage {
 			this.age = this.navParams.get('age');
 			this.email = this.navParams.get('email');
 			this.phone = this.navParams.get('phone');
-			this.formation = this.navParams.get('formation');
+			this.formations = this.navParams.get('formations');
+      this.diplomes = this.navParams.get('diplomes');
 			this.skills = this.navParams.get('skills');
 			this.description = this.navParams.get('description');
 		} else {
@@ -82,7 +101,7 @@ export class ProfilePage {
 				age: this.age,
 				email: this.email,
 				phone: this.phone,
-				formation: this.formation,
+				formations: this.formations,
 				skills: this.skills,
 				description: this.description}
 

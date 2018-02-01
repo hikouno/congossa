@@ -3,11 +3,6 @@
 <ion-header>
 	<ion-navbar color="orange">
 		<ion-title>Profile</ion-title>
-		<ion-buttons end>
-			<button ion-button icon-only (click)="goToEditProfile()">
-				Modifier
-			</button>
-		</ion-buttons>
 	</ion-navbar>
 </ion-header>
 
@@ -69,17 +64,20 @@
 	</ion-list>
 
 	<div class="text-description">
-		<span class="text-title"> Formation et Diplômes</span>
+		<span class="text-title">Diplômes</span>
 	</div>
 
-	<button ion-button clear color="primary" block (click)="addDiplome()">
-		<span style="color:#488aff;" > Ajouter une formation</span>
-	</button>
+	<div style="text-align:center;">
+		<button ion-button  class="addButton" clear color="primary" (click)="addDiplome()">
+			<span style="color:#488aff;" > <ion-icon name="add"></ion-icon> Ajouter un Diplôme</span>
+		</button>
+	</div>
+
 
 	<ion-list *ngFor="let d of diplomes; let i = index" no-lines>
 
 		<ion-item>
-			<ion-input type="text" placeholder="Diplôme/Formation" [(ngModel)]="diplomes[i].diplome"></ion-input>
+			<ion-input type="text" placeholder="Nom du Diplôme" [(ngModel)]="diplomes[i].diplome"></ion-input>
 		</ion-item>
 
 		<ion-item>
@@ -95,8 +93,48 @@
 
 	</ion-list>
 
+
+
+
 	<div class="text-description">
-		<span class="text-title"> Compétences et motivations</span>
+		<span class="text-title">Formation</span>
+	</div>
+
+	<div style="text-align:center;">
+		<button ion-button class="addButton" clear color="primary" block (click)="addFormation()">
+			<span style="color:#488aff;"><ion-icon name="add"></ion-icon> Ajouter une Formation</span>
+		</button>
+	</div>
+
+	<ion-list *ngFor="let f of formations; let i = index" no-lines>
+
+		<ion-item>
+			<ion-input type="text" placeholder="Nom de la formation" [(ngModel)]="formations[i].formation"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>Date de début</ion-label>
+			<ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>Date de fin</ion-label>
+			<ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
+		</ion-item>
+
+		<ion-buttons end>
+			<button ion-button color="danger" round small (click)=removeFormation(i)>
+				Effacer
+			</button>
+		</ion-buttons>
+
+	</ion-list>
+
+
+
+
+	<div class="text-description">
+		<span class="text-title"> Compétences</span>
 	</div>
 
 	<ion-list class="listes" no-lines>
@@ -108,10 +146,14 @@
 
 	</ion-list>
 
+	<div class="text-description">
+		<span class="text-title"> Qualités</span>
+	</div>
+
 	<ion-list class="listes" no-lines>
 
 		<ion-item>
-			<ion-label stacked color="grey" style="text-weight:bold;">Description plus détaillée de vous et vos motivations</ion-label>
+			<ion-label stacked color="grey" style="text-weight:bold;">Vos qualités (espacées par une virgule)</ion-label>
 			<ion-textarea></ion-textarea>
 		</ion-item>
 
