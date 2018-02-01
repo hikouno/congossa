@@ -10,6 +10,12 @@ import { ParametresPage } from '../parametres/parametres';
 import { AjoutOffrePage } from '../AjoutOffrePage/AjoutOffrePage';
 
 import { ResultatRecherchePage } from "../resultat-recherche/resultat-recherche";
+//Import les contantes
+import { serveurAdress } from "../../app/app.component"
+import { test } from "../../app/app.component"
+//Pour utiliser this.http
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
 
 
 /**
@@ -24,10 +30,12 @@ import { ResultatRecherchePage } from "../resultat-recherche/resultat-recherche"
   templateUrl: 'first.html',
 })
 export class FirstPage {
+  public jsonObject: any;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public alertCtrl: AlertController) {
+              public alertCtrl: AlertController,
+              public http   : HttpClient) {
   }
 
   connexion(){
@@ -56,6 +64,22 @@ export class FirstPage {
   resultRecherche(){
     this.navCtrl.push(ResultatRecherchePage);
   }
+  testServeur(){
+     this.http.get(serveurAdress.concat(test)).subscribe((data : any) =>
+      {
+       console.dir(data);
+
+       let alert = this.alertCtrl.create({
+         title: data.data.pseudo,
+         message: data['data'].formation,
+         });
+    alert.present();
+      },
+      (error : any) =>
+      {
+         console.dir(error);
+      });
+   }
 
 
   ionViewDidLoad() {
