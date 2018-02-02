@@ -6,7 +6,6 @@ import { NavController } from 'ionic-angular';
 import { EditProfilePage } from '../editProfile/editProfile';
 import { ConversationPage } from '../conversation/conversation';
 import { ProfilePage } from '../profile/profile';
-import { ListeConversationsPage } from '../listeConversations/listeConversations';
 
 @Component({
   selector: 'page-liste-conversations',
