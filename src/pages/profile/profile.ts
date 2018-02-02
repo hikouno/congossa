@@ -3,6 +3,7 @@ import { NavController, NavParams} from 'ionic-angular';
 
 //pages
 import { EditProfilePage } from '../editProfile/editProfile';
+import { ListeConversationsPage } from '../listeConversations/listeConversations';
 
 @Component({
   selector: 'page-profile',
@@ -104,6 +105,16 @@ export class ProfilePage {
         alert("Vous utilisez un vieux navigateur bien pourri, qui n'est pas pris en charge par ce site");
     }
     return copy;
-}
+    }
+    
+    // Go to profilePage
+  openProfilPage(){
+    this.navCtrl.setRoot(ProfilePage);
+  }
+
+	// Go to MessagesPages
+  openMessagesPage(){
+    this.navCtrl.setRoot(ListeConversationsPage);
+  }
 
 }

@@ -1,9 +1,28 @@
 <ion-header>
-  <ion-navbar color="orange">
-    <ion-title>
-      Congossa
-    </ion-title>
-  </ion-navbar>
+  <ion-toolbar id="Toolbar" color="orange" end>
+
+
+    <button id="BoutonMenu" ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title id="Title">Congossa</ion-title>
+
+    <ion-buttons end>
+
+      <button ion-button id="boutonImg" clear small icon-only (click)="openProfilPage()">
+        <img id="image" src="https://pbs.twimg.com/profile_images/662333810185543680/0NdNCnYu_400x400.jpg" />
+      </button>
+
+
+      <button id="BoutonMessage" ion-button icon-only (click)="openMessagesPage()">
+        <ion-icon name="text"></ion-icon>
+      </button>
+
+    </ion-buttons>
+
+  </ion-toolbar>
+
 </ion-header>
 
 <ion-content padding class="View">
@@ -43,7 +62,7 @@
     		<ion-textarea [(ngModel)]="description"></ion-textarea>
   		</ion-item>
   		<ion-item>
-	   			<button ion-button full color="orange" (click)="proposer()">Proposer</button>
+	   			<button ion-button class="bouttons" color="orange" (click)="proposer()()" round> Proposer </button>
 	  	</ion-item>
 	</ion-list>
 </ion-content>

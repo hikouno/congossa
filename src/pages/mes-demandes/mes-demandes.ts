@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+//Pages
+import { ProfilePage } from '../profile/profile';
+import { ListeConversationsPage } from '../listeConversations/listeConversations';
+
 /**
  * Generated class for the MesDemandesPage page.
  *
@@ -19,6 +23,17 @@ export class MesDemandesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MesDemandesPage');
+  }
+  
+  
+   // Go to profilePage
+  openProfilPage(){
+    this.navCtrl.setRoot(ProfilePage);
+  }
+
+	// Go to MessagesPages
+  openMessagesPage(){
+    this.navCtrl.setRoot(ListeConversationsPage);
   }
 
 }

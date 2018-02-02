@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+
+
+//pages
+import { EditProfilePage } from '../editProfile/editProfile';
 import { ConversationPage } from '../conversation/conversation';
+import { ProfilePage } from '../profile/profile';
+import { ListeConversationsPage } from '../listeConversations/listeConversations';
 
 @Component({
   selector: 'page-liste-conversations',
@@ -34,6 +40,16 @@ export class ListeConversationsPage {
     this.navCtrl.push(ConversationPage, {
       conv_info: conv
     });
+  }
+  
+   // Go to profilePage
+  openProfilPage(){
+    this.navCtrl.setRoot(ProfilePage);
+  }
+
+	// Go to MessagesPages
+  openMessagesPage(){
+    this.navCtrl.setRoot(ListeConversationsPage);
   }
 
 }

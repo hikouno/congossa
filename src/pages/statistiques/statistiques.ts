@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+
+//Pages
+import { ListeConversationsPage } from '../listeConversations/listeConversations';
+import { ProfilePage } from '../profile/profile';
+
+
 /**
  * Generated class for the StatistiquesPage page.
  *
@@ -19,6 +25,16 @@ export class StatistiquesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StatistiquesPage');
+  }
+  
+   // Go to profilePage
+  openProfilPage(){
+    this.navCtrl.setRoot(ProfilePage);
+  }
+
+	// Go to MessagesPages
+  openMessagesPage(){
+    this.navCtrl.setRoot(ListeConversationsPage);
   }
 
 }
