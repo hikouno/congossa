@@ -1,3 +1,90 @@
 page-propose-job {
+    #View{
+      background-color: #F2F0F0;
+    }
 
+    #avatar{
+      background-color: rgb(210, 120, 60);
+    }
+
+    #profilButton{
+      margin-right: 10px;
+    }
+
+    #image{
+      height: 27px;
+      width: 27px;
+      border-radius: 50%;
+      padding: 0px 0px 0px 0px;
+      margin: 0px 0px 0px 0px;
+    }
+
+    #boutonImg{
+      width: 30px;
+      padding: 0px 0px 0px 0px;
+      margin: 0px 10px 0px 0px;
+    }
+
+    #first-main-image{
+      filter: blur(0px);
+      height: 100%;
+      width: 100%;
+    }
+
+    #first-main-button{
+      height: 47%;
+      width: 100%;
+      padding: 0px 0px 0px 0px;
+      margin: 0px 0px 0px 0px;
+    }
+
+    #second-main-button{
+      height: 47%;
+      width: 100%;
+      padding: 0px 0px 0px 0px;
+      margin: 15px 0px 0px 0px;
+    }
+
+    .profile-label {
+      white-space: normal;
+    }
+
+    .text{
+      font-weight: bold;
+      font-size: 10px;
+      color: #696969;
+      padding-bottom: 4px;
+    }
+
+    .text-title{
+      font-size: 18px;
+      font-weight: bold;
+      color: #696969;
+      padding-bottom: 4px;
+
+    }
+
+    .bouttons{
+      width:100%;
+    }
+
+    .addButton{
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .text-description{
+      padding-left: 10px;
+      padding-bottom: 4px;
+    }
+
+    .title {
+    	align: center;
+    }
+
+    .inputs{
+    }
+
+    .listes{
+    }
 }
