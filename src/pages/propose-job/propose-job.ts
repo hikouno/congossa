@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ListCategoriesPage } from "../list-categories/list-categories";
 
+//pages
+import { ProfilePage } from '../profile/profile';
+import { ListeConversationsPage } from '../listeConversations/listeConversations';
+
 /**
  * Generated class for the ProposeJobPage page.
  *
