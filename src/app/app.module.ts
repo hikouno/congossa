@@ -39,6 +39,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { ResultatRecherchePage } from "../pages/resultat-recherche/resultat-recherche";
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ModalViewCardPage } from "../pages/modal-view-card/modal-view-card";
+import { ListCategoriesPage } from "../pages/list-categories/list-categories";
 
 var config = {
     apiKey: "AIzaSyDP3fwr3INchk7uHfW9B8_Em3ow0J3WuMo",
@@ -75,7 +76,8 @@ var config = {
     ChercheJobPage,
     ProposeJobPage,
     ResultatRecherchePage,
-    ModalViewCardPage
+    ModalViewCardPage,
+    ListCategoriesPage
 
   ],
   imports: [
@@ -111,7 +113,8 @@ var config = {
     ChercheJobPage,
     ProposeJobPage,
     ResultatRecherchePage,
-    ModalViewCardPage
+    ModalViewCardPage,
+    ListCategoriesPage
 
   ],
   providers: [

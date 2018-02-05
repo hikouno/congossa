@@ -13,120 +13,71 @@
 </ion-header>
 
 
-<ion-content id="View">
+<ion-content id="View" padding-top>
+
+<div class="text-description">
+  <span class="text-title">Le Job</span>
+</div>
 
 <ion-list class="listes" no-lines>
-
   <ion-item>
-    <ion-input [(ngModel)]="firstname" class="inputs" type="text" placeholder="Titre de l'offre"></ion-input>
+    <ion-input [(ngModel)]="title" class="inputs" type="text" placeholder="Titre de l'offre"></ion-input>
   </ion-item>
+</ion-list>
+
+<ion-list class="listes" no-lines>
+  <button ion-item block color="white" (click)="showCategories()">{{categorie}}</button>
 
   <ion-item>
-    <ion-label>Sexe</ion-label>
-    <ion-select [(ngModel)]="sexe" interface="popover">
-      <ion-option value="Homme">Homme</ion-option>
-      <ion-option value="Femme">Femme</ion-option>
+    <ion-label>Type d'emploi</ion-label>
+    <ion-select [(ngModel)]="typeOfJob" interface="popover">
+      <ion-option value="CDI">CDI</ion-option>
+      <ion-option value="CDD">CDD</ion-option>
+      <ion-option value="Stage">Stage</ion-option>
+      <ion-option value="Service">Service</ion-option>
     </ion-select>
   </ion-item>
 
+  <div *ngIf="typeOfJob==CDD && typeOfJob!=undefined">
+    <ion-item>
+			<ion-label>Date de début</ion-label>
+			<ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
+		</ion-item>
+
+	   <ion-item>
+			<ion-label>Date de fin</ion-label>
+			<ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
+		</ion-item>
+  </div>
+
+  <div *ngIf="typeOfJob==CDI && typeOfJob!=undefined">
+    <ion-item>
+			<ion-label>À partir de</ion-label>
+			<ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
+		</ion-item>
+  </div>
+
   <ion-item>
-    <ion-label>Date de Naissance</ion-label>
-    <ion-datetime [(ngModel)]="date" displayFormat="DD/MM/YYYY"></ion-datetime>
+    <ion-input [(ngModel)]="city" class="inputs" type="text" placeholder="Ville"></ion-input>
   </ion-item>
+</ion-list>
 
+<ion-list class="listes" no-lines>
   <ion-item>
-    <ion-input type="text" placeholder="Email">{{email}}</ion-input>
+    <ion-textarea [(ngModel)]="jobDescription" placeholder="Description du Job"></ion-textarea>
   </ion-item>
-
-  <ion-item>
-    <ion-input type="number" placeholder="Téléphone">{{phoneNumber}}</ion-input>
-  </ion-item>
-
-
-  </ion-list>
-
-  <ion-list class="listes" no-lines>
-    <ion-item>
-      <ion-label stacked color="grey" style="text-weight:bold;">Courte description de votre personnalité</ion-label>
-      <ion-textarea [(ngModel)]="shortDescription"></ion-textarea>
-    </ion-item>
-
-    <div class="text-description">
-      <span class="text"> Cette courte description sera la première accroche à votre profil.</span>
-    </div>
-  </ion-list>
-
-  <div class="text-description">
-    <span class="text-title">Diplômes</span>
-  </div>
-
-  <div style="text-align:center;">
-    <button ion-button  class="addButton" clear color="primary" (click)="addDiplome()">
-      <span style="color:#488aff;" > <ion-icon name="add"></ion-icon> Ajouter un Diplôme</span>
-    </button>
-  </div>
-
-
-  <ion-list *ngFor="let d of diplomes; let i = index" no-lines>
-
-    <ion-item>
-      <ion-input type="text" placeholder="Nom du Diplôme" [(ngModel)]="diplomes[i].diplome"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Date d'obtention</ion-label>
-      <ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
-    </ion-item>
-
-    <ion-buttons end>
-      <button ion-button color="danger" round small (click)=removeDiplome(i)>
-        Effacer
-      </button>
-    </ion-buttons>
-
-  </ion-list>
+</ion-list>
 
 
 
 
-  <div class="text-description">
-    <span class="text-title">Formation</span>
-  </div>
-
-  <div style="text-align:center;">
-    <button ion-button class="addButton" clear color="primary" block (click)="addFormation()">
-      <span style="color:#488aff;"><ion-icon name="add"></ion-icon> Ajouter une Formation</span>
-    </button>
-  </div>
-
-  <ion-list *ngFor="let f of formations; let i = index" no-lines>
-
-    <ion-item>
-      <ion-input type="text" placeholder="Nom de la formation" [(ngModel)]="formations[i].formation"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Date de début</ion-label>
-      <ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Date de fin</ion-label>
-      <ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
-    </ion-item>
-
-    <ion-buttons end>
-      <button ion-button color="danger" round small (click)=removeFormation(i)>
-        Effacer
-      </button>
-    </ion-buttons>
-
-  </ion-list>
 
 
-  <div class="text-description">
-    <span class="text-title">Expérience</span>
-  </div>
+
+
+
+
+
 
   <div style="text-align:center;">
     <button ion-button class="addButton" clear color="primary" block (click)="addExperience()">
