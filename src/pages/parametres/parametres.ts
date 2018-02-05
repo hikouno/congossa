@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
 
+
 //Pages
 import { ProfilePage } from '../profile/profile';
 import { ListeConversationsPage } from '../listeConversations/listeConversations';
@@ -21,6 +22,8 @@ export class ParametresPage {
     this.gps_enabled = true;
     this.distance_max = 40;
     
+    
+    /*
     //TEST NODEJS HTTP REQUEST TO API
     
     this.http.get("api/hello.php")
@@ -33,7 +36,7 @@ export class ParametresPage {
         // Finally do something here
     });
     
-    //END TEST REQUEST TO API
+    //END TEST REQUEST TO API*/
     
   }
   
