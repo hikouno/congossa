@@ -67,7 +67,9 @@ export class MyApp {
   }
 
   openPage(title) {
-    if (title == 'mes-offres'){
+	if (title == 'recherche') {
+		this.nav.setRoot(RecherchePage);
+	} else if (title == 'mes-offres'){
       this.nav.setRoot(MesOffresPage);
     }else if (title == 'mes-demandes'){
       this.nav.setRoot(MesDemandesPage);
