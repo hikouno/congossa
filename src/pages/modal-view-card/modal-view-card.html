@@ -39,13 +39,12 @@
         </div>
       </ion-col>
       <ion-col class="text-col-right">
-        <p text-left><Strong class="titres"> Experience</Strong></p>
-        <p text-left class="description">
-          - Développement d'un jeu vidéo en Java
-        </p>
-        <p text-left class="description">
-          - Plusieurs projets de groupe
-        </p>
+        <p text-left><Strong class="titres"> Expériences </Strong></p>
+        <div *ngFor="let e of experiences">
+          <p text-left class="description">
+            -{{e.experience}} (<strong>{{e.period}} mois</strong>)
+          </p>
+        </div>
       </ion-col>
     </ion-row>
     <ion-row>

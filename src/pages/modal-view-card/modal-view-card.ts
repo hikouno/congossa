@@ -22,6 +22,7 @@ export class ModalViewCardPage {
   tableQualities: any;
   formations: Array<{title:string, formation:string}>;
   diplomes: Array<{title:string, diplome:string}>;
+  experiences: Array<{title:string, experience:string, dateDebut:string, dateFin:string, period:string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
     this.firstname = navParams.get("firstname");
@@ -33,6 +34,7 @@ export class ModalViewCardPage {
     this.tableQualities = navParams.get("tableQualities");
     this.formations = navParams.get("formations");
     this.diplomes = navParams.get("diplomes");
+    this.experiences = navParams.get("experiences");
   }
 
   ionViewDidLoad() {
