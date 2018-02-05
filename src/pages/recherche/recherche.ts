@@ -34,11 +34,11 @@ export class RecherchePage {
   }
 
   openChercheJobPage(){
-    this.navCtrl.setRoot(ChercheJobPage);
+    this.navCtrl.push(ChercheJobPage);
   }
 
 
   openProposeJobPage() {
-    this.navCtrl.setRoot(ProposeJobPage);
+    this.navCtrl.push(ProposeJobPage);
   }
 }
