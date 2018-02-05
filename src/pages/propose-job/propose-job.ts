@@ -20,5 +20,16 @@ export class ProposeJobPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProposeJobPage');
   }
+  
+   // Go to profilePage
+  openProfilPage(){
+    this.navCtrl.setRoot(ProfilePage);
+  }
+
+	// Go to MessagesPages
+  openMessagesPage(){
+    this.navCtrl.setRoot(ListeConversationsPage);
+  }
+
 
 }
