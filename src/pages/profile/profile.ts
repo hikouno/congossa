@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams} from 'ionic-angular';
+import { NavController, NavParams, ModalController} from 'ionic-angular';
 
 //pages
 import { EditProfilePage } from '../editProfile/editProfile';
+import { ModalViewCardPage } from "../modal-view-card/modal-view-card";
 
 @Component({
   selector: 'page-profile',
@@ -15,19 +16,28 @@ export class ProfilePage {
 
 	firstname: string;
 	familyname: string;
-	age: string;
+  date: string;
+	age: number;
 	email: string;
 	phone: string;
 	skills : string;
-	description : string;
+  tableSkills : any;
+	shortDescription : string;
+  photo : any;
+  qualities: string;
+  tableQualities: any;
+  debutExperience: string;
+  finExperience: string;
 
   diplomes: Array<{title:string, diplome:string}>;
   formations: Array<{title:string, formation:string}>;
+  experiences: Array<{title:string, experience:string, dateDebut:string, dateFin:string}>;
 
-  constructor(public navCtrl: NavController, private navParams: NavParams) {
+  constructor(public navCtrl: NavController, private navParams: NavParams, public modalCtrl: ModalController) {
 	  this.loadData();
     this.diplomes= [];
     this.formations= [];
+    this.experiences= [];
   }
 
 
@@ -39,7 +49,6 @@ export class ProfilePage {
     }
 
     if (this.diplomes[this.diplomes.length - 1].diplome != ""){
-      //this.diplomes[this.diplomes.length - 1].diplome = this.tmpDiplome.slice(0);;
       this.diplomes.push({title: "newDiplome1", diplome:""});
       console.log(this.diplomes);
     }
@@ -62,6 +71,21 @@ export class ProfilePage {
     console.log(this.formations);
   }
 
+  addExperience(){
+    if (this.experiences.length == 0){
+      this.experiences.push({title: "newExperience", experience: "", dateDebut: "", dateFin: ""});
+      console.log(this.experiences);
+      console.log(this.experiences.length);
+    }
+
+    if (this.experiences[this.experiences.length - 1].experience != ""){
+      this.experiences.push({title: "newExperience1", experience:"", dateDebut: "", dateFin: ""});
+      console.log(this.experiences);
+    }
+
+    console.log(this.experiences);
+  }
+
 
   removeDiplome(i){
     this.diplomes.splice(i, 1);
@@ -69,6 +93,10 @@ export class ProfilePage {
 
   removeFormation(i){
     this.formations.splice(i, 1);
+  }
+
+  removeExperience(i){
+    this.experiences.splice(i, 1);
   }
 
 
@@ -86,9 +114,31 @@ export class ProfilePage {
 			this.formations = this.navParams.get('formations');
       this.diplomes = this.navParams.get('diplomes');
 			this.skills = this.navParams.get('skills');
-			this.description = this.navParams.get('description');
+			this.shortDescription = this.navParams.get('shortDescription');
 		} else {
 			// Remote mode
+			// http request
+		}
+	}
+
+  displayCard(){
+    if (!this.onlineMode) {
+      this.calculateAge();
+      this.organizeSkills();
+      this.organizeQualities();
+      let viewCardModal = this.modalCtrl.create(ModalViewCardPage, {firstname: this.firstname,
+        familyname: this.familyname,
+        age: this.age,
+        shortDescription: this.shortDescription,
+        photo: this.photo,
+        tableSkills: this.tableSkills,
+        tableQualities: this.tableQualities,
+        formations: this.formations,
+        diplomes: this.diplomes,
+        experiences: this.experiences
+      });
+      viewCardModal.present();
+		} else {
 			// http request
 		}
 	}
@@ -103,18 +153,63 @@ export class ProfilePage {
 				phone: this.phone,
 				formations: this.formations,
 				skills: this.skills,
-				description: this.description}
+				shortDescription: this.shortDescription}
 
-			this.navCtrl.push(EditProfilePage, profileObject);
+			this.navCtrl.push(EditProfilePage, {firstname: this.firstname,
+        familyname: this.familyname,
+        age: this.age,
+        shortDescription: this.shortDescription,
+        formations: this.formations,
+        skills: this.skills});
 		} else {
 			// http request
 		}
 	}
 
-	//Let the user see his card from his profile
-	displayCard() {
+  calculateAge(){
+    var currentDate = new Date();
 
-	}
+    var dd = currentDate.getDate();
+    var mm = Number(currentDate.getMonth()+1); //January is 0!
+    var yyyy = Number(currentDate.getFullYear());
+
+    var tableauDate = this.date.split("-");
+
+    if (mm < Number(tableauDate[1])){
+      this.age = yyyy - Number(tableauDate[0]) - 1;
+    }
+    else {
+      this.age = yyyy - Number(tableauDate[0]);
+    }
+  }
+
+  /*calculatePeriod(){
+    var tabDebutExperience = this.experiences.dateDebut.split("-");
+    var tabFinExperience = this.finExperience.split("-");
+
+    console.log(tabDebutExperience[0]);
+    ecartAnnees = tabFinExperience[0] - tabDebutExperience[0]
+  }*/
+
+  organizeSkills(){
+    this.tableSkills = this.skills.split(",");
+    for (var i=0; i<this.tableSkills.length; i++){
+      if (this.tableSkills[i].charAt(0) != " "){
+        this.tableSkills[i] = " " + this.tableSkills[i];
+      }
+      console.log(this.tableSkills[i]);
+    }
+  }
+
+  organizeQualities(){
+    this.tableQualities = this.qualities.split(",");
+    for (var i=0; i<this.tableQualities.length; i++){
+      if (this.tableQualities[i].charAt(0) != " "){
+        this.tableQualities[i] = " " + this.tableQualities[i];
+      }
+      console.log(this.tableQualities[i]);
+    }
+  }
 
   clone(obj){
     try{
