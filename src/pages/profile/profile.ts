@@ -4,6 +4,7 @@ import { NavController, NavParams, ModalController} from 'ionic-angular';
 //pages
 import { EditProfilePage } from '../editProfile/editProfile';
 import { ModalViewCardPage } from "../modal-view-card/modal-view-card";
+import { ListeConversationsPage } from "../listeConversations/listeConversations";
 
 @Component({
   selector: 'page-profile',
@@ -218,6 +219,16 @@ export class ProfilePage {
         alert("Vous utilisez un vieux navigateur bien pourri, qui n'est pas pris en charge par ce site");
     }
     return copy;
-}
+    }
+
+    // Go to profilePage
+  openProfilPage(){
+    this.navCtrl.setRoot(ProfilePage);
+  }
+
+	// Go to MessagesPages
+  openMessagesPage(){
+    this.navCtrl.setRoot(ListeConversationsPage);
+  }
 
 }

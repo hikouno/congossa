@@ -1,9 +1,28 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Congossa
-    </ion-title>
-  </ion-navbar>
+  <ion-toolbar id="Toolbar" color="orange" end>
+
+
+    <button id="BoutonMenu" ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title id="Title">Conversations</ion-title>
+
+    <ion-buttons end>
+
+      <button ion-button id="boutonImg" clear small icon-only (click)="openProfilPage()">
+        <img id="image" src="https://pbs.twimg.com/profile_images/662333810185543680/0NdNCnYu_400x400.jpg" />
+      </button>
+
+
+      <button id="BoutonMessage" ion-button icon-only (click)="openMessagesPage()">
+        <ion-icon name="text"></ion-icon>
+      </button>
+
+    </ion-buttons>
+
+  </ion-toolbar>
+
 </ion-header>
 
 <ion-content padding>

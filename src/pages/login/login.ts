@@ -37,8 +37,8 @@ export class LoginPage {
 
   glogin(){
     this.googlePlus.login({})
-    .then(res => {console.log(res); alert("success "+JSON.stringify(res)); })
-    .catch(err => {console.error(err); alert("error "+JSON.stringify(err));});
+    .then(res => {console.log(res); alert("success " + JSON.stringify(res)); })
+    .catch(err => {console.error(err); alert("error " + JSON.stringify(err));});
   }
 
   loginWithFacebook(){

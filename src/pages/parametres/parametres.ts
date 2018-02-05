@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
 
+//Pages
+import { ProfilePage } from '../profile/profile';
+import { ListeConversationsPage } from '../listeConversations/listeConversations';
+
 @Component({
   selector: 'page-parametres',
   templateUrl: 'parametres.html'
@@ -40,6 +44,17 @@ export class ParametresPage {
       buttons: ['OK']
     });
     alert.present();
+  }
+  
+  
+   // Go to profilePage
+  openProfilPage(){
+    this.navCtrl.setRoot(ProfilePage);
+  }
+
+	// Go to MessagesPages
+  openMessagesPage(){
+    this.navCtrl.setRoot(ListeConversationsPage);
   }
   
 }
