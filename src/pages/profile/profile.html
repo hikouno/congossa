@@ -41,11 +41,11 @@
 
 
   <ion-item>
-    <ion-input class="inputs" type="text" placeholder="Prénom">{{firstname}}</ion-input>
+    <ion-input [(ngModel)]="firstname" class="inputs" type="text" placeholder="Prénom"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-input type="text" placeholder="Nom">{{familyname}}</ion-input>
+    <ion-input [(ngModel)]="familyname" type="text" placeholder="Nom"></ion-input>
   </ion-item>
 
 	<ion-item>
@@ -58,7 +58,7 @@
 
 	<ion-item>
     <ion-label>Date de Naissance</ion-label>
-    <ion-datetime displayFormat="DD/MM/YYYY">{{age}}</ion-datetime>
+    <ion-datetime [(ngModel)]="date" displayFormat="DD/MM/YYYY"></ion-datetime>
   </ion-item>
 
 	<ion-item>
@@ -75,7 +75,7 @@
 	<ion-list class="listes" no-lines>
 		<ion-item>
       <ion-label stacked color="grey" style="text-weight:bold;">Courte description de votre personnalité</ion-label>
-      <ion-textarea></ion-textarea>
+      <ion-textarea [(ngModel)]="shortDescription"></ion-textarea>
     </ion-item>
 
 		<div class="text-description">
@@ -151,6 +151,41 @@
 	</ion-list>
 
 
+	<div class="text-description">
+		<span class="text-title">Expérience</span>
+	</div>
+
+	<div style="text-align:center;">
+		<button ion-button class="addButton" clear color="primary" block (click)="addExperience()">
+			<span style="color:#488aff;"><ion-icon name="add"></ion-icon> Ajouter une Expérience</span>
+		</button>
+	</div>
+
+	<ion-list *ngFor="let e of experiences; let i = index" no-lines>
+
+		<ion-item>
+			<ion-input type="text" placeholder="Titre de l'expérience" [(ngModel)]="experiences[i].experience"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>Date de début</ion-label>
+			<ion-datetime [(ngModel)]="debutExperience" displayFormat="MM/YYYY" placeholder="Date"></ion-datetime>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>Date de fin</ion-label>
+			<ion-datetime [(ngModel)]="finExperience" displayFormat="MM/YYYY" placeholder="Date"></ion-datetime>
+		</ion-item>
+
+		<ion-buttons end>
+			<button ion-button color="danger" round small (click)=removeExperience(i)>
+				Effacer
+			</button>
+		</ion-buttons>
+
+	</ion-list>
+
+
 
 
 	<div class="text-description">
@@ -161,7 +196,7 @@
 
 		<ion-item>
 			<ion-label stacked color="grey" style="text-weight:bold;">Vos compétences (espacées par une virgule)</ion-label>
-			<ion-textarea></ion-textarea>
+			<ion-textarea [(ngModel)]="skills"></ion-textarea>
 		</ion-item>
 
 	</ion-list>
@@ -174,7 +209,7 @@
 
 		<ion-item>
 			<ion-label stacked color="grey" style="text-weight:bold;">Vos qualités (espacées par une virgule)</ion-label>
-			<ion-textarea></ion-textarea>
+			<ion-textarea [(ngModel)]="qualities"></ion-textarea>
 		</ion-item>
 
 	</ion-list>
@@ -184,7 +219,7 @@
 		<button ion-button class="bouttons" color="orange" (click)="displayCard()" round> Visualiser la carte </button>
 	</ion-col>
 	<ion-col>
-		<button ion-button class="bouttons" color="orange" (click)="displayCard()" round> Enregistrer </button>
+		<button ion-button class="bouttons" color="orange" (click)="calculatePeriod()" round> Enregistrer </button>
 	</ion-col>
 </ion-row>
 
