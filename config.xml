@@ -84,7 +84,6 @@
     <plugin name="cordova-plugin-googleplus" spec="^5.2.1">
         <variable name="REVERSED_CLIENT_ID" value="560997260555-371aj6ttele4h56njd0819o2igia3oqd.apps.googleusercontent.com" />
     </plugin>
-    <engine name="browser" spec="~5.0.3" />
     <engine name="android" spec="~7.0.0" />
     <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
         <variable name="APP_ID" value="145740206125076" />
@@ -93,4 +92,5 @@
     <plugin name="cordova-plugin-linkedin" spec="^1.2.1">
         <variable name="APP_ID" value="86mmdpncnowi32" />
     </plugin>
+    <engine name="browser" spec="~5.0.3" />
 </widget>
