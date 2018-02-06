@@ -74,8 +74,7 @@
 
 	<ion-list class="listes" no-lines>
 		<ion-item>
-      <ion-label stacked color="grey" style="text-weight:bold;">Courte description de votre personnalité</ion-label>
-      <ion-textarea [(ngModel)]="shortDescription"></ion-textarea>
+      <ion-textarea [(ngModel)]="shortDescription" placeholder="Courte description de votre personnalité"></ion-textarea>
     </ion-item>
 
 		<div class="text-description">
@@ -169,12 +168,12 @@
 
 		<ion-item>
 			<ion-label>Date de début</ion-label>
-			<ion-datetime [(ngModel)]="debutExperience" displayFormat="MM/YYYY" placeholder="Date"></ion-datetime>
+			<ion-datetime [(ngModel)]="experiences[i].dateDebut" displayFormat="MM/YYYY" placeholder="Date"></ion-datetime>
 		</ion-item>
 
 		<ion-item>
 			<ion-label>Date de fin</ion-label>
-			<ion-datetime [(ngModel)]="finExperience" displayFormat="MM/YYYY" placeholder="Date"></ion-datetime>
+			<ion-datetime [(ngModel)]="experiences[i].dateFin" displayFormat="MM/YYYY" placeholder="Date"></ion-datetime>
 		</ion-item>
 
 		<ion-buttons end>
