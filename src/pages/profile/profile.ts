@@ -5,6 +5,7 @@ import { NavController, NavParams, ModalController} from 'ionic-angular';
 import { EditProfilePage } from '../editProfile/editProfile';
 import { ModalViewCardPage } from "../modal-view-card/modal-view-card";
 import { ListeConversationsPage } from "../listeConversations/listeConversations";
+import { RecherchePage } from "../recherche/recherche";
 
 @Component({
   selector: 'page-profile',
@@ -241,6 +242,20 @@ export class ProfilePage {
 	// Go to MessagesPages
   openMessagesPage(){
     this.navCtrl.setRoot(ListeConversationsPage);
+  }
+
+  enregistrer(){
+    this.navCtrl.setRoot(EditProfilePage, {firstname: this.firstname,
+      familyname: this.familyname,
+      age: this.age,
+      shortDescription: this.shortDescription,
+      photo: this.photo,
+      tableSkills: this.tableSkills,
+      tableQualities: this.tableQualities,
+      formations: this.formations,
+      diplomes: this.diplomes,
+      experiences: this.experiences
+    });
   }
 
 }

@@ -15,137 +15,93 @@
 
 <ion-content id="View" padding-top>
 
-<div class="text-description">
-  <span class="text-title">Le Job</span>
-</div>
-
-<ion-list class="listes" no-lines>
-  <ion-item>
-    <ion-input [(ngModel)]="title" class="inputs" type="text" placeholder="Titre de l'offre"></ion-input>
-  </ion-item>
-</ion-list>
-
-<ion-list class="listes" no-lines>
-  <button ion-item block color="white" (click)="showCategories()">{{categorie}}</button>
-
-  <ion-item>
-    <ion-label>Type d'emploi</ion-label>
-    <ion-select [(ngModel)]="typeOfJob" interface="popover">
-      <ion-option value="CDI">CDI</ion-option>
-      <ion-option value="CDD">CDD</ion-option>
-      <ion-option value="Stage">Stage</ion-option>
-      <ion-option value="Service">Service</ion-option>
-    </ion-select>
-  </ion-item>
-
-  <div *ngIf="typeOfJob==CDD && typeOfJob!=undefined">
-    <ion-item>
-			<ion-label>Date de début</ion-label>
-			<ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
-		</ion-item>
-
-	   <ion-item>
-			<ion-label>Date de fin</ion-label>
-			<ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
-		</ion-item>
+  <div class="text-description">
+    <span class="text-title">Le Job</span>
   </div>
 
-  <div *ngIf="typeOfJob==CDI && typeOfJob!=undefined">
+  <ion-list class="listes" no-lines>
     <ion-item>
-			<ion-label>À partir de</ion-label>
-			<ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
-		</ion-item>
-  </div>
-
-  <ion-item>
-    <ion-input [(ngModel)]="city" class="inputs" type="text" placeholder="Ville"></ion-input>
-  </ion-item>
-</ion-list>
-
-<ion-list class="listes" no-lines>
-  <ion-item>
-    <ion-textarea [(ngModel)]="jobDescription" placeholder="Description du Job"></ion-textarea>
-  </ion-item>
-</ion-list>
-
-
-
-
-
-
-
-
-
-
-
-
-  <div style="text-align:center;">
-    <button ion-button class="addButton" clear color="primary" block (click)="addExperience()">
-      <span style="color:#488aff;"><ion-icon name="add"></ion-icon> Ajouter une Expérience</span>
-    </button>
-  </div>
-
-  <ion-list *ngFor="let e of experiences; let i = index" no-lines>
-
-    <ion-item>
-      <ion-input type="text" placeholder="Titre de l'expérience" [(ngModel)]="experiences[i].experience"></ion-input>
+      <ion-input [(ngModel)]="title" class="inputs" type="text" placeholder="Titre de l'offre"></ion-input>
     </ion-item>
-
-    <ion-item>
-      <ion-label>Date de début</ion-label>
-      <ion-datetime [(ngModel)]="experiences[i].dateDebut" displayFormat="MM/YYYY" placeholder="Date"></ion-datetime>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Date de fin</ion-label>
-      <ion-datetime [(ngModel)]="experiences[i].dateFin" displayFormat="MM/YYYY" placeholder="Date"></ion-datetime>
-    </ion-item>
-
-    <ion-buttons end>
-      <button ion-button color="danger" round small (click)=removeExperience(i)>
-        Effacer
-      </button>
-    </ion-buttons>
-
   </ion-list>
 
+  <ion-list class="listes" no-lines>
+    <button ion-item block color="white" (click)="showCategories()">{{categorie}}</button>
 
+    <ion-item>
+      <ion-label>Type d'emploi</ion-label>
+      <ion-select [(ngModel)]="typeOfJob" interface="popover">
+        <ion-option value="CDI">CDI</ion-option>
+        <ion-option value="CDD">CDD</ion-option>
+        <ion-option value="Stage">Stage</ion-option>
+        <ion-option value="Service">Service</ion-option>
+      </ion-select>
+    </ion-item>
 
+    <div *ngIf="(typeOfJob=='CDD' || typeOfJob=='Stage') && typeOfJob!=undefined">
+      <ion-item>
+  			<ion-label>Date de début</ion-label>
+  			<ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
+  		</ion-item>
+
+  	   <ion-item>
+  			<ion-label>Date de fin</ion-label>
+  			<ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
+  		</ion-item>
+    </div>
+
+    <div *ngIf="typeOfJob=='CDI' && typeOfJob!=undefined">
+      <ion-item>
+  			<ion-label>À partir de</ion-label>
+  			<ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
+  		</ion-item>
+    </div>
+
+    <ion-item>
+      <ion-input [(ngModel)]="city" class="inputs" type="text" placeholder="Ville"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="listes" no-lines>
+    <ion-item>
+      <ion-textarea [(ngModel)]="jobDescription" placeholder="Description du Job"></ion-textarea>
+    </ion-item>
+  </ion-list>
 
   <div class="text-description">
-    <span class="text-title"> Compétences</span>
+    <span class="text-title">Profil recherché</span>
   </div>
 
   <ion-list class="listes" no-lines>
 
     <ion-item>
-      <ion-label stacked color="grey" style="text-weight:bold;">Vos compétences (espacées par une virgule)</ion-label>
+      <ion-label stacked color="grey" style="text-weight:bold;">Compétences recherchées (espacées par une virgule)</ion-label>
       <ion-textarea [(ngModel)]="skills"></ion-textarea>
     </ion-item>
 
   </ion-list>
 
-  <div class="text-description">
-    <span class="text-title"> Qualités</span>
-  </div>
-
   <ion-list class="listes" no-lines>
 
     <ion-item>
-      <ion-label stacked color="grey" style="text-weight:bold;">Vos qualités (espacées par une virgule)</ion-label>
+      <ion-label stacked color="grey" style="text-weight:bold;">Qualités recherchées (espacées par une virgule)</ion-label>
       <ion-textarea [(ngModel)]="qualities"></ion-textarea>
     </ion-item>
 
   </ion-list>
 
-  <ion-row>
-  <ion-col>
-    <button ion-button class="bouttons" color="orange" (click)="displayCard()" round> Visualiser la carte </button>
-  </ion-col>
-  <ion-col>
-    <button ion-button class="bouttons" color="orange" (click)="calculatePeriod()" round> Enregistrer </button>
-  </ion-col>
-  </ion-row>
+  <ion-list class="listes" no-lines>
+
+    <ion-item>
+      <ion-label stacked color="grey" style="text-weight:bold;">Diplome(s) requis (espacés par une virgule)</ion-label>
+      <ion-textarea [(ngModel)]="qualities"></ion-textarea>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-buttons text-center>
+    <button ion-button class="bouttons" color="orange" (click)="searchProfiles()" round> Déposer l'annonce </button>
+  </ion-buttons>
 
 
 </ion-content>
