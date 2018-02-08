@@ -36,14 +36,17 @@ export const addProfile = 'addProfile';
 export const getProfile = 'getProfile';
 export const sendProfile = 'sendProfile';
 export const test = 'hello.php'
-@Component({
-  templateUrl: 'app.html'
-})
+
+
 
 export interface ProfileObject {
    name: string;
    email: string
 }
+
+@Component({
+  templateUrl: 'app.html'
+})
 
 export class MyApp {
 
@@ -101,7 +104,7 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
   }
-  
+
   // Log out from Facebook
   logoutOfFacebook() {
     this.fire.auth.signOut();
