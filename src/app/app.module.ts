@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { LinkedIn } from '@ionic-native/linkedin';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, NavParams } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { RecherchePage } from '../pages/recherche/recherche';
@@ -40,6 +40,8 @@ import { ResultatRecherchePage } from "../pages/resultat-recherche/resultat-rech
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ModalViewCardPage } from "../pages/modal-view-card/modal-view-card";
 import { ListCategoriesPage } from "../pages/list-categories/list-categories";
+import { MainProvider } from "../providers/main/main";
+
 
 var config = {
     apiKey: "AIzaSyDP3fwr3INchk7uHfW9B8_Em3ow0J3WuMo",
@@ -122,6 +124,7 @@ var config = {
     SplashScreen,
     GooglePlus,
     LinkedIn,
+    MainProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
