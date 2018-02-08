@@ -20,10 +20,19 @@ import firebase from 'firebase';
   selector: 'page-sub',
   templateUrl: 'sub.html',
 })
+
+/*
+export interface ProfileObject {
+   name: string;
+   email: string
+}*/
+
+
 export class SubPage {
 
   scopes: ['r_basicprofile', 'r_emailaddress', 'rw_company_admin', 'w_share'];
-
+  obj: ProfileObject;
+  
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public alertCtrl: AlertController,
@@ -54,7 +63,15 @@ export class SubPage {
   loginWithFacebook(){
     this.fire.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
     .then(res =>{
+		let object : JSON = res.additionalUserInfo;
+       console.log(object.profile.email);
+       console.log(object.profile.name);
        console.log(res);
+       /*
+       this.obj.name = object.profile.name;
+       this.obj.email = object.profile.email;
+       console.log("Voici l'objet : " + obj);
+       * */
     })
   }
 
