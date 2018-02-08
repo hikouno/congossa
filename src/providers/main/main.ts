@@ -65,6 +65,10 @@ export class MainProvider {
   experiencesCopy: Array<{title:string, experience:string, dateDebut:string, dateFin:string, period:string}>;
 
 
+  mesOffres: any[] = [];
+  mesDemandes: any[] = [];
+
+
   constructor(public http: HttpClient) {
     console.log('Hello MainProvider Provider');
   }
@@ -241,7 +245,7 @@ export class MainProvider {
   //********************* GET *********************//
   //////////////////////////////////////////////////
 
-  
+
 
   get_finExperience(){
     return this.finExperience;
@@ -311,4 +315,24 @@ export class MainProvider {
     return this.experiences;
   }
 
+  get_mesOffres(){
+    return this.mesOffres;
+  }
+
+  get_mesDemandes(){
+    return this.mesDemandes;
+  }
+
+  ////////////////////////////////////////////////////
+  //******************* OTHERS ********************//
+  //////////////////////////////////////////////////
+
+
+  addOffre(data){
+    this.mesOffres.push(data);
+  }
+
+  addDemande(data){
+    this.mesDemandes.push(data);
+  }
 }

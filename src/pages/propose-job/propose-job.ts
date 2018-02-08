@@ -7,7 +7,7 @@ import { ProfilePage } from '../profile/profile';
 import { ListeConversationsPage } from '../listeConversations/listeConversations';
 import { ResultatRecherchePage } from "../resultat-recherche/resultat-recherche";
 
-import {MainProvider} from "../../providers/main/main"
+import { MainProvider } from "../../providers/main/main"
 
 /**
  * Generated class for the ProposeJobPage page.
@@ -83,6 +83,9 @@ export class ProposeJobPage {
   test:any;
 
 
+  offre: any;
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private provider:MainProvider) {
     this.loadData();
     //this.provider.set("toto");
@@ -120,7 +123,27 @@ export class ProposeJobPage {
  }
 
  searchProfiles(){
-   this.navCtrl.setRoot(ResultatRecherchePage);
+     this.createOffre();
+     this.provider.addOffre(this.offre);
+     this.navCtrl.push(ResultatRecherchePage, {
+         firstname: this.firstname,
+         familyname: this.familyname,
+         date: this.date,
+         age: this.age,
+         email: this.email,
+         phone: this.phone,
+         photo: this.photo,
+         shortDescription: this.shortDescription,
+         skills: this.skills,
+         tableSkills: this.tableSkills,
+         qualities: this.qualities,
+         tableQualities: this.tableQualities,
+         formations: this.formations,
+         diplomes: this.diplomes,
+         experiences: this.experiences,
+         debutExperience: this.debutExperience,
+         finExperience: this.finExperience
+       });
  }
 
   ionViewDidLoad() {
@@ -140,6 +163,28 @@ export class ProposeJobPage {
       }
     }
     return copy;
+    }
+
+    createOffre(){
+      this.offre = {
+        firstname: this.firstnameCopy,
+        familyname: this.familynameCopy,
+        date: this.dateCopy,
+        age: this.ageCopy,
+        email: this.emailCopy,
+        phone: this.phoneCopy,
+        photo: this.photoCopy,
+        shortDescription: this.shortDescriptionCopy,
+        skills: this.skillsCopy,
+        tableSkills: this.tableSkillsCopy,
+        qualities: this.qualitiesCopy,
+        tableQualities: this.tableQualitiesCopy,
+        formations: this.formationsCopy,
+        diplomes: this.diplomesCopy,
+        experiences: this.experiencesCopy,
+        debutExperience: this.debutExperienceCopy,
+        finExperience: this.finExperienceCopy
+      }
     }
 
   copy(){

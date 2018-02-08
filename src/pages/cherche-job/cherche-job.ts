@@ -79,6 +79,10 @@ export class ChercheJobPage {
   categorie: string = "Catégorie";
   typeOfJob: any;
 
+
+  demande: any;
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private provider:MainProvider) {
     this.getAll();
   }
@@ -147,7 +151,9 @@ export class ChercheJobPage {
  }
 
  searchProfiles(){
-   this.navCtrl.push(ProfilePage, {
+   this.createDemande();
+   this.provider.addDemande(this.demande);
+   this.navCtrl.push(ResultatRecherchePage, {
        firstname: this.firstname,
        familyname: this.familyname,
        date: this.date,
@@ -168,12 +174,31 @@ export class ChercheJobPage {
      });
  }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProposeJobPage');
-  }
 
   showCategories(){
     this.navCtrl.push(ListCategoriesPage, {callback: this.myCallbackFunction});
+  }
+
+  createDemande(){
+    this.demande = {
+      firstname: this.firstnameCopy,
+      familyname: this.familynameCopy,
+      date: this.dateCopy,
+      age: this.ageCopy,
+      email: this.emailCopy,
+      phone: this.phoneCopy,
+      photo: this.photoCopy,
+      shortDescription: this.shortDescriptionCopy,
+      skills: this.skillsCopy,
+      tableSkills: this.tableSkillsCopy,
+      qualities: this.qualitiesCopy,
+      tableQualities: this.tableQualitiesCopy,
+      formations: this.formationsCopy,
+      diplomes: this.diplomesCopy,
+      experiences: this.experiencesCopy,
+      debutExperience: this.debutExperienceCopy,
+      finExperience: this.finExperienceCopy
+    }
   }
 
   clone(obj){
