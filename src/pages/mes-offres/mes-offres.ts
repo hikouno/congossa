@@ -24,7 +24,7 @@ export class MesOffresPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider) {
     this.mesOffres = this.provider.get_mesOffres()
-    console.log("Mes Demandes:")
+    console.log("Mes Offres:")
     console.log(this.mesOffres);
   }
 

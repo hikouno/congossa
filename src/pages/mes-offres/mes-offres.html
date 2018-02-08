@@ -34,4 +34,58 @@
 
 <ion-content padding>
 
+    <ion-card class="cards">
+
+    <ion-item class="items-header-cards">
+      <ion-avatar item-start>
+        <img src="https://images.fineartamerica.com/images-medium-large-5/marty-mcfly-paul-tagliamonte.jpg">
+      </ion-avatar>
+      <h2>{{firstname}} {{familyname}} - {{age}} ans</h2>
+    </ion-item>
+
+    <ion-card-content>
+      <p text-left> {{shortDescription}} </p>
+      <ion-row>
+        <ion-col class="text-col-left">
+          <p text-left><Strong class="titres"> Formation</Strong></p>
+          <div *ngFor="let f of formations">
+            <p text-left class="description">
+              - {{f.formation}}
+            </p>
+          </div>
+        </ion-col>
+        <ion-col class="text-col-right">
+          <p text-left><Strong class="titres"> Expériences </Strong></p>
+          <div *ngFor="let e of experiences">
+            <p text-left class="description">
+              -{{e.experience}} (<strong>{{e.period}} mois</strong>)
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="text-col-left">
+          <p text-left><Strong class="titres"> Compétences </Strong></p>
+          <div *ngFor="let s of tableSkills">
+            <p text-left class="description">
+              -{{s}}
+            </p>
+          </div>
+
+        </ion-col>
+        <ion-col class="text-col-right">
+          <p text-left><Strong class="titres"> Qualités </Strong></p>
+          <div *ngFor="let q of tableQualities">
+            <p text-left class="description">
+              -{{q}}
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
 </ion-content>
