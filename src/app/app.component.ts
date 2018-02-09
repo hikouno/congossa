@@ -36,11 +36,14 @@ export const addProfile = 'addProfile';
 export const getProfile = 'getProfile';
 export const sendProfile = 'sendProfile';
 export const test = 'hello.php'
+
+
+
+
+
 @Component({
   templateUrl: 'app.html'
 })
-
-
 
 export class MyApp {
 
@@ -76,29 +79,29 @@ export class MyApp {
 
   openPage(title) {
 	if (title == 'recherche') {
-		this.nav.setRoot(RecherchePage);
+		this.nav.push(RecherchePage);
 	} else if (title == 'mes-offres'){
-      this.nav.setRoot(MesOffresPage);
+      this.nav.push(MesOffresPage);
     }else if (title == 'mes-demandes'){
-      this.nav.setRoot(MesDemandesPage);
+      this.nav.push(MesDemandesPage);
     }else if (title == 'sauvegarde'){
-      this.nav.setRoot(SauvegardePage);
+      this.nav.push(SauvegardePage);
     }else if (title == 'messagerie'){
-      this.nav.setRoot(ListeConversationsPage);
+      this.nav.push(ListeConversationsPage);
     }else if (title == 'profil'){
-      this.nav.setRoot(ProfilePage);
+      this.nav.push(ProfilePage);
     }else if (title == 'parametres'){
-      this.nav.setRoot(ParametresPage);
+      this.nav.push(ParametresPage);
     }else if (title == 'statistiques'){
-      this.nav.setRoot(StatistiquesPage);
+      this.nav.push(StatistiquesPage);
     }else if (title == 'about'){
-      this.nav.setRoot(AboutPage);
+      this.nav.push(AboutPage);
     }
 
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
   }
-  
+
   // Log out from Facebook
   logoutOfFacebook() {
     this.fire.auth.signOut();

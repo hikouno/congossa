@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 //Pages
 import { ProfilePage } from '../profile/profile';
 import { ListeConversationsPage } from '../listeConversations/listeConversations';
+import { MainProvider } from "../../providers/main/main";
 
 /**
  * Generated class for the MesDemandesPage page.
@@ -18,14 +19,14 @@ import { ListeConversationsPage } from '../listeConversations/listeConversations
 })
 export class MesDemandesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  mesDemandes : any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider) {
+    this.mesDemandes = this.provider.get_mesDemandes()
+    console.log("Mes Demandes:")
+    console.log(this.mesDemandes);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MesDemandesPage');
-  }
-  
-  
    // Go to profilePage
   openProfilPage(){
     this.navCtrl.setRoot(ProfilePage);

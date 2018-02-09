@@ -7,85 +7,118 @@ import { ModalViewCardPage } from "../modal-view-card/modal-view-card";
 import { ListeConversationsPage } from "../listeConversations/listeConversations";
 import { RecherchePage } from "../recherche/recherche";
 
+import {MainProvider} from "../../providers/main/main"
+
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html'
 })
 export class ProfilePage {
 
-	// online mode enable or not
-	onlineMode: boolean = false;
+  onlineMode: boolean = false;
 
-	firstname: string;
-	familyname: string;
-  date: string;
-	age: number;
-	email: string;
-	phone: string;
-	skills : string;
-  tableSkills : any;
-	shortDescription : string;
-  photo : any;
-  qualities: string;
-  tableQualities: any;
-  debutExperience: string;
   finExperience: string;
+  finExperienceCopy: string;
+
+  debutExperience: string;
+  debutExperienceCopy: string;
+
+  qualities: string;
+  qualitiesCopy: string;
+
+  skills: string;
+  skillsCopy: string;
+
+  phone: string;
+  phoneCopy: string;
+
+  email: string;
+  emailCopy: string;
+
+  date: string;
+  dateCopy: string;
+
+  familynameCopy: string;
+  firstnameCopy: string;
+
+  firstname: string;
+  familyname: string;
+
+  age: number;
+  ageCopy: number;
+
+  shortDescription: string;
+  shortDescriptionCopy: string;
+
+  photo: any;
+  photoCopy: any;
+
+  tableSkills: any;
+  tableSkillsCopy: any;
+
+  tableQualities: any;
+  tableQualitiesCopy: any;
+
+  formations: Array<{title:string, formation:string}>;
+  formationsCopy: Array<{title:string, formation:string}> = [];
 
   diplomes: Array<{title:string, diplome:string}>;
-  formations: Array<{title:string, formation:string}>;
-  experiences: Array<{title:string, experience:string, dateDebut:string, dateFin:string, period:string}>;
+  diplomesCopy: Array<{title:string, diplome:string}> = [];
 
-  constructor(public navCtrl: NavController, private navParams: NavParams, public modalCtrl: ModalController) {
-	  this.loadData();
-    this.diplomes= [];
-    this.formations= [];
-    this.experiences= [];
+  experiences: Array<{title:string, experience:string, dateDebut:string, dateFin:string, period:string}>;
+  experiencesCopy: Array<{title:string, experience:string, dateDebut:string, dateFin:string, period:string}>;
+
+
+  test: any;
+  string1: string = "blablabla";
+
+
+  constructor(public navCtrl: NavController, private navParams: NavParams, public modalCtrl: ModalController, private provider:MainProvider) {
+	  this.getAll();
+
+    //this.test = this.provider.get();
+    console.log(this.test);
   }
 
 
   addDiplome(){
-    if (this.diplomes.length == 0){
+    if (this.diplomes == undefined){
+      this.diplomes = [];
       this.diplomes.push({title: "newDiplome", diplome: ""});
-      console.log(this.diplomes);
-      console.log(this.diplomes.length);
+    }
+    else if (this.diplomes.length == 0){
+    this.diplomes.push({title: "newDiplome1", diplome: ""});
     }
 
     if (this.diplomes[this.diplomes.length - 1].diplome != ""){
       this.diplomes.push({title: "newDiplome1", diplome:""});
-      console.log(this.diplomes);
     }
-
-    console.log(this.diplomes);
   }
 
   addFormation(){
-    if (this.formations.length == 0){
+    if (this.formations == undefined){
+      this.formations = [];
       this.formations.push({title: "newFormation", formation: ""});
-      console.log(this.formations);
-      console.log(this.formations.length);
+    } else if (this.formations.length == 0){
+    this.formations.push({title: "newFormation1", formation: ""});
     }
 
     if (this.formations[this.formations.length - 1].formation != ""){
       this.formations.push({title: "newFormation1", formation:""});
-      console.log(this.formations);
     }
-
-    console.log(this.formations);
   }
 
   addExperience(){
-    if (this.experiences.length == 0){
+    if (this.experiences == undefined){
+      this.experiences = [];
       this.experiences.push({title: "newExperience", experience: "", dateDebut: "", dateFin: "", period: ""});
-      console.log(this.experiences);
-      console.log(this.experiences.length);
+    } else if (this.experiences.length == 0){
+    this.experiences.push({title: "newExperience", experience: "", dateDebut: "", dateFin: "", period: ""});
     }
 
     if (this.experiences[this.experiences.length - 1].experience != ""){
       this.experiences.push({title: "newExperience1", experience:"", dateDebut: "", dateFin: "", period: ""});
-      console.log(this.experiences);
     }
-
-    console.log(this.experiences);
   }
 
 
@@ -102,26 +135,7 @@ export class ProfilePage {
   }
 
 
-	// Load the data and display them in the view
-	// Loading from local or from remote depending
-	// if online mode is enable or not.
-	loadData() {
-		// Local mode
-		if (!this.onlineMode) {
-			this.firstname = this.navParams.get('firstname');
-			this.familyname = this.navParams.get('familyname');
-			this.age = this.navParams.get('age');
-			this.email = this.navParams.get('email');
-			this.phone = this.navParams.get('phone');
-			this.formations = this.navParams.get('formations');
-      this.diplomes = this.navParams.get('diplomes');
-			this.skills = this.navParams.get('skills');
-			this.shortDescription = this.navParams.get('shortDescription');
-		} else {
-			// Remote mode
-			// http request
-		}
-	}
+
 
   displayCard(){
     if (!this.onlineMode) {
@@ -141,29 +155,6 @@ export class ProfilePage {
         experiences: this.experiences
       });
       viewCardModal.present();
-		} else {
-			// http request
-		}
-	}
-
-	goToEditProfile() {
-		if (!this.onlineMode) {
-			var profileObject = {
-				firstname: this.firstname,
-				familyname: this.familyname,
-				age: this.age,
-				email: this.email,
-				phone: this.phone,
-				formations: this.formations,
-				skills: this.skills,
-				shortDescription: this.shortDescription}
-
-			this.navCtrl.push(EditProfilePage, {firstname: this.firstname,
-        familyname: this.familyname,
-        age: this.age,
-        shortDescription: this.shortDescription,
-        formations: this.formations,
-        skills: this.skills});
 		} else {
 			// http request
 		}
@@ -189,7 +180,7 @@ export class ProfilePage {
   }
 
   calculatePeriods(){
-    if (this.experiences.length != 0){
+    if (this.experiences != undefined){
       for (var i=0; i<this.experiences.length; i++){
         if (this.experiences[i].dateDebut != "" && this.experiences[i].dateFin != "")
           var tabPeriod1 = this.experiences[i].dateDebut.split("-");
@@ -208,7 +199,6 @@ export class ProfilePage {
         if (this.tableSkills[i].charAt(0) != " "){
           this.tableSkills[i] = " " + this.tableSkills[i];
         }
-        console.log(this.tableSkills[i]);
       }
     }
   }
@@ -220,42 +210,101 @@ export class ProfilePage {
         if (this.tableQualities[i].charAt(0) != " "){
           this.tableQualities[i] = " " + this.tableQualities[i];
         }
-        console.log(this.tableQualities[i]);
       }
     }
   }
 
   clone(obj){
-    try{
-        var copy = JSON.parse(JSON.stringify(obj));
-    } catch(ex){
-        alert("Vous utilisez un vieux navigateur bien pourri, qui n'est pas pris en charge par ce site");
+    if (obj != undefined){
+      try{
+          var copy = JSON.parse(JSON.stringify(obj));
+      } catch(ex){
+          alert("CLONE ERROR");
+      }
     }
     return copy;
     }
 
-    // Go to profilePage
-  openProfilPage(){
-    this.navCtrl.setRoot(ProfilePage);
-  }
-
-	// Go to MessagesPages
-  openMessagesPage(){
-    this.navCtrl.setRoot(ListeConversationsPage);
-  }
 
   enregistrer(){
-    this.navCtrl.setRoot(EditProfilePage, {firstname: this.firstname,
-      familyname: this.familyname,
-      age: this.age,
-      shortDescription: this.shortDescription,
-      photo: this.photo,
-      tableSkills: this.tableSkills,
-      tableQualities: this.tableQualities,
-      formations: this.formations,
-      diplomes: this.diplomes,
-      experiences: this.experiences
-    });
+    this.setAll();
+    this.navCtrl.setRoot(RecherchePage);
   }
+
+  copy(){
+    this.firstnameCopy = this.clone(this.firstname);
+    this.familynameCopy = this.clone(this.familyname);;
+    this.dateCopy = this.clone(this.date);
+    this.ageCopy= this.clone(this.age);
+    this.emailCopy= this.clone(this.email);
+    this.phoneCopy= this.clone(this.phone);
+    this.skillsCopy = this.clone(this.skills);
+    this.tableSkillsCopy = this.clone(this.tableSkills);
+    this.shortDescriptionCopy = this.clone(this.shortDescription);
+    this.photoCopy = this.clone(this.photo);
+    this.qualitiesCopy= this.clone(this.qualities);
+    this.tableQualitiesCopy= this.clone(this.tableQualities);
+    this.debutExperienceCopy= this.clone(this.debutExperience);
+    this.finExperienceCopy= this.clone(this.finExperience);
+    this.experiencesCopy = this.clone(this.experiences);
+    this.diplomesCopy = this.clone(this.diplomes);
+    this.formationsCopy = this.clone(this.formations);
+  }
+
+  setAll(){
+    this.provider.set_firstname(this.firstname);
+    this.provider.set_familyname(this.familyname);
+    this.provider.set_date(this.date);
+    this.provider.set_age(this.age);
+    this.provider.set_email(this.email);
+    this.provider.set_phone(this.phone);
+    this.provider.set_skills(this.skills);
+    this.provider.set_tableSkills(this.tableSkills);
+    this.provider.set_shortDescription(this.shortDescription);
+    this.provider.set_photo(this.photo);
+    this.provider.set_qualities(this.qualities);
+    this.provider.set_tableQualities(this.tableQualities);
+    this.provider.set_debutExperience(this.finExperience);
+    this.provider.set_finExperience(this.finExperience);
+    this.provider.set_experiences(this.experiences);
+    this.provider.set_diplomes(this.diplomes);
+    this.provider.set_formations(this.formations);
+  }
+
+  getAll() {
+		// Local mode
+		if (!this.onlineMode) {
+      this.firstname = this.provider.get_firstname();
+      this.familyname = this.provider.get_familyname();
+      this.date = this.provider.get_date();
+      this.age = this.provider.get_age();
+      this.email = this.provider.get_email();
+      this.phone = this.provider.get_phone();
+      this.photo = this.provider.get_photo();
+      this.shortDescription = this.provider.get_shortDescription();
+      this.skills = this.provider.get_skills();
+      this.tableSkills = this.provider.get_tableSkills();
+      this.qualities = this.provider.get_qualities();
+      this.tableQualities = this.provider.get_tableQualities();
+      this.formations = this.provider.get_formations();
+      this.diplomes = this.provider.get_diplomes();
+      this.experiences = this.provider.get_experiences();
+      this.debutExperience = this.provider.get_debutExperience();
+      this.finExperience = this.provider.get_finExperience();
+      this.copy();
+
+
+      /*this.tableSkillsCopy = this.navParams.get('tableSkills');
+
+
+      this.shortDescriptionCopy = this.navParams.get('shortDescription');
+
+
+      this.experiencesCopy = this.navParams.get('experiences');*/
+		} else {
+			// Remote mode
+			// http request
+		}
+	}
 
 }
