@@ -77,6 +77,7 @@ export class SubPage {
     console.log(profile.picture.data.url);
     console.log(profile.timezone);
     console.log(credentialInfo.accessToken);
+    console.log(credentialInfo.accessToken);
 
 
 
