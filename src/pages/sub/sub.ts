@@ -31,7 +31,7 @@ export interface ProfileObject {
 export class SubPage {
 
   scopes: ['r_basicprofile', 'r_emailaddress', 'rw_company_admin', 'w_share'];
-  obj: ProfileObject;
+  /*obj: ProfileObject;*/
   
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
