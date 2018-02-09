@@ -40,10 +40,7 @@ export const test = 'hello.php'
   templateUrl: 'app.html'
 })
 
-export interface ProfileObject {
-   name: string;
-   email: string
-}
+
 
 export class MyApp {
 
