@@ -34,21 +34,25 @@
 
 <ion-content padding>
 
+  <div *ngFor="let o of mesOffres; let i of index">
+
     <ion-card class="cards">
 
     <ion-item class="items-header-cards">
-      <ion-avatar item-start>
-        <img src="https://images.fineartamerica.com/images-medium-large-5/marty-mcfly-paul-tagliamonte.jpg">
-      </ion-avatar>
-      <h2>{{firstname}} {{familyname}} - {{age}} ans</h2>
+      <ion-col>
+        <h2 class="big-title"> Recherche : </h2>
+        <h3 text-right> Toulouse </h3>
+      </ion-col>
+        <h3 class="medium-title">{{o.title}}</h3>
+
     </ion-item>
 
     <ion-card-content>
-      <p text-left> {{shortDescription}} </p>
+      <p text-left> {{o.description}} </p>
       <ion-row>
         <ion-col class="text-col-left">
           <p text-left><Strong class="titres"> Formation</Strong></p>
-          <div *ngFor="let f of formations">
+          <div *ngFor="let f of o.formations">
             <p text-left class="description">
               - {{f.formation}}
             </p>
@@ -56,7 +60,7 @@
         </ion-col>
         <ion-col class="text-col-right">
           <p text-left><Strong class="titres"> Expériences </Strong></p>
-          <div *ngFor="let e of experiences">
+          <div *ngFor="let e of o.experiences">
             <p text-left class="description">
               -{{e.experience}} (<strong>{{e.period}} mois</strong>)
             </p>
@@ -66,7 +70,7 @@
       <ion-row>
         <ion-col class="text-col-left">
           <p text-left><Strong class="titres"> Compétences </Strong></p>
-          <div *ngFor="let s of tableSkills">
+          <div *ngFor="let s of o.tableSkills">
             <p text-left class="description">
               -{{s}}
             </p>
@@ -75,7 +79,7 @@
         </ion-col>
         <ion-col class="text-col-right">
           <p text-left><Strong class="titres"> Qualités </Strong></p>
-          <div *ngFor="let q of tableQualities">
+          <div *ngFor="let q of o.tableQualities">
             <p text-left class="description">
               -{{q}}
             </p>
@@ -83,7 +87,76 @@
         </ion-col>
       </ion-row>
     </ion-card-content>
+
   </ion-card>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <div>
+
+    <ion-card class="cards">
+
+    <ion-item class="items-header-cards">
+
+      <h2 class="big-title"> Recherche : </h2>
+      <h2>Développeur full-stack initié</h2>
+      <p><strong> CDI - Toulouse </strong></p>
+
+    </ion-item>
+
+    <ion-card-content>
+      <p text-left></p>
+      <ion-row>
+        <ion-col class="text-col-left">
+          <p text-left><Strong class="titres"> Formation</Strong></p>
+          <div>
+            <p text-left class="description">
+
+            </p>
+          </div>
+        </ion-col>
+        <ion-col class="text-col-right">
+          <p text-left><Strong class="titres"> Expériences </Strong></p>
+          <div>
+            <p text-left class="description">
+
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="text-col-left">
+          <p text-left><Strong class="titres"> Compétences </Strong></p>
+          <div>
+            <p text-left class="description">
+
+            </p>
+          </div>
+
+        </ion-col>
+        <ion-col class="text-col-right">
+          <p text-left><Strong class="titres"> Qualités </Strong></p>
+          <div>
+            <p text-left class="description">
+
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+
+  </ion-card>
+
+  </div>
 
 
 

@@ -19,8 +19,8 @@ page-mes-offres {
     background: #F2F0F0;
     text-align: center;
     border-radius: 10px;
-    padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+    margin-left: 0px;
+    padding-left: 0px;
     width: 100%;
   }
 
@@ -65,6 +65,21 @@ page-mes-offres {
 
   .description{
     font-size: 11px;
+  }
+
+  .big-title{
+    font-weight: bold;
+    color: #696969;
+  }
+
+  .medium-title{
+    font-weight: bold;
+    margin-left: 5px;
+  }
+
+  .medium-gray-title{
+    font-weight: bold;
+    color: #696969;
   }
 
 }

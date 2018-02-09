@@ -1,18 +1,714 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Congossa
-    </ion-title>
-  </ion-navbar>
+  <ion-toolbar id="Toolbar" color="orange" end>
+
+
+    <button id="BoutonMenu" ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title id="Title">Home</ion-title>
+
+    <ion-buttons end>
+
+      <button ion-button id="boutonImg" clear small icon-only (click)="openProfilPage()">
+        <img id="image" src="https://pbs.twimg.com/profile_images/662333810185543680/0NdNCnYu_400x400.jpg" />
+      </button>
+
+
+      <button id="BoutonMessage" ion-button icon-only (click)="openMessagesPage()">
+        <ion-icon name="text"></ion-icon>
+      </button>
+
+    </ion-buttons>
+
+  </ion-toolbar>
+
 </ion-header>
 
+
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-  
-  <button ion-button (click)='reactionClicBouton();'>J'offre</button>
-  <button ion-button>J'achète</button>
-  <button ion-button (click)="glogin()" >Google Login</button>
+
+
+
+  <ion-card class="cards" (click)="displayProfil()">
+
+  <ion-item class="items-header-cards">
+    <ion-avatar item-start>
+      <img src="https://images.fineartamerica.com/images-medium-large-5/marty-mcfly-paul-tagliamonte.jpg">
+    </ion-avatar>
+    <h2>Marty McFly - 22ans</h2>
+    <p><strong> Stage de 6 mois - Toulouse </strong></p>
+    <p>  Développement Java </p>
+  </ion-item>
+
+  <ion-card-content>
+    <p text-left> Esprit vif, dynamique et motivé, capacité à mener un projet seul ou en équipe </p>
+    <ion-row>
+      <ion-col class="text-col-left">
+        <p text-left><Strong class="titres"> Formation</Strong></p>
+        <p text-left class="description">
+          - ENSEEIHT Informatique
+        </p>
+        <p text-left class="description">
+          - Option logiciel
+        </p>
+        <p text-left class="description">
+          - Thèse Cloud & Big Data
+        </p>
+      </ion-col>
+      <ion-col class="text-col-right">
+        <p text-left><Strong class="titres"> Experience</Strong></p>
+        <p text-left class="description">
+          - Développement d'un jeu vidéo en Java
+        </p>
+        <p text-left class="description">
+          - Plusieurs projets de groupe
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="text-col-left">
+        <p text-left><Strong class="titres"> Compétences </Strong></p>
+        <p text-left class="description">
+          - Java
+        </p>
+        <p text-left class="description">
+          - Servlet
+        </p>
+        <p text-left class="description">
+          - Gestion projet méthode agile
+        </p>
+        <p text-left class="description">
+          - Éclipse
+        </p>
+        <p text-left class="description">
+          - C++
+        </p>
+      </ion-col>
+      <ion-col class="text-col-right">
+        <p text-left><Strong class="titres"> Qualités </Strong></p>
+        <p text-left class="description">
+          - Auto-didacte
+        </p>
+        <p text-left class="description">
+          - Persévérant
+        </p>
+        <p text-left class="description">
+          - Grandes facultés d'adaptation
+        </p>
+        <p text-left class="description">
+          - Efficace et rapide
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+
+  </ion-card>
+
+  <ion-row>
+    <ion-col>
+    <ion-card class="under-cards-buttons-left">
+      <button ion-button class="buttons" icon-left color="orange" clear>
+        <ion-icon name="text" color="orange"></ion-icon>
+        <div><span text-color="orange">Contacter</span></div>
+      </button>
+    </ion-card>
+    </ion-col>
+    <ion-col>
+    <ion-card class="under-cards-buttons-right">
+      <button ion-button class="buttons" icon-left color="orange" clear>
+        <ion-icon name="star" color="orange"></ion-icon>
+        <div>Enregistrer</div>
+      </button>
+    </ion-card>
+    </ion-col>
+  </ion-row>
+
+
+
+
+  <ion-card class="cards" (click)="displayProfil()">
+
+  <ion-item class="items-header-cards">
+    <ion-avatar item-start>
+      <img src="https://images.fineartamerica.com/images-medium-large-5/marty-mcfly-paul-tagliamonte.jpg">
+    </ion-avatar>
+    <h2>Marty McFly - 22ans</h2>
+    <p><strong> Stage de 6 mois - Toulouse </strong></p>
+    <p>  Développement Java </p>
+  </ion-item>
+
+  <ion-card-content>
+    <p text-left> Esprit vif, dynamique et motivé, capacité à mener un projet seul ou en équipe </p>
+    <ion-row>
+      <ion-col class="text-col-left">
+        <p text-left><Strong class="titres"> Formation</Strong></p>
+        <p text-left class="description">
+          - ENSEEIHT Informatique
+        </p>
+        <p text-left class="description">
+          - Option logiciel
+        </p>
+        <p text-left class="description">
+          - Thèse Cloud & Big Data
+        </p>
+      </ion-col>
+      <ion-col class="text-col-right">
+        <p text-left><Strong class="titres"> Experience</Strong></p>
+        <p text-left class="description">
+          - Développement d'un jeu vidéo en Java
+        </p>
+        <p text-left class="description">
+          - Plusieurs projets de groupe
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="text-col-left">
+        <p text-left><Strong class="titres"> Compétences </Strong></p>
+        <p text-left class="description">
+          - Java
+        </p>
+        <p text-left class="description">
+          - Servlet
+        </p>
+        <p text-left class="description">
+          - Gestion projet méthode agile
+        </p>
+        <p text-left class="description">
+          - Éclipse
+        </p>
+        <p text-left class="description">
+          - C++
+        </p>
+      </ion-col>
+      <ion-col class="text-col-right">
+        <p text-left><Strong class="titres"> Qualités </Strong></p>
+        <p text-left class="description">
+          - Auto-didacte
+        </p>
+        <p text-left class="description">
+          - Persévérant
+        </p>
+        <p text-left class="description">
+          - Grandes facultés d'adaptation
+        </p>
+        <p text-left class="description">
+          - Efficace et rapide
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+
+  </ion-card>
+
+  <ion-row>
+    <ion-col>
+    <ion-card class="under-cards-buttons-left">
+      <button ion-button class="buttons" icon-left color="orange" clear>
+        <ion-icon name="text" color="orange"></ion-icon>
+        <div><span text-color="orange">Contacter</span></div>
+      </button>
+    </ion-card>
+    </ion-col>
+    <ion-col>
+    <ion-card class="under-cards-buttons-right">
+      <button ion-button class="buttons" icon-left color="orange" clear>
+        <ion-icon name="star" color="orange"></ion-icon>
+        <div>Enregistrer</div>
+      </button>
+    </ion-card>
+    </ion-col>
+  </ion-row>
+
+
+
+
+  <ion-card class="cards" (click)="displayProfil()">
+
+  <ion-item class="items-header-cards">
+    <ion-avatar item-start>
+      <img src="https://images.fineartamerica.com/images-medium-large-5/marty-mcfly-paul-tagliamonte.jpg">
+    </ion-avatar>
+    <h2>Marty McFly - 22ans</h2>
+    <p><strong> Stage de 6 mois - Toulouse </strong></p>
+    <p>  Développement Java </p>
+  </ion-item>
+
+  <ion-card-content>
+    <p text-left> Esprit vif, dynamique et motivé, capacité à mener un projet seul ou en équipe </p>
+    <ion-row>
+      <ion-col class="text-col-left">
+        <p text-left><Strong class="titres"> Formation</Strong></p>
+        <p text-left class="description">
+          - ENSEEIHT Informatique
+        </p>
+        <p text-left class="description">
+          - Option logiciel
+        </p>
+        <p text-left class="description">
+          - Thèse Cloud & Big Data
+        </p>
+      </ion-col>
+      <ion-col class="text-col-right">
+        <p text-left><Strong class="titres"> Experience</Strong></p>
+        <p text-left class="description">
+          - Développement d'un jeu vidéo en Java
+        </p>
+        <p text-left class="description">
+          - Plusieurs projets de groupe
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="text-col-left">
+        <p text-left><Strong class="titres"> Compétences </Strong></p>
+        <p text-left class="description">
+          - Java
+        </p>
+        <p text-left class="description">
+          - Servlet
+        </p>
+        <p text-left class="description">
+          - Gestion projet méthode agile
+        </p>
+        <p text-left class="description">
+          - Éclipse
+        </p>
+        <p text-left class="description">
+          - C++
+        </p>
+      </ion-col>
+      <ion-col class="text-col-right">
+        <p text-left><Strong class="titres"> Qualités </Strong></p>
+        <p text-left class="description">
+          - Auto-didacte
+        </p>
+        <p text-left class="description">
+          - Persévérant
+        </p>
+        <p text-left class="description">
+          - Grandes facultés d'adaptation
+        </p>
+        <p text-left class="description">
+          - Efficace et rapide
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+
+  </ion-card>
+
+  <ion-row>
+    <ion-col>
+    <ion-card class="under-cards-buttons-left">
+      <button ion-button class="buttons" icon-left color="orange" clear>
+        <ion-icon name="text" color="orange"></ion-icon>
+        <div><span text-color="orange">Contacter</span></div>
+      </button>
+    </ion-card>
+    </ion-col>
+    <ion-col>
+    <ion-card class="under-cards-buttons-right">
+      <button ion-button class="buttons" icon-left color="orange" clear>
+        <ion-icon name="star" color="orange"></ion-icon>
+        <div>Enregistrer</div>
+      </button>
+    </ion-card>
+    </ion-col>
+  </ion-row>
+
+
+
+
+
+  <ion-card class="cards" (click)="displayProfil()">
+
+  <ion-item class="items-header-cards">
+    <ion-avatar item-start>
+      <img src="https://images.fineartamerica.com/images-medium-large-5/marty-mcfly-paul-tagliamonte.jpg">
+    </ion-avatar>
+    <h2>Marty McFly - 22ans</h2>
+    <p><strong> Stage de 6 mois - Toulouse </strong></p>
+    <p>  Développement Java </p>
+  </ion-item>
+
+  <ion-card-content>
+    <p text-left> Esprit vif, dynamique et motivé, capacité à mener un projet seul ou en équipe </p>
+    <ion-row>
+      <ion-col class="text-col-left">
+        <p text-left><Strong class="titres"> Formation</Strong></p>
+        <p text-left class="description">
+          - ENSEEIHT Informatique
+        </p>
+        <p text-left class="description">
+          - Option logiciel
+        </p>
+        <p text-left class="description">
+          - Thèse Cloud & Big Data
+        </p>
+      </ion-col>
+      <ion-col class="text-col-right">
+        <p text-left><Strong class="titres"> Experience</Strong></p>
+        <p text-left class="description">
+          - Développement d'un jeu vidéo en Java
+        </p>
+        <p text-left class="description">
+          - Plusieurs projets de groupe
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="text-col-left">
+        <p text-left><Strong class="titres"> Compétences </Strong></p>
+        <p text-left class="description">
+          - Java
+        </p>
+        <p text-left class="description">
+          - Servlet
+        </p>
+        <p text-left class="description">
+          - Gestion projet méthode agile
+        </p>
+        <p text-left class="description">
+          - Éclipse
+        </p>
+        <p text-left class="description">
+          - C++
+        </p>
+      </ion-col>
+      <ion-col class="text-col-right">
+        <p text-left><Strong class="titres"> Qualités </Strong></p>
+        <p text-left class="description">
+          - Auto-didacte
+        </p>
+        <p text-left class="description">
+          - Persévérant
+        </p>
+        <p text-left class="description">
+          - Grandes facultés d'adaptation
+        </p>
+        <p text-left class="description">
+          - Efficace et rapide
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+
+  </ion-card>
+
+  <ion-row>
+    <ion-col>
+    <ion-card class="under-cards-buttons-left">
+      <button ion-button class="buttons" icon-left color="orange" clear>
+        <ion-icon name="text" color="orange"></ion-icon>
+        <div><span text-color="orange">Contacter</span></div>
+      </button>
+    </ion-card>
+    </ion-col>
+    <ion-col>
+    <ion-card class="under-cards-buttons-right">
+      <button ion-button class="buttons" icon-left color="orange" clear>
+        <ion-icon name="star" color="orange"></ion-icon>
+        <div>Enregistrer</div>
+      </button>
+    </ion-card>
+    </ion-col>
+  </ion-row>
+
+
+
+
+
+  <ion-card class="cards" (click)="displayProfil()">
+
+  <ion-item class="items-header-cards">
+    <ion-avatar item-start>
+      <img src="https://images.fineartamerica.com/images-medium-large-5/marty-mcfly-paul-tagliamonte.jpg">
+    </ion-avatar>
+    <h2>Marty McFly - 22ans</h2>
+    <p><strong> Stage de 6 mois - Toulouse </strong></p>
+    <p>  Développement Java </p>
+  </ion-item>
+
+  <ion-card-content>
+    <p text-left> Esprit vif, dynamique et motivé, capacité à mener un projet seul ou en équipe </p>
+    <ion-row>
+      <ion-col class="text-col-left">
+        <p text-left><Strong class="titres"> Formation</Strong></p>
+        <p text-left class="description">
+          - ENSEEIHT Informatique
+        </p>
+        <p text-left class="description">
+          - Option logiciel
+        </p>
+        <p text-left class="description">
+          - Thèse Cloud & Big Data
+        </p>
+      </ion-col>
+      <ion-col class="text-col-right">
+        <p text-left><Strong class="titres"> Experience</Strong></p>
+        <p text-left class="description">
+          - Développement d'un jeu vidéo en Java
+        </p>
+        <p text-left class="description">
+          - Plusieurs projets de groupe
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="text-col-left">
+        <p text-left><Strong class="titres"> Compétences </Strong></p>
+        <p text-left class="description">
+          - Java
+        </p>
+        <p text-left class="description">
+          - Servlet
+        </p>
+        <p text-left class="description">
+          - Gestion projet méthode agile
+        </p>
+        <p text-left class="description">
+          - Éclipse
+        </p>
+        <p text-left class="description">
+          - C++
+        </p>
+      </ion-col>
+      <ion-col class="text-col-right">
+        <p text-left><Strong class="titres"> Qualités </Strong></p>
+        <p text-left class="description">
+          - Auto-didacte
+        </p>
+        <p text-left class="description">
+          - Persévérant
+        </p>
+        <p text-left class="description">
+          - Grandes facultés d'adaptation
+        </p>
+        <p text-left class="description">
+          - Efficace et rapide
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+
+  </ion-card>
+
+  <ion-row>
+    <ion-col>
+    <ion-card class="under-cards-buttons-left">
+      <button ion-button class="buttons" icon-left color="orange" clear>
+        <ion-icon name="text" color="orange"></ion-icon>
+        <div><span text-color="orange">Contacter</span></div>
+      </button>
+    </ion-card>
+    </ion-col>
+    <ion-col>
+    <ion-card class="under-cards-buttons-right">
+      <button ion-button class="buttons" icon-left color="orange" clear>
+        <ion-icon name="star" color="orange"></ion-icon>
+        <div>Enregistrer</div>
+      </button>
+    </ion-card>
+    </ion-col>
+  </ion-row>
+
+
+
+
+
+  <ion-card class="cards" (click)="displayProfil()">
+
+  <ion-item class="items-header-cards">
+    <ion-avatar item-start>
+      <img src="https://images.fineartamerica.com/images-medium-large-5/marty-mcfly-paul-tagliamonte.jpg">
+    </ion-avatar>
+    <h2>Marty McFly - 22ans</h2>
+    <p><strong> Stage de 6 mois - Toulouse </strong></p>
+    <p>  Développement Java </p>
+  </ion-item>
+
+  <ion-card-content>
+    <p text-left> Esprit vif, dynamique et motivé, capacité à mener un projet seul ou en équipe </p>
+    <ion-row>
+      <ion-col class="text-col-left">
+        <p text-left><Strong class="titres"> Formation</Strong></p>
+        <p text-left class="description">
+          - ENSEEIHT Informatique
+        </p>
+        <p text-left class="description">
+          - Option logiciel
+        </p>
+        <p text-left class="description">
+          - Thèse Cloud & Big Data
+        </p>
+      </ion-col>
+      <ion-col class="text-col-right">
+        <p text-left><Strong class="titres"> Experience</Strong></p>
+        <p text-left class="description">
+          - Développement d'un jeu vidéo en Java
+        </p>
+        <p text-left class="description">
+          - Plusieurs projets de groupe
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="text-col-left">
+        <p text-left><Strong class="titres"> Compétences </Strong></p>
+        <p text-left class="description">
+          - Java
+        </p>
+        <p text-left class="description">
+          - Servlet
+        </p>
+        <p text-left class="description">
+          - Gestion projet méthode agile
+        </p>
+        <p text-left class="description">
+          - Éclipse
+        </p>
+        <p text-left class="description">
+          - C++
+        </p>
+      </ion-col>
+      <ion-col class="text-col-right">
+        <p text-left><Strong class="titres"> Qualités </Strong></p>
+        <p text-left class="description">
+          - Auto-didacte
+        </p>
+        <p text-left class="description">
+          - Persévérant
+        </p>
+        <p text-left class="description">
+          - Grandes facultés d'adaptation
+        </p>
+        <p text-left class="description">
+          - Efficace et rapide
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+
+  </ion-card>
+
+  <ion-row>
+    <ion-col>
+    <ion-card class="under-cards-buttons-left">
+      <button ion-button class="buttons" icon-left color="orange" clear>
+        <ion-icon name="text" color="orange"></ion-icon>
+        <div><span text-color="orange">Contacter</span></div>
+      </button>
+    </ion-card>
+    </ion-col>
+    <ion-col>
+    <ion-card class="under-cards-buttons-right">
+      <button ion-button class="buttons" icon-left color="orange" clear>
+        <ion-icon name="star" color="orange"></ion-icon>
+        <div>Enregistrer</div>
+      </button>
+    </ion-card>
+    </ion-col>
+  </ion-row>
+
+
+
+
+  <ion-card class="cards" (click)="displayProfil()">
+
+  <ion-item class="items-header-cards">
+    <ion-avatar item-start>
+      <img src="https://images.fineartamerica.com/images-medium-large-5/marty-mcfly-paul-tagliamonte.jpg">
+    </ion-avatar>
+    <h2>Marty McFly - 22ans</h2>
+    <p><strong> Stage de 6 mois - Toulouse </strong></p>
+    <p>  Développement Java </p>
+  </ion-item>
+
+  <ion-card-content>
+    <p text-left> Esprit vif, dynamique et motivé, capacité à mener un projet seul ou en équipe </p>
+    <ion-row>
+      <ion-col class="text-col-left">
+        <p text-left><Strong class="titres"> Formation</Strong></p>
+        <p text-left class="description">
+          - ENSEEIHT Informatique
+        </p>
+        <p text-left class="description">
+          - Option logiciel
+        </p>
+        <p text-left class="description">
+          - Thèse Cloud & Big Data
+        </p>
+      </ion-col>
+      <ion-col class="text-col-right">
+        <p text-left><Strong class="titres"> Experience</Strong></p>
+        <p text-left class="description">
+          - Développement d'un jeu vidéo en Java
+        </p>
+        <p text-left class="description">
+          - Plusieurs projets de groupe
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="text-col-left">
+        <p text-left><Strong class="titres"> Compétences </Strong></p>
+        <p text-left class="description">
+          - Java
+        </p>
+        <p text-left class="description">
+          - Servlet
+        </p>
+        <p text-left class="description">
+          - Gestion projet méthode agile
+        </p>
+        <p text-left class="description">
+          - Éclipse
+        </p>
+        <p text-left class="description">
+          - C++
+        </p>
+      </ion-col>
+      <ion-col class="text-col-right">
+        <p text-left><Strong class="titres"> Qualités </Strong></p>
+        <p text-left class="description">
+          - Auto-didacte
+        </p>
+        <p text-left class="description">
+          - Persévérant
+        </p>
+        <p text-left class="description">
+          - Grandes facultés d'adaptation
+        </p>
+        <p text-left class="description">
+          - Efficace et rapide
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+
+  </ion-card>
+
+  <ion-row>
+    <ion-col>
+    <ion-card class="under-cards-buttons-left">
+      <button ion-button class="buttons" icon-left color="orange" clear>
+        <ion-icon name="text" color="orange"></ion-icon>
+        <div><span text-color="orange">Contacter</span></div>
+      </button>
+    </ion-card>
+    </ion-col>
+    <ion-col>
+    <ion-card class="under-cards-buttons-right">
+      <button ion-button class="buttons" icon-left color="orange" clear>
+        <ion-icon name="star" color="orange"></ion-icon>
+        <div>Enregistrer</div>
+      </button>
+    </ion-card>
+    </ion-col>
+  </ion-row>
+
+
+
 </ion-content>

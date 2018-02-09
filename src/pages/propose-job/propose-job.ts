@@ -75,6 +75,8 @@ export class ProposeJobPage {
   experiences: Array<{title:string, experience:string, dateDebut:string, dateFin:string, period:string}>;
   experiencesCopy: Array<{title:string, experience:string, dateDebut:string, dateFin:string, period:string}>;
 
+  title : string;
+
 
 
   categorie: string = "Catégorie";
@@ -87,30 +89,30 @@ export class ProposeJobPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private provider:MainProvider) {
-    this.loadData();
+    this.getAll();
     //this.provider.set("toto");
     //this.test = this.provider.get();
     console.log(this.test);
   }
 
-  loadData(){
-    this.firstname = this.navParams.get("firstname");
-    this.familyname = this.navParams.get("familyname");
-    this.date = this.navParams.get("date");
-    this.age = this.navParams.get("age");
-    this.email = this.navParams.get("email");
-    this.phone = this.navParams.get("phone");
-    this.photo = this.navParams.get("photo");
-    this.shortDescription = this.navParams.get("shortDescription");
-    this.skills = this.navParams.get("skills");
-    this.tableSkills = this.navParams.get("tableSkills");
-    this.qualities = this.navParams.get("qualities");
-    this.tableQualities = this.navParams.get("tableQualities");
-    this.formations = this.navParams.get("formations");
-    this.diplomes = this.navParams.get("diplomes");
-    this.experiences = this.navParams.get("experiences");
-    this.debutExperience = this.navParams.get("debutExperience");
-    this.finExperience = this.navParams.get("finExperience");
+  getAll(){
+    this.firstname = this.provider.get_firstname();
+    this.familyname = this.provider.get_familyname();
+    this.date = this.provider.get_date();
+    this.age = this.provider.get_age();
+    this.email = this.provider.get_email();
+    this.phone = this.provider.get_phone();
+    this.photo = this.provider.get_photo();
+    this.shortDescription = this.provider.get_shortDescription();
+    this.skills = this.provider.get_skills();
+    this.tableSkills = this.provider.get_tableSkills();
+    this.qualities = this.provider.get_qualities();
+    this.tableQualities = this.provider.get_tableQualities();
+    this.formations = this.provider.get_formations();
+    this.diplomes = this.provider.get_diplomes();
+    this.experiences = this.provider.get_experiences();
+    this.debutExperience = this.provider.get_debutExperience();
+    this.finExperience = this.provider.get_finExperience();
     this.copy();
   }
 
@@ -167,7 +169,7 @@ export class ProposeJobPage {
 
     createOffre(){
       this.offre = {
-        firstname: this.firstnameCopy,
+        firstname: this.firstname,
         familyname: this.familynameCopy,
         date: this.dateCopy,
         age: this.ageCopy,
@@ -183,7 +185,8 @@ export class ProposeJobPage {
         diplomes: this.diplomesCopy,
         experiences: this.experiencesCopy,
         debutExperience: this.debutExperienceCopy,
-        finExperience: this.finExperienceCopy
+        finExperience: this.finExperienceCopy,
+        title: this.title
       }
     }
 

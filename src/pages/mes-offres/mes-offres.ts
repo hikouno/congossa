@@ -22,14 +22,47 @@ export class MesOffresPage {
 
   mesOffres: any;
 
+
+
+
+  qualities: string;
+
+  skills: string;
+
+  phone: string;
+
+  email: string;
+
+  date: string;
+
+  familynameCopy: string;
+
+  firstname: string;
+
+  age: number;
+
+  shortDescription: string;
+
+  photo: any;
+
+  tableSkills: any;
+
+  tableQualities: any;
+
+  formations: Array<{title:string, formation:string}>;
+
+  diplomes: Array<{title:string, diplome:string}>;
+
+  experiences: Array<{title:string, experience:string, dateDebut:string, dateFin:string, period:string}>;
+
+
+
+  categorie: string = "Catégorie";
+  typeOfJob: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider) {
     this.mesOffres = this.provider.get_mesOffres()
-    console.log("Mes Offres:")
-    console.log(this.mesOffres);
-  }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MesOffresPage');
   }
 
    // Go to profilePage
@@ -42,4 +75,8 @@ export class MesOffresPage {
     this.navCtrl.setRoot(ListeConversationsPage);
   }
 
+  allocateData(){
+    this.qualities = this.mesOffres[0].qualities;
+    this.shortDescription = this.mesOffres[0].shortDescription;
+  }
 }

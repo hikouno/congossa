@@ -1,14 +1,5 @@
 page-mes-demandes {
 
-#avatar{
-    background-color: rgb(210, 120, 60);
-  }
-
-
-  #profilButton{
-    margin-right: 10px;
-  }
-
   #image{
     height: 27px;
     width: 27px;
@@ -23,24 +14,56 @@ page-mes-demandes {
     margin: 0px 10px 0px 0px;
   }
 
-  #first-main-image{
-    filter: blur(0px);
-    height: 100%;
+  .cards{
+    background: #F2F0F0;
+    text-align: center;
+    border-radius: 10px;
+    margin-left: 0px;
+    padding-left: 0px;
     width: 100%;
   }
 
-  #first-main-button{
-    height: 47%;
+  .items-header-cards{
+    background: #F2F0F0;
+  }
+
+  .under-cards-buttons-left{
+    background: #F2F0F0;
+    text-align: center;
+    margin: 3px 0px 25px 0px;
     width: 100%;
-    padding: 0px 0px 0px 0px;
+    border-radius: 10px;
+  }
+
+  .under-cards-buttons-right{
+    background: #F2F0F0;
+    text-align: center;
+    margin: 3px 0px 25px 0px;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .titres{
+    text-align: left;
+    color: #696969;
+  }
+
+  .buttons{
+    width: 100%;
+  }
+
+  .text-col-left{
+    padding: 10px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
   }
 
-  #second-main-button{
-    height: 47%;
-    width: 100%;
-    padding: 0px 0px 0px 0px;
-    margin: 15px 0px 0px 0px;
+  .text-col-right{
+    padding: 10px 8px 0px 0px;
+    margin: 0px -20px 0px 10px;
+  }
+
+  .description{
+    font-size: 11px;
   }
 
 }

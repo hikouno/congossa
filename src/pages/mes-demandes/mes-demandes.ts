@@ -21,10 +21,43 @@ export class MesDemandesPage {
 
   mesDemandes : any;
 
+
+  qualities: string;
+
+  skills: string;
+
+  phone: string;
+
+  email: string;
+
+  date: string;
+
+  familynameCopy: string;
+
+  firstname: string;
+
+  age: number;
+
+  shortDescription: string;
+
+  photo: any;
+
+  tableSkills: any;
+
+  tableQualities: any;
+
+  formations: Array<{title:string, formation:string}>;
+
+  diplomes: Array<{title:string, diplome:string}>;
+
+  experiences: Array<{title:string, experience:string, dateDebut:string, dateFin:string, period:string}>;
+
+
+
+  categorie: string = "Catégorie";
+  typeOfJob: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider) {
     this.mesDemandes = this.provider.get_mesDemandes()
-    console.log("Mes Demandes:")
-    console.log(this.mesDemandes);
   }
 
    // Go to profilePage
