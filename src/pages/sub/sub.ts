@@ -7,6 +7,9 @@ import { LinkedIn } from '@ionic-native/linkedin';
 
 import { ProfilePage } from '../profile/profile';
 
+import {MainProvider} from "../../providers/main/main"
+
+
 import { AngularFireAuth } from 'angularfire2/auth';
 import firebase from 'firebase';
 /**
@@ -21,24 +24,21 @@ import firebase from 'firebase';
   templateUrl: 'sub.html',
 })
 
-/*
-export interface ProfileObject {
-   name: string;
-   email: string
-}*/
-
 
 export class SubPage {
 
   scopes: ['r_basicprofile', 'r_emailaddress', 'rw_company_admin', 'w_share'];
   /*obj: ProfileObject;*/
-  
+
+  public static silhouetteString: string = "Votre photo de profil représente une personne : ";
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public alertCtrl: AlertController,
               private googlePlus: GooglePlus,
               private fire: AngularFireAuth,
-              private linkedin: LinkedIn) {
+              private linkedin: LinkedIn,
+              private provider: MainProvider ) {
   }
 
   skip_login() {
@@ -63,10 +63,23 @@ export class SubPage {
   loginWithFacebook(){
     this.fire.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
     .then(res =>{
-		let object : JSON = res.additionalUserInfo;
-       console.log(object.profile.email);
-       console.log(object.profile.name);
-       console.log(res);
+		var userInfo = res.additionalUserInfo;
+    var credentialInfo = res.credential;
+    var profile = userInfo.profile;
+    console.log(res);
+    console.log(profile.email);
+    console.log(profile.first_name);
+    console.log(profile.last_name);
+    console.log(profile.gender);
+    console.log(profile.id);
+    console.log(profile.locale);   //localization
+    console.log(profile.picture.data.is_silhouette);
+    console.log(profile.picture.data.url);
+    console.log(profile.timezone);
+    console.log(credentialInfo.accessToken);
+
+
+
        /*
        this.obj.name = object.profile.name;
        this.obj.email = object.profile.email;

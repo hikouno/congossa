@@ -106,9 +106,7 @@ export class MyApp {
   logoutOfFacebook() {
     this.fire.auth.signOut();
     console.log("this.fire.auth.signOut() OK.")
-    //FirebaseAuth.getInstance().signOut();
-    console.log("FirebaseAuth.getInstance().signOut() OK");
-    //LoginManager.getInstance().logOut();
-    console.log("LoginManager.getInstance().logOut()");
+
+    this.nav.push(LoginPage);
   }
 }
