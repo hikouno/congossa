@@ -41,6 +41,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ModalViewCardPage } from "../pages/modal-view-card/modal-view-card";
 import { ListCategoriesPage } from "../pages/list-categories/list-categories";
 import { MainProvider } from "../providers/main/main";
+import { ApiProvider } from '../providers/api/api';
 
 
 var config = {
@@ -125,7 +126,8 @@ var config = {
     GooglePlus,
     LinkedIn,
     MainProvider,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ApiProvider
   ]
 })
 export class AppModule {}
