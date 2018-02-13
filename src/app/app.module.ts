@@ -41,7 +41,11 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ModalViewCardPage } from "../pages/modal-view-card/modal-view-card";
 import { ListCategoriesPage } from "../pages/list-categories/list-categories";
 import { MainProvider } from "../providers/main/main";
+<<<<<<< HEAD
 import { ChatService } from '../providers/chat/chat-service';
+=======
+import { ApiProvider } from '../providers/api/api';
+>>>>>>> 30ee3a768a98aefc929fa4e84441e99f906d707d
 
 
 var config = {
@@ -127,7 +131,11 @@ var config = {
     LinkedIn,
     MainProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+<<<<<<< HEAD
     ChatService
+=======
+    ApiProvider
+>>>>>>> 30ee3a768a98aefc929fa4e84441e99f906d707d
   ]
 })
 export class AppModule {}
