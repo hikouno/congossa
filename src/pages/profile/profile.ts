@@ -78,6 +78,9 @@ export class ProfilePage {
 
     //this.test = this.provider.get();
     console.log(this.test);
+
+    var temp = this.provider.get_firstname();
+    console.log(temp);
   }
 
 
