@@ -50,6 +50,17 @@ export class MainProvider {
   photo: any;
   photoCopy: any;
 
+  // Facebook informations
+  gender: string;
+  id : string;
+  locale :string //language
+  is_silhouette: string; //profile picture
+  url_photo: string;
+  timezone: string; //worldwide localization
+  accessToken: string;
+
+
+
   tableSkills: any;
   tableSkillsCopy: any;
 
@@ -163,6 +174,44 @@ export class MainProvider {
     return this.photo;
   }
 
+  //Facebook informations
+  set_return_gender(data){
+    this.gender = data;
+    return this.gender;
+  }
+
+  set_return_id(data){
+    this.id = data;
+    return this.id;
+  }
+
+  set_return_locale(data){
+    this.locale = data;
+    return this.locale;
+  }
+
+  set_return_is_silhouette(data){
+    this.is_silhouette = data;
+    return this.is_silhouette;
+  }
+
+  set_return_url_photo(data){
+    this.url_photo = data;
+    return this.url_photo;
+  }
+
+  set_return_timezone(data){
+    this.timezone = data;
+    return this.timezone;
+  }
+
+  set_return_accessToken(data){
+    this.accessToken = data;
+    return this.accessToken;
+  }
+
+
+
   set_return_tableSkills(data){
     this.tableSkills = data;
     return this.tableSkills;
@@ -247,6 +296,38 @@ export class MainProvider {
     this.photo = data;
   }
 
+  //Facebook informations
+  set_gender(data){
+    this.gender = data;
+  }
+
+  set_id(data){
+    this.id = data;
+  }
+
+  set_locale(data){
+    this.locale = data;
+  }
+
+  set_is_silhouette(data){
+    this.is_silhouette = data;
+  }
+
+  set_url_photo(data){
+    this.url_photo = data;
+  }
+
+  set_timezone(data){
+    this.timezone = data;
+  }
+
+  set_accessToken(data){
+    this.accessToken = data;
+  }
+
+
+
+
   set_tableSkills(data){
     this.tableSkills = data;
   }
@@ -324,6 +405,37 @@ export class MainProvider {
   get_photo(){
     return this.photo;
   }
+
+  //Facebook informations
+  get_gender(){
+    return this.gender;
+  }
+
+  get_id(){
+    return this.id;
+  }
+
+  get_locale(){
+    return this.locale ;
+  }
+
+  get_is_silhouette(){
+    return this.is_silhouette ;
+  }
+
+  get_url_photo(){
+    return this.url_photo;
+  }
+
+  get_timezone(){
+    return this.timezone ;
+  }
+
+  get_accessToken(){
+    return this.accessToken ;
+  }
+
+
 
   get_tableSkills(){
     return this.tableSkills;

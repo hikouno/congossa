@@ -66,17 +66,19 @@ export class SubPage {
 		var userInfo = res.additionalUserInfo;
     var credentialInfo = res.credential;
     var profile = userInfo.profile;
-    console.log(res);
-    console.log(profile.email);
-    console.log(profile.first_name);
-    console.log(profile.last_name);
-    console.log(profile.gender);
-    console.log(profile.id);
-    console.log(profile.locale);   //localization
-    console.log(profile.picture.data.is_silhouette);
-    console.log(profile.picture.data.url);
-    console.log(profile.timezone);
-    console.log(credentialInfo.accessToken);
+
+    //Store fb informations in the provider
+    this.provider.set_email(profile.email);
+    this.provider.set_firstname(profile.first_name);
+    this.provider.set_familyname(profile.last_name);
+    this.provider.set_gender(profile.gender);
+    this.provider.set_id(profile.id);
+    this.provider.set_locale(profile.locale);   //localization
+    this.provider.set_is_silhouette(profile.picture.data.is_silhouette);
+    this.provider.set_url_photo(profile.picture.data.url);
+    this.provider.set_timezone(profile.timezone);
+    this.provider.set_accessToken(credentialInfo.accessToken);
+
 
 
 
