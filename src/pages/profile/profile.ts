@@ -17,6 +17,8 @@ export class ProfilePage {
 
   onlineMode: boolean = false;
 
+  profile: any;
+
   finExperience: string;
   finExperienceCopy: string;
 
@@ -85,56 +87,56 @@ export class ProfilePage {
 
 
   addDiplome(){
-    if (this.diplomes == undefined){
-      this.diplomes = [];
-      this.diplomes.push({title: "newDiplome", diplome: ""});
+    if (this.profile.diplomes == undefined){
+      this.profile.diplomes = [];
+      this.profile.diplomes.push({title: "newDiplome", diplome: ""});
     }
-    else if (this.diplomes.length == 0){
-    this.diplomes.push({title: "newDiplome1", diplome: ""});
+    else if (this.profile.diplomes.length == 0){
+    this.profile.diplomes.push({title: "newDiplome1", diplome: ""});
     }
 
-    if (this.diplomes[this.diplomes.length - 1].diplome != ""){
-      this.diplomes.push({title: "newDiplome1", diplome:""});
+    if (this.profile.diplomes[this.profile.diplomes.length - 1].diplome != ""){
+      this.profile.diplomes.push({title: "newDiplome1", diplome:""});
     }
   }
 
   addFormation(){
-    if (this.formations == undefined){
-      this.formations = [];
-      this.formations.push({title: "newFormation", formation: ""});
-    } else if (this.formations.length == 0){
-    this.formations.push({title: "newFormation1", formation: ""});
+    if (this.profile.formations == undefined){
+      this.profile.formations = [];
+      this.profile.formations.push({title: "newFormation", formation: ""});
+    } else if (this.profile.formations.length == 0){
+    this.profile.formations.push({title: "newFormation1", formation: ""});
     }
 
-    if (this.formations[this.formations.length - 1].formation != ""){
-      this.formations.push({title: "newFormation1", formation:""});
+    if (this.profile.formations[this.profile.formations.length - 1].formation != ""){
+      this.profile.formations.push({title: "newFormation1", formation:""});
     }
   }
 
   addExperience(){
-    if (this.experiences == undefined){
-      this.experiences = [];
-      this.experiences.push({title: "newExperience", experience: "", dateDebut: "", dateFin: "", period: ""});
-    } else if (this.experiences.length == 0){
-    this.experiences.push({title: "newExperience", experience: "", dateDebut: "", dateFin: "", period: ""});
+    if (this.profile.experiences == undefined){
+      this.profile.experiences = [];
+      this.profile.experiences.push({title: "newExperience", experience: "", dateDebut: "", dateFin: "", period: ""});
+    } else if (this.profile.experiences.length == 0){
+    this.profile.experiences.push({title: "newExperience", experience: "", dateDebut: "", dateFin: "", period: ""});
     }
 
-    if (this.experiences[this.experiences.length - 1].experience != ""){
-      this.experiences.push({title: "newExperience1", experience:"", dateDebut: "", dateFin: "", period: ""});
+    if (this.profile.experiences[this.profile.experiences.length - 1].experience != ""){
+      this.profile.experiences.push({title: "newExperience1", experience:"", dateDebut: "", dateFin: "", period: ""});
     }
   }
 
 
   removeDiplome(i){
-    this.diplomes.splice(i, 1);
+    this.profile.diplomes.splice(i, 1);
   }
 
   removeFormation(i){
-    this.formations.splice(i, 1);
+    this.profile.formations.splice(i, 1);
   }
 
   removeExperience(i){
-    this.experiences.splice(i, 1);
+    this.profile.experiences.splice(i, 1);
   }
 
 
@@ -146,16 +148,16 @@ export class ProfilePage {
       this.organizeSkills();
       this.organizeQualities();
       this.calculatePeriods();
-      let viewCardModal = this.modalCtrl.create(ModalViewCardPage, {firstname: this.firstname,
-        familyname: this.familyname,
-        age: this.age,
-        shortDescription: this.shortDescription,
-        photo: this.photo,
-        tableSkills: this.tableSkills,
-        tableQualities: this.tableQualities,
-        formations: this.formations,
-        diplomes: this.diplomes,
-        experiences: this.experiences
+      let viewCardModal = this.modalCtrl.create(ModalViewCardPage, {firstname: this.profile.firstname,
+        familyname: this.profile.familyname,
+        age: this.profile.age,
+        shortDescription: this.profile.shortDescription,
+        photo: this.profile.photo,
+        tableSkills: this.profile.tableSkills,
+        tableQualities: this.profile.tableQualities,
+        formations: this.profile.formations,
+        diplomes: this.profile.diplomes,
+        experiences: this.profile.experiences
       });
       viewCardModal.present();
 		} else {
@@ -170,48 +172,48 @@ export class ProfilePage {
     var mm = Number(currentDate.getMonth()+1); //January is 0!
     var yyyy = Number(currentDate.getFullYear());
 
-    if (this.date != undefined){
-      var tableauDate = this.date.split("-");
+    if (this.profile.date != undefined){
+      var tableauDate = this.profile.date.split("-");
 
       if (mm < Number(tableauDate[1])){
-        this.age = yyyy - Number(tableauDate[0]) - 1;
+        this.profile.age = yyyy - Number(tableauDate[0]) - 1;
       }
       else {
-        this.age = yyyy - Number(tableauDate[0]);
+        this.profile.age = yyyy - Number(tableauDate[0]);
       }
     }
   }
 
   calculatePeriods(){
-    if (this.experiences != undefined){
-      for (var i=0; i<this.experiences.length; i++){
-        if (this.experiences[i].dateDebut != "" && this.experiences[i].dateFin != "")
-          var tabPeriod1 = this.experiences[i].dateDebut.split("-");
-          var tabPeriod2 = this.experiences[i].dateFin.split("-");
+    if (this.profile.experiences != undefined){
+      for (var i=0; i<this.profile.experiences.length; i++){
+        if (this.profile.experiences[i].dateDebut != "" && this.profile.experiences[i].dateFin != "")
+          var tabPeriod1 = this.profile.experiences[i].dateDebut.split("-");
+          var tabPeriod2 = this.profile.experiences[i].dateFin.split("-");
         var res = 12 * (Number(tabPeriod2[0]) - Number(tabPeriod1[0])) +  (Number(tabPeriod2[1]) - Number(tabPeriod1[1]));
-        this.experiences[i].period = String(res);
+        this.profile.experiences[i].period = String(res);
       }
     }
   }
 
 
   organizeSkills(){
-    if (this.skills != undefined){
-      this.tableSkills = this.skills.split(",");
-      for (var i=0; i<this.tableSkills.length; i++){
-        if (this.tableSkills[i].charAt(0) != " "){
-          this.tableSkills[i] = " " + this.tableSkills[i];
+    if (this.profile.skills != undefined){
+      this.profile.tableSkills = this.profile.skills.split(",");
+      for (var i=0; i<this.profile.tableSkills.length; i++){
+        if (this.profile.tableSkills[i].charAt(0) != " "){
+          this.profile.tableSkills[i] = " " + this.profile.tableSkills[i];
         }
       }
     }
   }
 
   organizeQualities(){
-    if (this.qualities != undefined){
-      this.tableQualities = this.qualities.split(",");
-      for (var i=0; i<this.tableQualities.length; i++){
-        if (this.tableQualities[i].charAt(0) != " "){
-          this.tableQualities[i] = " " + this.tableQualities[i];
+    if (this.profile.qualities != undefined){
+      this.profile.tableQualities = this.profile.qualities.split(",");
+      for (var i=0; i<this.profile.tableQualities.length; i++){
+        if (this.profile.tableQualities[i].charAt(0) != " "){
+          this.profile.tableQualities[i] = " " + this.profile.tableQualities[i];
         }
       }
     }
@@ -272,6 +274,8 @@ export class ProfilePage {
     this.provider.set_experiences(this.experiences);
     this.provider.set_diplomes(this.diplomes);
     this.provider.set_formations(this.formations);
+
+    this.provider.set_profile(this.profile);
   }
 
   getAll() {
@@ -294,7 +298,8 @@ export class ProfilePage {
       this.experiences = this.provider.get_experiences();
       this.debutExperience = this.provider.get_debutExperience();
       this.finExperience = this.provider.get_finExperience();
-      this.copy();
+
+      this.profile = this.provider.get_profile();
 
 
       /*this.tableSkillsCopy = this.navParams.get('tableSkills');

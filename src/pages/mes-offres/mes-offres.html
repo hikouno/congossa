@@ -101,20 +101,20 @@
 
 
 
-  <div>
+  <div *ngFor="let o of mesOffres">
 
     <ion-card class="cards">
 
     <ion-item class="items-header-cards">
 
       <h2 class="big-title"> Recherche : </h2>
-      <h2>Développeur full-stack initié p</h2>
-      <p><strong> CDI - Toulouse </strong></p>
+      <h2>{{o.title}}</h2>
+      <p><strong> {{o.typeOfJob}} - {{o.city}}</strong></p>
 
     </ion-item>
 
     <ion-card-content>
-      <p text-left></p>
+      <p text-left> {{o.description}} </p>
       <ion-row>
         <ion-col class="text-col-left">
           <p text-left><Strong class="titres"> Formation</Strong></p>
@@ -152,7 +152,30 @@
           </div>
         </ion-col>
       </ion-row>
+
+    <p text-left class="end-date"> <strong>À partir du  </strong> </p>
     </ion-card-content>
+
+    <ion-row no-padding>
+        <ion-col>
+          <button ion-button clear small color="orange" icon-start>
+            <ion-icon name='list-box'></ion-icon>
+            Résultats
+          </button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button clear small color="orange" icon-start>
+            <ion-icon name='settings'></ion-icon>
+            modifier
+          </button>
+        </ion-col>
+        <ion-col text-right>
+          <button ion-button clear small color="orange" icon-start>
+            <ion-icon name='trash'></ion-icon>
+            Supprimer
+          </button>
+        </ion-col>
+      </ion-row>
 
   </ion-card>
 

@@ -12,6 +12,7 @@ export class MainProvider {
 
   data="init data";
 
+  profile: any;
 
   finExperience: string;
   finExperienceCopy: string;
@@ -82,6 +83,25 @@ export class MainProvider {
 
   constructor(public http: HttpClient) {
     console.log('Hello MainProvider Provider');
+    if (this.profile == undefined){
+      this.profile = {firstname: "",
+                      familyname: "",
+                      age: undefined,
+                      photo: undefined,
+                      date: undefined,
+                      email: "",
+                      phone: "",
+                      shortDescription: "",
+                      formations: undefined,
+                      diplomes: undefined,
+                      experiences: undefined,
+                      tableSkills: undefined,
+                      tableQualities: undefined,
+                      qualities: "",
+                      skills: "",
+                      finExperience: undefined,
+                      debutExperience: undefined}
+    }
   }
 
 
@@ -89,6 +109,10 @@ export class MainProvider {
   //**************** SET AND RETURN ***************//
   //////////////////////////////////////////////////
 
+  set_return_profile(data){
+    this.profile = data;
+    return this.profile;
+  }
 
   set_return_finExperience(data){
     this.finExperience = data;
@@ -220,6 +244,9 @@ export class MainProvider {
   //////////////////////////////////////////////////
 
 
+  set_profile(data){
+    this.profile = data;
+  }
 
   set_finExperience(data){
     this.finExperience = data;
@@ -327,6 +354,9 @@ export class MainProvider {
   //////////////////////////////////////////////////
 
 
+  get_profile(){
+    return this.profile;
+  }
 
   get_finExperience(){
     return this.finExperience;
