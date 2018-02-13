@@ -23,6 +23,8 @@ export class ChercheJobPage {
 
   onlineMode: boolean = false;
 
+  profile: any;
+
   finExperience: string;
   finExperienceCopy: string;
 
@@ -105,7 +107,9 @@ export class ChercheJobPage {
     this.experiences = this.provider.get_experiences();
     this.debutExperience = this.provider.get_debutExperience();
     this.finExperience = this.provider.get_finExperience();
-    this.copy();
+
+    this.profile = this.provider.get_profile();
+
   }
 
   myCallbackFunction = (_params) => {
@@ -117,35 +121,30 @@ export class ChercheJobPage {
  }
 
  addExperience(){
-   if (this.experiencesCopy == undefined){
-     this.experiencesCopy = [];
-     this.experiencesCopy.push({title: "newExperience", experience: "", dateDebut: "", dateFin: "", period: ""});
-     console.log(this.experiencesCopy);
-     console.log(this.experiencesCopy.length);
-   } else if (this.experiencesCopy.length == 0){
-     this.experiencesCopy.push({title: "newExperience", experience: "", dateDebut: "", dateFin: "", period: ""});
+   if (this.profile.experiences == undefined){
+     this.profile.experiences = [];
+     this.profile.experiences.push({title: "newExperience", experience: "", dateDebut: "", dateFin: "", period: ""});
+   } else if (this.profile.experiences.length == 0){
+   this.profile.experiences.push({title: "newExperience", experience: "", dateDebut: "", dateFin: "", period: ""});
    }
 
-   if (this.experiencesCopy[this.experiencesCopy.length - 1].experience != ""){
-     this.experiencesCopy.push({title: "newExperience1", experience:"", dateDebut: "", dateFin: "", period: ""});
-     console.log(this.experiencesCopy);
+   if (this.profile.experiences[this.profile.experiences.length - 1].experience != ""){
+     this.profile.experiences.push({title: "newExperience1", experience:"", dateDebut: "", dateFin: "", period: ""});
    }
-
-   console.log(this.experiencesCopy);
  }
 
  removeExperience(i){
-   this.experiencesCopy.splice(i, 1);
+   this.profile.experiences.splice(i, 1);
  }
 
  calculatePeriods(){
-   if (this.experiences.length != 0){
-     for (var i=0; i<this.experiences.length; i++){
-       if (this.experiences[i].dateDebut != "" && this.experiences[i].dateFin != "")
-         var tabPeriod1 = this.experiences[i].dateDebut.split("-");
-         var tabPeriod2 = this.experiences[i].dateFin.split("-");
+   if (this.profile.experiences != undefined){
+     for (var i=0; i<this.profile.experiences.length; i++){
+       if (this.profile.experiences[i].dateDebut != "" && this.profile.experiences[i].dateFin != "")
+         var tabPeriod1 = this.profile.experiences[i].dateDebut.split("-");
+         var tabPeriod2 = this.profile.experiences[i].dateFin.split("-");
        var res = 12 * (Number(tabPeriod2[0]) - Number(tabPeriod1[0])) +  (Number(tabPeriod2[1]) - Number(tabPeriod1[1]));
-       this.experiences[i].period = String(res);
+       this.profile.experiences[i].period = String(res);
      }
    }
  }

@@ -21,6 +21,7 @@ import { MainProvider } from "../../providers/main/main"
   templateUrl: 'propose-job.html',
 })
 export class ProposeJobPage {
+  city: any;
 
   onlineMode: boolean = false;
 
@@ -186,7 +187,8 @@ export class ProposeJobPage {
         experiences: this.experiencesCopy,
         debutExperience: this.debutExperienceCopy,
         finExperience: this.finExperienceCopy,
-        title: this.title
+        title: this.title,
+        city: this.city
       }
     }
 
