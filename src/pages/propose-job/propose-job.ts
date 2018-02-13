@@ -21,69 +21,19 @@ import { MainProvider } from "../../providers/main/main"
   templateUrl: 'propose-job.html',
 })
 export class ProposeJobPage {
+
+  profile: any;
+
+  profileCopy: any;
+
   city: any;
 
   onlineMode: boolean = false;
 
-  finExperience: string;
-  finExperienceCopy: string;
-
-  debutExperience: string;
-  debutExperienceCopy: string;
-
-  qualities: string;
-  qualitiesCopy: string;
-
-  skills: string;
-  skillsCopy: string;
-
-  phone: string;
-  phoneCopy: string;
-
-  email: string;
-  emailCopy: string;
-
-  date: string;
-  dateCopy: string;
-
-  familynameCopy: string;
-  firstnameCopy: string;
-
-  firstname: string;
-  familyname: string;
-
-  age: number;
-  ageCopy: number;
-
-  shortDescription: string;
-  shortDescriptionCopy: string;
-
-  photo: any;
-  photoCopy: any;
-
-  tableSkills: any;
-  tableSkillsCopy: any;
-
-  tableQualities: any;
-  tableQualitiesCopy: any;
-
-  formations: Array<{title:string, formation:string}>;
-  formationsCopy: Array<{title:string, formation:string}> = [];
-
-  diplomes: Array<{title:string, diplome:string}>;
-  diplomesCopy: Array<{title:string, diplome:string}> = [];
-
-  experiences: Array<{title:string, experience:string, dateDebut:string, dateFin:string, period:string}>;
-  experiencesCopy: Array<{title:string, experience:string, dateDebut:string, dateFin:string, period:string}>;
-
   title : string;
-
-
 
   categorie: string = "Catégorie";
   typeOfJob: any;
-
-  test:any;
 
 
   offre: any;
@@ -91,30 +41,12 @@ export class ProposeJobPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private provider:MainProvider) {
     this.getAll();
-    //this.provider.set("toto");
-    //this.test = this.provider.get();
-    console.log(this.test);
+    this.profileCopy = this.clone(this.profile);
   }
 
   getAll(){
-    this.firstname = this.provider.get_firstname();
-    this.familyname = this.provider.get_familyname();
-    this.date = this.provider.get_date();
-    this.age = this.provider.get_age();
-    this.email = this.provider.get_email();
-    this.phone = this.provider.get_phone();
-    this.photo = this.provider.get_photo();
-    this.shortDescription = this.provider.get_shortDescription();
-    this.skills = this.provider.get_skills();
-    this.tableSkills = this.provider.get_tableSkills();
-    this.qualities = this.provider.get_qualities();
-    this.tableQualities = this.provider.get_tableQualities();
-    this.formations = this.provider.get_formations();
-    this.diplomes = this.provider.get_diplomes();
-    this.experiences = this.provider.get_experiences();
-    this.debutExperience = this.provider.get_debutExperience();
-    this.finExperience = this.provider.get_finExperience();
-    this.copy();
+    this.profile = this.provider.get_profile();
+
   }
 
   myCallbackFunction = (_params) => {
@@ -128,25 +60,7 @@ export class ProposeJobPage {
  searchProfiles(){
      this.createOffre();
      this.provider.addOffre(this.offre);
-     this.navCtrl.push(ResultatRecherchePage, {
-         firstname: this.firstname,
-         familyname: this.familyname,
-         date: this.date,
-         age: this.age,
-         email: this.email,
-         phone: this.phone,
-         photo: this.photo,
-         shortDescription: this.shortDescription,
-         skills: this.skills,
-         tableSkills: this.tableSkills,
-         qualities: this.qualities,
-         tableQualities: this.tableQualities,
-         formations: this.formations,
-         diplomes: this.diplomes,
-         experiences: this.experiences,
-         debutExperience: this.debutExperience,
-         finExperience: this.finExperience
-       });
+     this.navCtrl.push(ResultatRecherchePage);
  }
 
   ionViewDidLoad() {
@@ -170,45 +84,26 @@ export class ProposeJobPage {
 
     createOffre(){
       this.offre = {
-        firstname: this.firstname,
-        familyname: this.familynameCopy,
-        date: this.dateCopy,
-        age: this.ageCopy,
-        email: this.emailCopy,
-        phone: this.phoneCopy,
-        photo: this.photoCopy,
-        shortDescription: this.shortDescriptionCopy,
-        skills: this.skillsCopy,
-        tableSkills: this.tableSkillsCopy,
-        qualities: this.qualitiesCopy,
-        tableQualities: this.tableQualitiesCopy,
-        formations: this.formationsCopy,
-        diplomes: this.diplomesCopy,
-        experiences: this.experiencesCopy,
-        debutExperience: this.debutExperienceCopy,
-        finExperience: this.finExperienceCopy,
+        firstname: this.profileCopy.firstname,
+        familyname: this.profileCopy.familynameCopy,
+        date: this.profileCopy.dateCopy,
+        age: this.profileCopy.ageCopy,
+        email: this.profileCopy.emailCopy,
+        phone: this.profileCopy.phoneCopy,
+        photo: this.profileCopy.photoCopy,
+        shortDescription: this.profileCopy.shortDescriptionCopy,
+        skills: this.profileCopy.skillsCopy,
+        tableSkills: this.profileCopy.tableSkillsCopy,
+        qualities: this.profileCopy.qualitiesCopy,
+        tableQualities: this.profileCopy.tableQualitiesCopy,
+        formations: this.profileCopy.formationsCopy,
+        diplomes: this.profileCopy.diplomesCopy,
+        experiences: this.profileCopy.experiencesCopy,
+        debutExperience: this.profileCopy.debutExperienceCopy,
+        finExperience: this.profileCopy.finExperienceCopy,
         title: this.title,
         city: this.city
       }
     }
 
-  copy(){
-    this.firstnameCopy = this.clone(this.firstname);
-    this.familynameCopy = this.clone(this.familyname);;
-    this.dateCopy = this.clone(this.date);
-    this.ageCopy= this.clone(this.age);
-    this.emailCopy= this.clone(this.email);
-    this.phoneCopy= this.clone(this.phone);
-    this.skillsCopy = this.clone(this.skills);
-    this.tableSkillsCopy = this.clone(this.tableSkills);
-    this.shortDescriptionCopy = this.clone(this.shortDescription);
-    this.photoCopy = this.clone(this.photo);
-    this.qualitiesCopy= this.clone(this.qualities);
-    this.tableQualitiesCopy= this.clone(this.tableQualities);
-    this.debutExperienceCopy= this.clone(this.debutExperience);
-    this.finExperienceCopy= this.clone(this.finExperience);
-    this.experiencesCopy = this.clone(this.experiences);
-    this.diplomesCopy = this.clone(this.diplomes);
-    this.formationsCopy = this.clone(this.formations);
-  }
 }
