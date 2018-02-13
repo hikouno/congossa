@@ -68,9 +68,6 @@ export class SubPage {
     var profile = userInfo.profile;
 
     //Store fb informations in the provider
-    this.provider.set_email(profile.email);
-    this.provider.set_firstname(profile.first_name);
-    this.provider.set_familyname(profile.last_name);
     this.provider.set_gender(profile.gender);
     this.provider.set_id(profile.id);
     this.provider.set_locale(profile.locale);   //localization
