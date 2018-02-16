@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular'
 
+import {ApiProvider} from "../../providers/api/api"
+
+
 //Pages
 import {ListEmploi} from '../ListEmploi/ListEmploi'
 import { ProfilePage } from '../profile/profile';
@@ -18,12 +21,13 @@ export class AjoutOffrePage {
   localisation:String;
   description:String;
 
-  
+
 
   constructor(public navCtrl: NavController,
-    public navParams: NavParams) {
+    public navParams: NavParams,
+    private apiProvider:ApiProvider) {
   }
-  
+
    myCallbackFunction = (_params) => {
      return new Promise((resolve, reject) => {
              resolve();
@@ -31,16 +35,16 @@ export class AjoutOffrePage {
              console.error(this.emploiPropose)
          });
   }
-  
+
  openPageEmploi(){
    this.navCtrl.push(ListEmploi, {
      callback: this.myCallbackFunction
   });
   }
-  
-proposer(){
+
+  proposer(){
   }
-  
+
   // Go to profilePage
   openProfilPage(){
     this.navCtrl.setRoot(ProfilePage);

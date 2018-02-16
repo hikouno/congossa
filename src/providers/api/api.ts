@@ -1,6 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+//Pour utiliser this.http
+//import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { HttpHeaders } from '@angular/common/http';
 /*
   Generated class for the ApiProvider provider.
 
@@ -18,7 +23,7 @@ This provider is used to separate the requests to the server from the main code.
 export class ApiProvider {
 
   // Adresse du serveur
-  export const serveurAdresse = 'http://localhost:8000/'
+  export const serveurAdresse = '/'
 
   //Differentes routes
   export const composantProfil = 'composantProfil/'
@@ -37,16 +42,31 @@ export class ApiProvider {
   // requête vers le module composantProfil
 
   // requête vers le module offre
+  export const ajoutOffre = 'ajoutOffre/';
+  export const ajoutDemande = 'ajoutDemande';
 
 
-  export const test = 'hello.php'
 
+  export const test = 'hello.php';
 
 
   constructor(public http: HttpClient) {
     console.log('Hello ApiProvider Provider');
   }
 
+
+
+
+  sendOffre(objet) {
+    this.http.post(this.serveurAdresse + this.offre + this.ajoutOffre, "teststring")
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
 
 
 

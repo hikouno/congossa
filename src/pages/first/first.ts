@@ -11,8 +11,8 @@ import { AjoutOffrePage } from '../AjoutOffrePage/AjoutOffrePage';
 
 import { ResultatRecherchePage } from "../resultat-recherche/resultat-recherche";
 //Import les contantes
-import { serveurAdress } from "../../app/app.component"
-import { test } from "../../app/app.component"
+//import { serveurAdress } from "../../app/app.component"
+//import { test } from "../../app/app.component"
 //Pour utiliser this.http
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
@@ -65,7 +65,7 @@ export class FirstPage {
     this.navCtrl.push(ResultatRecherchePage);
   }
   testServeur(){
-     this.http.get(serveurAdress.concat(test)).subscribe((data : any) =>
+     /*this.http.get(serveurAdress.concat(test)).subscribe((data : any) =>
       {
        console.dir(data);
 
@@ -78,7 +78,7 @@ export class FirstPage {
       (error : any) =>
       {
          console.dir(error);
-      });
+      });*/
    }
 
 

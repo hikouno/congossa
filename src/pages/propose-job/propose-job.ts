@@ -8,7 +8,7 @@ import { ListeConversationsPage } from '../listeConversations/listeConversations
 import { ResultatRecherchePage } from "../resultat-recherche/resultat-recherche";
 
 import { MainProvider } from "../../providers/main/main"
-
+import { ApiProvider } from "../../providers/api/api"
 /**
  * Generated class for the ProposeJobPage page.
  *
@@ -39,7 +39,10 @@ export class ProposeJobPage {
   offre: any;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private provider:MainProvider) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    private provider:MainProvider,
+    private apiProvider: ApiProvider) {
     this.getAll();
     this.profileCopy = this.clone(this.profile);
   }
@@ -60,6 +63,7 @@ export class ProposeJobPage {
  searchProfiles(){
      this.createOffre();
      this.provider.addOffre(this.offre);
+     this.apiProvider.sendOffre(this.offre);
      this.navCtrl.push(ResultatRecherchePage);
  }
 

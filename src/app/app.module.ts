@@ -41,6 +41,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ModalViewCardPage } from "../pages/modal-view-card/modal-view-card";
 import { ListCategoriesPage } from "../pages/list-categories/list-categories";
 import { MainProvider } from "../providers/main/main";
+import { ApiProvider } from "../providers/api/api";
+
 import { ChatService } from '../providers/chat/chat-service';
 
 
@@ -126,6 +128,7 @@ var config = {
     GooglePlus,
     LinkedIn,
     MainProvider,
+    ApiProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ChatService
   ]
