@@ -22,6 +22,7 @@ import { ApiProvider } from "../../providers/api/api"
 })
 export class ChercheJobPage {
 
+  //If you want to test without the server connection
   onlineMode: boolean = false;
 
   profile: any;
@@ -32,6 +33,9 @@ export class ChercheJobPage {
 
   categorie: string = "Catégorie";
   typeOfJob: any;
+  dateDebut: string;
+  dateFin: string;
+  city: string;
 
 
   demande: any;
@@ -55,7 +59,7 @@ export class ChercheJobPage {
     return new Promise((resolve, reject) => {
             resolve();
             this.categorie=_params;
-            console.error(this.categorie);
+            console.log(this.categorie);
         });
  }
 
@@ -109,6 +113,11 @@ export class ChercheJobPage {
       email: this.profileCopy.email,
       phone: this.profileCopy.phone,
       photo: this.profileCopy.photo,
+      categorie: this.categorie,
+      typeOfJob: this.typeOfJob,
+      dateDebut: this.dateDebut,
+      dateFin: this.dateFin,
+      city: this.city,
       shortDescription: this.profileCopy.shortDescription,
       skills: this.profileCopy.skills,
       tableSkills: this.profileCopy.tableSkills,
@@ -120,6 +129,7 @@ export class ChercheJobPage {
       debutExperience: this.profileCopy.debutExperience,
       finExperience: this.profileCopy.finExperience
     }
+    console.log(this.demande);
   }
 
   clone(obj){
