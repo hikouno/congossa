@@ -24,6 +24,7 @@ export class ApiProvider {
 
   // Adresse du serveur
   export const serveurAdresse: string = '/'
+  export const serverAddress: string = '/'
 
   //Differentes routes
   export const composantProfil = 'composantProfil/'
@@ -43,7 +44,7 @@ export class ApiProvider {
 
   // requête vers le module offre
   export const ajoutOffre = 'ajoutOffre/';
-  export const ajoutDemande = 'ajoutDemande';
+  export const ajoutDemande = 'ajoutDemande/';
 
 
 
@@ -58,10 +59,22 @@ export class ApiProvider {
 
 
   sendOffre(objet) {
-    this.http.post(this.serveurAdresse + this.offre + this.ajoutOffre, "teststring")
+    this.http.post(this.serverAddress + this.offre + this.ajoutOffre, objet)
     .subscribe(
       (data : any) => {
         console.log(data);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+
+  sendDemande(objet) {
+    this.http.post(this.serverAddress + this.offre + this.ajoutDemande, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+        console.log(data.status);
      },
      (error : any) => {
         console.log(error);

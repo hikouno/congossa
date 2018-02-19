@@ -7,6 +7,7 @@ import { ProfilePage } from '../profile/profile';
 import { ListeConversationsPage } from '../listeConversations/listeConversations';
 import { ResultatRecherchePage } from "../resultat-recherche/resultat-recherche";
 import { MainProvider } from "../../providers/main/main";
+import { ApiProvider } from "../../providers/api/api"
 
 /**
  * Generated class for the ProposeJobPage page.
@@ -36,7 +37,10 @@ export class ChercheJobPage {
   demande: any;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private provider:MainProvider) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    private provider:MainProvider,
+    private apiProvider: ApiProvider) {
     this.getAll();
     this.profileCopy = this.clone(this.profile);
   }
@@ -86,6 +90,7 @@ export class ChercheJobPage {
 
  searchProfiles(){
    this.createDemande();
+   this.apiProvider.sendDemande(this.demande);
    this.provider.addDemande(this.demande);
    this.navCtrl.push(ResultatRecherchePage);
  }
