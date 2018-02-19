@@ -45,6 +45,8 @@ import { ApiProvider } from "../providers/api/api";
 
 import { ChatService } from '../providers/chat/chat-service';
 
+import { Keyboard } from '@ionic-native/keyboard';
+
 
 var config = {
     apiKey: "AIzaSyDP3fwr3INchk7uHfW9B8_Em3ow0J3WuMo",
@@ -130,7 +132,8 @@ var config = {
     MainProvider,
     ApiProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ChatService
+    ChatService,
+    Keyboard
   ]
 })
 export class AppModule {}
