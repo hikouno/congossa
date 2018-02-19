@@ -59,5 +59,10 @@ page-login {
 
   .no-scroll .scroll-content{
     overflow: hidden;
+  }
+
+  .scroll-content{
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
 }
 }
