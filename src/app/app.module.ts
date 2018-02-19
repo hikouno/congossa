@@ -26,7 +26,6 @@ import { LoginPage } from '../pages/login/login';
 import { ListeConversationsPage } from '../pages/listeConversations/listeConversations';
 import { ConversationPage } from '../pages/conversation/conversation';
 
-import { EditProfilePage } from '../pages/editProfile/editProfile';
 import { ProfilePage } from '../pages/profile/profile';
 import { HomePage } from '../pages/home/home';
 import { FirstPage } from '../pages/first/first';
@@ -69,7 +68,6 @@ var config = {
     ListEmploi,
 
     ParametresPage,
-    EditProfilePage,
     ProfilePage,
     HomePage,
     FirstPage,
@@ -105,7 +103,6 @@ var config = {
     ListEmploi,
 
     ParametresPage,
-    EditProfilePage,
     ProfilePage,
     FirstPage,
     LoginPage,
