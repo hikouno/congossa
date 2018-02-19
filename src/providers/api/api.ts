@@ -23,7 +23,7 @@ This provider is used to separate the requests to the server from the main code.
 export class ApiProvider {
 
   // Adresse du serveur
-  export const serveurAdresse = '/'
+  export const serveurAdresse: string = '/'
 
   //Differentes routes
   export const composantProfil = 'composantProfil/'
