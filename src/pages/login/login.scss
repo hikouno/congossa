@@ -20,21 +20,15 @@ page-login {
 
   #loginCardButtons {
     position: relative;
-    padding: 10px 5px 10px 5px;
     width:100%;
     top: 100%;
-    margin:-350px 0 0 0;
     text-align: center;
   }
 
   #loginCard {
     position: relative;
     background: rgba(232, 230, 230, 0.6px);
-    padding: 0px 0px 10px 0px;
     width:100%;
-    top: 100%;
-    margin:0px 0 0 0;
-    text-align: center;
     border-radius: 10px;
   }
 
@@ -56,13 +50,8 @@ page-login {
     width: 90%;
   }
 
-
-  .no-scroll .scroll-content{
-    overflow: hidden;
-  }
-
   .scroll-content{
     margin-bottom: 0px !important;
     padding-bottom: 0px !important;
-}
+  }
 }

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController} from 'ionic-angular';
 
 //pages
-import { EditProfilePage } from '../editProfile/editProfile';
 import { ModalViewCardPage } from "../modal-view-card/modal-view-card";
 import { ListeConversationsPage } from "../listeConversations/listeConversations";
 import { RecherchePage } from "../recherche/recherche";

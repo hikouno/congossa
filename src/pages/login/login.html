@@ -10,7 +10,7 @@
 
   <div id="title">
     <h1 class="WelcomeTitle">
-    Bienvenue dans Congossa
+      Connectez vous
     </h1>
   </div>
 
@@ -23,7 +23,7 @@
   </div>
 
   <ion-card id="loginCard">
-    <ion-list>
+    <ion-list no-lines>
 
       <ion-item class="standardInscription">
         <ion-input type="text" placeholder="Username"></ion-input>
@@ -33,9 +33,10 @@
         <ion-input type="password" placeholder="Password"></ion-input>
       </ion-item>
 
-      <button ion-button color="orange" id="inscription" (click)="goToProfil()" round> Connexion </button>
-
     </ion-list>
+
   </ion-card>
+
+  <button ion-button color="orange" id="inscription" (click)="goToProfil()" round> Connexion </button>
 
 </ion-content>
