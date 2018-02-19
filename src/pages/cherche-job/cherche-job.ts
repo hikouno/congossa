@@ -90,7 +90,7 @@ export class ChercheJobPage {
 
  searchProfiles(){
    this.createDemande();
-   this.apiProvider.sendDemande(this.demande);
+   //this.apiProvider.sendDemande(this.demande);
    this.provider.addDemande(this.demande);
    this.navCtrl.push(ResultatRecherchePage);
  }
