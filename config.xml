@@ -95,6 +95,6 @@
         <variable name="APP_ID" value="145740206125076" />
         <variable name="APP_NAME" value="Congossa" />
     </plugin>
-    <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <engine name="ios" spec="~4.5.4" />
+    <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
 </widget>

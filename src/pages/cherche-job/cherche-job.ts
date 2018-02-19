@@ -58,8 +58,8 @@ export class ChercheJobPage {
   myCallbackFunction = (_params) => {
     return new Promise((resolve, reject) => {
             resolve();
-            this.categorie=_params;
             console.log(this.categorie);
+            this.categorie=_params;
         });
  }
 
