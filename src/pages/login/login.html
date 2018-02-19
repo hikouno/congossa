@@ -2,47 +2,41 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="no-scroll">
 
   <button id="boutonRetour" ion-button color="orange" (click)="previous()" clear icon-only>
     <ion-icon name="arrow-back" color="orange"></ion-icon>
   </button>
 
-  <div style="vertical-align:middle;">
-    <div id="title">
-      <h1 class="WelcomeTitle">
-        Connectez vous
-      </h1>
-    </div>
-
-
-    <div id="loginCardButtons">
-      <button ion-button class="LoginButton" color="fbBlue" (click)="loginWithFacebook()" round> <ion-icon name="logo-facebook"></ion-icon> </button>
-      <button ion-button class="LoginButton"  color="danger" (click)="glogin()" round> <ion-icon name="logo-google"></ion-icon> </button>
-      <button ion-button class="LoginButton" color="lBlue" (click)="loginWithLinkedIn()" round> <ion-icon name="logo-linkedin"></ion-icon> </button>
-    </div>
-
-    <ion-card id="loginCard">
-      <ion-list no-lines>
-
-        <ion-item class="standardInscription">
-          <ion-input type="text" placeholder="Username"></ion-input>
-        </ion-item>
-
-        <ion-item class="standardInscription">
-          <ion-input type="password" placeholder="Password"></ion-input>
-        </ion-item>
-
-      </ion-list>
-
-    </ion-card>
-
-    <div style="text-align:center">
-      <button ion-button color="orange" id="inscription" (click)="goToProfil()" round> Connexion </button>
-    </div>
+  <div id="title">
+    <h1 class="WelcomeTitle">
+    Connectez vous
+    </h1>
   </div>
 
 
+  <div id="loginCardButtons">
+    <button ion-button class="LoginButton" color="fbBlue" (click)="loginWithFacebook()" round> <ion-icon name="logo-facebook"></ion-icon> </button>
+    <button ion-button class="LoginButton"  color="danger" (click)="glogin()" round> <ion-icon name="logo-google"></ion-icon> </button>
+    <button ion-button class="LoginButton" color="lBlue" (click)="loginWithLinkedIn()" round> <ion-icon name="logo-linkedin"></ion-icon> </button>
+    <!--  <button ion-button (click)="skip_login()">(skip login)</button> -->
+  </div>
+
+  <ion-card id="loginCard">
+    <ion-list>
+
+      <ion-item class="standardInscription">
+        <ion-input type="text" placeholder="Username"></ion-input>
+      </ion-item>
+
+      <ion-item class="standardInscription">
+        <ion-input type="password" placeholder="Password"></ion-input>
+      </ion-item>
+
+      <button ion-button color="orange" id="inscription" (click)="goToProfil()" round> Inscription </button>
+
+    </ion-list>
+  </ion-card>
 
 
 </ion-content>
