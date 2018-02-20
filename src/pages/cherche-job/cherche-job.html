@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="orange">
-    <ion-title>Proposer un Job</ion-title>
+    <ion-title>Chercher un job</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -29,19 +29,19 @@
     <div *ngIf="(typeOfJob=='CDD' || typeOfJob=='Stage') && typeOfJob!=undefined">
       <ion-item>
   			<ion-label>Date de début</ion-label>
-  			<ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
+  			<ion-datetime [(ngModel)]="dateDebut" displayFormat="YYYY" placeholder="Date"></ion-datetime>
   		</ion-item>
 
   	   <ion-item>
   			<ion-label>Date de fin</ion-label>
-  			<ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
+  			<ion-datetime [(ngModel)]="dateFin" displayFormat="YYYY" placeholder="Date"></ion-datetime>
   		</ion-item>
     </div>
 
     <div *ngIf="typeOfJob=='CDI' && typeOfJob!=undefined">
       <ion-item>
   			<ion-label>À partir de</ion-label>
-  			<ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
+  			<ion-datetime [(ngModel)]="dateDebut" displayFormat="YYYY" placeholder="Date"></ion-datetime>
   		</ion-item>
     </div>
 
@@ -78,7 +78,7 @@
 	<ion-list *ngFor="let e of profileCopy.experiences; let i = index" no-lines>
 
 		<ion-item>
-			<ion-input type="text" placeholder="Titre de l'expérience" [(ngModel)]="profileCopy.experiencesCopy[i].experience">{{e}}</ion-input>
+			<ion-input type="text" placeholder="Titre de l'expérience" [(ngModel)]="profileCopy.experiences[i].experience">{{e}}</ion-input>
 		</ion-item>
 
 		<ion-item>

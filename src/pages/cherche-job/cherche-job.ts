@@ -22,6 +22,7 @@ import { ApiProvider } from "../../providers/api/api"
 })
 export class ChercheJobPage {
 
+  //If you want to test without the server connection
   onlineMode: boolean = false;
 
   profile: any;
@@ -32,6 +33,9 @@ export class ChercheJobPage {
 
   categorie: string = "Catégorie";
   typeOfJob: any;
+  dateDebut: string;
+  dateFin: string;
+  city: string;
 
 
   demande: any;
@@ -54,8 +58,8 @@ export class ChercheJobPage {
   myCallbackFunction = (_params) => {
     return new Promise((resolve, reject) => {
             resolve();
+            console.log(this.categorie);
             this.categorie=_params;
-            console.error(this.categorie);
         });
  }
 
@@ -104,11 +108,16 @@ export class ChercheJobPage {
     this.demande = {
       firstname: this.profileCopy.firstname,
       familyname: this.profileCopy.familyname,
-      date: this.profileCopy.date,
+      dateNaissance: this.profileCopy.dateNaissance,
       age: this.profileCopy.age,
       email: this.profileCopy.email,
       phone: this.profileCopy.phone,
       photo: this.profileCopy.photo,
+      categorie: this.categorie,
+      typeOfJob: this.typeOfJob,
+      dateDebut: this.dateDebut,
+      dateFin: this.dateFin,
+      city: this.city,
       shortDescription: this.profileCopy.shortDescription,
       skills: this.profileCopy.skills,
       tableSkills: this.profileCopy.tableSkills,
@@ -116,9 +125,7 @@ export class ChercheJobPage {
       tableQualities: this.profileCopy.tableQualities,
       formations: this.profileCopy.formations,
       diplomes: this.profileCopy.diplomes,
-      experiences: this.profileCopy.experiences,
-      debutExperience: this.profileCopy.debutExperience,
-      finExperience: this.profileCopy.finExperience
+      experiences: this.profileCopy.experiences
     }
   }
 

@@ -23,13 +23,12 @@ This provider is used to separate the requests to the server from the main code.
 export class ApiProvider {
 
   // Adresse du serveur
-  export const serveurAdresse: string = '/'
-  export const serverAddress: string = '/'
+  serverAddress: string = '/'
 
   //Differentes routes
-  export const composantProfil = 'composantProfil/'
-  export const offre = 'offre/'
-  export const utilisateur = 'utilisateur/'
+  composantProfil = 'composantProfil/'
+  offre = 'offre/'
+  utilisateur = 'utilisateur/'
 
 
   // definition de toutes les fonctions
@@ -38,24 +37,23 @@ export class ApiProvider {
   export const register = 'register';
   export const consulterSonProfil = 'consulterSonProfil';
   export const editerSonProfil = 'editerSonProfil';
-  export const changerMdp = 'changerMdp';
-  export const changeName = 'changerNom/';
-  export const changePrename = 'changerPrenom/';
-  export const changeSex = 'changerSexe/';
-  export const changeMail= 'changerMail/';
-  export const changeDateDeNaissanc = 'changerDateDeNaissance/';
-  export const changerTelephone = 'changeTelephone/';
-  export const changerDescription ='changeDescription/'
+  changerMdp = 'changerMdp';
+  changeName = 'changerNom/';
+  changePrename = 'changerPrenom/';
+  changeSex = 'changerSexe/';
+  changeMail= 'changerMail/';
+  changeDateDeNaissanc = 'changerDateDeNaissance/';
+  changerTelephone = 'changeTelephone/';
+  changerDescription ='changeDescription/'
 
   // requête vers le module composantProfil
 
   // requête vers le module offre
-  export const ajoutOffre = 'ajoutOffre/';
-  export const ajoutDemande = 'ajoutDemande/';
+  ajoutOffre = 'ajoutOffre/';
+  ajoutDemande = 'ajoutDemande/';
 
 
-
-  export const test = 'hello.php';
+  test = 'hello.php';
 
 
   constructor(public http: HttpClient) {
@@ -81,7 +79,7 @@ export class ApiProvider {
     .subscribe(
       (data : any) => {
         console.log(data);
-        console.log(data.status);
+        console.log("Status = " + data.status);
      },
      (error : any) => {
         console.log(error);

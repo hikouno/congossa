@@ -9,6 +9,8 @@ import { ProfilePage } from '../profile/profile';
 import { AngularFireAuth } from 'angularfire2/auth';
 import firebase from 'firebase';
 
+import { Keyboard } from '@ionic-native/keyboard';
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
@@ -21,7 +23,8 @@ export class LoginPage {
               public alertCtrl: AlertController,
               private googlePlus: GooglePlus,
               private fire: AngularFireAuth,
-              private linkedin: LinkedIn) {
+              private linkedin: LinkedIn,
+              private keyboard: Keyboard) {
 
   }
 

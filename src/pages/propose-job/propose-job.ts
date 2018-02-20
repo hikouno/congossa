@@ -63,7 +63,7 @@ export class ProposeJobPage {
  searchProfiles(){
      this.createOffre();
      this.provider.addOffre(this.offre);
-     this.apiProvider.sendOffre(this.offre);
+     //this.apiProvider.sendOffre(this.offre);
      this.navCtrl.push(ResultatRecherchePage);
  }
 

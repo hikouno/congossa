@@ -26,7 +26,6 @@ import { LoginPage } from '../pages/login/login';
 import { ListeConversationsPage } from '../pages/listeConversations/listeConversations';
 import { ConversationPage } from '../pages/conversation/conversation';
 
-import { EditProfilePage } from '../pages/editProfile/editProfile';
 import { ProfilePage } from '../pages/profile/profile';
 import { HomePage } from '../pages/home/home';
 import { FirstPage } from '../pages/first/first';
@@ -44,6 +43,8 @@ import { MainProvider } from "../providers/main/main";
 import { ApiProvider } from "../providers/api/api";
 
 import { ChatService } from '../providers/chat/chat-service';
+
+import { Keyboard } from '@ionic-native/keyboard';
 
 
 var config = {
@@ -67,7 +68,6 @@ var config = {
     ListEmploi,
 
     ParametresPage,
-    EditProfilePage,
     ProfilePage,
     HomePage,
     FirstPage,
@@ -103,7 +103,6 @@ var config = {
     ListEmploi,
 
     ParametresPage,
-    EditProfilePage,
     ProfilePage,
     FirstPage,
     LoginPage,
@@ -130,7 +129,8 @@ var config = {
     MainProvider,
     ApiProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ChatService
+    ChatService,
+    Keyboard
   ]
 })
 export class AppModule {}

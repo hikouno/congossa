@@ -2,7 +2,7 @@
 
 </ion-header>
 
-<ion-content padding class="View">
+<ion-content padding class="no-scroll">
 
   <button id="boutonRetour" ion-button color="orange" (click)="previous()" clear icon-only>
     <ion-icon name="arrow-back" color="orange"></ion-icon>
@@ -10,16 +10,15 @@
 
   <div id="title">
     <h1 class="WelcomeTitle">
-    Bienvenue dans Congossa
+    Connectez vous
     </h1>
   </div>
 
 
   <div id="loginCardButtons">
-    <button ion-button class="LoginButton" color="fbBlue" (click)="loginWithFacebook()" round> <ion-icon name="logo-facebook"></ion-icon> </button>
-    <button ion-button class="LoginButton"  color="danger" (click)="glogin()" round> <ion-icon name="logo-google"></ion-icon> </button>
-    <button ion-button class="LoginButton" color="lBlue" (click)="loginWithLinkedIn()" round> <ion-icon name="logo-linkedin"></ion-icon> </button>
-    <!--  <button ion-button (click)="skip_login()">(skip login)</button> -->
+    <button ion-button class="LoginButton" color="fbBlue" (click)="loginWithFacebook()" icon-start> <div style="text-align:center;"> <ion-icon name="logo-facebook"></ion-icon> <strong>Facebook</strong> </div> </button>
+    <button ion-button class="LoginButton"  color="danger" (click)="glogin()" icon-start> <div style="text-align:center;"><ion-icon name="logo-google">  </ion-icon> <strong>Google </strong> &nbsp; &nbsp; </div> </button>
+    <button ion-button class="LoginButton" color="lBlue" (click)="loginWithLinkedIn()" icon-start> <div style="text-align:center;"><ion-icon name="logo-linkedin"> </ion-icon>  <strong>LinkedIn</strong> &nbsp;</div> </button>
   </div>
 
   <ion-card id="loginCard">
@@ -33,9 +32,10 @@
         <ion-input type="password" placeholder="Password"></ion-input>
       </ion-item>
 
-      <button ion-button color="orange" id="inscription" (click)="goToProfil()" round> Connexion </button>
+      <button ion-button color="orange" id="inscription" (click)="goToProfil()"> Inscription </button>
 
     </ion-list>
   </ion-card>
+
 
 </ion-content>
