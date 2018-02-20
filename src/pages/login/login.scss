@@ -3,7 +3,8 @@ page-login {
 
 
   .LoginButton {
-    width: 31%;
+    width: 100%;
+    border-radius: 10px;
   }
 
   .WelcomeTitle {
@@ -11,6 +12,7 @@ page-login {
     font-size: 3em;
     font-weight: bold;
     padding-top: 60px;
+    padding-bottom: 70px;
 
   }
 
@@ -23,7 +25,6 @@ page-login {
     padding: 40px 5px 10px 5px;
     width:100%;
     top: 100%;
-    text-align: center;
   }
 
   #loginCard {
@@ -44,6 +45,7 @@ page-login {
 
   #inscription {
     width: 90%;
+    border-radius: 10px;
   }
 
   .scroll-content {
@@ -53,6 +55,7 @@ page-login {
   .no-scroll .scroll-content{
     overflow: hidden;
 }
+
 
 
 }
