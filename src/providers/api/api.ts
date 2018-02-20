@@ -72,7 +72,7 @@ export class ApiProvider {
     .subscribe(
       (data : any) => {
         console.log(data);
-        console.log(data.status);
+        console.log("Status = " + data.status);
      },
      (error : any) => {
         console.log(error);

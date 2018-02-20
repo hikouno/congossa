@@ -110,8 +110,8 @@ export class ProfilePage {
     var mm = Number(currentDate.getMonth()+1); //January is 0!
     var yyyy = Number(currentDate.getFullYear());
 
-    if (this.profile.date != undefined){
-      var tableauDate = this.profile.date.split("-");
+    if (this.profile.dateNaissance != undefined){
+      var tableauDate = this.profile.dateNaissance.split("-");
 
       if (mm < Number(tableauDate[1])){
         this.profile.age = yyyy - Number(tableauDate[0]) - 1;

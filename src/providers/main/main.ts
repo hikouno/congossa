@@ -37,7 +37,7 @@ export class MainProvider {
                       familyname: "",
                       age: undefined,
                       photo: undefined,
-                      date: undefined,
+                      dateNaissance: undefined,
                       email: "",
                       phone: "",
                       shortDescription: "",
@@ -47,9 +47,7 @@ export class MainProvider {
                       tableSkills: undefined,
                       tableQualities: undefined,
                       qualities: "",
-                      skills: "",
-                      finExperience: undefined,
-                      debutExperience: undefined}
+                      skills: ""}
     }
   }
 
