@@ -39,6 +39,13 @@ export class ApiProvider {
   export const consulterSonProfil = 'consulterSonProfil';
   export const editerSonProfil = 'editerSonProfil';
   export const changerMdp = 'changerMdp';
+  export const changeName = 'changerNom/';
+  export const changePrename = 'changerPrenom/';
+  export const changeSex = 'changerSexe/';
+  export const changeMail= 'changerMail/';
+  export const changeDateDeNaissanc = 'changerDateDeNaissance/';
+  export const changerTelephone = 'changeTelephone/';
+  export const changerDescription ='changeDescription/'
 
   // requête vers le module composantProfil
 
@@ -80,7 +87,83 @@ export class ApiProvider {
         console.log(error);
      });
   }
-
+  changeNom(objet) {
+    this.http.post(this.serverAddress + this.utilisateur + this.changeName, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+        console.log(data.status);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+  changePrenom(objet) {
+    this.http.post(this.serverAddress + this.utilisateur + this.changePrename, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+        console.log(data.status);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+  changeSexe(objet) {
+    this.http.post(this.serverAddress + this.utilisateur + this.changeSex, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+        console.log(data.status);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+  changeEmail(objet) {
+    this.http.post(this.serverAddress + this.utilisateur + this.changeMail, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+        console.log(data.status);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+  changeDateDeNaissance(objet) {
+    this.http.post(this.serverAddress + this.utilisateur + this.changeDateDeNaissanc, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+        console.log(data.status);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+  changeTelephone(objet) {
+    this.http.post(this.serverAddress + this.utilisateur + this.changerTelephone, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+        console.log(data.status);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+  changeDescription(objet) {
+    this.http.post(this.serverAddress + this.utilisateur + this.changerDescription, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+        console.log(data.status);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
 
 
 
