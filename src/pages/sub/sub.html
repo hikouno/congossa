@@ -2,7 +2,7 @@
 
 </ion-header>
 
-<ion-content padding class="View">
+<ion-content padding class="no-scroll">
 
   <button id="boutonRetour" ion-button color="orange" (click)="previous()" clear icon-only>
     <ion-icon name="arrow-back" color="orange"></ion-icon>
@@ -10,7 +10,7 @@
 
   <div id="title">
     <h1 class="WelcomeTitle">
-    Bienvenue dans Congossa
+    Inscrivez vous
     </h1>
   </div>
 
@@ -19,7 +19,6 @@
     <button ion-button class="LoginButton" color="fbBlue" (click)="loginWithFacebook()" round> <ion-icon name="logo-facebook"></ion-icon> </button>
     <button ion-button class="LoginButton"  color="danger" (click)="glogin()" round> <ion-icon name="logo-google"></ion-icon> </button>
     <button ion-button class="LoginButton" color="lBlue" (click)="loginWithLinkedIn()" round> <ion-icon name="logo-linkedin"></ion-icon> </button>
-    <!--  <button ion-button (click)="skip_login()">(skip login)</button> -->
   </div>
 
   <ion-card id="loginCard">

@@ -23,31 +23,30 @@ This provider is used to separate the requests to the server from the main code.
 export class ApiProvider {
 
   // Adresse du serveur
-  export const serverAddress: string = '/'
+  serverAddress: string = '/'
 
   //Differentes routes
-  export const composantProfil = 'composantProfil/'
-  export const offre = 'offre/'
-  export const utilisateur = 'utilisateur/'
+  composantProfil = 'composantProfil/'
+  offre = 'offre/'
+  utilisateur = 'utilisateur/'
 
 
   // definition de toutes les fonctions
   // requête vers le module utilisateur
-  export const login = 'login';
-  export const register = 'register';
-  export const consulterSonProfil = 'consulterSonProfil';
-  export const editerSonProfil = 'editerSonProfil';
-  export const changerMdp = 'changerMdp';
+  login = 'login';
+  register = 'register';
+  consulterSonProfil = 'consulterSonProfil';
+  editerSonProfil = 'editerSonProfil';
+  changerMdp = 'changerMdp';
 
   // requête vers le module composantProfil
 
   // requête vers le module offre
-  export const ajoutOffre = 'ajoutOffre/';
-  export const ajoutDemande = 'ajoutDemande/';
+  ajoutOffre = 'ajoutOffre/';
+  ajoutDemande = 'ajoutDemande/';
 
 
-
-  export const test = 'hello.php';
+  test = 'hello.php';
 
 
   constructor(public http: HttpClient) {

@@ -10,6 +10,7 @@ page-sub {
     color: Black;
     font-size: 3em;
     font-weight: bold;
+    padding-top: 60px;
 
   }
 
@@ -19,16 +20,13 @@ page-sub {
   }
 
   #loginCardButtons {
-    position: relative;
     padding: 40px 5px 10px 5px;
     width:100%;
     top: 100%;
-    margin:-425px 0 0 0;
     text-align: center;
   }
 
   #loginCard {
-    position: relative;
     background: rgba(232, 230, 230, 0.6px);
     padding: 0px 0px 10px 0px;
     width:100%;
@@ -39,17 +37,8 @@ page-sub {
   }
 
   #title {
-    position: relative;
     top: 10%;
     text-align: center;
-  }
-
-
-  #ou {
-    font-size: 125%;
-    padding: 20px 0px 0px 0px;
-    color: Black;
-    font-weight: bold;
   }
 
   #inscription {

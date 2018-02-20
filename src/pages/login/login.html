@@ -2,7 +2,7 @@
 
 </ion-header>
 
-<ion-content padding class="View">
+<ion-content padding class="no-scroll">
 
   <button id="boutonRetour" ion-button color="orange" (click)="previous()" clear icon-only>
     <ion-icon name="arrow-back" color="orange"></ion-icon>
@@ -10,7 +10,7 @@
 
   <div id="title">
     <h1 class="WelcomeTitle">
-    Bienvenue dans Congossa
+    Connectez vous
     </h1>
   </div>
 
@@ -33,9 +33,10 @@
         <ion-input type="password" placeholder="Password"></ion-input>
       </ion-item>
 
-      <button ion-button color="orange" id="inscription" (click)="goToProfil()" round> Connexion </button>
+      <button ion-button color="orange" id="inscription" (click)="goToProfil()" round> Inscription </button>
 
     </ion-list>
   </ion-card>
+
 
 </ion-content>

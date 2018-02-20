@@ -10,6 +10,7 @@ page-login {
     color: Black;
     font-size: 3em;
     font-weight: bold;
+    padding-top: 60px;
 
   }
 
@@ -19,16 +20,13 @@ page-login {
   }
 
   #loginCardButtons {
-    position: relative;
-    padding: 10px 5px 10px 5px;
+    padding: 40px 5px 10px 5px;
     width:100%;
     top: 100%;
-    margin:-350px 0 0 0;
     text-align: center;
   }
 
   #loginCard {
-    position: relative;
     background: rgba(232, 230, 230, 0.6px);
     padding: 0px 0px 10px 0px;
     width:100%;
@@ -39,30 +37,22 @@ page-login {
   }
 
   #title {
-    position: relative;
     top: 10%;
     text-align: center;
   }
 
 
-  #ou {
-    font-size: 125%;
-    padding: 20px 0px 0px 0px;
-    color: Black;
-    font-weight: bold;
-  }
-
   #inscription {
     width: 90%;
   }
 
+  .scroll-content {
+      overflow-y: auto;
+  }
 
   .no-scroll .scroll-content{
     overflow: hidden;
-  }
-
-  .scroll-content{
-    margin-bottom: 0px !important;
-    padding-bottom: 0px !important;
 }
+
+
 }
