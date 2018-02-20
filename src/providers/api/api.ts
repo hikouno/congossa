@@ -33,10 +33,10 @@ export class ApiProvider {
 
   // definition de toutes les fonctions
   // requête vers le module utilisateur
-  export const login = 'login';
-  export const register = 'register';
-  export const consulterSonProfil = 'consulterSonProfil';
-  export const editerSonProfil = 'editerSonProfil';
+  login = 'login';
+  register = 'register';
+  consulterSonProfil = 'consulterSonProfil';
+  editerSonProfil = 'editerSonProfil';
   changerMdp = 'changerMdp';
   changeName = 'changerNom/';
   changePrename = 'changerPrenom/';
