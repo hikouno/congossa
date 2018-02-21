@@ -8,10 +8,10 @@ page-login {
   }
 
   .WelcomeTitle {
-    color: Black;
+    color: white;
     font-size: 2em;
     font-weight: bold;
-    padding-top: 10%;
+    padding-top: 0%;
     padding-bottom: 0%;
 
   }
@@ -23,20 +23,20 @@ page-login {
 
   #loginCardButtons {
     padding-top: 4%;
+    padding-right: 1%;
   }
 
   #loginCard {
-    background: rgba(232, 230, 230, 0.6px);
+    background: rgba(232, 230, 230, 0.9px);
     padding-bottom: 3%;
     width:100%;
-    top: 100%;
     margin:0px 0 0 0;
     text-align: center;
     border-radius: 10px;
+    padding-top: 0%;
   }
 
   #title {
-    top: 10%;
     text-align: center;
   }
 
@@ -52,6 +52,13 @@ page-login {
     overflow: hidden;
 }
 
+  .no-scroll{
+    background-image: url('../assets/imgs/connect3.jpeg');
+    background-repeat: repeat-y;
+    background-position: center;
+    background-size: contain;
+  }
+
 #bottom{
   margin-top:2%;
 }
@@ -62,7 +69,7 @@ ion-grid {
 }
 
 #ou{
-  color : #808080;
+  color : white;
   font-size: 1.2em;
   margin-bottom: 0px;
   padding-bottom: 0px;

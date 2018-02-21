@@ -7,31 +7,35 @@
 
   <ion-grid>
 
-          <div id="title">
-            <h1 class="WelcomeTitle">
-            Inscrivez vous
-            </h1>
-          </div>
+
       <ion-row>
         <ion-col text-center>
           <div id="bottom">
 
+            <div id="title">
+              <h1 class="WelcomeTitle">
+              Inscrivez vous
+              </h1>
+            </div>
+
             <ion-card id="loginCard">
+
               <ion-list>
 
+
                 <ion-item class="standardInscription">
-                  <ion-input type="text" placeholder="Username" required></ion-input>
+                  <ion-input type="text" placeholder="Email" required></ion-input>
                 </ion-item>
 
                 <ion-item class="standardInscription">
-                  <ion-input type="password" placeholder="Password" required></ion-input>
+                  <ion-input type="password" placeholder="Mot de passe" required></ion-input>
                 </ion-item>
 
                 <ion-item class="standardInscription">
-                  <ion-input type="confirmPassword" placeholder="Confirm Password" required></ion-input>
+                  <ion-input type="password" placeholder="Confirmer mot de passe" required></ion-input>
                 </ion-item>
 
-                <button ion-button color="orange" id="inscription" (click)="goToProfil()"> Inscription </button>
+                <button ion-button color="orange" id="inscription" (click)="goToProfil()"> Créer un compte </button>
 
               </ion-list>
             </ion-card>
@@ -48,6 +52,9 @@
       </ion-row>
     </ion-grid>
 
+    <ion-footer text-center style="padding-bottom:3%;">
+      <button ion-button color="white" outline (click)="goToLogin()"> Déjà un compte ? Connectez vous</button>
+    </ion-footer>
 
 
 
