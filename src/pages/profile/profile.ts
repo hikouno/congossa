@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { NavController, NavParams, ModalController} from 'ionic-angular';
 
 //pages
@@ -15,6 +15,8 @@ import { ApiProvider } from "../../providers/api/api"
 })
 export class ProfilePage {
 
+  @ViewChild('inputDiplome') input_Diplome ;
+
   nom: any;
   Prenom: any;
   Sexe: any;
@@ -30,7 +32,7 @@ export class ProfilePage {
   constructor(public navCtrl: NavController, private navParams: NavParams, public modalCtrl: ModalController, private provider:MainProvider,private apiProvider: ApiProvider) {
 	  this.getAll();
   }
-  
+
   sendPrename(){
      this.Prenom = {
       login: this.profile.email,
@@ -79,7 +81,7 @@ export class ProfilePage {
     }
     this.apiProvider.changeTelephone(this.Telephone)
   }
-  
+
   sendDescription(){
     console.log(this.profile.telephone)
     this.Description= {
@@ -90,14 +92,23 @@ export class ProfilePage {
   }
   addDiplome(){
     if (this.profile.diplomes == undefined){
+      setTimeout(() => {
+        this.input_Diplome.setFocus();
+      },150);
       this.profile.diplomes = [];
       this.profile.diplomes.push({title: "newDiplome", diplome: ""});
     }
     else if (this.profile.diplomes.length == 0){
+      setTimeout(() => {
+        this.input_Diplome.setFocus();
+      },150);
     this.profile.diplomes.push({title: "newDiplome1", diplome: ""});
     }
 
     if (this.profile.diplomes[this.profile.diplomes.length - 1].diplome != ""){
+      setTimeout(() => {
+        this.input_Diplome.setFocus();
+      },150);
       this.profile.diplomes.push({title: "newDiplome1", diplome:""});
     }
   }
