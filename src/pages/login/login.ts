@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
+import { AlertController, Content, Platform } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { LinkedIn } from '@ionic-native/linkedin';
 
@@ -16,16 +16,19 @@ import { Keyboard } from '@ionic-native/keyboard';
   templateUrl: 'login.html'
 })
 export class LoginPage {
+  [x: string]: any;
+
+  @ViewChild(Content) content: Content;
 
   scopes: ['r_basicprofile', 'r_emailaddress', 'rw_company_admin', 'w_share'];
 
-  constructor(public navCtrl: NavController,
+  constructor(platform : Platform,
+              public navCtrl: NavController,
               public alertCtrl: AlertController,
               private googlePlus: GooglePlus,
               private fire: AngularFireAuth,
               private linkedin: LinkedIn,
               private keyboard: Keyboard) {
-
   }
 
 
@@ -68,5 +71,17 @@ export class LoginPage {
   previous() {
     this.navCtrl.pop();
   }
+
+  ionViewDidEnter() {
+      this.scrollToBottom();
+}
+
+scrollToBottom() {
+    setTimeout(() => {
+        if (this.content.scrollToBottom) {
+            this.content.scrollToBottom();
+        }
+    }, 400)
+}
 
 }
