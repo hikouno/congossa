@@ -77,12 +77,24 @@
 	<ion-list *ngFor="let d of profile.diplomes; let i = index" no-lines>
 
 		<ion-item>
-			<ion-input type="text" placeholder="Nom du Diplôme" [(ngModel)]="profile.diplomes[i].diplome"></ion-input>
+			<ion-input type="text" placeholder="Domaine" [(ngModel)]="profile.diplomes[i].domaine" ></ion-input>
 		</ion-item>
 
 		<ion-item>
-			<ion-label>Date d'obtention</ion-label>
-			<ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
+			<ion-label>Niveau</ion-label>
+				<ion-select [(ngModel)]="profile.diplomes[i].niveau" interface="popover" >
+				  <ion-option value="Brevet">Brevet</ion-option>
+			      <ion-option value="Bac">Bac</ion-option>
+			      <ion-option value="Bac1">Bac +1</ion-option>
+			      <ion-option value="Bac +2">Bac +2</ion-option>
+			      <ion-option value="Bac +3">Bac +3</ion-option>
+			      <ion-option value="Bac +4">Bac +4</ion-option>
+			      <ion-option value="Bac +5">Bac +5</ion-option>
+			      <ion-option value="Bac +6">Bac +6</ion-option>
+			      <ion-option value="Bac +7">Bac +7</ion-option>
+			      <ion-option value="Bac +8">Bac +8</ion-option>
+			      
+			    </ion-select>		
 		</ion-item>
 
 		<ion-buttons end>

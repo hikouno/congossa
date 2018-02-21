@@ -14,6 +14,7 @@ import { ApiProvider } from "../../providers/api/api"
   templateUrl: 'profile.html'
 })
 export class ProfilePage {
+  diplome: any;
 
   nom: any;
   Prenom: any;
@@ -88,6 +89,12 @@ export class ProfilePage {
     }
     this.apiProvider.changeDescription(this.Description)
   }
+  
+  sendDomaineDiplome(i){
+    if (this.diplome[i]){
+      
+    }
+  }
   addDiplome(){
     if (this.profile.diplomes == undefined){
       this.profile.diplomes = [];
@@ -127,6 +134,7 @@ export class ProfilePage {
       this.profile.experiences.push({title: "newExperience1", experience:"", dateDebut: "", dateFin: "", period: ""});
     }
   }
+  
 
 
   removeDiplome(i){
