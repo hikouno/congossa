@@ -77,7 +77,7 @@
 	<ion-list *ngFor="let d of profile.diplomes; let i = index" no-lines>
 
 		<ion-item>
-			<ion-input type="text" placeholder="Nom du Diplôme" [(ngModel)]="profile.diplomes[i].diplome"></ion-input>
+			<ion-input #inputDiplome type="text" placeholder="Nom du Diplôme" [(ngModel)]="profile.diplomes[i].diplome"></ion-input>
 		</ion-item>
 
 		<ion-item>

@@ -12,6 +12,7 @@ import {MainProvider} from "../../providers/main/main"
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import firebase from 'firebase';
+import { LoginPage } from "../login/login";
 /**
  * Generated class for the SubPage page.
  *
@@ -103,6 +104,10 @@ goToProfil() {
 
 previous() {
   this.navCtrl.pop();
+}
+
+goToLogin(){
+  this.navCtrl.setRoot(LoginPage);
 }
 
 }

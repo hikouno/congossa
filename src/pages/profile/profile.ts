@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { NavController, NavParams, ModalController} from 'ionic-angular';
 
 //pages
@@ -14,6 +14,8 @@ import { ApiProvider } from "../../providers/api/api"
   templateUrl: 'profile.html'
 })
 export class ProfilePage {
+
+  @ViewChild('inputDiplome') input_Diplome ;
 
   nom: any;
   Prenom: any;
@@ -90,14 +92,23 @@ export class ProfilePage {
   }
   addDiplome(){
     if (this.profile.diplomes == undefined){
+      setTimeout(() => {
+        this.input_Diplome.setFocus();
+      },150);
       this.profile.diplomes = [];
       this.profile.diplomes.push({title: "newDiplome", diplome: ""});
     }
     else if (this.profile.diplomes.length == 0){
+      setTimeout(() => {
+        this.input_Diplome.setFocus();
+      },150);
     this.profile.diplomes.push({title: "newDiplome1", diplome: ""});
     }
 
     if (this.profile.diplomes[this.profile.diplomes.length - 1].diplome != ""){
+      setTimeout(() => {
+        this.input_Diplome.setFocus();
+      },150);
       this.profile.diplomes.push({title: "newDiplome1", diplome:""});
     }
   }

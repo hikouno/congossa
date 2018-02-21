@@ -10,6 +10,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import firebase from 'firebase';
 
 import { Keyboard } from '@ionic-native/keyboard';
+import { SubPage } from "../sub/sub";
 
 @Component({
   selector: 'page-login',
@@ -76,10 +77,14 @@ export class LoginPage {
       this.scrollToBottom();
 }
 
+  goToSub(){
+    this.navCtrl.setRoot(SubPage);
+  }
+
 scrollToBottom() {
     setTimeout(() => {
         if (this.content.scrollToBottom) {
-            this.content.scrollToBottom();
+            //this.content.scrollToBottom();
         }
     }, 400)
 }
