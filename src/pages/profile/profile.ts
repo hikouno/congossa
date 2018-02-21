@@ -30,7 +30,7 @@ export class ProfilePage {
   constructor(public navCtrl: NavController, private navParams: NavParams, public modalCtrl: ModalController, private provider:MainProvider,private apiProvider: ApiProvider) {
 	  this.getAll();
   }
-  
+
   sendPrename(){
      this.Prenom = {
       login: this.profile.email,
@@ -79,7 +79,7 @@ export class ProfilePage {
     }
     this.apiProvider.changeTelephone(this.Telephone)
   }
-  
+
   sendDescription(){
     console.log(this.profile.telephone)
     this.Description= {
