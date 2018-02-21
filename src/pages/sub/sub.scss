@@ -4,13 +4,15 @@ page-sub {
 
   .LoginButton {
     width: 100%;
+    border-radius: 10px;
   }
 
   .WelcomeTitle {
     color: Black;
-    font-size: 3em;
+    font-size: 2em;
     font-weight: bold;
-    padding-top: 60px;
+    padding-top: 10%;
+    padding-bottom: 0%;
 
   }
 
@@ -20,15 +22,12 @@ page-sub {
   }
 
   #loginCardButtons {
-    padding: 40px 5px 10px 5px;
-    width:100%;
-    top: 100%;
-    text-align: center;
+    padding-top: 4%;
   }
 
   #loginCard {
     background: rgba(232, 230, 230, 0.6px);
-    padding: 0px 0px 10px 0px;
+    padding-bottom: 3%;
     width:100%;
     top: 100%;
     margin:0px 0 0 0;
@@ -41,16 +40,34 @@ page-sub {
     text-align: center;
   }
 
+
   #inscription {
     width: 90%;
+    border-radius: 10px;
   }
 
 
-  .View {
-    width:100%;
-  }
 
   .no-scroll .scroll-content{
     overflow: hidden;
 }
+
+#bottom{
+  margin-top:2%;
+}
+
+ion-grid {
+    height: 100%;
+    justify-content: flex-start;
+}
+
+#ou{
+  color : #808080;
+  font-size: 1.2em;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+
+
 }

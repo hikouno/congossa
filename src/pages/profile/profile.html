@@ -22,16 +22,16 @@
 
 
   <ion-item>
-    <ion-input [(ngModel)]="profile.firstname" class="inputs" type="text" placeholder="Prénom"></ion-input>
+    <ion-input [(ngModel)]="profile.firstname" class="inputs" type="text" placeholder="Prénom" (focusout)="sendPrename()"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-input [(ngModel)]="profile.familyname" type="text" placeholder="Nom"></ion-input>
+    <ion-input [(ngModel)]="profile.familyname" type="text" placeholder="Nom" (focusout)="sendName()"></ion-input>
   </ion-item>
 
 	<ion-item>
     <ion-label>Sexe</ion-label>
-    <ion-select [(ngModel)]="sexe" interface="popover">
+    <ion-select [(ngModel)]="profile.sexe" interface="popover" (ionChange)="sendSexe()">
       <ion-option value="Homme">Homme</ion-option>
       <ion-option value="Femme">Femme</ion-option>
     </ion-select>
@@ -39,15 +39,15 @@
 
 	<ion-item>
     <ion-label>Date de Naissance</ion-label>
-    <ion-datetime [(ngModel)]="profile.date" displayFormat="DD/MM/YYYY"></ion-datetime>
+    <ion-datetime [(ngModel)]="profile.date" displayFormat="DD/MM/YYYY" (ionChange)="sendDateDeNaissance()"></ion-datetime>
   </ion-item>
 
 	<ion-item>
-    <ion-input type="text" placeholder="Email">{{email}}</ion-input>
+    <ion-input [(ngModel)]="profile.email" type="text" placeholder="Email" (focusout)="sendMail()">{{email}}</ion-input>
   </ion-item>
 
 	<ion-item>
-    <ion-input type="number" placeholder="Téléphone">{{phoneNumber}}</ion-input>
+    <ion-input [(ngModel)]="profile.telephone" type="number" placeholder="Téléphone" (focusout)="sendTelephone()">{{phoneNumber}}</ion-input>
   </ion-item>
 
 
@@ -55,7 +55,7 @@
 
 	<ion-list class="listes" no-lines>
 		<ion-item>
-      <ion-textarea [(ngModel)]="profile.shortDescription" placeholder="Courte description de votre personnalité"></ion-textarea>
+      <ion-textarea [(ngModel)]="profile.shortDescription" placeholder="Courte description de votre personnalité" (focusout)="sendDescription()"></ion-textarea>
     </ion-item>
 
 		<div class="text-description">

@@ -7,6 +7,7 @@ import { ListeConversationsPage } from "../listeConversations/listeConversations
 import { RecherchePage } from "../recherche/recherche";
 
 import {MainProvider} from "../../providers/main/main"
+import { ApiProvider } from "../../providers/api/api"
 
 @Component({
   selector: 'page-profile',
@@ -14,16 +15,79 @@ import {MainProvider} from "../../providers/main/main"
 })
 export class ProfilePage {
 
+  nom: any;
+  Prenom: any;
+  Sexe: any;
+  Mail: any;
+  DateDeNaissance:any;
+  Telephone: any;
+  Description:any;
   onlineMode: boolean = false;
 
   profile: any;
 
 
-  constructor(public navCtrl: NavController, private navParams: NavParams, public modalCtrl: ModalController, private provider:MainProvider) {
+  constructor(public navCtrl: NavController, private navParams: NavParams, public modalCtrl: ModalController, private provider:MainProvider,private apiProvider: ApiProvider) {
 	  this.getAll();
   }
-
-
+  
+  sendPrename(){
+     this.Prenom = {
+      login: this.profile.email,
+      newPrenom: this.profile.firstname
+    }
+    this.apiProvider.changePrenom(this.Prenom)
+  }
+  sendName(){
+     this.nom = {
+      login: this.profile.email,
+      newNom: this.profile.familyname
+    }
+    this.apiProvider.changeNom(this.nom)
+  }
+  sendSexe(){
+     this.Sexe = {
+      login: this.profile.email,
+      newSexe: this.profile.sexe
+    }
+    this.apiProvider.changeSexe(this.Sexe)
+  }
+  sendEmail(){
+    this.Mail= {
+      login: this.profile.email,
+      newEmail: this.profile.email
+    }
+    this.apiProvider.changeEmail(this.Mail)
+  }
+  sendDateDeNaissance(){
+    console.log(this.profile.date)
+    this.DateDeNaissance= {
+      login: this.profile.email,
+      newDateDeNaisance: this.profile.date
+    }
+    this.apiProvider.changeDateDeNaissance(this.DateDeNaissance)
+  }
+  sendMail(){
+    //this.sendEmail()
+    console.log("sendMail")
+  }
+  sendTelephone(){
+    console.log(this.profile.telephone)
+    this.Telephone= {
+      login: this.profile.email,
+      newTelephone: this.profile.telephone
+    }
+    this.apiProvider.changeTelephone(this.Telephone)
+  }
+  
+  sendDescription(){
+    console.log(this.profile.telephone)
+    this.Description= {
+      login: this.profile.email,
+      newDescription: this.profile.shortDescription
+    }
+    this.apiProvider.changeDescription(this.Description)
+  }
   addDiplome(){
     if (this.profile.diplomes == undefined){
       this.profile.diplomes = [];
