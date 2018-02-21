@@ -44,18 +44,14 @@
               <button ion-button class="LoginButton" color="lBlue" (click)="loginWithLinkedIn()" icon-start> <div style="text-align:center;"><ion-icon name="logo-linkedin"> </ion-icon>  <strong>LinkedIn</strong> &nbsp;</div> </button>
             </div>
           </div>
+          <img src="assets/imgs/handshake.png" style="width:85px;height:85px; margin-top:8%"/>
         </ion-col>
       </ion-row>
     </ion-grid>
 
-    <ion-footer text-center style="padding-bottom:3%;">
-      <button ion-button color="white" outline (click)="goToSub()"> Pas enncore de compte ? Inscrivez vous</button>
-    </ion-footer>
-
-
-
-
-
-
 
 </ion-content>
+
+<ion-footer text-center style="padding-bottom:3%;" no-border>
+  <button ion-button color="white" outline (click)="goToSub()" small> Pas de compte ? S'inscrire</button>
+</ion-footer>
