@@ -23,7 +23,12 @@ This provider is used to separate the requests to the server from the main code.
 export class ApiProvider {
 
   // Adresse du serveur
+<<<<<<< HEAD
+  export const serveurAdresse: string = '/'
+  export const serverAddress: string = '/'
+=======
   serverAddress: string = '/'
+>>>>>>> c01e5f0365296226685d48f8fdfc28efbf5a4848
 
   //Differentes routes
   composantProfil = 'composantProfil/'
@@ -33,18 +38,26 @@ export class ApiProvider {
 
   // definition de toutes les fonctions
   // requête vers le module utilisateur
+<<<<<<< HEAD
+  export const login = 'login';
+  export const register = 'register';
+  export const consulterSonProfil = 'consulterSonProfil';
+  export const editerSonProfil = 'editerSonProfil';
+  export const changerMdp = 'changerMdp';
+  export const changeName = 'changerNom/';
+  export const changePrename = 'changerPrenom/';
+  export const changeSex = 'changerSexe/';
+  export const changeMail= 'changerMail/';
+  export const changeDateDeNaissanc = 'changerDateDeNaissance/';
+  export const changerTelephone = 'changeTelephone/';
+  export const changerDescription ='changeDescription/'
+=======
   login = 'login';
   register = 'register';
   consulterSonProfil = 'consulterSonProfil';
   editerSonProfil = 'editerSonProfil';
   changerMdp = 'changerMdp';
-  changeName = 'changerNom/';
-  changePrename = 'changerPrenom/';
-  changeSex = 'changerSexe/';
-  changeMail= 'changerMail/';
-  changeDateDeNaissanc = 'changerDateDeNaissance/';
-  changerTelephone = 'changeTelephone/';
-  changerDescription ='changeDescription/'
+>>>>>>> c01e5f0365296226685d48f8fdfc28efbf5a4848
 
   // requête vers le module composantProfil
 

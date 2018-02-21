@@ -94,7 +94,7 @@ export class ChercheJobPage {
 
  searchProfiles(){
    this.createDemande();
-   //this.apiProvider.sendDemande(this.demande);
+   this.apiProvider.sendDemande(this.demande);
    this.provider.addDemande(this.demande);
    this.navCtrl.push(ResultatRecherchePage);
  }
@@ -108,7 +108,7 @@ export class ChercheJobPage {
     this.demande = {
       firstname: this.profileCopy.firstname,
       familyname: this.profileCopy.familyname,
-      date: this.profileCopy.date,
+      dateNaissance: this.profileCopy.dateNaissance,
       age: this.profileCopy.age,
       email: this.profileCopy.email,
       phone: this.profileCopy.phone,
@@ -125,11 +125,8 @@ export class ChercheJobPage {
       tableQualities: this.profileCopy.tableQualities,
       formations: this.profileCopy.formations,
       diplomes: this.profileCopy.diplomes,
-      experiences: this.profileCopy.experiences,
-      debutExperience: this.profileCopy.debutExperience,
-      finExperience: this.profileCopy.finExperience
+      experiences: this.profileCopy.experiences
     }
-    console.log(this.demande);
   }
 
   clone(obj){
