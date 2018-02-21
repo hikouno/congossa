@@ -127,6 +127,8 @@ export class ChercheJobPage {
       diplomes: this.profileCopy.diplomes,
       experiences: this.profileCopy.experiences
     }
+    console.log("profile = " + this.profileCopy);
+    console.log("demande = " + this.demande);
   }
 
   clone(obj){
