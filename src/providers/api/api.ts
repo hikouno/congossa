@@ -1,3 +1,4 @@
+import { ProfilePage } from "../../pages/profile/profile";
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -33,7 +34,6 @@ export class ApiProvider {
 
   // definition de toutes les fonctions
   // requête vers le module utilisateur
-  login = 'login';
   register = 'register';
   consulterSonProfil = 'consulterSonProfil';
   editerSonProfil = 'editerSonProfil';
@@ -210,6 +210,7 @@ export class ApiProvider {
   .subscribe(
     (data : any) => {
       nav.push(ProfilePage);
+      console.log(data)
    },
    (error : any) => {
       console.log(error);
