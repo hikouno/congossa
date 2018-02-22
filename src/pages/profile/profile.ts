@@ -18,14 +18,7 @@ export class ProfilePage {
 
   @ViewChild('inputDiplome') input_Diplome ;
 
-  nom: any;
-  Prenom: any;
-  Sexe: any;
-  Mail: any;
-  DateDeNaissance:any;
-  Telephone: any;
-  Description:any;
-  Diplome: any;
+
   onlineMode: boolean = false;
 
   profile: any;
@@ -36,85 +29,46 @@ export class ProfilePage {
   }
 
   sendPrename(){
-     this.Prenom = {
-      login: this.profile.email,
-      newPrenom: this.profile.firstname
-    }
-    this.apiProvider.changePrenom(this.Prenom)
+    this.apiProvider.changePrenom({"newPrenom":this.profile.firstname})
   }
   sendName(){
-     this.nom = {
-      login: this.profile.email,
-      newNom: this.profile.familyname
-    }
-    this.apiProvider.changeNom(this.nom)
+    this.apiProvider.changeNom({"newNom":this.profile.familyname})
   }
   sendSexe(){
-     this.Sexe = {
-      login: this.profile.email,
-      newSexe: this.profile.sexe
-    }
-    this.apiProvider.changeSexe(this.Sexe)
+    this.apiProvider.changeSexe({"newSexe":this.profile.sexe})
   }
   sendEmail(){
-    this.Mail= {
-      login: this.profile.email,
-      newEmail: this.profile.email
-    }
-    this.apiProvider.changeEmail(this.Mail)
+      this.apiProvider.changeEmail({"newEmail":this.profile.email})
   }
   sendDateDeNaissance(){
-    console.log(this.profile.date)
-    this.DateDeNaissance= {
-      login: this.profile.email,
-      newDateDeNaisance: this.profile.date
-    }
-    this.apiProvider.changeDateDeNaissance(this.DateDeNaissance)
+    this.apiProvider.changeDateDeNaissance({"newDateDeNaisance":this.profile.date})
   }
-  sendMail(){
-    //this.sendEmail()
-    console.log("sendMail")
-  }
+
   sendTelephone(){
-    console.log(this.profile.telephone)
-    this.Telephone= {
-      login: this.profile.email,
-      newTelephone: this.profile.telephone
-    }
-    this.apiProvider.changeTelephone(this.Telephone)
+    this.apiProvider.changeTelephone({"newTelephone":this.profile.telephone})
   }
 
   sendDescription(){
-    console.log(this.profile.telephone)
-    this.Description= {
-      login: this.profile.email,
-      newDescription: this.profile.shortDescription
-    }
-    this.apiProvider.changeDescription(this.Description)
+    this.apiProvider.changeDescription({"newDescription":this.profile.shortDescription})
   }
   
   sendDomaineDiplome(i){
-    console.log("aya")
     if (this.profile.diplomes[i].niveau!=""){
       console.log("aya")
       //this.sendDiplome(i)
     }
   }
   sendDureeDiplome(i){
-    console.log("isse")
     if (this.profile.diplomes[i].domaine!=""){
       console.log("isse")
       //this.sendDiplome(i)
     }
   }
   sendDiplome(i){
-    console.log(this.profile.telephone)
-    this.Diplome= {
-      login: this.profile.email,
-      newDomaineDiplome: this.profile.profile.diplome[i].domaine,
-      newDureeDiplome: this.profile.diplome[i].niveau
-    }
-    this.apiProvider.changeDiplome(this.Diplome)
+    this.apiProvider.changeDiplome({"newDomaineDiplome": this.profile.profile.diplome[i].domaine,"newDureeDiplome": this.profile.diplome[i].niveau})
+  }
+  sendQualite(){
+    
   }
   addDiplome(){
     var bool=false
@@ -140,8 +94,10 @@ export class ProfilePage {
         newDomaineDiplome: 'null',
         newDureeDiplome: 'null'
       }
-      this.profile.diplomes[this.profile.diplomes.length - 1].id=this.apiProvider.createDiplome(this.Diplome)
-      }
+      this.profile.diplomes[this.profile.diplomes.length - 1].id=this.apiProvider.createDiplome(
+      {"newDomaineDiplome": 'null'
+        ,"newDureeDiplome": 'null'})
+    }
       }
   //   setTimeout(() => {
 //  #      this.input_Diplome.setFocus();
