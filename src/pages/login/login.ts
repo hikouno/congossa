@@ -70,7 +70,7 @@ export class LoginPage {
   }
 
   goToProfil() {
-    this.apiProvider.login(login, password, this.navCtrl);
+    this.apiProvider.login(this.login, this.password, this.navCtrl);
   }
 
   previous() {

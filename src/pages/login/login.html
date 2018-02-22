@@ -24,11 +24,11 @@
 
 
                 <ion-item class="standardInscription">
-                  <ion-input ng-model="login" type="text" placeholder="Email" required></ion-input>
+                  <ion-input [(ngModel)]="login" type="text" placeholder="Email" required></ion-input>
                 </ion-item>
 
                 <ion-item class="standardInscription">
-                  <ion-input ng-model="password" type="password" placeholder="Mot de passe" required></ion-input>
+                  <ion-input [(ngModel)]="password" type="password" placeholder="Mot de passe" required></ion-input>
                 </ion-item>
 
                 <button ion-button color="orange" id="inscription" (click)="goToProfil()"> Connexion </button>
