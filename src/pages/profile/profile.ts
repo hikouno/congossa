@@ -23,6 +23,7 @@ export class ProfilePage {
   DateDeNaissance:any;
   Telephone: any;
   Description:any;
+  Diplome: any;
   onlineMode: boolean = false;
 
   profile: any;
@@ -91,21 +92,51 @@ export class ProfilePage {
   }
   
   sendDomaineDiplome(i){
-    if (this.diplome[i]){
-      
+    console.log("aya")
+    if (this.profile.diplomes[i].niveau!=""){
+      console.log("aya")
+      //this.sendDiplome(i)
     }
   }
+  sendDureeDiplome(i){
+    console.log("isse")
+    if (this.profile.diplomes[i].domaine!=""){
+      console.log("isse")
+      //this.sendDiplome(i)
+    }
+  }
+  sendDiplome(i){
+    console.log(this.profile.telephone)
+    this.Diplome= {
+      login: this.profile.email,
+      newDomaineDiplome: this.profile.profile.diplome[i].domaine,
+      newDureeDiplome: this.profile.diplome[i].niveau
+    }
+    this.apiProvider.changeDiplome(this.Diplome)
+  }
   addDiplome(){
+    var bool=false
     if (this.profile.diplomes == undefined){
       this.profile.diplomes = [];
-      this.profile.diplomes.push({title: "newDiplome", diplome: ""});
+      this.profile.diplomes.push({title: "newDiplome", domaine: "", niveau: "", id: ""});
+      bool=true
     }
     else if (this.profile.diplomes.length == 0){
-    this.profile.diplomes.push({title: "newDiplome1", diplome: ""});
+      bool=true
+    this.profile.diplomes.push({title: "newDiplome1", domaine: "", niveau: "", id: ""});
     }
 
-    if (this.profile.diplomes[this.profile.diplomes.length - 1].diplome != ""){
-      this.profile.diplomes.push({title: "newDiplome1", diplome:""});
+    else if (this.profile.diplomes[this.profile.diplomes.length - 1].domaine != ""){
+      bool=true
+      this.profile.diplomes.push({title: "newDiplome1", domaine:"", niveau: "", id:""});
+    }
+    if (bool){
+      this.Diplome= {
+        login: this.profile.email,
+        newDomaineDiplome: 'null',
+        newDureeDiplome: 'null'
+      }
+      this.profile.diplomes[this.profile.diplomes.length - 1].id=this.apiProvider.createDiplome(this.Diplome)
     }
   }
 
@@ -129,7 +160,6 @@ export class ProfilePage {
     } else if (this.profile.experiences.length == 0){
     this.profile.experiences.push({title: "newExperience", experience: "", dateDebut: "", dateFin: "", period: ""});
     }
-
     if (this.profile.experiences[this.profile.experiences.length - 1].experience != ""){
       this.profile.experiences.push({title: "newExperience1", experience:"", dateDebut: "", dateFin: "", period: ""});
     }
@@ -138,6 +168,11 @@ export class ProfilePage {
 
 
   removeDiplome(i){
+      this.Diplome= {
+        login: this.profile.email,
+        idDiplome: this.profile.diplomes[i].id
+    }
+    this.apiProvider.removeDiplome(this.Diplome)
     this.profile.diplomes.splice(i, 1);
   }
 

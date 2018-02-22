@@ -41,17 +41,20 @@ export class ApiProvider {
   changeName = 'changerNom/';
   changePrename = 'changerPrenom/';
   changeSex = 'changerSexe/';
-  changeMail= 'changerMail/';
+  changeMail = 'changerMail/';
   changeDateDeNaissanc = 'changerDateDeNaissance/';
   changerTelephone = 'changeTelephone/';
-  changerDescription ='changeDescription/'
+  changerDescription = 'changeDescription/'
+  changerDiplome = 'changeDiplome/'
+  creerDiplome = 'createDiplome/'
+  detruireDiplome= 'removeDiplome/'
 
   // requête vers le module composantProfil
 
   // requête vers le module offre
   ajoutOffre = 'ajoutOffre/';
   ajoutDemande = 'ajoutDemande/';
-
+  idObtenu;
 
   test = 'hello.php';
 
@@ -162,7 +165,42 @@ export class ApiProvider {
         console.log(error);
      });
   }
+  changeDiplome(objet) {
+    this.http.post(this.serverAddress + this.utilisateur + this.changerDiplome, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+        console.log(data.status);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+  createDiplome(objet) {
+    this.http.post(this.serverAddress + this.utilisateur + this.creerDiplome, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+        console.log(data.status);
+        this.idObtenu=data.id
+     },
+     (error : any) => {
+        console.log(error);
+     });
+    return this.idObtenu
+  }
 
-
-
+  removeDiplome(objet) {
+    this.http.post(this.serverAddress + this.utilisateur + this.detruireDiplome, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+        console.log(data.status);
+        this.idObtenu=data.id
+     },
+     (error : any) => {
+        console.log(error);
+     });
+    return this.idObtenu
+  }
 }

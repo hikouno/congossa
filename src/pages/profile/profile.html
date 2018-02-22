@@ -77,12 +77,12 @@
 	<ion-list *ngFor="let d of profile.diplomes; let i = index" no-lines>
 
 		<ion-item>
-			<ion-input type="text" placeholder="Domaine" [(ngModel)]="profile.diplomes[i].domaine" ></ion-input>
+			<ion-input type="text" placeholder="Domaine" [(ngModel)]="profile.diplomes[i].domaine" (focusout)=sendDomaineDiplome(i)></ion-input>
 		</ion-item>
 
 		<ion-item>
 			<ion-label>Niveau</ion-label>
-				<ion-select [(ngModel)]="profile.diplomes[i].niveau" interface="popover" >
+				<ion-select [(ngModel)]="profile.diplomes[i].niveau" interface="popover" (ionChange)=sendDureeDiplome(i)>
 				  <ion-option value="Brevet">Brevet</ion-option>
 			      <ion-option value="Bac">Bac</ion-option>
 			      <ion-option value="Bac1">Bac +1</ion-option>
