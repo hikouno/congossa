@@ -89,6 +89,8 @@ export class MyApp {
       this.nav.push(StatistiquesPage);
     }else if (title == 'about'){
       this.nav.push(AboutPage);
+    }else if (title == 'mes-matchs'){
+      this.nav.push(HomePage);
     }
 
     // Reset the content nav to have just this page

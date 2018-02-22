@@ -45,7 +45,6 @@ import { ApiProvider } from "../providers/api/api";
 import { ChatService } from '../providers/chat/chat-service';
 
 import { Keyboard } from '@ionic-native/keyboard';
-import { FormationDurationPage } from "../pages/formation-duration/formation-duration";
 
 import { MultiPickerModule } from 'ion-multi-picker';
 
@@ -86,7 +85,6 @@ var config = {
     ResultatRecherchePage,
     ModalViewCardPage,
     ListCategoriesPage,
-    FormationDurationPage
 
   ],
   imports: [
@@ -124,7 +122,6 @@ var config = {
     ResultatRecherchePage,
     ModalViewCardPage,
     ListCategoriesPage,
-    FormationDurationPage
 
   ],
   providers: [

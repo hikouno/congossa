@@ -238,6 +238,7 @@ export class ProfilePage {
 
   calculateAge(){
     var currentDate = new Date();
+    console.log(this.profile.age);
 
     var dd = currentDate.getDate();
     var mm = Number(currentDate.getMonth()+1); //January is 0!

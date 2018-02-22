@@ -15,6 +15,7 @@ import { ResultatRecherchePage } from "../resultat-recherche/resultat-recherche"
 //import { test } from "../../app/app.component"
 //Pour utiliser this.http
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HomePage } from "../home/home";
 
 
 
@@ -62,7 +63,7 @@ export class FirstPage {
   }
 
   resultRecherche(){
-    this.navCtrl.push(ResultatRecherchePage);
+    this.navCtrl.push(HomePage);
   }
   testServeur(){
      /*this.http.get(serveurAdress.concat(test)).subscribe((data : any) =>
