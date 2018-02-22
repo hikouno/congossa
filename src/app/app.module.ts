@@ -45,6 +45,9 @@ import { ApiProvider } from "../providers/api/api";
 import { ChatService } from '../providers/chat/chat-service';
 
 import { Keyboard } from '@ionic-native/keyboard';
+import { FormationDurationPage } from "../pages/formation-duration/formation-duration";
+
+import { MultiPickerModule } from 'ion-multi-picker';
 
 
 var config = {
@@ -82,7 +85,8 @@ var config = {
     ProposeJobPage,
     ResultatRecherchePage,
     ModalViewCardPage,
-    ListCategoriesPage
+    ListCategoriesPage,
+    FormationDurationPage
 
   ],
   imports: [
@@ -90,7 +94,8 @@ var config = {
     HttpClientModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(config),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    MultiPickerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -118,7 +123,8 @@ var config = {
     ProposeJobPage,
     ResultatRecherchePage,
     ModalViewCardPage,
-    ListCategoriesPage
+    ListCategoriesPage,
+    FormationDurationPage
 
   ],
   providers: [

@@ -8,11 +8,13 @@ import { RecherchePage } from "../recherche/recherche";
 
 import {MainProvider} from "../../providers/main/main"
 import { ApiProvider } from "../../providers/api/api"
+import { ListCategoriesPage } from "../list-categories/list-categories";
 
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html'
 })
+
 export class ProfilePage {
 
   @ViewChild('inputDiplome') input_Diplome ;
@@ -28,9 +30,33 @@ export class ProfilePage {
 
   profile: any;
 
+  categorie: string = "Catégorie";
+
+  formationDuration : string = "Durée de la formation";
+
+  durations : any;
+
 
   constructor(public navCtrl: NavController, private navParams: NavParams, public modalCtrl: ModalController, private provider:MainProvider,private apiProvider: ApiProvider) {
 	  this.getAll();
+    this.durations = [
+    {
+      name: 'col1',
+      options: [
+        { text: '1 an', value: '1'},
+        { text: '2 ans', value: '2'},
+        { text: '3 ans', value: '3'},
+        { text: '4 ans', value: '4'},
+        { text: '5 ans', value: '5'},
+        { text: '6 ans', value: '6'},
+        { text: '7 ans', value: '7'},
+        { text: '8 ans', value: '8'},
+        { text: '9 ans', value: '9'},
+        { text: '10 ans', value: '10'},
+        { text: '11 ans', value: '11'}
+      ]
+    }
+  ];
   }
 
   sendPrename(){
@@ -152,8 +178,29 @@ export class ProfilePage {
     this.profile.experiences.splice(i, 1);
   }
 
+  showCategories(){
+    this.navCtrl.push(ListCategoriesPage, {callback: this.myCallbackFunction_categories});
+  }
 
+  myCallbackFunction_categories = (_params) => {
+    return new Promise((resolve, reject) => {
+            resolve();
+            console.log(this.categorie);
+            this.categorie=_params;
+        });
+ }
 
+ showDurations(){
+   this.navCtrl.push(ListCategoriesPage, {callback: this.myCallbackFunction_durations});
+ }
+
+ myCallbackFunction_durations = (_params) => {
+   return new Promise((resolve, reject) => {
+           resolve();
+           console.log(this.formationDuration);
+           this.formationDuration=_params;
+       });
+}
 
   displayCard(){
     if (!this.onlineMode) {
