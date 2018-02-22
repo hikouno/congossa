@@ -323,7 +323,7 @@ export class ProfilePage {
 
 
   organizeSkills(){
-    if (this.profile.skills != []){
+    if (this.profile.skills != ""){
       this.profile.tableSkills = this.profile.skills.split(",");
       for (var i=0; i<this.profile.tableSkills.length; i++){
         if (this.profile.tableSkills[i].charAt(0) != " "){
@@ -334,7 +334,7 @@ export class ProfilePage {
   }
 
   organizeQualities(){
-    if (this.profile.qualities != []){
+    if (this.profile.qualities != ""){
       this.profile.tableQualities = this.profile.qualities.split(",");
       for (var i=0; i<this.profile.tableQualities.length; i++){
         if (this.profile.tableQualities[i].charAt(0) != " "){
@@ -357,6 +357,10 @@ export class ProfilePage {
 
 
   enregistrer(){
+    this.calculateAge();
+    this.organizeSkills();
+    this.organizeQualities();
+    this.calculatePeriods();
     this.navCtrl.setRoot(RecherchePage);
   }
 

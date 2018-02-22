@@ -203,4 +203,17 @@ export class ApiProvider {
      });
     return this.idObtenu
   }
+
+  // Login request
+  login(login, password, nav) {
+  this.http.get(this.serverAddress + this.utilisateur + "login/" + login +"/"+ password)
+  .subscribe(
+    (data : any) => {
+      nav.push(ProfilePage);
+   },
+   (error : any) => {
+      console.log(error);
+   });
+
+  }
 }

@@ -12,6 +12,9 @@ import firebase from 'firebase';
 import { Keyboard } from '@ionic-native/keyboard';
 import { SubPage } from "../sub/sub";
 
+import { ApiProvider } from "../../providers/api/api"
+
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
@@ -29,7 +32,8 @@ export class LoginPage {
               private googlePlus: GooglePlus,
               private fire: AngularFireAuth,
               private linkedin: LinkedIn,
-              private keyboard: Keyboard) {
+              private keyboard: Keyboard,
+              private apiProvider: ApiProvider) {
   }
 
 
@@ -66,7 +70,7 @@ export class LoginPage {
   }
 
   goToProfil() {
-  	this.navCtrl.push(ProfilePage);
+    this.apiProvider.login(login, password, this.navCtrl);
   }
 
   previous() {
