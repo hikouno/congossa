@@ -116,11 +116,6 @@ export class ProfilePage {
       this.profile.diplomes.push({title: "newDiplome1", domaine:"", niveau: "", id:""});
     }
     if (bool){
-      this.Diplome= {
-        login: this.profile.email,
-        newDomaineDiplome: 'null',
-        newDureeDiplome: 'null'
-      }
       this.profile.diplomes[this.profile.diplomes.length - 1].id=this.apiProvider.createDiplome(
       {"newDomaineDiplome": 'null'
         ,"newDureeDiplome": 'null'})
@@ -170,11 +165,7 @@ export class ProfilePage {
 
 
   removeDiplome(i){
-      this.Diplome= {
-        login: this.profile.email,
-        idDiplome: this.profile.diplomes[i].id
-    }
-    this.apiProvider.removeDiplome(this.Diplome)
+    this.apiProvider.removeDiplome({"idDiplome":this.profile.diplomes[i].id})
     this.profile.diplomes.splice(i, 1);
   }
 
