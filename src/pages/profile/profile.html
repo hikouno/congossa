@@ -76,7 +76,7 @@
 
 	<ion-list *ngFor="let f of profile.formations; let i = index" no-lines>
 
-    <button ion-item block color="white" (click)="showCategories()">{{categorie}}</button>
+    <button ion-item block color="white" (click)="showCategories_formation()">{{categorie_formation}}</button>
     <ion-item>
         <ion-label>Durée de la formation</ion-label>
         <ion-multi-picker item-content [multiPickerColumns]="durations"></ion-multi-picker>
@@ -103,9 +103,13 @@
 
 	<ion-list *ngFor="let e of profile.experiences; let i = index" no-lines>
 
+
+
 		<ion-item>
 			<ion-input type="text" placeholder="Titre de l'expérience" [(ngModel)]="profile.experiences[i].experience"></ion-input>
 		</ion-item>
+
+    <button ion-item block color="white" (click)="showCategories_experience()">{{categorie_experience}}</button>
 
 		<ion-item>
 			<ion-label>Date de début</ion-label>

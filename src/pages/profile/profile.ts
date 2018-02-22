@@ -18,7 +18,6 @@ import { ListCategoriesPage } from "../list-categories/list-categories";
 export class ProfilePage {
   diplome: any;
 
-  @ViewChild('inputDiplome') input_Diplome ;
 
   nom: any;
   Prenom: any;
@@ -32,7 +31,9 @@ export class ProfilePage {
 
   profile: any;
 
-  categorie: string = "Catégorie";
+  categorie_formation: string = "Domaine";
+
+  categorie_experience: string = "Domaine";
 
   formationDuration : string = "Durée de la formation";
 
@@ -45,6 +46,8 @@ export class ProfilePage {
     {
       name: 'col1',
       options: [
+        { text: '3 mois', value: '0.25'},
+        { text: '6 mois', value: '0.5'},
         { text: '1 an', value: '1'},
         { text: '2 ans', value: '2'},
         { text: '3 ans', value: '3'},
@@ -118,7 +121,7 @@ export class ProfilePage {
     }
     this.apiProvider.changeDescription(this.Description)
   }
-  
+
   sendDomaineDiplome(i){
     console.log("aya")
     if (this.profile.diplomes[i].niveau!=""){
@@ -145,9 +148,7 @@ export class ProfilePage {
   addDiplome(){
     var bool=false
     if (this.profile.diplomes == undefined){
-      setTimeout(() => {
-        this.input_Diplome.setFocus();
-      },150);
+
       this.profile.diplomes = [];
       this.profile.diplomes.push({title: "newDiplome", domaine: "", niveau: "", id: ""});
       bool=true
@@ -183,9 +184,12 @@ export class ProfilePage {
 //   # }
 //
   addFormation(){
+
     if (this.profile.formations == undefined){
+
       this.profile.formations = [];
       this.profile.formations.push({title: "newFormation", formation: ""});
+
     } else if (this.profile.formations.length == 0){
     this.profile.formations.push({title: "newFormation1", formation: ""});
     }
@@ -206,7 +210,7 @@ export class ProfilePage {
       this.profile.experiences.push({title: "newExperience1", experience:"", dateDebut: "", dateFin: "", period: ""});
     }
   }
-  
+
 
 
   removeDiplome(i){
@@ -226,17 +230,29 @@ export class ProfilePage {
     this.profile.experiences.splice(i, 1);
   }
 
-  showCategories(){
-    this.navCtrl.push(ListCategoriesPage, {callback: this.myCallbackFunction_categories});
+  showCategories_formation(){
+    this.navCtrl.push(ListCategoriesPage, {callback: this.myCallbackFunction_categories_formation});
   }
 
-  myCallbackFunction_categories = (_params) => {
+  myCallbackFunction_categories_formation = (_params) => {
     return new Promise((resolve, reject) => {
             resolve();
-            console.log(this.categorie);
-            this.categorie=_params;
+            console.log(this.categorie_formation);
+            this.categorie_formation=_params;
         });
  }
+
+ showCategories_experience(){
+   this.navCtrl.push(ListCategoriesPage, {callback: this.myCallbackFunction_categories_experience});
+ }
+
+ myCallbackFunction_categories_experience = (_params) => {
+   return new Promise((resolve, reject) => {
+           resolve();
+           console.log(this.categorie_experience);
+           this.categorie_experience=_params;
+       });
+}
 
  showDurations(){
    this.navCtrl.push(ListCategoriesPage, {callback: this.myCallbackFunction_durations});
