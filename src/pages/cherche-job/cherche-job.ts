@@ -92,7 +92,33 @@ export class ChercheJobPage {
    }
  }
 
+ organizeSkills(){
+   if (this.profileCopy.skills != ""){
+     this.profileCopy.tableSkills = this.profileCopy.skills.split(",");
+     for (var i=0; i<this.profileCopy.tableSkills.length; i++){
+       if (this.profileCopy.tableSkills[i].charAt(0) != " "){
+         this.profileCopy.tableSkills[i] = " " + this.profileCopy.tableSkills[i];
+       }
+     }
+   }
+ }
+
+ organizeQualities(){
+   if (this.profileCopy.qualities != ""){
+     this.profileCopy.tableQualities = this.profileCopy.qualities.split(",");
+     for (var i=0; i<this.profileCopy.tableQualities.length; i++){
+       if (this.profileCopy.tableQualities[i].charAt(0) != " "){
+         this.profileCopy.tableQualities[i] = " " + this.profileCopy.tableQualities[i];
+       }
+     }
+   }
+ }
+
  searchProfiles(){
+   this.organizeSkills();
+   this.organizeQualities();
+   this.calculatePeriods();
+   
    this.createDemande();
    this.apiProvider.sendDemande(this.demande);
    this.provider.addDemande(this.demande);

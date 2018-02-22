@@ -92,7 +92,7 @@ export class ProfilePage {
     }
     this.apiProvider.changeDescription(this.Description)
   }
-  
+
   sendDomaineDiplome(i){
     console.log("aya")
     if (this.profile.diplomes[i].niveau!=""){
@@ -180,7 +180,7 @@ export class ProfilePage {
       this.profile.experiences.push({title: "newExperience1", experience:"", dateDebut: "", dateFin: "", period: ""});
     }
   }
-  
+
 
 
   removeDiplome(i){
@@ -293,6 +293,10 @@ export class ProfilePage {
 
 
   enregistrer(){
+    this.calculateAge();
+    this.organizeSkills();
+    this.organizeQualities();
+    this.calculatePeriods();
     this.navCtrl.setRoot(RecherchePage);
   }
 
