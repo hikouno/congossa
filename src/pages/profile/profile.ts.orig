@@ -127,9 +127,11 @@ export class ProfilePage {
       bool=true
     }
     else if (this.profile.diplomes.length == 0){
+<<<<<<< HEAD
       bool=true
     this.profile.diplomes.push({title: "newDiplome1", domaine: "", niveau: "", id: ""});
     }
+
     else if (this.profile.diplomes[this.profile.diplomes.length - 1].domaine != ""){
       bool=true
       this.profile.diplomes.push({title: "newDiplome1", domaine:"", niveau: "", id:""});
@@ -141,21 +143,22 @@ export class ProfilePage {
         newDureeDiplome: 'null'
       }
       this.profile.diplomes[this.profile.diplomes.length - 1].id=this.apiProvider.createDiplome(this.Diplome)
-      }
-      }
-  //   setTimeout(() => {
-//  #      this.input_Diplome.setFocus();
-//  #    },150);
-//  #  this.profile.diplomes.push({title: "newDiplome1", diplome: ""});
-//  #  }
-// #
-//  #  if (this.profile.diplomes[this.profile.diplomes.length - 1].diplome != ""){
-//   #   setTimeout(() => {
-//    #    this.input_Diplome.setFocus();
-//    #  },150);
- //   #  this.profile.diplomes.push({title: "newDiplome1", diplome:""});
-//   # }
-//
+=======
+      setTimeout(() => {
+        this.input_Diplome.setFocus();
+      },150);
+    this.profile.diplomes.push({title: "newDiplome1", diplome: ""});
+    }
+
+    if (this.profile.diplomes[this.profile.diplomes.length - 1].diplome != ""){
+      setTimeout(() => {
+        this.input_Diplome.setFocus();
+      },150);
+      this.profile.diplomes.push({title: "newDiplome1", diplome:""});
+>>>>>>> b8ddbe60249f9e86baee2c278d83ad8fc3ca589c
+    }
+  }
+
   addFormation(){
     if (this.profile.formations == undefined){
       this.profile.formations = [];

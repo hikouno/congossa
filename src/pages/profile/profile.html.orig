@@ -1,0 +1,225 @@
+
+<ion-header>
+
+  <ion-navbar color="orange">
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content id="View">
+
+	<button ion-button clear small icon-only style="width: 100px;height: 100px ;padding: 0px 0px 0px 0px;margin: 30px 0px 30px 34% ;">
+		<img id="image" src="https://pbs.twimg.com/profile_images/662333810185543680/0NdNCnYu_400x400.jpg" style="height: 100px;width: 100px;border-radius: 50%;padding: 0px 0px 0px 0px;margin: 0px 0px 0px 0px;">
+	</button>
+
+
+
+	<ion-list class="listes" no-lines>
+		<div class="text-description">
+			<span class="text">Toutes ces informations vous sont demandées dans le but d'établir votre profil et pour que d'autres utilisateurs puissent avoir une première impression sur votre personnailté et vos aptitudes.</span>
+		</div>
+
+
+  <ion-item>
+    <ion-input [(ngModel)]="profile.firstname" class="inputs" type="text" placeholder="Prénom" (focusout)="sendPrename()"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input [(ngModel)]="profile.familyname" type="text" placeholder="Nom" (focusout)="sendName()"></ion-input>
+  </ion-item>
+
+	<ion-item>
+    <ion-label>Sexe</ion-label>
+    <ion-select [(ngModel)]="profile.sexe" interface="popover" (ionChange)="sendSexe()">
+      <ion-option value="Homme">Homme</ion-option>
+      <ion-option value="Femme">Femme</ion-option>
+    </ion-select>
+  </ion-item>
+
+	<ion-item>
+    <ion-label>Date de Naissance</ion-label>
+    <ion-datetime [(ngModel)]="profile.date" displayFormat="DD/MM/YYYY" (ionChange)="sendDateDeNaissance()"></ion-datetime>
+  </ion-item>
+
+	<ion-item>
+    <ion-input [(ngModel)]="profile.email" type="text" placeholder="Email" (focusout)="sendMail()">{{email}}</ion-input>
+  </ion-item>
+
+	<ion-item>
+    <ion-input [(ngModel)]="profile.telephone" type="number" placeholder="Téléphone" (focusout)="sendTelephone()">{{phoneNumber}}</ion-input>
+  </ion-item>
+
+
+	</ion-list>
+
+	<ion-list class="listes" no-lines>
+		<ion-item>
+      <ion-textarea [(ngModel)]="profile.shortDescription" placeholder="Courte description de votre personnalité" (focusout)="sendDescription()"></ion-textarea>
+    </ion-item>
+
+		<div class="text-description">
+			<span class="text"> Cette courte description sera la première accroche à votre profil.</span>
+		</div>
+	</ion-list>
+
+	<div class="text-description">
+		<span class="text-title">Diplômes</span>
+	</div>
+
+	<div style="text-align:center;">
+		<button ion-button  class="addButton" clear color="primary" (click)="addDiplome()">
+			<span style="color:#488aff;" > <ion-icon name="add"></ion-icon> Ajouter un Diplôme</span>
+		</button>
+	</div>
+
+
+	<ion-list *ngFor="let d of profile.diplomes; let i = index" no-lines>
+
+		<ion-item>
+<<<<<<< HEAD
+			<ion-input type="text" placeholder="Domaine" [(ngModel)]="profile.diplomes[i].domaine" (focusout)=sendDomaineDiplome(i)></ion-input>
+=======
+			<ion-input #inputDiplome type="text" placeholder="Nom du Diplôme" [(ngModel)]="profile.diplomes[i].diplome"></ion-input>
+>>>>>>> b8ddbe60249f9e86baee2c278d83ad8fc3ca589c
+		</ion-item>
+
+		<ion-item>
+			<ion-label>Niveau</ion-label>
+				<ion-select [(ngModel)]="profile.diplomes[i].niveau" interface="popover" (ionChange)=sendDureeDiplome(i)>
+				  <ion-option value="Brevet">Brevet</ion-option>
+			      <ion-option value="Bac">Bac</ion-option>
+			      <ion-option value="Bac1">Bac +1</ion-option>
+			      <ion-option value="Bac +2">Bac +2</ion-option>
+			      <ion-option value="Bac +3">Bac +3</ion-option>
+			      <ion-option value="Bac +4">Bac +4</ion-option>
+			      <ion-option value="Bac +5">Bac +5</ion-option>
+			      <ion-option value="Bac +6">Bac +6</ion-option>
+			      <ion-option value="Bac +7">Bac +7</ion-option>
+			      <ion-option value="Bac +8">Bac +8</ion-option>
+			      
+			    </ion-select>		
+		</ion-item>
+
+		<ion-buttons end>
+			<button ion-button color="danger" round small (click)=removeDiplome(i)>
+				Effacer
+			</button>
+		</ion-buttons>
+
+	</ion-list>
+
+
+
+
+	<div class="text-description">
+		<span class="text-title">Formation</span>
+	</div>
+
+	<div style="text-align:center;">
+		<button ion-button class="addButton" clear color="primary" block (click)="addFormation()">
+			<span style="color:#488aff;"><ion-icon name="add"></ion-icon> Ajouter une Formation</span>
+		</button>
+	</div>
+
+	<ion-list *ngFor="let f of profile.formations; let i = index" no-lines>
+
+		<ion-item>
+			<ion-input type="text" placeholder="Nom de la formation" [(ngModel)]="profile.formations[i].formation"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>Date de début</ion-label>
+			<ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>Date de fin</ion-label>
+			<ion-datetime displayFormat="YYYY" placeholder="Date"></ion-datetime>
+		</ion-item>
+
+		<ion-buttons end>
+			<button ion-button color="danger" round small (click)=removeFormation(i)>
+				Effacer
+			</button>
+		</ion-buttons>
+
+	</ion-list>
+
+
+	<div class="text-description">
+		<span class="text-title">Expérience</span>
+	</div>
+
+	<div style="text-align:center;">
+		<button ion-button class="addButton" clear color="primary" block (click)="addExperience()">
+			<span style="color:#488aff;"><ion-icon name="add"></ion-icon> Ajouter une Expérience</span>
+		</button>
+	</div>
+
+	<ion-list *ngFor="let e of profile.experiences; let i = index" no-lines>
+
+		<ion-item>
+			<ion-input type="text" placeholder="Titre de l'expérience" [(ngModel)]="profile.experiences[i].experience"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>Date de début</ion-label>
+			<ion-datetime [(ngModel)]="profile.experiences[i].dateDebut" displayFormat="MM/YYYY" placeholder="Date"></ion-datetime>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>Date de fin</ion-label>
+			<ion-datetime [(ngModel)]="profile.experiences[i].dateFin" displayFormat="MM/YYYY" placeholder="Date"></ion-datetime>
+		</ion-item>
+
+		<ion-buttons end>
+			<button ion-button color="danger" round small (click)=removeExperience(i)>
+				Effacer
+			</button>
+		</ion-buttons>
+
+	</ion-list>
+
+
+
+
+	<div class="text-description">
+		<span class="text-title"> Compétences</span>
+	</div>
+
+	<ion-list class="listes" no-lines>
+
+		<ion-item>
+			<ion-label stacked color="grey" style="text-weight:bold;">Vos compétences (espacées par une virgule)</ion-label>
+			<ion-textarea [(ngModel)]="profile.skills"></ion-textarea>
+		</ion-item>
+
+	</ion-list>
+
+	<div class="text-description">
+		<span class="text-title"> Qualités</span>
+	</div>
+
+	<ion-list class="listes" no-lines>
+
+		<ion-item>
+			<ion-label stacked color="grey" style="text-weight:bold;">Vos qualités (espacées par une virgule)</ion-label>
+			<ion-textarea [(ngModel)]="profile.qualities"></ion-textarea>
+		</ion-item>
+
+	</ion-list>
+
+<ion-row>
+	<ion-col>
+		<button ion-button class="bouttons" color="orange" (click)="displayCard()" round> Visualiser la carte </button>
+	</ion-col>
+	<ion-col>
+		<button ion-button class="bouttons" color="orange" (click)="enregistrer()" round> Enregistrer </button>
+	</ion-col>
+</ion-row>
+
+
+
+
+</ion-content>
