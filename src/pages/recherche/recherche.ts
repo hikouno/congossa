@@ -126,7 +126,7 @@ export class RecherchePage {
   }
 
   openMessagesPage(){
-    this.navCtrl.setRoot(ListeConversationsPage);
+    this.navCtrl.push(ListeConversationsPage);
   }
 
   openChercheJobPage(){
