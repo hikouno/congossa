@@ -7,24 +7,28 @@
 
   <ion-grid>
 
-          <div id="title">
-            <h1 class="WelcomeTitle">
-            Connectez vous
-            </h1>
-          </div>
+
       <ion-row>
         <ion-col text-center>
           <div id="bottom">
 
+            <div id="title">
+              <h1 class="WelcomeTitle">
+              Connectez vous
+              </h1>
+            </div>
+
             <ion-card id="loginCard">
+
               <ion-list>
 
+
                 <ion-item class="standardInscription">
-                  <ion-input type="text" placeholder="Username" required></ion-input>
+                  <ion-input type="text" placeholder="Email" required></ion-input>
                 </ion-item>
 
                 <ion-item class="standardInscription">
-                  <ion-input type="password" placeholder="Password" required></ion-input>
+                  <ion-input type="password" placeholder="Mot de passe" required></ion-input>
                 </ion-item>
 
                 <button ion-button color="orange" id="inscription" (click)="goToProfil()"> Connexion </button>
@@ -40,15 +44,14 @@
               <button ion-button class="LoginButton" color="lBlue" (click)="loginWithLinkedIn()" icon-start> <div style="text-align:center;"><ion-icon name="logo-linkedin"> </ion-icon>  <strong>LinkedIn</strong> &nbsp;</div> </button>
             </div>
           </div>
+          <img src="assets/imgs/handshake.png" style="width:85px;height:85px; margin-top:8%"/>
         </ion-col>
       </ion-row>
     </ion-grid>
 
 
-
-
-
-
-
-
 </ion-content>
+
+<ion-footer text-center style="padding-bottom:3%;" no-border>
+  <button ion-button color="white" outline (click)="goToSub()" small> Pas de compte ? S'inscrire</button>
+</ion-footer>

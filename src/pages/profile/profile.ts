@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { NavController, NavParams, ModalController} from 'ionic-angular';
 
 //pages
@@ -16,6 +16,8 @@ import { ApiProvider } from "../../providers/api/api"
 export class ProfilePage {
   diplome: any;
 
+  @ViewChild('inputDiplome') input_Diplome ;
+
   nom: any;
   Prenom: any;
   Sexe: any;
@@ -32,7 +34,7 @@ export class ProfilePage {
   constructor(public navCtrl: NavController, private navParams: NavParams, public modalCtrl: ModalController, private provider:MainProvider,private apiProvider: ApiProvider) {
 	  this.getAll();
   }
-  
+
   sendPrename(){
      this.Prenom = {
       login: this.profile.email,
@@ -81,7 +83,7 @@ export class ProfilePage {
     }
     this.apiProvider.changeTelephone(this.Telephone)
   }
-  
+
   sendDescription(){
     console.log(this.profile.telephone)
     this.Description= {
@@ -117,6 +119,9 @@ export class ProfilePage {
   addDiplome(){
     var bool=false
     if (this.profile.diplomes == undefined){
+      setTimeout(() => {
+        this.input_Diplome.setFocus();
+      },150);
       this.profile.diplomes = [];
       this.profile.diplomes.push({title: "newDiplome", domaine: "", niveau: "", id: ""});
       bool=true
@@ -125,7 +130,6 @@ export class ProfilePage {
       bool=true
     this.profile.diplomes.push({title: "newDiplome1", domaine: "", niveau: "", id: ""});
     }
-
     else if (this.profile.diplomes[this.profile.diplomes.length - 1].domaine != ""){
       bool=true
       this.profile.diplomes.push({title: "newDiplome1", domaine:"", niveau: "", id:""});
@@ -137,8 +141,21 @@ export class ProfilePage {
         newDureeDiplome: 'null'
       }
       this.profile.diplomes[this.profile.diplomes.length - 1].id=this.apiProvider.createDiplome(this.Diplome)
-    }
-  }
+      }
+      }
+  #    setTimeout(() => {
+  #      this.input_Diplome.setFocus();
+  #    },150);
+  #  this.profile.diplomes.push({title: "newDiplome1", diplome: ""});
+  #  }
+ #
+  #  if (this.profile.diplomes[this.profile.diplomes.length - 1].diplome != ""){
+   #   setTimeout(() => {
+    #    this.input_Diplome.setFocus();
+    #  },150);
+    #  this.profile.diplomes.push({title: "newDiplome1", diplome:""});
+   # }
+ # }
 
   addFormation(){
     if (this.profile.formations == undefined){
@@ -243,7 +260,7 @@ export class ProfilePage {
 
 
   organizeSkills(){
-    if (this.profile.skills != undefined){
+    if (this.profile.skills != []){
       this.profile.tableSkills = this.profile.skills.split(",");
       for (var i=0; i<this.profile.tableSkills.length; i++){
         if (this.profile.tableSkills[i].charAt(0) != " "){
@@ -254,7 +271,7 @@ export class ProfilePage {
   }
 
   organizeQualities(){
-    if (this.profile.qualities != undefined){
+    if (this.profile.qualities != []){
       this.profile.tableQualities = this.profile.qualities.split(",");
       for (var i=0; i<this.profile.tableQualities.length; i++){
         if (this.profile.tableQualities[i].charAt(0) != " "){

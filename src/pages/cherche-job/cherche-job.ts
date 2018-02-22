@@ -106,27 +106,29 @@ export class ChercheJobPage {
 
   createDemande(){
     this.demande = {
-      firstname: this.profileCopy.firstname,
-      familyname: this.profileCopy.familyname,
-      dateNaissance: this.profileCopy.dateNaissance,
-      age: this.profileCopy.age,
-      email: this.profileCopy.email,
-      phone: this.profileCopy.phone,
-      photo: this.profileCopy.photo,
-      categorie: this.categorie,
-      typeOfJob: this.typeOfJob,
-      dateDebut: this.dateDebut,
-      dateFin: this.dateFin,
-      city: this.city,
-      shortDescription: this.profileCopy.shortDescription,
-      skills: this.profileCopy.skills,
-      tableSkills: this.profileCopy.tableSkills,
-      qualities: this.profileCopy.qualities,
-      tableQualities: this.profileCopy.tableQualities,
-      formations: this.profileCopy.formations,
-      diplomes: this.profileCopy.diplomes,
-      experiences: this.profileCopy.experiences
+      'firstname': this.profileCopy.firstname,
+      'familyname': this.profileCopy.familyname,
+      'dateNaissance': this.profileCopy.dateNaissance,
+      'age': this.profileCopy.age,
+      'email': this.profileCopy.email,
+      'phone': this.profileCopy.phone,
+      'photo': this.profileCopy.photo,
+      'categorie': this.categorie,
+      'typeOfJob': (this.typeOfJob == null ? "" : this.typeOfJob),
+      'dateDebut': (this.dateDebut == null ? "" : this.dateDebut),
+      'dateFin': (this.dateFin == null ? "" : this.dateFin),
+      'city': (this.city == null ? "" : this.city),
+      'shortDescription': this.profileCopy.shortDescription,
+      'skills': this.profileCopy.skills,
+      'tableSkills': this.profileCopy.tableSkills,
+      'qualities': this.profileCopy.qualities,
+      'tableQualities': this.profileCopy.tableQualities,
+      'formations': this.profileCopy.formations,
+      'diplomes': this.profileCopy.diplomes,
+      'experiences': this.profileCopy.experiences,
     }
+    console.log("demande = ");
+    console.log(this.demande);
   }
 
   clone(obj){
