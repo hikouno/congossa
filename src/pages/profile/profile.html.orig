@@ -77,7 +77,11 @@
 	<ion-list *ngFor="let d of profile.diplomes; let i = index" no-lines>
 
 		<ion-item>
+<<<<<<< HEAD
 			<ion-input type="text" placeholder="Domaine" [(ngModel)]="profile.diplomes[i].domaine" (focusout)=sendDomaineDiplome(i)></ion-input>
+=======
+			<ion-input #inputDiplome type="text" placeholder="Nom du Diplôme" [(ngModel)]="profile.diplomes[i].diplome"></ion-input>
+>>>>>>> b8ddbe60249f9e86baee2c278d83ad8fc3ca589c
 		</ion-item>
 
 		<ion-item>
