@@ -63,5 +63,19 @@ page-modal-view-card {
 
     .description{
       font-size: 11px;
+      width:100%;
+    }
+    .header-card{
+      white-space: normal;
+      margin: 0 0 0 0;
+      padding: 0 0 0 0;
+    }
+
+    .header-name{
+      color: #505050;
+    }
+
+    .header-age{
+      color: grey;
     }
 }
