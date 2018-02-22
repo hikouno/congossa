@@ -106,13 +106,6 @@ export class ChercheJobPage {
 
   createDemande(){
     this.demande = {
-      'firstname': this.profileCopy.firstname,
-      'familyname': this.profileCopy.familyname,
-      'dateNaissance': this.profileCopy.dateNaissance,
-      'age': this.profileCopy.age,
-      'email': this.profileCopy.email,
-      'phone': this.profileCopy.phone,
-      'photo': this.profileCopy.photo,
       'categorie': this.categorie,
       'typeOfJob': (this.typeOfJob == null ? "" : this.typeOfJob),
       'dateDebut': (this.dateDebut == null ? "" : this.dateDebut),
