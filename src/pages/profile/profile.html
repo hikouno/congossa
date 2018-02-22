@@ -63,53 +63,6 @@
 		</div>
 	</ion-list>
 
-<<<<<<< HEAD
-=======
-	<div class="text-description">
-		<span class="text-title">Diplômes</span>
-	</div>
-
-	<div style="text-align:center;">
-		<button ion-button  class="addButton" clear color="primary" (click)="addDiplome()">
-			<span style="color:#488aff;" > <ion-icon name="add"></ion-icon> Ajouter un Diplôme</span>
-		</button>
-	</div>
-
-
-	<ion-list *ngFor="let d of profile.diplomes; let i = index" no-lines>
-
-		<ion-item>
-			<ion-input type="text" placeholder="Domaine" [(ngModel)]="profile.diplomes[i].domaine" (focusout)=sendDomaineDiplome(i)></ion-input>
-		</ion-item>
-
-		<ion-item>
-			<ion-label>Niveau</ion-label>
-				<ion-select [(ngModel)]="profile.diplomes[i].niveau" interface="popover" (ionChange)=sendDureeDiplome(i)>
-				  <ion-option value="Brevet">Brevet</ion-option>
-			      <ion-option value="Bac">Bac</ion-option>
-			      <ion-option value="Bac1">Bac +1</ion-option>
-			      <ion-option value="Bac +2">Bac +2</ion-option>
-			      <ion-option value="Bac +3">Bac +3</ion-option>
-			      <ion-option value="Bac +4">Bac +4</ion-option>
-			      <ion-option value="Bac +5">Bac +5</ion-option>
-			      <ion-option value="Bac +6">Bac +6</ion-option>
-			      <ion-option value="Bac +7">Bac +7</ion-option>
-			      <ion-option value="Bac +8">Bac +8</ion-option>
-			      
-			    </ion-select>		
-		</ion-item>
-
-		<ion-buttons end>
-			<button ion-button color="danger" round small (click)=removeDiplome(i)>
-				Effacer
-			</button>
-		</ion-buttons>
-
-	</ion-list>
-
-
-
->>>>>>> 50c4edce03103759b65b2b3d3d8ee82f4b57a3cd
 
 	<div class="text-description">
 		<span class="text-title">Formation</span>
