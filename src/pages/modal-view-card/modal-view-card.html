@@ -36,29 +36,37 @@
       <ion-col class="text-col-left" col-6>
         <p text-left><Strong class="titres"> Formation</Strong></p>
         <div *ngFor="let f of formations">
-          <p text-left class="description">
+          <p text-left *ngIf="f.period == undefined" class="description">
             - {{f.formation}}
+          </p>
+          <p text-left *ngIf="f.period < 1" class="description">
+            - {{f.formation}} (<strong>{{f.period * 12}} mois</strong>)
+          </p>
+          <p text-left *ngIf="f.period == 1" class="description">
+            - {{f.formation}} (<strong>{{f.period}} an</strong>)
+          </p>
+          <p text-left *ngIf="f.period > 1" class="description">
+            - {{f.formation}} (<strong>{{f.period}} ans</strong>)
           </p>
         </div>
       </ion-col>
       <ion-col class="text-col-right" col-6>
-        <p text-left><Strong class="titres"> Expériences </Strong></p>
-        <div *ngFor="let e of experiences">
-          <p text-left class="description">
-            -{{e.experience}} (<strong>{{e.period}} mois</strong>)
-          </p>
-        </div>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class="text-col-left" col-6>
         <p text-left><Strong class="titres"> Compétences </Strong></p>
         <div *ngFor="let s of tableSkills">
           <p text-left class="description">
             -{{s}}
           </p>
         </div>
-
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="text-col-left" col-6>
+        <p text-left><Strong class="titres"> Expériences </Strong></p>
+        <div *ngFor="let e of experiences">
+          <p text-left class="description">
+            -{{e.experience}} (<strong>{{e.period}} mois</strong>)
+          </p>
+        </div>
       </ion-col>
       <ion-col class="text-col-right" col-6>
         <p text-left><Strong class="titres"> Qualités </Strong></p>

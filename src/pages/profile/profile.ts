@@ -87,14 +87,14 @@ export class ProfilePage {
     if (this.profile.formations == undefined){
 
       this.profile.formations = [];
-      this.profile.formations.push({title: "newFormation", formation: "", domaine: "Domaine"});
+      this.profile.formations.push({title: "newFormation", formation: "", domaine: "Domaine", period: undefined});
 
     } else if (this.profile.formations.length == 0){
-    this.profile.formations.push({title: "newFormation1", formation: "", domaine: "Domaine"});
+    this.profile.formations.push({title: "newFormation1", formation: "", domaine: "Domaine", period: undefined});
     }
 
     if (this.profile.formations[this.profile.formations.length - 1].formation != ""){
-      this.profile.formations.push({title: "newFormation1", formation:"", domaine: "Domaine"});
+      this.profile.formations.push({title: "newFormation1", formation:"", domaine: "Domaine", period: undefined});
     }
   }
 

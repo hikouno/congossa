@@ -57,23 +57,22 @@
           </div>
         </ion-col>
         <ion-col class="text-col-right" col-6>
-          <p text-left><Strong class="titres"> Expériences </Strong></p>
-          <div *ngFor="let e of experiences">
-            <p text-left class="description">
-              -{{e.experience}} (<strong>{{e.period}} mois</strong>)
-            </p>
-          </div>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="text-col-left" col-6>
           <p text-left><Strong class="titres"> Compétences </Strong></p>
           <div *ngFor="let s of tableSkills">
             <p text-left class="description">
               -{{s}}
             </p>
           </div>
-
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="text-col-left" col-6>
+          <p text-left><Strong class="titres"> Expériences </Strong></p>
+          <div *ngFor="let e of experiences">
+            <p text-left class="description">
+              -{{e.experience}} (<strong>{{e.period}} mois</strong>)
+            </p>
+          </div>
         </ion-col>
         <ion-col class="text-col-right" col-6>
           <p text-left><Strong class="titres"> Qualités </Strong></p>
