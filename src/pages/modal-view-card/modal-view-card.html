@@ -26,7 +26,7 @@
       <img src="assets/imgs/avatar.jpg">
     </ion-avatar>
     <strong class="header-name">{{firstname}} {{familyname}}</strong>
-    <h2 class="header-age">{{age}} ans</h2>
+    <h2 *ngIf="age!='2018'" class="header-age">{{age}} ans</h2>
   </ion-item>
   </ion-card-header>
 
