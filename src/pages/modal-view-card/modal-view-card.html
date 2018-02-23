@@ -26,7 +26,7 @@
       <img src="assets/imgs/avatar.jpg">
     </ion-avatar>
     <strong class="header-name">{{firstname}} {{familyname}}</strong>
-    <h2 *ngIf="age!='2018'" class="header-age">{{age}} ans</h2>
+    <h2 *ngIf="age < 110" class="header-age">{{age}} ans</h2>
   </ion-item>
   </ion-card-header>
 
@@ -63,7 +63,10 @@
       <ion-col class="text-col-left" col-6>
         <p text-left><Strong class="titres"> Expériences </Strong></p>
         <div *ngFor="let e of experiences">
-          <p text-left class="description">
+          <p text-left class="description" *ngIf="e.period == undefined">
+            -{{e.experience}}
+          </p>
+          <p text-left class="description" *ngIf="e.period != undefined">
             -{{e.experience}} (<strong>{{e.period}} mois</strong>)
           </p>
         </div>

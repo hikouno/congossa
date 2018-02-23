@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ListCategoriesPage } from "../list-categories/list-categories";
 
 //pages
@@ -44,9 +44,10 @@ export class ChercheJobPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private provider:MainProvider,
-    private apiProvider: ApiProvider) {
-    this.getAll();
-    this.profileCopy = this.clone(this.profile);
+    private apiProvider: ApiProvider,
+    private alertCtrl: AlertController) {
+      this.getAll();
+      this.profileCopy = this.clone(this.profile);
   }
 
   getAll(){
@@ -118,7 +119,7 @@ export class ChercheJobPage {
    this.organizeSkills();
    this.organizeQualities();
    this.calculatePeriods();
-   
+
    this.createDemande();
    this.apiProvider.sendDemande(this.demande);
    this.provider.addDemande(this.demande);
@@ -128,6 +129,29 @@ export class ChercheJobPage {
 
   showCategories(){
     this.navCtrl.push(ListCategoriesPage, {callback: this.myCallbackFunction});
+  }
+
+  presentConfirm_experience(i) {
+    let alert = this.alertCtrl.create({
+      title: 'Supprimer cette expérience ?',
+      message: 'Souhaitez vous supprimer cette expérience ?',
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Supprimer',
+          handler: () => {
+            this.removeExperience(i);
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
   createDemande(){
