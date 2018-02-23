@@ -34,6 +34,7 @@ export class ApiProvider {
 
   // definition de toutes les fonctions
   // requête vers le module utilisateur
+  login_path = 'login/';
   register = 'register';
   consulterSonProfil = 'consulterSonProfil';
   editerSonProfil = 'editerSonProfil';
@@ -206,10 +207,15 @@ export class ApiProvider {
 
   // Login request
   login(login, password, nav) {
-  this.http.get(this.serverAddress + this.utilisateur + "login/" + login +"/"+ password)
+  var objet = {'login': login, 'password': password};
+  this.http.post(this.serverAddress + this.utilisateur + this.login_path, objet)
   .subscribe(
     (data : any) => {
-      nav.push(ProfilePage);
+      if (data.success) {
+        nav.push(ProfilePage);
+      } else {
+
+      }
       console.log(data)
    },
    (error : any) => {
