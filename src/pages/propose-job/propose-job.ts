@@ -22,19 +22,23 @@ import { ApiProvider } from "../../providers/api/api"
 })
 export class ProposeJobPage {
 
-  profile: any;
-
-  profileCopy: any;
-
-  city: any;
-
   onlineMode: boolean = false;
 
+  profile: any;
+
   title : string;
-
-  categorie: string = "Catégorie";
+  city: any;
   typeOfJob: any;
+  categorie: string = "Catégorie";
+  dateDebut: any;
+  dateFin: any;
+  description: any;
 
+  profileRecherche: {
+    skills: string[];
+    qualities: string[];
+
+  };
 
   offre: any;
 
@@ -44,12 +48,10 @@ export class ProposeJobPage {
     private provider:MainProvider,
     private apiProvider: ApiProvider) {
     this.getAll();
-    this.profileCopy = this.clone(this.profile);
   }
 
   getAll(){
     this.profile = this.provider.get_profile();
-
   }
 
   myCallbackFunction = (_params) => {
@@ -88,25 +90,13 @@ export class ProposeJobPage {
 
     createOffre(){
       this.offre = {
-        firstname: this.profileCopy.firstname,
-        familyname: this.profileCopy.familynameCopy,
-        date: this.profileCopy.dateCopy,
-        age: this.profileCopy.ageCopy,
-        email: this.profileCopy.emailCopy,
-        phone: this.profileCopy.phoneCopy,
-        photo: this.profileCopy.photoCopy,
-        shortDescription: this.profileCopy.shortDescriptionCopy,
-        skills: this.profileCopy.skillsCopy,
-        tableSkills: this.profileCopy.tableSkillsCopy,
-        qualities: this.profileCopy.qualitiesCopy,
-        tableQualities: this.profileCopy.tableQualitiesCopy,
-        formations: this.profileCopy.formationsCopy,
-        diplomes: this.profileCopy.diplomesCopy,
-        experiences: this.profileCopy.experiencesCopy,
-        debutExperience: this.profileCopy.debutExperienceCopy,
-        finExperience: this.profileCopy.finExperienceCopy,
         title: this.title,
-        city: this.city
+        city: this.city,
+        categorie: this.categorie,
+        typeOfJob: this.typeOfJob,
+        dateDebut: this.dateDebut,
+        dateFin: this.dateFin,
+        description: this.description
       }
     }
 
