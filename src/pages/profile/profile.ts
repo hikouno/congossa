@@ -21,7 +21,9 @@ export class ProfilePage {
 
   profile: any;
 
-  durations : any;
+  durations_formations : any;
+
+  durations_experiences: any;
 
 
   constructor(public navCtrl: NavController,
@@ -31,7 +33,7 @@ export class ProfilePage {
               private apiProvider: ApiProvider,
               private alertCtrl: AlertController) {
 	  this.getAll();
-    this.durations = [
+    this.durations_formations = [
     {
       name: 'col1',
       options: [
@@ -51,6 +53,27 @@ export class ProfilePage {
       ]
     }
   ];
+
+  this.durations_experiences = [
+  {
+    name: 'col2',
+    options: [
+      { text: '3 mois', value: '0.25'},
+      { text: '6 mois', value: '0.5'},
+      { text: '1 an', value: '1'},
+      { text: '2 ans', value: '2'},
+      { text: '3 ans', value: '3'},
+      { text: '4 ans', value: '4'},
+      { text: '5 ans', value: '5'},
+      { text: '6 ans', value: '6'},
+      { text: '7 ans', value: '7'},
+      { text: '8 ans', value: '8'},
+      { text: '9 ans', value: '9'},
+      { text: '10 ans', value: '10'},
+      { text: 'Plus de 10 ans', value: '11'}
+    ]
+  }
+];
   }
 
   sendPrename(){
@@ -101,12 +124,12 @@ export class ProfilePage {
   addExperience(){
     if (this.profile.experiences == undefined){
       this.profile.experiences = [];
-      this.profile.experiences.push({title: "newExperience", experience: "", dateDebut: "", dateFin: "", period: "", domaine: "Domaine"});
+      this.profile.experiences.push({title: "newExperience", experience: "", period: "", domaine: "Domaine"});
     } else if (this.profile.experiences.length == 0){
-    this.profile.experiences.push({title: "newExperience", experience: "", dateDebut: "", dateFin: "", period: "", domaine: "Domaine"});
+    this.profile.experiences.push({title: "newExperience", experience: "", period: "", domaine: "Domaine"});
     }
     if (this.profile.experiences[this.profile.experiences.length - 1].experience != ""){
-      this.profile.experiences.push({title: "newExperience1", experience:"", dateDebut: "", dateFin: "", period: "", domaine: "Domaine"});
+      this.profile.experiences.push({title: "newExperience1", experience:"", period: "", domaine: "Domaine"});
     }
   }
 
@@ -147,7 +170,6 @@ export class ProfilePage {
       this.calculateAge();
       this.organizeSkills();
       this.organizeQualities();
-      this.calculatePeriods();
       let viewCardModal = this.modalCtrl.create(ModalViewCardPage, {firstname: this.profile.firstname,
         familyname: this.profile.familyname,
         age: this.profile.age,
@@ -181,18 +203,6 @@ export class ProfilePage {
       }
       else {
         this.profile.age = yyyy - Number(tableauDate[0]);
-      }
-    }
-  }
-
-  calculatePeriods(){
-    if (this.profile.experiences != undefined){
-      for (var i=0; i<this.profile.experiences.length; i++){
-        if (this.profile.experiences[i].dateDebut != "" && this.profile.experiences[i].dateFin != "")
-          var tabPeriod1 = this.profile.experiences[i].dateDebut.split("-");
-          var tabPeriod2 = this.profile.experiences[i].dateFin.split("-");
-        var res = 12 * (Number(tabPeriod2[0]) - Number(tabPeriod1[0])) +  (Number(tabPeriod2[1]) - Number(tabPeriod1[1]));
-        this.profile.experiences[i].period = String(res);
       }
     }
   }
@@ -284,7 +294,6 @@ export class ProfilePage {
     this.calculateAge();
     this.organizeSkills();
     this.organizeQualities();
-    this.calculatePeriods();
     this.navCtrl.setRoot(RecherchePage);
   }
 

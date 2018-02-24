@@ -81,7 +81,7 @@
     <button ion-item block color="white" (click)="showCategories_formation(i)">{{profile.formations[i].domaine}}</button>
     <ion-item>
         <ion-label>Durée de la formation</ion-label>
-        <ion-multi-picker item-content [multiPickerColumns]="durations" [(ngModel)]="profile.formations[i].period">{{profile.formations[i].period}}</ion-multi-picker>
+        <ion-multi-picker item-content [multiPickerColumns]="durations_formations" [(ngModel)]="profile.formations[i].period">{{profile.formations[i].period}}</ion-multi-picker>
     </ion-item>
 
 		<ion-buttons end>
@@ -113,15 +113,10 @@
 
     <button ion-item block color="white" (click)="showCategories_experience(i)">{{profile.experiences[i].domaine}}</button>
 
-		<ion-item>
-			<ion-label>Date de début</ion-label>
-			<ion-datetime [(ngModel)]="profile.experiences[i].dateDebut" displayFormat="MM/YYYY" placeholder="Date">{{profile.experiences[i].dateDebut}}</ion-datetime>
-		</ion-item>
-
-		<ion-item>
-			<ion-label>Date de fin</ion-label>
-			<ion-datetime [(ngModel)]="profile.experiences[i].dateFin" displayFormat="MM/YYYY" placeholder="Date">{{profile.experiences[i].dateFin}}</ion-datetime>
-		</ion-item>
+    <ion-item>
+        <ion-label>Durée de l'expérience</ion-label>
+        <ion-multi-picker item-content [multiPickerColumns]="durations_experiences" [(ngModel)]="profile.experiences[i].period">{{profile.experiences[i].period}}</ion-multi-picker>
+    </ion-item>
 
 		<ion-buttons end>
 			<button ion-button color="danger" round small (click)=presentConfirm_experience(i)>

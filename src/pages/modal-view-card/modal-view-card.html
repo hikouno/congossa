@@ -63,11 +63,20 @@
       <ion-col class="text-col-left" col-6>
         <p text-left><Strong class="titres"> Expériences </Strong></p>
         <div *ngFor="let e of experiences">
-          <p text-left class="description" *ngIf="e.period == undefined">
-            -{{e.experience}}
+          <p text-left *ngIf="e.period == undefined" class="description">
+            - {{e.experience}}
           </p>
-          <p text-left class="description" *ngIf="e.period != undefined">
-            -{{e.experience}} (<strong>{{e.period}} mois</strong>)
+          <p text-left *ngIf="e.period < 1" class="description">
+            - {{e.experience}} (<strong>{{e.period * 12}} mois</strong>)
+          </p>
+          <p text-left *ngIf="e.period == 1" class="description">
+            - {{e.experience}} (<strong>{{e.period}} an</strong>)
+          </p>
+          <p text-left *ngIf="e.period > 1 && e.period < 11" class="description">
+            - {{e.experience}} (<strong>{{e.period}} ans</strong>)
+          </p>
+          <p text-left *ngIf="e.period > 10" class="description">
+            - {{e.experience}} (<strong>plus de 10 ans</strong>)
           </p>
         </div>
       </ion-col>

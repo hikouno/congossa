@@ -72,6 +72,36 @@
     <span class="text-title">Profil recherché</span>
   </div>
 
+  <div style="text-align:center;">
+		<button ion-button class="addButton" clear color="primary" block (click)="addExperience()">
+			<span style="color:#488aff;"><ion-icon name="add"></ion-icon> Ajouter une Expérience recherchée</span>
+		</button>
+	</div>
+
+	<ion-list *ngFor="let e of profileRecherche.experiences; let i = index" no-lines>
+
+
+
+		<ion-item>
+			<ion-input type="text" placeholder="Titre de l'expérience" [(ngModel)]="profileRecherche.experiences[i].experience"></ion-input>
+		</ion-item>
+
+    <button ion-item block color="white" (click)="showCategories_experience(i)">{{profileRecherche.experiences[i].domaine}}</button>
+
+    <ion-item>
+        <ion-label>Durée minimale de l'expérience</ion-label>
+        <ion-multi-picker item-content [multiPickerColumns]="durations_experiences" [(ngModel)]="profileRecherche.experiences[i].period"></ion-multi-picker>
+    </ion-item>
+
+		<ion-buttons end>
+			<button ion-button color="danger" round small (click)=presentConfirm_experience(i)>
+				Effacer
+			</button>
+		</ion-buttons>
+
+	</ion-list>
+
+
   <div class="subtitles-div">
 		<span class="subtitles">Compétences</span>
 	</div>
@@ -80,7 +110,7 @@
 
     <ion-item>
       <ion-label stacked color="grey" style="text-weight:bold;">Compétences recherchées (espacées par une virgule)</ion-label>
-      <ion-textarea [(ngModel)]="skillsCopy"></ion-textarea>
+      <ion-textarea [(ngModel)]="profileRecherche.skills"></ion-textarea>
     </ion-item>
 
   </ion-list>
@@ -93,7 +123,7 @@
 
     <ion-item>
       <ion-label stacked color="grey" style="text-weight:bold;">Qualités recherchées (espacées par une virgule)</ion-label>
-      <ion-textarea [(ngModel)]="qualitiesCopy"></ion-textarea>
+      <ion-textarea [(ngModel)]="profileRecherche.qualities"></ion-textarea>
     </ion-item>
 
   </ion-list>
