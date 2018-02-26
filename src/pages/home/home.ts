@@ -3,6 +3,10 @@ import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
 
+import { ProfilePage } from "../profile/profile";
+import { ListeConversationsPage } from '../listeConversations/listeConversations';
+import { ConversationPage } from "../conversation/conversation"
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -12,9 +16,9 @@ export class HomePage {
   constructor(public navCtrl: NavController,
               public alertCtrl: AlertController,
               private googlePlus: GooglePlus) {
-    
+
   }
-  
+
   reactionClicBouton() {
         let alert = this.alertCtrl.create({
           title: 'New Friend!',
@@ -30,4 +34,17 @@ glogin(){
   .catch(err => {console.error(err); alert("error "+JSON.stringify(err));});
 }
 
+// Go to profilePage
+openProfilPage():void{
+  this.navCtrl.setRoot(ProfilePage);
+}
+
+// Go to MessagesPages
+openMessagesPage(){
+  this.navCtrl.setRoot(ListeConversationsPage);
+}
+
+openDialog() {
+  this.navCtrl.setRoot(ConversationPage);
+}
 }

@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { Http } from '@angular/http';
 
 //Pages
 import { ProfilePage } from "../profile/profile";
 import { ListeConversationsPage } from '../listeConversations/listeConversations';
+import { ConversationPage } from "../conversation/conversation"
+import { ChatService, ChatMessage, UserInfo } from "../../providers/chat/chat-service";
 
 /**
  * Generated class for the ResultatRecherchePage page.
@@ -28,15 +31,14 @@ export class ResultatRecherchePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResultatRecherchePage');
   }
-  
-    // Go to profilePage
-  openProfilPage(){
+
+  // Go to profilePage
+  openProfilPage():void{
     this.navCtrl.setRoot(ProfilePage);
   }
 
-	// Go to MessagesPages
+  // Go to MessagesPages
   openMessagesPage(){
     this.navCtrl.setRoot(ListeConversationsPage);
   }
-
 }
