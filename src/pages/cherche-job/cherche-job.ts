@@ -83,11 +83,16 @@ export class ChercheJobPage {
  calculatePeriods(){
    if (this.profileCopy.experiences != undefined){
      for (var i=0; i<this.profileCopy.experiences.length; i++){
-       if (this.profileCopy.experiences[i].dateDebut != "" && this.profileCopy.experiences[i].dateFin != "")
+       console.log(this.profileCopy.experiences[i].dateDebut);
+       console.log(this.profileCopy.experiences[i].dateFin);
+       if (this.profileCopy.experiences[i].dateDebut != "" && this.profileCopy.experiences[i].dateFin != "") {
          var tabPeriod1 = this.profileCopy.experiences[i].dateDebut.split("-");
          var tabPeriod2 = this.profileCopy.experiences[i].dateFin.split("-");
-       var res = 12 * (Number(tabPeriod2[0]) - Number(tabPeriod1[0])) +  (Number(tabPeriod2[1]) - Number(tabPeriod1[1]));
-       this.profileCopy.experiences[i].period = String(res);
+         var res = 12 * (Number(tabPeriod2[0]) - Number(tabPeriod1[0])) +  (Number(tabPeriod2[1]) - Number(tabPeriod1[1]));
+         this.profileCopy.experiences[i].period = String(res);
+       } else {
+         this.profileCopy.experiences[i].period = "";
+       }
      }
    }
  }
@@ -118,7 +123,7 @@ export class ChercheJobPage {
    this.organizeSkills();
    this.organizeQualities();
    this.calculatePeriods();
-   
+
    this.createDemande();
    this.apiProvider.sendDemande(this.demande);
    this.provider.addDemande(this.demande);
