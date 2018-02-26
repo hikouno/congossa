@@ -78,21 +78,18 @@
 	<ion-list *ngFor="let e of profileCopy.experiences; let i = index" no-lines>
 
 		<ion-item>
-			<ion-input type="text" placeholder="Titre de l'expérience" [(ngModel)]="profileCopy.experiences[i].experience">{{e}}</ion-input>
+			<ion-input type="text" placeholder="Titre de l'expérience" [(ngModel)]="profileCopy.experiences[i].experience">{{profileCopy.experiences[i].experience}}</ion-input>
 		</ion-item>
 
-		<ion-item>
-			<ion-label>Date de début</ion-label>
-			<ion-datetime [(ngModel)]="profileCopy.experiences[i].dateDebut" displayFormat="MM/YYYY" placeholder="Date"></ion-datetime>
-		</ion-item>
+    <button ion-item block color="white" (click)="showCategories_experience(i)">{{profileCopy.experiences[i].domaine}}</button>
 
-		<ion-item>
-			<ion-label>Date de fin</ion-label>
-			<ion-datetime [(ngModel)]="profileCopy.experiences[i].dateFin" displayFormat="MM/YYYY" placeholder="Date"></ion-datetime>
-		</ion-item>
+    <ion-item>
+        <ion-label>Durée de l'expérience</ion-label>
+        <ion-multi-picker item-content [multiPickerColumns]="durations_experiences" [(ngModel)]="profileCopy.experiences[i].period">{{profileCopy.experiences[i].period}}</ion-multi-picker>
+    </ion-item>
 
 		<ion-buttons end>
-			<button ion-button color="danger" round small (click)=removeExperience(i)>
+			<button ion-button color="danger" round small (click)=presentConfirm_experience(i)>
 				Effacer
 			</button>
 		</ion-buttons>
