@@ -1,5 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { NavController, NavParams, ModalController} from 'ionic-angular';
+import { NavController, NavParams, ModalController, AlertController} from 'ionic-angular';
 
 //pages
 import { ModalViewCardPage } from "../modal-view-card/modal-view-card";
@@ -16,26 +16,24 @@ import { ListCategoriesPage } from "../list-categories/list-categories";
 })
 
 export class ProfilePage {
-  diplome: any;
-
-
 
   onlineMode: boolean = false;
 
   profile: any;
 
-  categorie_formation: string = "Domaine";
+  durations_formations : any;
 
-  categorie_experience: string = "Domaine";
-
-  formationDuration : string = "Durée de la formation";
-
-  durations : any;
+  durations_experiences: any;
 
 
-  constructor(public navCtrl: NavController, private navParams: NavParams, public modalCtrl: ModalController, private provider:MainProvider,private apiProvider: ApiProvider) {
+  constructor(public navCtrl: NavController,
+              private navParams: NavParams,
+              public modalCtrl: ModalController,
+              private provider:MainProvider,
+              private apiProvider: ApiProvider,
+              private alertCtrl: AlertController) {
 	  this.getAll();
-    this.durations = [
+    this.durations_formations = [
     {
       name: 'col1',
       options: [
@@ -55,6 +53,27 @@ export class ProfilePage {
       ]
     }
   ];
+
+  this.durations_experiences = [
+  {
+    name: 'col2',
+    options: [
+      { text: '3 mois', value: '0.25'},
+      { text: '6 mois', value: '0.5'},
+      { text: '1 an', value: '1'},
+      { text: '2 ans', value: '2'},
+      { text: '3 ans', value: '3'},
+      { text: '4 ans', value: '4'},
+      { text: '5 ans', value: '5'},
+      { text: '6 ans', value: '6'},
+      { text: '7 ans', value: '7'},
+      { text: '8 ans', value: '8'},
+      { text: '9 ans', value: '9'},
+      { text: '10 ans', value: '10'},
+      { text: 'Plus de 10 ans', value: '11'}
+    ]
+  }
+];
   }
 
   sendPrename(){
@@ -106,10 +125,6 @@ export class ProfilePage {
   }
   sendQualite(i){
     this.apiProvider.changeQualite({"newQualite":this.profile.tableQualities[i]})
-  }
-  addDiplome(){
-    var bool=false
-    if (this.profile.diplomes == undefined){
 
       this.profile.diplomes = [];
       this.profile.diplomes.push({title: "newDiplome", domaine: "", niveau: "", id: ""});
@@ -148,35 +163,29 @@ export class ProfilePage {
     if (this.profile.formations == undefined){
 
       this.profile.formations = [];
-      this.profile.formations.push({title: "newFormation", formation: ""});
+      this.profile.formations.push({title: "newFormation", formation: "", domaine: "Domaine", period: undefined});
 
     } else if (this.profile.formations.length == 0){
-    this.profile.formations.push({title: "newFormation1", formation: ""});
+    this.profile.formations.push({title: "newFormation1", formation: "", domaine: "Domaine", period: undefined});
     }
 
     if (this.profile.formations[this.profile.formations.length - 1].formation != ""){
-      this.profile.formations.push({title: "newFormation1", formation:""});
+      this.profile.formations.push({title: "newFormation1", formation:"", domaine: "Domaine", period: undefined});
     }
   }
 
   addExperience(){
     if (this.profile.experiences == undefined){
       this.profile.experiences = [];
-      this.profile.experiences.push({title: "newExperience", experience: "", dateDebut: "", dateFin: "", period: ""});
+      this.profile.experiences.push({title: "newExperience", experience: "", period: "", domaine: "Domaine"});
     } else if (this.profile.experiences.length == 0){
-    this.profile.experiences.push({title: "newExperience", experience: "", dateDebut: "", dateFin: "", period: ""});
+    this.profile.experiences.push({title: "newExperience", experience: "", period: "", domaine: "Domaine"});
     }
     if (this.profile.experiences[this.profile.experiences.length - 1].experience != ""){
-      this.profile.experiences.push({title: "newExperience1", experience:"", dateDebut: "", dateFin: "", period: ""});
+      this.profile.experiences.push({title: "newExperience1", experience:"", period: "", domaine: "Domaine"});
     }
   }
 
-
-
-  removeDiplome(i){
-    this.apiProvider.removeDiplome({"idDiplome":this.profile.diplomes[i].id})
-    this.profile.diplomes.splice(i, 1);
-  }
 
   removeFormation(i){
     this.profile.formations.splice(i, 1);
@@ -186,48 +195,34 @@ export class ProfilePage {
     this.profile.experiences.splice(i, 1);
   }
 
-  showCategories_formation(){
-    this.navCtrl.push(ListCategoriesPage, {callback: this.myCallbackFunction_categories_formation});
+  showCategories_formation(i){
+    var myCallbackFunction_categories_formation = (_params) => {
+      return new Promise((resolve, reject) => {
+              resolve();
+              this.profile.formations[i].domaine=_params;
+          });
+   }
+   console.log(this.profile.formations[i].domaine);
+    this.navCtrl.push(ListCategoriesPage, {callback: myCallbackFunction_categories_formation});
   }
 
-  myCallbackFunction_categories_formation = (_params) => {
-    return new Promise((resolve, reject) => {
-            resolve();
-            console.log(this.categorie_formation);
-            this.categorie_formation=_params;
-        });
- }
+  showCategories_experience(i){
+    var myCallbackFunction_categories_experience = (_params) => {
+      return new Promise((resolve, reject) => {
+              resolve();
+              this.profile.experiences[i].domaine=_params;
+          });
+   }
+   console.log(this.profile.experiences[i].domaine);
+    this.navCtrl.push(ListCategoriesPage, {callback: myCallbackFunction_categories_experience});
+  }
 
- showCategories_experience(){
-   this.navCtrl.push(ListCategoriesPage, {callback: this.myCallbackFunction_categories_experience});
- }
-
- myCallbackFunction_categories_experience = (_params) => {
-   return new Promise((resolve, reject) => {
-           resolve();
-           console.log(this.categorie_experience);
-           this.categorie_experience=_params;
-       });
-}
-
- showDurations(){
-   this.navCtrl.push(ListCategoriesPage, {callback: this.myCallbackFunction_durations});
- }
-
- myCallbackFunction_durations = (_params) => {
-   return new Promise((resolve, reject) => {
-           resolve();
-           console.log(this.formationDuration);
-           this.formationDuration=_params;
-       });
-}
 
   displayCard(){
     if (!this.onlineMode) {
       this.calculateAge();
       this.organizeSkills();
       this.organizeQualities();
-      this.calculatePeriods();
       let viewCardModal = this.modalCtrl.create(ModalViewCardPage, {firstname: this.profile.firstname,
         familyname: this.profile.familyname,
         age: this.profile.age,
@@ -261,18 +256,6 @@ export class ProfilePage {
       }
       else {
         this.profile.age = yyyy - Number(tableauDate[0]);
-      }
-    }
-  }
-
-  calculatePeriods(){
-    if (this.profile.experiences != undefined){
-      for (var i=0; i<this.profile.experiences.length; i++){
-        if (this.profile.experiences[i].dateDebut != "" && this.profile.experiences[i].dateFin != "")
-          var tabPeriod1 = this.profile.experiences[i].dateDebut.split("-");
-          var tabPeriod2 = this.profile.experiences[i].dateFin.split("-");
-        var res = 12 * (Number(tabPeriod2[0]) - Number(tabPeriod1[0])) +  (Number(tabPeriod2[1]) - Number(tabPeriod1[1]));
-        this.profile.experiences[i].period = String(res);
       }
     }
   }
@@ -311,12 +294,59 @@ export class ProfilePage {
     return copy;
     }
 
+  presentConfirm_formation(i) {
+    let alert = this.alertCtrl.create({
+      title: 'Supprimer cette formation ?',
+      message: 'Souhaitez vous supprimer cette formation ?',
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Supprimer',
+          handler: () => {
+            this.removeFormation(i);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+
+  presentConfirm_experience(i) {
+    let alert = this.alertCtrl.create({
+      title: 'Supprimer cette expérience ?',
+      message: 'Souhaitez vous supprimer cette expérience ?',
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Supprimer',
+          handler: () => {
+            this.removeExperience(i);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+
 
   enregistrer(){
     this.calculateAge();
     this.organizeSkills();
     this.organizeQualities();
-    this.calculatePeriods();
     this.navCtrl.setRoot(RecherchePage);
   }
 

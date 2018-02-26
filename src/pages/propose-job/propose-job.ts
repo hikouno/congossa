@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ListCategoriesPage } from "../list-categories/list-categories";
 
 //pages
@@ -22,19 +22,25 @@ import { ApiProvider } from "../../providers/api/api"
 })
 export class ProposeJobPage {
 
-  profile: any;
-
-  profileCopy: any;
-
-  city: any;
-
   onlineMode: boolean = false;
 
+  profile: any;
+
   title : string;
-
-  categorie: string = "Catégorie";
+  city: any;
   typeOfJob: any;
+  categorie: string = "Catégorie";
+  dateDebut: any;
+  dateFin: any;
+  description: any;
 
+  profileRecherche: {
+    skills: string[];
+    qualities: string[];
+    experiences:any[];
+  };
+
+  durations_experiences: any;
 
   offre: any;
 
@@ -42,14 +48,34 @@ export class ProposeJobPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private provider:MainProvider,
-    private apiProvider: ApiProvider) {
+    private apiProvider: ApiProvider,
+    private alertCtrl: AlertController) {
     this.getAll();
-    this.profileCopy = this.clone(this.profile);
+    this.durations_experiences = [
+    {
+      name: 'col2',
+      options: [
+        { text: '3 mois', value: '0.25'},
+        { text: '6 mois', value: '0.5'},
+        { text: '1 an', value: '1'},
+        { text: '2 ans', value: '2'},
+        { text: '3 ans', value: '3'},
+        { text: '4 ans', value: '4'},
+        { text: '5 ans', value: '5'},
+        { text: '6 ans', value: '6'},
+        { text: '7 ans', value: '7'},
+        { text: '8 ans', value: '8'},
+        { text: '9 ans', value: '9'},
+        { text: '10 ans', value: '10'},
+        { text: 'Plus de 10 ans', value: '11'}
+      ]
+    }
+  ];
   }
 
   getAll(){
+    this.profileRecherche = {skills: [], qualities: [], experiences: []};
     this.profile = this.provider.get_profile();
-
   }
 
   myCallbackFunction = (_params) => {
@@ -65,6 +91,33 @@ export class ProposeJobPage {
      this.provider.addOffre(this.offre);
      //this.apiProvider.sendOffre(this.offre);
      this.navCtrl.push(ResultatRecherchePage);
+ }
+
+ addExperience(){
+   if (this.profileRecherche.experiences == undefined){
+     this.profileRecherche.experiences = [];
+     this.profileRecherche.experiences.push({title: "newExperience", experience: "", period: "", domaine: "Domaine"});
+   } else if (this.profileRecherche.experiences.length == 0){
+     this.profileRecherche.experiences.push({title: "newExperience", experience: "", period: "", domaine: "Domaine"});
+   }
+   if (this.profileRecherche.experiences[this.profileRecherche.experiences.length - 1].experience != ""){
+     this.profileRecherche.experiences.push({title: "newExperience1", experience:"", period: "", domaine: "Domaine"});
+   }
+ }
+
+ removeExperience(i){
+   this.profileRecherche.experiences.splice(i, 1);
+ }
+
+ showCategories_experience(i){
+   var myCallbackFunction_categories_experience = (_params) => {
+     return new Promise((resolve, reject) => {
+             resolve();
+             this.profileRecherche.experiences[i].domaine=_params;
+         });
+  }
+  console.log(this.profileRecherche.experiences[i].domaine);
+   this.navCtrl.push(ListCategoriesPage, {callback: myCallbackFunction_categories_experience});
  }
 
   ionViewDidLoad() {
@@ -86,27 +139,39 @@ export class ProposeJobPage {
     return copy;
     }
 
+
+    presentConfirm_experience(i) {
+      let alert = this.alertCtrl.create({
+        title: 'Supprimer cette expérience ?',
+        message: 'Souhaitez vous supprimer cette expérience ?',
+        buttons: [
+          {
+            text: 'Annuler',
+            role: 'cancel',
+            handler: () => {
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'Supprimer',
+            handler: () => {
+              this.removeExperience(i);
+            }
+          }
+        ]
+      });
+      alert.present();
+    }
+
     createOffre(){
       this.offre = {
-        firstname: this.profileCopy.firstname,
-        familyname: this.profileCopy.familynameCopy,
-        date: this.profileCopy.dateCopy,
-        age: this.profileCopy.ageCopy,
-        email: this.profileCopy.emailCopy,
-        phone: this.profileCopy.phoneCopy,
-        photo: this.profileCopy.photoCopy,
-        shortDescription: this.profileCopy.shortDescriptionCopy,
-        skills: this.profileCopy.skillsCopy,
-        tableSkills: this.profileCopy.tableSkillsCopy,
-        qualities: this.profileCopy.qualitiesCopy,
-        tableQualities: this.profileCopy.tableQualitiesCopy,
-        formations: this.profileCopy.formationsCopy,
-        diplomes: this.profileCopy.diplomesCopy,
-        experiences: this.profileCopy.experiencesCopy,
-        debutExperience: this.profileCopy.debutExperienceCopy,
-        finExperience: this.profileCopy.finExperienceCopy,
         title: this.title,
-        city: this.city
+        city: this.city,
+        categorie: this.categorie,
+        typeOfJob: this.typeOfJob,
+        dateDebut: this.dateDebut,
+        dateFin: this.dateFin,
+        description: this.description
       }
     }
 
