@@ -101,7 +101,6 @@ export class ChercheJobPage {
    this.profileCopy.experiences.splice(i, 1);
  }
 
-<<<<<<< HEAD
  calculatePeriods(){
    if (this.profileCopy.experiences != undefined){
      for (var i=0; i<this.profileCopy.experiences.length; i++){
@@ -119,8 +118,7 @@ export class ChercheJobPage {
    }
  }
 
-=======
->>>>>>> 8e2e1db3b331bd24032c61299b36276581d577d7
+
  organizeSkills(){
    if (this.profileCopy.skills != ""){
      this.profileCopy.tableSkills = this.profileCopy.skills.split(",");
@@ -146,11 +144,7 @@ export class ChercheJobPage {
  searchProfiles(){
    this.organizeSkills();
    this.organizeQualities();
-<<<<<<< HEAD
    this.calculatePeriods();
-=======
->>>>>>> 8e2e1db3b331bd24032c61299b36276581d577d7
-
    this.createDemande();
    this.apiProvider.sendDemande(this.demande);
    this.provider.addDemande(this.demande);
