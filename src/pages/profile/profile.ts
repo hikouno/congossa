@@ -70,7 +70,7 @@ export class ProfilePage {
       this.apiProvider.changeEmail({"newEmail":this.profile.email})
   }
   sendDateDeNaissance(){
-    this.apiProvider.changeDateDeNaissance({"newDateDeNaisance":this.profile.date})
+    this.apiProvider.changeDateDeNaissance({"newDateDeNaissance":this.profile.dateNaissance})
   }
 
   sendTelephone(){
@@ -96,8 +96,16 @@ export class ProfilePage {
   sendDiplome(i){
     this.apiProvider.changeDiplome({"newDomaineDiplome": this.profile.profile.diplome[i].domaine,"newDureeDiplome": this.profile.diplome[i].niveau})
   }
-  sendQualite(){
-    
+  gererQualite(){
+    this.organizeQualities()
+    console.log(this.profile.tableQualities[this.profile.tableQualities.length-1])
+    this.apiProvider.viderQualite()
+    for(var i=0;i<this.profile.tableQualities.length;i++){
+      this.sendQualite(i)
+    }
+  }
+  sendQualite(i){
+    this.apiProvider.changeQualite({"newQualite":this.profile.tableQualities[i]})
   }
   addDiplome(){
     var bool=false
@@ -114,6 +122,7 @@ export class ProfilePage {
     else if (this.profile.diplomes[this.profile.diplomes.length - 1].domaine != ""){
       bool=true
       this.profile.diplomes.push({title: "newDiplome1", domaine:"", niveau: "", id:""});
+      
     }
     if (bool){
       this.profile.diplomes[this.profile.diplomes.length - 1].id=this.apiProvider.createDiplome(
