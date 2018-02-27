@@ -6,8 +6,8 @@ import { ModalViewCardPage } from "../modal-view-card/modal-view-card";
 import { ListeConversationsPage } from "../listeConversations/listeConversations";
 import { RecherchePage } from "../recherche/recherche";
 
-import {MainProvider} from "../../providers/main/main"
-import { ApiProvider } from "../../providers/api/api"
+import {MainProvider} from "../../providers/main/main";
+import { ApiProvider } from "../../providers/api/api";
 import { ListCategoriesPage } from "../list-categories/list-categories";
 
 @Component({
@@ -33,6 +33,7 @@ export class ProfilePage {
               private apiProvider: ApiProvider,
               private alertCtrl: AlertController,
               public menu: MenuController) {
+    this.provider.currentView = 'ProfilePage';
 	  this.getAll();
     this.durations_formations = [
     {
@@ -75,6 +76,11 @@ export class ProfilePage {
     ]
   }
 ];
+  }
+
+  ionViewWillLeave() {
+    console.log("tutu");
+    this.menu.swipeEnable(true, 'mainMenu');
   }
 
   sendPrename(){

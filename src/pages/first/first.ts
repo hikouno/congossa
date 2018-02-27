@@ -16,6 +16,7 @@ import { ResultatRecherchePage } from "../resultat-recherche/resultat-recherche"
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HomePage } from "../home/home";
 import { CityPickerPage } from "../city-picker/city-picker";
+import { MainProvider } from "../../providers/main/main";
 
 
 
@@ -37,7 +38,9 @@ export class FirstPage {
               public navParams: NavParams,
               public alertCtrl: AlertController,
               public http   : HttpClient,
-              public menu: MenuController) {
+              public menu: MenuController,
+              private provider:MainProvider) {
+    this.provider.currentView = 'FirstPage';
   }
 
   connexion(){

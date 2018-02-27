@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, MenuController } from 'ionic-angular';
+import { MainProvider } from "../../providers/main/main";
 
 @Component({
   selector: 'page-ListEmploi',
@@ -11,7 +12,8 @@ export class ListEmploi {
   metier: string[];
   items: Array<{nomEmploi:string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController, private provider:MainProvider) {
+    this.provider.currentView = 'ListEmploiPage';
     this.metier = ['Agriculteur', 'Avocat', 'Boulanger', 'Coursier'];
     this.callback = this.navParams.get("callback");
 

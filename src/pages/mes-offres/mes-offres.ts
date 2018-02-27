@@ -61,6 +61,7 @@ export class MesOffresPage {
   typeOfJob: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider, public menu: MenuController) {
+    this.provider.currentView = 'MesOffresPage';
     this.mesOffres = this.provider.get_mesOffres()
 
   }

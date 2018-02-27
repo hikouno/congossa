@@ -50,6 +50,7 @@ export class ChercheJobPage {
     private apiProvider: ApiProvider,
     private alertCtrl: AlertController,
     public menu: MenuController) {
+      this.provider.currentView = 'ChercheJobPage';
       this.getAll();
       this.profileCopy = this.clone(this.profile);
       this.durations_experiences = [
@@ -73,6 +74,11 @@ export class ChercheJobPage {
       }
     ];
   }
+
+  ionViewWillLeave() {
+      console.log("tutu");
+      this.menu.swipeEnable(true, 'mainMenu');
+    }
 
   getAll(){
     this.profile = this.provider.get_profile();

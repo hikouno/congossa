@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import {googlemaps} from 'googlemaps';
+import { MainProvider } from "../../providers/main/main";
 
 /**
  * Generated class for the CityPickerPage page.
@@ -23,7 +24,8 @@ export class CityPickerPage {
 city:string;
 callback:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController, private provider: MainProvider) {
+    this.provider.currentView = 'CityPickerPage';
     this.callback = this.navParams.get("callback");
   }
 

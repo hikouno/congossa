@@ -41,6 +41,7 @@ export class SubPage {
               private linkedin: LinkedIn,
               private provider: MainProvider,
               public menu: MenuController) {
+        this.provider.currentView = 'SubPage';
   }
 
   skip_login() {

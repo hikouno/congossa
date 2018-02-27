@@ -25,6 +25,7 @@ export class MesDemandesPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider, public menu: MenuController) {
+    this.provider.currentView = 'MesDemandesPage';
     this.profile = this.provider.get_profile();
     this.mesDemandes = this.provider.get_mesDemandes()
   }

@@ -14,8 +14,6 @@ export class MainProvider {
 
   profile: any;
 
-
-
   // Facebook informations
   gender: string;
   id : string;
@@ -28,6 +26,8 @@ export class MainProvider {
 
   mesOffres: any[] = [];
   mesDemandes: any[] = ["suce","ma","bite"];
+
+  currentView: any;
 
 
   constructor(public http: HttpClient) {
@@ -99,6 +99,8 @@ export class MainProvider {
 
 
 
+
+
   ////////////////////////////////////////////////////
   //********************* SET *********************//
   //////////////////////////////////////////////////
@@ -136,6 +138,10 @@ export class MainProvider {
 
   set_accessToken(data){
     this.accessToken = data;
+  }
+
+  set_currentView(data){
+    this.currentView = data;
   }
 
 
@@ -186,6 +192,9 @@ export class MainProvider {
     return this.mesDemandes;
   }
 
+  get_currentView(){
+    return this.currentView;
+  }
   ////////////////////////////////////////////////////
   //******************* OTHERS ********************//
   //////////////////////////////////////////////////

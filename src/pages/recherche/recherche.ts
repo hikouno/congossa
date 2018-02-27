@@ -5,6 +5,8 @@ import { ListeConversationsPage } from '../listeConversations/listeConversations
 import { ChercheJobPage } from "../cherche-job/cherche-job";
 import { ProposeJobPage } from "../propose-job/propose-job";
 
+import { MainProvider } from "../../providers/main/main"
+
 /**
  * Generated class for the RecherchePage page.
  *
@@ -74,8 +76,19 @@ export class RecherchePage {
   experiences: Array<{title:string, experience:string, dateDebut:string, dateFin:string, period:string}>;
   experiencesCopy: Array<{title:string, experience:string, dateDebut:string, dateFin:string, period:string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController, private provider:MainProvider) {
+    this.provider.currentView = 'RecherchePage';
+    this.menu.swipeEnable(true, 'mainMenu');
     this.loadData();
+  }
+
+  ionViewDidLoad() {
+    console.log("toto");
+    this.menu.swipeEnable(true, 'mainMenu');
+  }
+  ionViewWillLeave() {
+    console.log("tata");
+    this.menu.swipeEnable(false, 'mainMenu');
   }
 
   loadData(){
@@ -99,9 +112,6 @@ export class RecherchePage {
     this.copy();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RecherchePage');
-  }
 
   openProfilPage(){
     this.navCtrl.push(ProfilePage, {
