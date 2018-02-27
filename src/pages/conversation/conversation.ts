@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavParams } from 'ionic-angular';
-import { Events, Content, TextInput } from 'ionic-angular';
-
+import { Events, Content, TextInput, MenuController } from 'ionic-angular';
 import { ChatService, ChatMessage, UserInfo } from "../../providers/chat/chat-service";
 
 @Component({
@@ -20,7 +19,8 @@ export class ConversationPage {
 
     constructor(navParams: NavParams,
                 private chatService: ChatService,
-                private events: Events,) {
+                private events: Events,
+                public menu: MenuController) {
         // Get the navParams toUserId parameter
         this.toUser = {
             id: navParams.get('toUserId'),

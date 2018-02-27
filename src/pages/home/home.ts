@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
+import { AlertController, MenuController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
-
-import { ProfilePage } from "../profile/profile";
-import { ListeConversationsPage } from '../listeConversations/listeConversations';
-import { ConversationPage } from "../conversation/conversation"
-import { ApiProvider } from '../../providers/api/api';
 
 @Component({
   selector: 'page-home',
@@ -17,7 +12,8 @@ export class HomePage {
   constructor(public navCtrl: NavController,
               public alertCtrl: AlertController,
               private googlePlus: GooglePlus,
-              private api: ApiProvider) {
+              private api: ApiProvider,
+              public menu: MenuController) {
 
   }
 
@@ -30,24 +26,10 @@ export class HomePage {
         alert.present();
   }
 
-  glogin(){
-    this.googlePlus.login({})
-    .then(res => {console.log(res); alert("success "+JSON.stringify(res)); })
-    .catch(err => {console.error(err); alert("error "+JSON.stringify(err));});
-  }
+glogin(){
+  this.googlePlus.login({})
+  .then(res => {console.log(res); alert("success "+JSON.stringify(res)); })
+  .catch(err => {console.error(err); alert("error "+JSON.stringify(err));});
+}
 
-  // Go to profilePage
-  openProfilPage():void{
-    this.navCtrl.setRoot(ProfilePage);
-  }
-
-  // Go to MessagesPages
-  openMessagesPage(){
-    this.navCtrl.setRoot(ListeConversationsPage);
-  }
-
-  openConversation(id_offre, id_demande){
-    this.api.newDialog(id_offre, id_demande);
-    this.navCtrl.push(ConversationPage);
-  }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 
 /**
  * Generated class for the ListCategoriesPage page.
@@ -17,7 +17,7 @@ export class ListCategoriesPage {
   categories: string[];
   callback: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController) {
     this.categories = ["agriculteur", "technicien", "plombier", "ingénieur"];
       this.callback = this.navParams.get("callback");
   }

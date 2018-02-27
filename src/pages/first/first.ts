@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
+import { AlertController, MenuController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { LoginPage } from '../login/login';
 import { SubPage } from '../sub/sub';
 import { ListeConversationsPage } from '../listeConversations/listeConversations';
 import { RecherchePage } from '../recherche/recherche';
 import { ParametresPage } from '../parametres/parametres';
-import { AjoutOffrePage } from '../AjoutOffrePage/AjoutOffrePage';
 
 import { ResultatRecherchePage } from "../resultat-recherche/resultat-recherche";
 //Import les contantes
@@ -16,6 +15,7 @@ import { ResultatRecherchePage } from "../resultat-recherche/resultat-recherche"
 //Pour utiliser this.http
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HomePage } from "../home/home";
+import { CityPickerPage } from "../city-picker/city-picker";
 
 
 
@@ -36,7 +36,8 @@ export class FirstPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public alertCtrl: AlertController,
-              public http   : HttpClient) {
+              public http   : HttpClient,
+              public menu: MenuController) {
   }
 
   connexion(){
@@ -59,7 +60,6 @@ export class FirstPage {
     this.navCtrl.push(ParametresPage);
   }
   ajoutoffre(){
-    this.navCtrl.push(AjoutOffrePage);
   }
 
   resultRecherche(){
@@ -80,6 +80,10 @@ export class FirstPage {
       {
          console.dir(error);
       });*/
+   }
+
+   goToCityPickerPage(){
+     this.navCtrl.push(CityPickerPage);
    }
 
 

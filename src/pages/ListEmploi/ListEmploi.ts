@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, MenuController } from 'ionic-angular';
 
 @Component({
   selector: 'page-ListEmploi',
   templateUrl: 'ListEmploi.html'
 })
-  
+
 export class ListEmploi {
   callback: any;
   metier: string[];
   items: Array<{nomEmploi:string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController) {
     this.metier = ['Agriculteur', 'Avocat', 'Boulanger', 'Coursier'];
     this.callback = this.navParams.get("callback");
 

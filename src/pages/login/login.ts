@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { AlertController, Content, Platform } from 'ionic-angular';
+import { AlertController, Content, Platform, MenuController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { LinkedIn } from '@ionic-native/linkedin';
 
@@ -33,7 +33,8 @@ export class LoginPage {
               private fire: AngularFireAuth,
               private linkedin: LinkedIn,
               private keyboard: Keyboard,
-              private apiProvider: ApiProvider) {
+              private apiProvider: ApiProvider,
+              public menu: MenuController) {
   }
 
 
