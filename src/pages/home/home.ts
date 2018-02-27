@@ -16,7 +16,8 @@ export class HomePage {
 
   constructor(public navCtrl: NavController,
               public alertCtrl: AlertController,
-              private googlePlus: GooglePlus) {
+              private googlePlus: GooglePlus,
+              private api: ApiProvider) {
 
   }
 
