@@ -115,7 +115,7 @@
 
     <ion-item>
         <ion-label>Durée de l'expérience</ion-label>
-        <ion-multi-picker item-content [multiPickerColumns]="durations_experiences" [(ngModel)]="profile.experiences[i].period">{{profile.experiences[i].period}}</ion-multi-picker>
+        <ion-multi-picker item-content [multiPickerColumns]="durations_experiences" [(ngModel)]="profile.experiences[i].period" >{{profile.experiences[i].period}}</ion-multi-picker>
     </ion-item>
 
 		<ion-buttons end>
@@ -137,7 +137,7 @@
 
 		<ion-item>
 			<ion-label stacked color="grey" style="text-weight:bold;">Vos compétences (espacées par une virgule)</ion-label>
-			<ion-textarea [(ngModel)]="profile.skills"></ion-textarea>
+			<ion-textarea [(ngModel)]="profile.skills" (focusout)="sendCompetence()"></ion-textarea>
 		</ion-item>
 
 	</ion-list>
@@ -150,7 +150,7 @@
 
 		<ion-item>
 			<ion-label stacked color="grey" style="text-weight:bold;">Vos qualités (espacées par une virgule)</ion-label>
-			<ion-textarea [(ngModel)]="profile.qualities" (focusout)="gererQualite()"></ion-textarea>
+			<ion-textarea [(ngModel)]="profile.qualities" (focusout)="sendQualite()"></ion-textarea>
 		</ion-item>
 
 	</ion-list>

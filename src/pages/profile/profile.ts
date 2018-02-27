@@ -32,7 +32,7 @@ export class ProfilePage {
               private provider:MainProvider,
               private apiProvider: ApiProvider,
               private alertCtrl: AlertController) {
-	  this.getAll();
+    this.getAll();
     this.durations_formations = [
     {
       name: 'col1',
@@ -100,63 +100,15 @@ export class ProfilePage {
     this.apiProvider.changeDescription({"newDescription":this.profile.shortDescription})
   }
 
-  sendDomaineDiplome(i){
-    if (this.profile.diplomes[i].niveau!=""){
-      console.log("aya")
-      //this.sendDiplome(i)
-    }
-  }
-  sendDureeDiplome(i){
-    if (this.profile.diplomes[i].domaine!=""){
-      console.log("isse")
-      //this.sendDiplome(i)
-    }
-  }
-  sendDiplome(i){
-    this.apiProvider.changeDiplome({"newDomaineDiplome": this.profile.profile.diplome[i].domaine,"newDureeDiplome": this.profile.diplome[i].niveau})
-  }
-  gererQualite(){
+  sendQualite(){
     this.organizeQualities()
-    console.log(this.profile.tableQualities[this.profile.tableQualities.length-1])
-    this.apiProvider.viderQualite()
-    for(var i=0;i<this.profile.tableQualities.length;i++){
-      this.sendQualite(i)
-    }
+    this.apiProvider.changeQualite({"newQualites":this.profile.tableQualities})
   }
-  sendQualite(i){
-    this.apiProvider.changeQualite({"newQualite":this.profile.tableQualities[i]})
+  sendCompetence(){
+    this.organizeSkills()
+    this.apiProvider.changeCompetence({"newCompetences":this.profile.tableSkills})
+  }
 
-      this.profile.diplomes = [];
-      this.profile.diplomes.push({title: "newDiplome", domaine: "", niveau: "", id: ""});
-      bool=true
-    }
-    else if (this.profile.diplomes.length == 0){
-      bool=true
-    this.profile.diplomes.push({title: "newDiplome1", domaine: "", niveau: "", id: ""});
-    }
-    else if (this.profile.diplomes[this.profile.diplomes.length - 1].domaine != ""){
-      bool=true
-      this.profile.diplomes.push({title: "newDiplome1", domaine:"", niveau: "", id:""});
-      
-    }
-    if (bool){
-      this.profile.diplomes[this.profile.diplomes.length - 1].id=this.apiProvider.createDiplome(
-      {"newDomaineDiplome": 'null'
-        ,"newDureeDiplome": 'null'})
-    }
-      }
-  //   setTimeout(() => {
-//  #      this.input_Diplome.setFocus();
-//  #    },150);
-//  #  this.profile.diplomes.push({title: "newDiplome1", diplome: ""});
-//  #  }
-// #
-//  #  if (this.profile.diplomes[this.profile.diplomes.length - 1].diplome != ""){
-//   #   setTimeout(() => {
-//    #    this.input_Diplome.setFocus();
-//    #  },150);
- //   #  this.profile.diplomes.push({title: "newDiplome1", diplome:""});
-//   # }
 //
   addFormation(){
 
@@ -235,10 +187,10 @@ export class ProfilePage {
         experiences: this.profile.experiences
       });
       viewCardModal.present();
-		} else {
-			// http request
-		}
-	}
+    } else {
+      // http request
+    }
+  }
 
   calculateAge(){
     var currentDate = new Date();
@@ -320,8 +272,8 @@ export class ProfilePage {
 
   presentConfirm_experience(i) {
     let alert = this.alertCtrl.create({
-      title: 'Supprimer cette expÃ©rience ?',
-      message: 'Souhaitez vous supprimer cette expÃ©rience ?',
+      title: 'Supprimer cette expérience ?',
+      message: 'Souhaitez vous supprimer cette expérience ?',
       buttons: [
         {
           text: 'Annuler',
@@ -348,27 +300,25 @@ export class ProfilePage {
     this.organizeSkills();
     this.organizeQualities();
     this.navCtrl.setRoot(RecherchePage);
+    console.log(this.profile.experiences);
+    this.apiProvider.changeExperienceFormation({"newExperience":this.profile.experiences,"newFormation":this.profile.formations})
   }
 
 
   getAll() {
-		// Local mode
-		if (!this.onlineMode) {
+    // Local mode
+    if (!this.onlineMode) {
 
       this.profile = this.provider.get_profile();
 
 
       /*this.tableSkillsCopy = this.navParams.get('tableSkills');
-
-
       this.shortDescriptionCopy = this.navParams.get('shortDescription');
-
-
       this.experiencesCopy = this.navParams.get('experiences');*/
-		} else {
-			// Remote mode
-			// http request
-		}
-	}
+    } else {
+      // Remote mode
+      // http request
+    }
+  }
 
 }

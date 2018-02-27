@@ -7,6 +7,8 @@ import { Injectable } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { HttpHeaders } from '@angular/common/http';
+import {MainProvider} from "../main/main"
+
 /*
   Generated class for the ApiProvider provider.
 
@@ -63,7 +65,7 @@ export class ApiProvider {
   test = 'hello.php';
 
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,private provider:MainProvider,) {
     console.log('Hello ApiProvider Provider');
   }
 
@@ -246,11 +248,23 @@ export class ApiProvider {
   }
   // Login request
   login(login, password, nav) {
+  var donneeUtilisateur;
+  var profile;
   var objet = {'login': login, 'password': password};
   this.http.post(this.serverAddress + this.utilisateur + this.login_path, objet)
   .subscribe(
     (data : any) => {
       if (data.success) {
+        donneeUtilisateur=data.userData
+        console.log(donneeUtilisateur)
+        profile = this.provider.get_profile();
+        profile.firstname=donneeUtilisateur.prenom
+        profile.familyname=donneeUtilisateur.nom
+        profile.sexe=donneeUtilisateur.sexe
+        profile.dateNaissance=donneeUtilisateur.dateDeNaissance
+        profile.email=donneeUtilisateur.email
+        profile.phone=donneeUtilisateur.telephone
+        profile.shortDescription=donneeUtilisateur.description
         nav.push(ProfilePage);
       } else {
 
