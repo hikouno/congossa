@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavParams } from 'ionic-angular';
 import { Events, Content, TextInput } from 'ionic-angular';
+
 import { ChatService, ChatMessage, UserInfo } from "../../providers/chat/chat-service";
 
 @Component({
