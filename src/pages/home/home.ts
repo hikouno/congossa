@@ -21,7 +21,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,  private googlePlus: GooglePlus,
               private api: ApiProvider, private main: MainProvider) {
-                this.mesDemandes=this.main.get_mesDemandes();
+/*                this.mesDemandes=this.main.get_mesDemandes();
                 this.mesDemandesCompletees = [];
                 for (var _i = 0; _i < this.mesDemandes.length; _i++) {
                   var id_demande = this.mesDemandes[_i];
@@ -35,7 +35,7 @@ export class HomePage {
                                                   this.getEcole(id_demande),
                                                   this.getExperiences(id_demande),
                                                   this.getCompetences(id_demande)]);
-                }
+                }*/
   }
 
   reactionClicBouton() {
@@ -64,7 +64,7 @@ export class HomePage {
   }
 
   openConversation(id_offre, id_demande){
-    this.api.newDialog(id_offre, id_demande);
+    //this.api.newDialog(id_offre, id_demande);
     this.navCtrl.push(ConversationPage);
   }
 
