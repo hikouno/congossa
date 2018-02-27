@@ -66,11 +66,7 @@
 		<span class="text-title">Formation</span>
 	</div>
 
-	<div style="text-align:center;">
-		<button ion-button class="addButton" clear color="primary" block (click)="addFormation()">
-			<span style="color:#488aff;"><ion-icon name="add"></ion-icon> Ajouter une Formation</span>
-		</button>
-	</div>
+
 
 	<ion-list *ngFor="let f of profile.formations; let i = index" no-lines>
 
@@ -92,16 +88,18 @@
 
 	</ion-list>
 
+  <div style="text-align:center;">
+		<button ion-button class="addButton" clear color="primary" block (click)="addFormation()">
+			<span style="color:#488aff;"><ion-icon name="add"></ion-icon> Ajouter une Formation</span>
+		</button>
+	</div>
+
 
 	<div class="text-description">
 		<span class="text-title">Expérience</span>
 	</div>
 
-	<div style="text-align:center;">
-		<button ion-button class="addButton" clear color="primary" block (click)="addExperience()">
-			<span style="color:#488aff;"><ion-icon name="add"></ion-icon> Ajouter une Expérience</span>
-		</button>
-	</div>
+
 
 	<ion-list *ngFor="let e of profile.experiences; let i = index" no-lines>
 
@@ -126,7 +124,11 @@
 
 	</ion-list>
 
-
+  <div style="text-align:center;">
+    <button ion-button class="addButton" clear color="primary" block (click)="addExperience()">
+      <span style="color:#488aff;"><ion-icon name="add"></ion-icon> Ajouter une Expérience</span>
+    </button>
+  </div>
 
 
 	<div class="text-description">

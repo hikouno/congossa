@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 
 
 //Pages
@@ -60,7 +60,7 @@ export class MesOffresPage {
   categorie: string = "Catégorie";
   typeOfJob: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider, public menu: MenuController) {
     this.mesOffres = this.provider.get_mesOffres()
 
   }

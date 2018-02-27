@@ -1,5 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { NavController, NavParams, ModalController, AlertController} from 'ionic-angular';
+import { NavController, NavParams, ModalController, AlertController, MenuController} from 'ionic-angular';
 
 //pages
 import { ModalViewCardPage } from "../modal-view-card/modal-view-card";
@@ -31,7 +31,8 @@ export class ProfilePage {
               public modalCtrl: ModalController,
               private provider:MainProvider,
               private apiProvider: ApiProvider,
-              private alertCtrl: AlertController) {
+              private alertCtrl: AlertController,
+              public menu: MenuController) {
 	  this.getAll();
     this.durations_formations = [
     {

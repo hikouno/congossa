@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 
 //Pages
 import { ProfilePage } from '../profile/profile';
@@ -18,13 +18,13 @@ import { ListeConversationsPage } from '../listeConversations/listeConversations
 })
 export class SauvegardePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SauvegardePage');
   }
-  
+
    // Go to profilePage
   openProfilPage(){
     this.navCtrl.setRoot(ProfilePage);

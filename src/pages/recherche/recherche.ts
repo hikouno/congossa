@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 import { ListeConversationsPage } from '../listeConversations/listeConversations';
 import { ChercheJobPage } from "../cherche-job/cherche-job";
@@ -74,7 +74,7 @@ export class RecherchePage {
   experiences: Array<{title:string, experience:string, dateDebut:string, dateFin:string, period:string}>;
   experiencesCopy: Array<{title:string, experience:string, dateDebut:string, dateFin:string, period:string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController) {
     this.loadData();
   }
 

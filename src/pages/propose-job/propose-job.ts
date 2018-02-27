@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, MenuController } from 'ionic-angular';
 import { ListCategoriesPage } from "../list-categories/list-categories";
 
 //pages
@@ -9,6 +9,7 @@ import { ResultatRecherchePage } from "../resultat-recherche/resultat-recherche"
 
 import { MainProvider } from "../../providers/main/main"
 import { ApiProvider } from "../../providers/api/api"
+import { CityPickerPage } from "../city-picker/city-picker";
 /**
  * Generated class for the ProposeJobPage page.
  *
@@ -27,7 +28,7 @@ export class ProposeJobPage {
   profile: any;
 
   title : string;
-  city: any;
+  city: string = "Ville";
   typeOfJob: any;
   categorie: string = "Catégorie";
   dateDebut: any;
@@ -49,7 +50,8 @@ export class ProposeJobPage {
     public navParams: NavParams,
     private provider:MainProvider,
     private apiProvider: ApiProvider,
-    private alertCtrl: AlertController) {
+    private alertCtrl: AlertController,
+    public menu: MenuController) {
     this.getAll();
     this.durations_experiences = [
     {
@@ -77,14 +79,6 @@ export class ProposeJobPage {
     this.profileRecherche = {skills: [], qualities: [], experiences: []};
     this.profile = this.provider.get_profile();
   }
-
-  myCallbackFunction = (_params) => {
-    return new Promise((resolve, reject) => {
-            resolve();
-            this.categorie=_params;
-            console.error(this.categorie);
-        });
- }
 
  searchProfiles(){
      this.createOffre();
@@ -125,7 +119,27 @@ export class ProposeJobPage {
   }
 
   showCategories(){
-    this.navCtrl.push(ListCategoriesPage, {callback: this.myCallbackFunction});
+    this.navCtrl.push(ListCategoriesPage, {callback: this.myCallbackFunction_categorie});
+  }
+
+  myCallbackFunction_categorie = (_params) => {
+    return new Promise((resolve, reject) => {
+            resolve();
+            this.categorie=_params;
+            console.error(this.categorie);
+        });
+  }
+
+  myCallbackFunction_city = (_params) => {
+    return new Promise((resolve, reject) => {
+            resolve();
+            this.city=_params;
+            console.error(this.categorie);
+        });
+  }
+
+  goToCityPicker(){
+    this.navCtrl.push(CityPickerPage, {callback: this.myCallbackFunction_city});
   }
 
   clone(obj){
@@ -138,6 +152,7 @@ export class ProposeJobPage {
     }
     return copy;
     }
+
 
 
     presentConfirm_experience(i) {

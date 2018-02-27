@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, MenuController } from 'ionic-angular';
 import { ListCategoriesPage } from "../list-categories/list-categories";
 
 //pages
@@ -8,6 +8,7 @@ import { ListeConversationsPage } from '../listeConversations/listeConversations
 import { ResultatRecherchePage } from "../resultat-recherche/resultat-recherche";
 import { MainProvider } from "../../providers/main/main";
 import { ApiProvider } from "../../providers/api/api"
+import { CityPickerPage } from "../city-picker/city-picker";
 
 /**
  * Generated class for the ProposeJobPage page.
@@ -35,7 +36,7 @@ export class ChercheJobPage {
   typeOfJob: any;
   dateDebut: string;
   dateFin: string;
-  city: string;
+  city: string= "Ville";
 
   durations_experiences: any;
 
@@ -47,7 +48,8 @@ export class ChercheJobPage {
     public navParams: NavParams,
     private provider:MainProvider,
     private apiProvider: ApiProvider,
-    private alertCtrl: AlertController) {
+    private alertCtrl: AlertController,
+    public menu: MenuController) {
       this.getAll();
       this.profileCopy = this.clone(this.profile);
       this.durations_experiences = [
@@ -164,6 +166,18 @@ export class ChercheJobPage {
 
   showCategories(){
     this.navCtrl.push(ListCategoriesPage, {callback: this.myCallbackFunction});
+  }
+
+  myCallbackFunction_city = (_params) => {
+    return new Promise((resolve, reject) => {
+            resolve();
+            this.city=_params;
+            console.error(this.categorie);
+        });
+  }
+
+  goToCityPicker(){
+    this.navCtrl.push(CityPickerPage, {callback: this.myCallbackFunction_city});
   }
 
   presentConfirm_experience(i) {

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { LinkedIn } from '@ionic-native/linkedin';
 import { IonicApp, IonicErrorHandler, IonicModule, NavParams } from 'ionic-angular';
@@ -10,12 +10,9 @@ import { ParametresPage } from '../pages/parametres/parametres';
 import { MesDemandesPage } from '../pages/mes-demandes/mes-demandes';
 import { MesOffresPage } from '../pages/mes-offres/mes-offres';
 import { SauvegardePage } from '../pages/sauvegarde/sauvegarde';
-import { StatistiquesPage } from '../pages/statistiques/statistiques';
-import { AboutPage } from '../pages/about/about';
 import { ChercheJobPage } from '../pages/cherche-job/cherche-job';
 import { ProposeJobPage } from '../pages/propose-job/propose-job';
 
-import { AjoutOffrePage } from '../pages/AjoutOffrePage/AjoutOffrePage';
 import { ListEmploi } from '../pages/ListEmploi/ListEmploi';
 
 
@@ -47,6 +44,9 @@ import { ChatService } from '../providers/chat/chat-service';
 import { Keyboard } from '@ionic-native/keyboard';
 
 import { MultiPickerModule } from 'ion-multi-picker';
+import { CityPickerPage } from "../pages/city-picker/city-picker";
+
+import { GooglePlacesAutocompleteComponentModule } from 'ionic2-google-places-autocomplete';
 
 
 var config = {
@@ -66,7 +66,6 @@ var config = {
     ListeConversationsPage,
     ConversationPage,
 
-    AjoutOffrePage,
     ListEmploi,
 
     ParametresPage,
@@ -78,13 +77,12 @@ var config = {
     MesDemandesPage,
     MesOffresPage,
     SauvegardePage,
-    StatistiquesPage,
-    AboutPage,
     ChercheJobPage,
     ProposeJobPage,
     ResultatRecherchePage,
     ModalViewCardPage,
     ListCategoriesPage,
+    CityPickerPage
 
   ],
   imports: [
@@ -93,7 +91,8 @@ var config = {
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
-    MultiPickerModule
+    MultiPickerModule,
+    GooglePlacesAutocompleteComponentModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -102,7 +101,6 @@ var config = {
     ListeConversationsPage,
     ConversationPage,
 
-    AjoutOffrePage,
     ListEmploi,
 
     ParametresPage,
@@ -115,13 +113,12 @@ var config = {
     MesDemandesPage,
     MesOffresPage,
     SauvegardePage,
-    StatistiquesPage,
-    AboutPage,
     ChercheJobPage,
     ProposeJobPage,
     ResultatRecherchePage,
     ModalViewCardPage,
     ListCategoriesPage,
+    CityPickerPage
 
   ],
   providers: [

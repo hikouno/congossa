@@ -14,7 +14,6 @@
         <img id="image" src="https://pbs.twimg.com/profile_images/662333810185543680/0NdNCnYu_400x400.jpg" />
       </button>
 
-
       <button id="BoutonMessage" ion-button icon-only (click)="openMessagesPage()">
         <ion-icon name="text"></ion-icon>
       </button>
@@ -28,15 +27,13 @@
 
 <ion-content padding>
 
-
-
   <ion-card class="cards" (click)="displayProfil()">
 
   <ion-item class="items-header-cards">
     <ion-avatar item-start>
       <img src="https://images.fineartamerica.com/images-medium-large-5/marty-mcfly-paul-tagliamonte.jpg">
     </ion-avatar>
-    <h2>Marty McFly - 22ans</h2>
+    <h2>Marty McFly - 28ans</h2>
     <p><strong> Stage de 6 mois - Toulouse </strong></p>
     <p>  Développement Java </p>
   </ion-item>
@@ -108,7 +105,7 @@
   <ion-row>
     <ion-col>
     <ion-card class="under-cards-buttons-left">
-      <button ion-button class="buttons" icon-left color="orange" clear>
+      <button ion-button class="buttons" clear icon-left color="orange" (click)="openDialog()">
         <ion-icon name="text" color="orange"></ion-icon>
         <div><span text-color="orange">Contacter</span></div>
       </button>
