@@ -50,7 +50,8 @@ export class ApiProvider {
   creerDiplome = 'createDiplome/'
   detruireDiplome= 'removeDiplome/'
   changerQualite= 'changeQualite/'
-  videQualite ='viderQualite/'
+  changerCompetence= 'changeCompetence/'
+  changerExperienceFormation= 'changeExperienceFormation/'
 
   // requête vers le module composantProfil
 
@@ -206,19 +207,7 @@ export class ApiProvider {
      });
     return this.idObtenu
   }
-  viderQualite() {
-    this.http.post(this.serverAddress + this.utilisateur + this.videQualite,"")
-    .subscribe(
-      (data : any) => {
-        console.log(data);
-        console.log(data.status);
-        this.idObtenu=data.id
-     },
-     (error : any) => {
-        console.log(error);
-     });
-    return this.idObtenu
-  }
+ 
   changeQualite(objet) {
     this.http.post(this.serverAddress + this.utilisateur + this.changerQualite, objet)
     .subscribe(
@@ -232,7 +221,30 @@ export class ApiProvider {
      });
     return this.idObtenu
   }
- 
+  changeCompetence(objet) {
+    this.http.post(this.serverAddress + this.utilisateur + this.changerCompetence, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+        console.log(data.status);
+        this.idObtenu=data.id
+     },
+     (error : any) => {
+        console.log(error);
+     });
+    return this.idObtenu
+  }
+ changeExperienceFormation(objet) {
+    this.http.post(this.serverAddress + this.utilisateur + this.changerExperienceFormation, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+        console.log(data.status);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
   // Login request
   login(login, password, nav) {
   var objet = {'login': login, 'password': password};
