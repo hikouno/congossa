@@ -101,6 +101,24 @@ export class ChercheJobPage {
    this.profileCopy.experiences.splice(i, 1);
  }
 
+ calculatePeriods(){
+   if (this.profileCopy.experiences != undefined){
+     for (var i=0; i<this.profileCopy.experiences.length; i++){
+       console.log(this.profileCopy.experiences[i].dateDebut);
+       console.log(this.profileCopy.experiences[i].dateFin);
+       if (this.profileCopy.experiences[i].dateDebut != "" && this.profileCopy.experiences[i].dateFin != "") {
+         var tabPeriod1 = this.profileCopy.experiences[i].dateDebut.split("-");
+         var tabPeriod2 = this.profileCopy.experiences[i].dateFin.split("-");
+         var res = 12 * (Number(tabPeriod2[0]) - Number(tabPeriod1[0])) +  (Number(tabPeriod2[1]) - Number(tabPeriod1[1]));
+         this.profileCopy.experiences[i].period = String(res);
+       } else {
+         this.profileCopy.experiences[i].period = "";
+       }
+     }
+   }
+ }
+
+
  organizeSkills(){
    if (this.profileCopy.skills != ""){
      this.profileCopy.tableSkills = this.profileCopy.skills.split(",");
@@ -126,7 +144,7 @@ export class ChercheJobPage {
  searchProfiles(){
    this.organizeSkills();
    this.organizeQualities();
-
+   this.calculatePeriods();
    this.createDemande();
    this.apiProvider.sendDemande(this.demande);
    this.provider.addDemande(this.demande);
