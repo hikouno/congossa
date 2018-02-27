@@ -9,7 +9,6 @@ import firebase from 'firebase';
 
 //Pages
 
-import { AjoutOffrePage } from '../pages/AjoutOffrePage/AjoutOffrePage';
 import { ListEmploi } from '../pages/ListEmploi/ListEmploi';
 import { LoginPage } from '../pages/login/login';
 
@@ -25,8 +24,6 @@ import { MesOffresPage } from "../pages/mes-offres/mes-offres";
 import { MesDemandesPage } from "../pages/mes-demandes/mes-demandes";
 import { SauvegardePage } from "../pages/sauvegarde/sauvegarde";
 import { ProfilePage } from "../pages/profile/profile";
-import { StatistiquesPage } from "../pages/statistiques/statistiques";
-import { AboutPage } from "../pages/about/about";
 import { Keyboard } from "@ionic-native/keyboard";
 
 
@@ -64,8 +61,6 @@ export class MyApp {
       { title: 'messagerie', component: ListeConversationsPage },
       { title: 'profil', component: ProfilePage },
       { title: 'parametres', component: ParametresPage },
-      { title: 'statistiques', component: StatistiquesPage },
-      { title: 'about', component: AboutPage }
 
     ];
   }
@@ -85,10 +80,6 @@ export class MyApp {
       this.nav.push(ProfilePage);
     }else if (title == 'parametres'){
       this.nav.push(ParametresPage);
-    }else if (title == 'statistiques'){
-      this.nav.push(StatistiquesPage);
-    }else if (title == 'about'){
-      this.nav.push(AboutPage);
     }else if (title == 'mes-matchs'){
       this.nav.push(HomePage);
     }

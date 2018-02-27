@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
+import { AlertController, MenuController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
 
 import { LinkedIn } from '@ionic-native/linkedin';
@@ -39,7 +39,8 @@ export class SubPage {
               private googlePlus: GooglePlus,
               private fire: AngularFireAuth,
               private linkedin: LinkedIn,
-              private provider: MainProvider ) {
+              private provider: MainProvider,
+              public menu: MenuController) {
   }
 
   skip_login() {

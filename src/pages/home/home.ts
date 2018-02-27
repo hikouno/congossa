@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
+import { AlertController, MenuController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
 
 @Component({
@@ -11,10 +11,11 @@ export class HomePage {
 
   constructor(public navCtrl: NavController,
               public alertCtrl: AlertController,
-              private googlePlus: GooglePlus) {
-    
+              private googlePlus: GooglePlus,
+              public menu: MenuController) {
+
   }
-  
+
   reactionClicBouton() {
         let alert = this.alertCtrl.create({
           title: 'New Friend!',
