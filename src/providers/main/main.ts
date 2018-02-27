@@ -27,7 +27,7 @@ export class MainProvider {
 
 
   mesOffres: any[] = [];
-  mesDemandes: any[] = [];
+  mesDemandes: any[] = ["suce","ma","bite"];
 
 
   constructor(public http: HttpClient) {
