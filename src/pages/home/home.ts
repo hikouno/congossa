@@ -22,10 +22,6 @@ export class HomePage {
     console.log("toto");
     this.menu.swipeEnable(true, 'mainMenu');
   }
-  ionViewWillLeave() {
-    console.log("tata");
-    this.menu.swipeEnable(false, 'mainMenu');
-  }
 
   reactionClicBouton() {
         let alert = this.alertCtrl.create({

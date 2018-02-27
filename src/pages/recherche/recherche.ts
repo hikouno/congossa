@@ -88,7 +88,7 @@ export class RecherchePage {
   }
   ionViewWillLeave() {
     console.log("tata");
-    this.menu.swipeEnable(false, 'mainMenu');
+
   }
 
   loadData(){
@@ -114,6 +114,7 @@ export class RecherchePage {
 
 
   openProfilPage(){
+    this.menu.swipeEnable(false, 'mainMenu');
     this.navCtrl.push(ProfilePage, {
         firstname: this.firstname,
         familyname: this.familyname,
@@ -136,10 +137,12 @@ export class RecherchePage {
   }
 
   openMessagesPage(){
+    this.menu.swipeEnable(false, 'mainMenu');
     this.navCtrl.push(ListeConversationsPage);
   }
 
   openChercheJobPage(){
+    this.menu.swipeEnable(false, 'mainMenu');
     this.navCtrl.push(ChercheJobPage, {
         firstname: this.firstname,
         familyname: this.familyname,
@@ -163,6 +166,7 @@ export class RecherchePage {
 
 
   openProposeJobPage() {
+    this.menu.swipeEnable(false, 'mainMenu');
     this.navCtrl.push(ProposeJobPage, {
         firstname: this.firstname,
         familyname: this.familyname,

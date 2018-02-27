@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, NavController} from 'ionic-angular';
+import { Nav, Platform, NavController, MenuController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -46,7 +46,7 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
 
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private fire: AngularFireAuth, public keyboard: Keyboard, private provider:MainProvider) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private fire: AngularFireAuth, public keyboard: Keyboard, private provider:MainProvider, public menu: MenuController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -69,20 +69,28 @@ export class MyApp {
   openPage(title) {
 	if (title == 'recherche' && this.provider.currentView != 'RecherchePage') {
 		this.nav.push(RecherchePage);
+    this.menu.swipeEnable(true, 'mainMenu');
 	} else if (title == 'mes-offres' && this.provider.currentView != 'MesOffresPage'){
       this.nav.push(MesOffresPage);
+      this.menu.swipeEnable(false, 'mainMenu');
     }else if (title == 'mes-demandes' && this.provider.currentView != 'MesDemandesPage'){
       this.nav.push(MesDemandesPage);
+      this.menu.swipeEnable(false, 'mainMenu');
     }else if (title == 'sauvegarde' && this.provider.currentView != 'SauvegardePage'){
       this.nav.push(SauvegardePage);
+      this.menu.swipeEnable(false, 'mainMenu');
     }else if (title == 'messagerie' && this.provider.currentView != 'ListeConversationsPage'){
       this.nav.push(ListeConversationsPage);
+      this.menu.swipeEnable(false, 'mainMenu');
     }else if (title == 'profil' && this.provider.currentView != 'ProfilePage'){
       this.nav.push(ProfilePage);
+      this.menu.swipeEnable(false, 'mainMenu');
     }else if (title == 'parametres' && this.provider.currentView != 'ParametresPage'){
       this.nav.push(ParametresPage);
+      this.menu.swipeEnable(false, 'mainMenu');
     }else if (title == 'mes-matchs' && this.provider.currentView != 'HomePage'){
-      this.nav.push(HomePage);
+      this.nav.setRoot(HomePage);
+      this.menu.swipeEnable(true, 'mainMenu');
     }
 
     // Reset the content nav to have just this page

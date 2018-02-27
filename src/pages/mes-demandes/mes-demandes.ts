@@ -30,14 +30,19 @@ export class MesDemandesPage {
     this.mesDemandes = this.provider.get_mesDemandes()
   }
 
+  ionViewWillLeave() {
+    console.log("tata");
+    this.menu.swipeEnable(true, 'mainMenu');
+  }
+
    // Go to profilePage
   openProfilPage(){
-    this.navCtrl.setRoot(ProfilePage);
+    this.navCtrl.push(ProfilePage);
   }
 
 	// Go to MessagesPages
   openMessagesPage(){
-    this.navCtrl.setRoot(ListeConversationsPage);
+    this.navCtrl.push(ListeConversationsPage);
   }
 
 }
