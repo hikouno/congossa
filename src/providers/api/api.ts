@@ -263,8 +263,20 @@ export class ApiProvider {
         profile.sexe=donneeUtilisateur.sexe
         profile.dateNaissance=donneeUtilisateur.dateDeNaissance
         profile.email=donneeUtilisateur.email
-        profile.phone=donneeUtilisateur.telephone
+        profile.phone=+donneeUtilisateur.telephone
         profile.shortDescription=donneeUtilisateur.description
+        profile.skills=donneeUtilisateur.competence
+        profile.qualities=donneeUtilisateur.qualite
+        var j=0
+        for (var i =0 ;i<donneeUtilisateur.formation.length;i=i+3){
+          profile.formations.push({title: "newFormation"+String(j), formation:donneeUtilisateur.formation[i], period: donneeUtilisateur.formation[i+1],domaine:donneeUtilisateur.formation[i+2]})
+          j++
+        }
+        var j=0
+        for (var i =0 ;i<donneeUtilisateur.experience.length;i=i+3){
+          profile.experiences.push({title: "newFormation"+String(j), experience:donneeUtilisateur.experience[i], period: donneeUtilisateur.experience[i+1],domaine:donneeUtilisateur.experience[i+2]})
+          j++
+        }
         nav.push(ProfilePage);
       } else {
 

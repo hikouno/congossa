@@ -10,9 +10,7 @@ import { ParametresPage } from '../pages/parametres/parametres';
 import { MesDemandesPage } from '../pages/mes-demandes/mes-demandes';
 import { MesOffresPage } from '../pages/mes-offres/mes-offres';
 import { SauvegardePage } from '../pages/sauvegarde/sauvegarde';
-import { StatistiquesPage } from '../pages/statistiques/statistiques';
-import { AboutPage } from '../pages/about/about';
-import { ChercheJobPage } from '../pages/AjoutOffrePage/cherche-job/cherche-job';
+import { ChercheJobPage } from '../pages/cherche-job/cherche-job';
 import { ProposeJobPage } from '../pages/propose-job/propose-job';
 
 import { ListEmploi } from '../pages/ListEmploi/ListEmploi';

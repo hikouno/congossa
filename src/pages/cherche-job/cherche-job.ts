@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, MenuController } from 'ionic-angular';
-import { ListCategoriesPage } from "../list-categories/list-categories";
 
 //pages
-import { ProfilePage } from '../profile/profile';
-import { ListeConversationsPage } from '../listeConversations/listeConversations';
-import { ResultatRecherchePage } from "../resultat-recherche/resultat-recherche";
+
 import { MainProvider } from "../../providers/main/main";
 import { ApiProvider } from "../../providers/api/api"
 import { CityPickerPage } from "../city-picker/city-picker";
+import { ListCategoriesPage } from "../list-categories/list-categories";
+import { ResultatRecherchePage } from "../resultat-recherche/resultat-recherche";
 
 /**
  * Generated class for the ProposeJobPage page.

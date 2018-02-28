@@ -1,3 +1,4 @@
+import { ApiProvider } from "../../providers/api/api";
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AlertController, MenuController } from 'ionic-angular';
