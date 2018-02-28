@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, MenuController, ToastController } from 'ionic-angular';
 
 //pages
 
@@ -32,9 +32,9 @@ export class ChercheJobPage {
 
 
   categorie: string = "Catégorie";
-  typeOfJob: any;
-  dateDebut: string;
-  dateFin: string;
+  typeOfJob: string = "";
+  dateDebut: string = "";
+  dateFin: string = "";
   city: string= "Ville";
 
   durations_experiences: any;
@@ -48,7 +48,8 @@ export class ChercheJobPage {
     private provider:MainProvider,
     private apiProvider: ApiProvider,
     private alertCtrl: AlertController,
-    public menu: MenuController) {
+    public menu: MenuController,
+    public toastCtrl: ToastController) {
       this.provider.currentView = 'ChercheJobPage';
       this.getAll();
       this.profileCopy = this.clone(this.profile);
@@ -148,14 +149,31 @@ export class ChercheJobPage {
    }
  }
 
+ showToastWithCloseButton() {
+   const toast = this.toastCtrl.create({
+     message: 'Veuillez compléter le type d\'emploi, les dates et la ville dans laquelle vous souhaitez trouver un job',
+     showCloseButton: true,
+     closeButtonText: 'Ok'
+   });
+   toast.present();
+ }
+
  searchProfiles(){
-   this.organizeSkills();
-   this.organizeQualities();
-   this.calculatePeriods();
-   this.createDemande();
-   this.apiProvider.sendDemande(this.demande);
-   this.provider.addDemande(this.demande);
-   this.navCtrl.push(ResultatRecherchePage);
+   if (this.typeOfJob == "" ||
+       this.city == "Ville" ||
+       (this.typeOfJob == "CDI" && this.dateDebut == "") ||
+       (this.typeOfJob == "CDD" && (this.dateDebut == "" || this.dateFin == "")) ||
+       (this.typeOfJob == "Stage" && (this.dateDebut == "" || this.dateFin == ""))){
+         this.showToastWithCloseButton();
+    }
+    else{
+     this.organizeSkills();
+     this.organizeQualities();
+     this.createDemande();
+     this.apiProvider.sendDemande(this.demande);
+     this.provider.addDemande(this.demande);
+     this.navCtrl.push(ResultatRecherchePage);
+    }
  }
 
  showCategories_experience(i){
