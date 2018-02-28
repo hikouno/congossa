@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AlertController, MenuController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
+import { MainProvider } from "../../providers/main/main";
 
 @Component({
   selector: 'page-home',
@@ -14,8 +15,14 @@ export class HomePage {
               public alertCtrl: AlertController,
               private googlePlus: GooglePlus,
               private api: ApiProvider,
-              public menu: MenuController) {
+              public menu: MenuController
+              private provider:MainProvider) {
+        this.provider.currentView = 'HomePage';
+  }
 
+  ionViewDidLoad() {
+    console.log("toto");
+    this.menu.swipeEnable(true, 'mainMenu');
   }
 
   reactionClicBouton() {

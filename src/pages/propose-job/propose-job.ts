@@ -52,6 +52,7 @@ export class ProposeJobPage {
     private apiProvider: ApiProvider,
     private alertCtrl: AlertController,
     public menu: MenuController) {
+    this.provider.currentView = 'ProposeJobPage';
     this.getAll();
     this.durations_experiences = [
     {
@@ -73,6 +74,11 @@ export class ProposeJobPage {
       ]
     }
   ];
+  }
+
+  ionViewWillLeave() {
+    console.log("tutu");
+    this.menu.swipeEnable(true, 'mainMenu');
   }
 
   getAll(){

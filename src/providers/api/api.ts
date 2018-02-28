@@ -84,6 +84,7 @@ export class ApiProvider {
   }
 
   sendDemande(objet) {
+    console.log(objet);
     this.http.post(this.serverAddress + this.offre + this.ajoutDemande, objet)
     .subscribe(
       (data : any) => {
