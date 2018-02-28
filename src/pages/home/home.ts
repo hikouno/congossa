@@ -16,6 +16,7 @@ export class HomePage {
               public menu: MenuController,
               private provider:MainProvider) {
         this.provider.currentView = 'HomePage';
+        this.provider.previousView = 'HomePage';
   }
 
   ionViewDidLoad() {
