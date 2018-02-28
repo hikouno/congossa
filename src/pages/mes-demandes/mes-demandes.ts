@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 
 //Pages
 import { ProfilePage } from '../profile/profile';
@@ -24,19 +24,26 @@ export class MesDemandesPage {
   mesDemandes : any;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider, public menu: MenuController) {
+    this.provider.currentView = 'MesDemandesPage';
     this.profile = this.provider.get_profile();
     this.mesDemandes = this.provider.get_mesDemandes()
   }
 
+  ionViewWillLeave() {
+    console.log("tata");
+    this.provider.currentView = this.provider.previousView;
+    this.menu.swipeEnable(true, 'mainMenu');
+  }
+
    // Go to profilePage
   openProfilPage(){
-    this.navCtrl.setRoot(ProfilePage);
+    this.navCtrl.push(ProfilePage);
   }
 
 	// Go to MessagesPages
   openMessagesPage(){
-    this.navCtrl.setRoot(ListeConversationsPage);
+    this.navCtrl.push(ListeConversationsPage);
   }
 
 }

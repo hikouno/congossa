@@ -7,6 +7,8 @@ import { Injectable } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { HttpHeaders } from '@angular/common/http';
+import {MainProvider} from "../main/main"
+
 /*
   Generated class for the ApiProvider provider.
 
@@ -45,10 +47,13 @@ export class ApiProvider {
   changeMail = 'changerMail/';
   changeDateDeNaissanc = 'changerDateDeNaissance/';
   changerTelephone = 'changeTelephone/';
-  changerDescription = 'changeDescription/';
-  changerDiplome = 'changeDiplome/';
-  creerDiplome = 'createDiplome/';
-  detruireDiplome= 'removeDiplome/';
+  changerDescription = 'changeDescription/'
+  changerDiplome = 'changeDiplome/'
+  creerDiplome = 'createDiplome/'
+  detruireDiplome= 'removeDiplome/'
+  changerQualite= 'changeQualite/'
+  changerCompetence= 'changeCompetence/'
+  changerExperienceFormation= 'changeExperienceFormation/'
   getname='getName/';
   getage='getAge/';
 
@@ -70,7 +75,7 @@ export class ApiProvider {
   test = 'hello.php';
 
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,private provider:MainProvider,) {
     console.log('Hello ApiProvider Provider');
   }
 
@@ -88,6 +93,7 @@ export class ApiProvider {
   }
 
   sendDemande(objet) {
+    console.log(objet);
     this.http.post(this.serverAddress + this.offre + this.ajoutDemande, objet)
     .subscribe(
       (data : any) => {
@@ -303,35 +309,101 @@ export class ApiProvider {
     return this.idObtenu
   }
 
-  getName(objet) {
-    this.http.post(this.serverAddress + this.utilisateur + this.getname, objet)
+  changeQualite(objet) {
+    this.http.post(this.serverAddress + this.utilisateur + this.changerQualite, objet)
     .subscribe(
       (data : any) => {
         console.log(data);
+        console.log(data.status);
+        this.idObtenu=data.id
      },
      (error : any) => {
         console.log(error);
      });
+     return this.idObtenu
   }
+
+   getName(objet) {
+     this.http.post(this.serverAddress + this.utilisateur + this.getname, objet)
+     .subscribe(
+       (data : any) => {
+         console.log(data);
+         console.log(data.status);
+       },
+       (error : any) => {
+          console.log(error);
+       });
+    }
+
 
   getAge(objet) {
     this.http.post(this.serverAddress + this.utilisateur + this.getage, objet)
     .subscribe(
       (data : any) => {
         console.log(data);
+        console.log(data.status);
+      },
+      (error : any) => {
+         console.log(error);
+      });
+   }
+
+  changeCompetence(objet) {
+    this.http.post(this.serverAddress + this.utilisateur + this.changerCompetence, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+        console.log(data.status);
+        this.idObtenu=data.id
+     },
+     (error : any) => {
+        console.log(error);
+     });
+    return this.idObtenu
+  }
+  
+ changeExperienceFormation(objet) {
+    this.http.post(this.serverAddress + this.utilisateur + this.changerExperienceFormation, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+        console.log(data.status);
      },
      (error : any) => {
         console.log(error);
      });
   }
-
   // Login request
   login(login, password, nav) {
+  var donneeUtilisateur;
+  var profile;
   var objet = {'login': login, 'password': password};
   this.http.post(this.serverAddress + this.utilisateur + this.login_path, objet)
   .subscribe(
     (data : any) => {
       if (data.success) {
+        donneeUtilisateur=data.userData
+        console.log(donneeUtilisateur)
+        profile = this.provider.get_profile();
+        profile.firstname=donneeUtilisateur.prenom
+        profile.familyname=donneeUtilisateur.nom
+        profile.sexe=donneeUtilisateur.sexe
+        profile.dateNaissance=donneeUtilisateur.dateDeNaissance
+        profile.email=donneeUtilisateur.email
+        profile.phone=+donneeUtilisateur.telephone
+        profile.shortDescription=donneeUtilisateur.description
+        profile.skills=donneeUtilisateur.competence
+        profile.qualities=donneeUtilisateur.qualite
+        var j=0
+        for (var i =0 ;i<donneeUtilisateur.formation.length;i=i+3){
+          profile.formations.push({title: "newFormation"+String(j), formation:donneeUtilisateur.formation[i], period: donneeUtilisateur.formation[i+1],domaine:donneeUtilisateur.formation[i+2]})
+          j++
+        }
+        var j=0
+        for (var i =0 ;i<donneeUtilisateur.experience.length;i=i+3){
+          profile.experiences.push({title: "newFormation"+String(j), experience:donneeUtilisateur.experience[i], period: donneeUtilisateur.experience[i+1],domaine:donneeUtilisateur.experience[i+2]})
+          j++
+        }
         nav.push(ProfilePage);
       } else {
 

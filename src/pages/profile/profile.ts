@@ -1,13 +1,13 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { NavController, NavParams, ModalController, AlertController} from 'ionic-angular';
+import { NavController, NavParams, ModalController, AlertController, MenuController} from 'ionic-angular';
 
 //pages
 import { ModalViewCardPage } from "../modal-view-card/modal-view-card";
 import { ListeConversationsPage } from "../listeConversations/listeConversations";
 import { RecherchePage } from "../recherche/recherche";
 
-import {MainProvider} from "../../providers/main/main"
-import { ApiProvider } from "../../providers/api/api"
+import {MainProvider} from "../../providers/main/main";
+import { ApiProvider } from "../../providers/api/api";
 import { ListCategoriesPage } from "../list-categories/list-categories";
 
 @Component({
@@ -31,7 +31,9 @@ export class ProfilePage {
               public modalCtrl: ModalController,
               private provider:MainProvider,
               private apiProvider: ApiProvider,
-              private alertCtrl: AlertController) {
+              private alertCtrl: AlertController,
+              public menu: MenuController) {
+    this.provider.currentView = 'ProfilePage';
 	  this.getAll();
     this.durations_formations = [
     {
@@ -76,6 +78,12 @@ export class ProfilePage {
 ];
   }
 
+  ionViewWillLeave() {
+    console.log("tutu");
+    this.menu.swipeEnable(true, 'mainMenu');
+    this.provider.currentView = this.provider.previousView;
+  }
+
   sendPrename(){
     this.apiProvider.changePrenom({"newPrenom":this.profile.firstname})
   }
@@ -89,7 +97,7 @@ export class ProfilePage {
       this.apiProvider.changeEmail({"newEmail":this.profile.email})
   }
   sendDateDeNaissance(){
-    this.apiProvider.changeDateDeNaissance({"newDateDeNaisance":this.profile.date})
+    this.apiProvider.changeDateDeNaissance({"newDateDeNaissance":this.profile.dateNaissance})
   }
 
   sendTelephone(){
@@ -101,7 +109,12 @@ export class ProfilePage {
   }
 
   sendQualite(){
-
+    this.organizeQualities()
+    this.apiProvider.changeQualite({"newQualites":this.profile.tableQualities})
+  }
+  sendCompetence(){
+    this.organizeSkills()
+    this.apiProvider.changeCompetence({"newCompetences":this.profile.tableSkills})
   }
 
 //
@@ -182,10 +195,10 @@ export class ProfilePage {
         experiences: this.profile.experiences
       });
       viewCardModal.present();
-		} else {
-			// http request
-		}
-	}
+    } else {
+      // http request
+    }
+  }
 
   calculateAge(){
     var currentDate = new Date();
@@ -267,8 +280,8 @@ export class ProfilePage {
 
   presentConfirm_experience(i) {
     let alert = this.alertCtrl.create({
-      title: 'Supprimer cette expÃ©rience ?',
-      message: 'Souhaitez vous supprimer cette expÃ©rience ?',
+      title: 'Supprimer cette expérience ?',
+      message: 'Souhaitez vous supprimer cette expérience ?',
       buttons: [
         {
           text: 'Annuler',
@@ -295,27 +308,25 @@ export class ProfilePage {
     this.organizeSkills();
     this.organizeQualities();
     this.navCtrl.setRoot(RecherchePage);
+    console.log(this.profile.experiences);
+    this.apiProvider.changeExperienceFormation({"newExperience":this.profile.experiences,"newFormation":this.profile.formations})
   }
 
 
   getAll() {
-		// Local mode
-		if (!this.onlineMode) {
+    // Local mode
+    if (!this.onlineMode) {
 
       this.profile = this.provider.get_profile();
 
 
       /*this.tableSkillsCopy = this.navParams.get('tableSkills');
-
-
       this.shortDescriptionCopy = this.navParams.get('shortDescription');
-
-
       this.experiencesCopy = this.navParams.get('experiences');*/
-		} else {
-			// Remote mode
-			// http request
-		}
-	}
+    } else {
+      // Remote mode
+      // http request
+    }
+  }
 
 }

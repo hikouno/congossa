@@ -1,14 +1,9 @@
+import { ApiProvider } from "../../providers/api/api";
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
+import { AlertController, MenuController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
-
-import { ProfilePage } from "../profile/profile";
-import { ListeConversationsPage } from '../listeConversations/listeConversations';
-import { ConversationPage } from "../conversation/conversation"
-
-import { ApiProvider } from '../../providers/api/api';
-import { MainProvider } from '../../providers/main/main';
+import { MainProvider } from "../../providers/main/main";
 
 @Component({
   selector: 'page-home',
@@ -16,8 +11,15 @@ import { MainProvider } from '../../providers/main/main';
 })
 export class HomePage {
 
-  mesDemandes: any[];
-  mesDemandesCompletees : any[];
+  constructor(public navCtrl: NavController,
+              public alertCtrl: AlertController,
+              private googlePlus: GooglePlus,
+              private api: ApiProvider,
+              public menu: MenuController,
+              private provider:MainProvider) {
+        this.provider.currentView = 'HomePage';
+        this.provider.previousView = 'HomePage';
+  }
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,  private googlePlus: GooglePlus,
               private api: ApiProvider, private main: MainProvider) {

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, MenuController } from 'ionic-angular';
+import { MainProvider } from "../../providers/main/main";
 
 /**
  * Generated class for the ModalViewCardPage page.
@@ -24,7 +25,8 @@ export class ModalViewCardPage {
   diplomes: Array<{title:string, diplome:string}>;
   experiences: Array<{title:string, experience:string, dateDebut:string, dateFin:string, period:string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public menu: MenuController, private provider:MainProvider) {
+    this.provider.currentView = 'ModalViewCardPage';
     this.firstname = navParams.get("firstname");
     this.familyname = navParams.get("familyname");
     this.age = navParams.get("age");
