@@ -4,6 +4,7 @@ import { NavController } from 'ionic-angular';
 import { AlertController, MenuController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { MainProvider } from "../../providers/main/main";
+import { ApiProvider } from '../../providers/api/api';
 
 @Component({
   selector: 'page-home',
@@ -11,23 +12,20 @@ import { MainProvider } from "../../providers/main/main";
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController,
-              public alertCtrl: AlertController,
-              private googlePlus: GooglePlus,
-              private api: ApiProvider,
-              public menu: MenuController,
-              private provider:MainProvider) {
-        this.provider.currentView = 'HomePage';
-        this.provider.previousView = 'HomePage';
-  }
+  main : any;
+  mesDemandesCompletees : any[];
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,  private googlePlus: GooglePlus,
               private api: ApiProvider, private main: MainProvider) {
-                this.mesDemandes=this.main.get_mesDemandes();
+                var mesDemandes;
+
+                this.main.currentView = 'HomePage';
+                this.main.previousView = 'HomePage';
+                mesDemandes=this.main.get_mesDemandes();
                 this.mesDemandesCompletees = [];
-                console.log(this.mesDemandes.length)
-                for (var _i = 0; _i < this.mesDemandes.length; _i++) {
-                  var id_demande = this.mesDemandes[_i];
+
+                for (var _i = 0; _i < mesDemandes.length; _i++) {
+                  var id_demande = mesDemandes[_i];
                   this.mesDemandesCompletees.push([this.getName(id_demande),
                                                   this.getAge(id_demande),
                                                   this.getTypeEmploi(id_demande),
