@@ -97,7 +97,7 @@ export class ProfilePage {
       this.apiProvider.changeEmail({"newEmail":this.profile.email})
   }
   sendDateDeNaissance(){
-    this.apiProvider.changeDateDeNaissance({"newDateDeNaisance":this.profile.date})
+    this.apiProvider.changeDateDeNaissance({"newDateDeNaissance":this.profile.dateNaissance})
   }
 
   sendTelephone(){
@@ -109,7 +109,12 @@ export class ProfilePage {
   }
 
   sendQualite(){
-
+    this.organizeQualities()
+    this.apiProvider.changeQualite({"newQualites":this.profile.tableQualities})
+  }
+  sendCompetence(){
+    this.organizeSkills()
+    this.apiProvider.changeCompetence({"newCompetences":this.profile.tableSkills})
   }
 
 //
@@ -190,10 +195,10 @@ export class ProfilePage {
         experiences: this.profile.experiences
       });
       viewCardModal.present();
-		} else {
-			// http request
-		}
-	}
+    } else {
+      // http request
+    }
+  }
 
   calculateAge(){
     var currentDate = new Date();
@@ -275,8 +280,8 @@ export class ProfilePage {
 
   presentConfirm_experience(i) {
     let alert = this.alertCtrl.create({
-      title: 'Supprimer cette expÃ©rience ?',
-      message: 'Souhaitez vous supprimer cette expÃ©rience ?',
+      title: 'Supprimer cette expérience ?',
+      message: 'Souhaitez vous supprimer cette expérience ?',
       buttons: [
         {
           text: 'Annuler',
@@ -303,27 +308,25 @@ export class ProfilePage {
     this.organizeSkills();
     this.organizeQualities();
     this.navCtrl.setRoot(RecherchePage);
+    console.log(this.profile.experiences);
+    this.apiProvider.changeExperienceFormation({"newExperience":this.profile.experiences,"newFormation":this.profile.formations})
   }
 
 
   getAll() {
-		// Local mode
-		if (!this.onlineMode) {
+    // Local mode
+    if (!this.onlineMode) {
 
       this.profile = this.provider.get_profile();
 
 
       /*this.tableSkillsCopy = this.navParams.get('tableSkills');
-
-
       this.shortDescriptionCopy = this.navParams.get('shortDescription');
-
-
       this.experiencesCopy = this.navParams.get('experiences');*/
-		} else {
-			// Remote mode
-			// http request
-		}
-	}
+    } else {
+      // Remote mode
+      // http request
+    }
+  }
 
 }

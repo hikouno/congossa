@@ -1,3 +1,4 @@
+import { ApiProvider } from "../../providers/api/api";
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AlertController, MenuController } from 'ionic-angular';
@@ -13,6 +14,7 @@ export class HomePage {
   constructor(public navCtrl: NavController,
               public alertCtrl: AlertController,
               private googlePlus: GooglePlus,
+              private api: ApiProvider,
               public menu: MenuController,
               private provider:MainProvider) {
         this.provider.currentView = 'HomePage';
