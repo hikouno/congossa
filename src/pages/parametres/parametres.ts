@@ -6,6 +6,7 @@ import { Http } from '@angular/http';
 //Pages
 import { ProfilePage } from '../profile/profile';
 import { ListeConversationsPage } from '../listeConversations/listeConversations';
+import { MainProvider } from "../../providers/main/main";
 
 @Component({
   selector: 'page-parametres',
@@ -17,7 +18,8 @@ export class ParametresPage {
   gps_enabled:boolean;
   distance_max:number;
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public menu: MenuController) {
+  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public menu: MenuController, private provider:MainProvider) {
+    this.provider.currentView = 'ParametresPage';
 
     this.gps_enabled = true;
     this.distance_max = 40;
@@ -47,6 +49,12 @@ export class ParametresPage {
       buttons: ['OK']
     });
     alert.present();
+  }
+
+  ionViewWillLeave() {
+    console.log(this.navCtrl.last().name);
+    this.provider.currentView = this.provider.previousView;
+    this.menu.swipeEnable(true, 'mainMenu');
   }
 
 

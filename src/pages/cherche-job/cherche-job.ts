@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, MenuController } from 'ionic-angular';
-import { ListCategoriesPage } from "../list-categories/list-categories";
 
 //pages
-import { ProfilePage } from '../profile/profile';
-import { ListeConversationsPage } from '../listeConversations/listeConversations';
-import { ResultatRecherchePage } from "../resultat-recherche/resultat-recherche";
+
 import { MainProvider } from "../../providers/main/main";
 import { ApiProvider } from "../../providers/api/api"
 import { CityPickerPage } from "../city-picker/city-picker";
+import { ListCategoriesPage } from "../list-categories/list-categories";
+import { ResultatRecherchePage } from "../resultat-recherche/resultat-recherche";
 
 /**
  * Generated class for the ProposeJobPage page.
@@ -50,6 +49,7 @@ export class ChercheJobPage {
     private apiProvider: ApiProvider,
     private alertCtrl: AlertController,
     public menu: MenuController) {
+      this.provider.currentView = 'ChercheJobPage';
       this.getAll();
       this.profileCopy = this.clone(this.profile);
       this.durations_experiences = [
@@ -73,6 +73,11 @@ export class ChercheJobPage {
       }
     ];
   }
+
+  ionViewWillLeave() {
+      console.log("tutu");
+      this.menu.swipeEnable(true, 'mainMenu');
+    }
 
   getAll(){
     this.profile = this.provider.get_profile();

@@ -13,6 +13,7 @@ import { Keyboard } from '@ionic-native/keyboard';
 import { SubPage } from "../sub/sub";
 
 import { ApiProvider } from "../../providers/api/api"
+import { MainProvider } from "../../providers/main/main";
 
 
 @Component({
@@ -34,7 +35,9 @@ export class LoginPage {
               private linkedin: LinkedIn,
               private keyboard: Keyboard,
               private apiProvider: ApiProvider,
-              public menu: MenuController) {
+              public menu: MenuController,
+              private provider:MainProvider) {
+      this.provider.currentView = 'LoginPage';
   }
 
 
