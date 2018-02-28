@@ -1,4 +1,3 @@
-import { ApiProvider } from "../../providers/api/api";
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AlertController, MenuController } from 'ionic-angular';
@@ -6,13 +5,17 @@ import { GooglePlus } from '@ionic-native/google-plus';
 import { MainProvider } from "../../providers/main/main";
 import { ApiProvider } from '../../providers/api/api';
 
+import { ListeConversationsPage } from '../listeConversations/listeConversations';
+import { ConversationPage } from '../conversation/conversation';
+
+import { ProfilePage } from '../profile/profile';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
 
-  main : any;
   mesDemandesCompletees : any[];
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,  private googlePlus: GooglePlus,
