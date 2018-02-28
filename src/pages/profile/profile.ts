@@ -1,5 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { NavController, NavParams, ModalController, AlertController, MenuController} from 'ionic-angular';
+import { NavController, NavParams, ModalController, AlertController, MenuController, ToastController} from 'ionic-angular';
 
 //pages
 import { ModalViewCardPage } from "../modal-view-card/modal-view-card";
@@ -32,7 +32,8 @@ export class ProfilePage {
               private provider:MainProvider,
               private apiProvider: ApiProvider,
               private alertCtrl: AlertController,
-              public menu: MenuController) {
+              public menu: MenuController,
+              public toastCtrl: ToastController) {
     this.provider.currentView = 'ProfilePage';
 	  this.getAll();
     this.durations_formations = [
@@ -280,8 +281,8 @@ export class ProfilePage {
 
   presentConfirm_experience(i) {
     let alert = this.alertCtrl.create({
-      title: 'Supprimer cette exp�rience ?',
-      message: 'Souhaitez vous supprimer cette exp�rience ?',
+      title: 'Supprimer cette expérience ?',
+      message: 'Souhaitez vous supprimer cette expérience ?',
       buttons: [
         {
           text: 'Annuler',
@@ -301,15 +302,31 @@ export class ProfilePage {
     alert.present();
   }
 
+  showToastWithCloseButton() {
+    const toast = this.toastCtrl.create({
+      message: 'Veuillez compléter votre Prénom, Nom et Date de Naissance',
+      showCloseButton: true,
+      closeButtonText: 'Ok'
+    });
+    toast.present();
+  }
+
 
 
   enregistrer(){
-    this.calculateAge();
-    this.organizeSkills();
-    this.organizeQualities();
-    this.navCtrl.setRoot(RecherchePage);
-    console.log(this.profile.experiences);
-    this.apiProvider.changeExperienceFormation({"newExperience":this.profile.experiences,"newFormation":this.profile.formations})
+    if (this.profile.firstname == "" ||
+        this.profile.lastname == "" ||
+        this.profile.dateNaissance == ""){
+          this.showToastWithCloseButton();
+        }
+    else {
+      this.calculateAge();
+      this.organizeSkills();
+      this.organizeQualities();
+      this.navCtrl.setRoot(RecherchePage);
+      console.log(this.profile.experiences);
+      this.apiProvider.changeExperienceFormation({"newExperience":this.profile.experiences,"newFormation":this.profile.formations})
+    }
   }
 
 

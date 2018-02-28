@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, MenuController, ToastController } from 'ionic-angular';
 import { ListCategoriesPage } from "../list-categories/list-categories";
 
 //pages
@@ -27,12 +27,12 @@ export class ProposeJobPage {
 
   profile: any;
 
-  title : string;
+  title : string = "";
   city: string = "Ville";
-  typeOfJob: any;
+  typeOfJob: string = "";
   categorie: string = "Catégorie";
-  dateDebut: any;
-  dateFin: any;
+  dateDebut: string = "";
+  dateFin: string = "";
   description: any;
 
   profileRecherche: {
@@ -51,7 +51,8 @@ export class ProposeJobPage {
     private provider:MainProvider,
     private apiProvider: ApiProvider,
     private alertCtrl: AlertController,
-    public menu: MenuController) {
+    public menu: MenuController,
+    public toastCtrl: ToastController) {
     this.provider.currentView = 'ProposeJobPage';
     this.getAll();
     this.durations_experiences = [
@@ -86,11 +87,32 @@ export class ProposeJobPage {
     this.profile = this.provider.get_profile();
   }
 
+
+  showToastWithCloseButton() {
+    const toast = this.toastCtrl.create({
+      message: 'Veuillez compléter le type d\'emploi, les dates et la ville dans laquelle vous souhaitez trouver un job',
+      showCloseButton: true,
+      closeButtonText: 'Ok'
+    });
+    toast.present();
+  }
+
+
  searchProfiles(){
-     this.createOffre();
-     this.provider.addOffre(this.offre);
-     //this.apiProvider.sendOffre(this.offre);
-     this.navCtrl.push(ResultatRecherchePage);
+   if (this.title == "" ||
+       this.typeOfJob == "" ||
+       this.city == "Ville" ||
+       (this.typeOfJob == "CDI" && this.dateDebut == "") ||
+       (this.typeOfJob == "CDD" && (this.dateDebut == "" || this.dateFin == "")) ||
+       (this.typeOfJob == "Stage" && (this.dateDebut == "" || this.dateFin == ""))){
+         this.showToastWithCloseButton();
+    }
+    else{
+       this.createOffre();
+       this.provider.addOffre(this.offre);
+       //this.apiProvider.sendOffre(this.offre);
+       this.navCtrl.push(ResultatRecherchePage);
+    }
  }
 
  addExperience(){
