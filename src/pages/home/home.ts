@@ -15,7 +15,7 @@ export class HomePage {
               public alertCtrl: AlertController,
               private googlePlus: GooglePlus,
               private api: ApiProvider,
-              public menu: MenuController
+              public menu: MenuController,
               private provider:MainProvider) {
         this.provider.currentView = 'HomePage';
   }
