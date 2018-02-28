@@ -90,7 +90,7 @@ export class ProposeJobPage {
 
   showToastWithCloseButton() {
     const toast = this.toastCtrl.create({
-      message: 'Veuillez compléter le type d\'emploi, les dates et la ville dans laquelle vous souhaitez trouver un job',
+      message: 'Veuillez compléter le titre, le type d\'emploi, les dates et la ville dans laquelle vous souhaitez trouver un job',
       showCloseButton: true,
       closeButtonText: 'Ok'
     });
