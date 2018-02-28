@@ -146,7 +146,7 @@ export class ChercheJobPage {
  searchProfiles(){
    this.organizeSkills();
    this.organizeQualities();
-   this.calculatePeriods();
+   //this.calculatePeriods();
    this.createDemande();
    this.apiProvider.sendDemande(this.demande);
    this.provider.addDemande(this.demande);
