@@ -54,12 +54,22 @@ export class ApiProvider {
   changerQualite= 'changeQualite/'
   changerCompetence= 'changeCompetence/'
   changerExperienceFormation= 'changeExperienceFormation/'
+  getname='getName/';
+  getage='getAge/';
 
   // requête vers le module composantProfil
 
   // requête vers le module offre
   ajoutOffre = 'ajoutOffre/';
   ajoutDemande = 'ajoutDemande/';
+  getlocalisation='getLocalisation/';
+  getcompetences='getCompetences/';
+  getexperiences='getExperiences/';
+  getecoledescription='getEcoleDescription/';
+  getecole='getEcole/';
+  getqualite='getQualite/';
+  gettitre='getTitre/';
+  gettypeemploi='getTypeEmploi/';
   idObtenu;
 
   test = 'hello.php';
@@ -70,8 +80,7 @@ export class ApiProvider {
   }
 
 
-
-
+// OFFRE
   sendOffre(objet) {
     this.http.post(this.serverAddress + this.offre + this.ajoutOffre, objet)
     .subscribe(
@@ -94,6 +103,96 @@ export class ApiProvider {
         console.log(error);
      });
   }
+
+  getLocalisation(objet) {
+    this.http.post(this.serverAddress + this.offre + this.getlocalisation, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+
+  getCompetences(objet) {
+    this.http.post(this.serverAddress + this.offre + this.getcompetences, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+
+  getExperiences(objet) {
+    this.http.post(this.serverAddress + this.offre + this.getexperiences, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+
+  getEcoleDescription(objet) {
+    this.http.post(this.serverAddress + this.offre + this.getecoledescription, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+
+  getEcole(objet) {
+    this.http.post(this.serverAddress + this.offre + this.getecole, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+
+  getQualite(objet) {
+    this.http.post(this.serverAddress + this.offre + this.getqualite, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+
+  getTitre(objet) {
+    this.http.post(this.serverAddress + this.offre + this.gettitre, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+
+  getTypeEmploi(objet) {
+    this.http.post(this.serverAddress + this.offre + this.gettypeemploi, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+
+// UTILISATEUR
   changeNom(objet) {
     this.http.post(this.serverAddress + this.utilisateur + this.changeName, objet)
     .subscribe(
@@ -209,7 +308,7 @@ export class ApiProvider {
      });
     return this.idObtenu
   }
- 
+
   changeQualite(objet) {
     this.http.post(this.serverAddress + this.utilisateur + this.changerQualite, objet)
     .subscribe(
@@ -221,8 +320,34 @@ export class ApiProvider {
      (error : any) => {
         console.log(error);
      });
-    return this.idObtenu
+     return this.idObtenu
   }
+
+   getName(objet) {
+     this.http.post(this.serverAddress + this.utilisateur + this.getname, objet)
+     .subscribe(
+       (data : any) => {
+         console.log(data);
+         console.log(data.status);
+       },
+       (error : any) => {
+          console.log(error);
+       });
+    }
+
+
+  getAge(objet) {
+    this.http.post(this.serverAddress + this.utilisateur + this.getage, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+        console.log(data.status);
+      },
+      (error : any) => {
+         console.log(error);
+      });
+   }
+
   changeCompetence(objet) {
     this.http.post(this.serverAddress + this.utilisateur + this.changerCompetence, objet)
     .subscribe(
@@ -236,6 +361,7 @@ export class ApiProvider {
      });
     return this.idObtenu
   }
+  
  changeExperienceFormation(objet) {
     this.http.post(this.serverAddress + this.utilisateur + this.changerExperienceFormation, objet)
     .subscribe(
