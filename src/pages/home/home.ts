@@ -21,8 +21,9 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,  private googlePlus: GooglePlus,
               private api: ApiProvider, private main: MainProvider) {
-/*                this.mesDemandes=this.main.get_mesDemandes();
+                this.mesDemandes=this.main.get_mesDemandes();
                 this.mesDemandesCompletees = [];
+                console.log(this.mesDemandes.length)
                 for (var _i = 0; _i < this.mesDemandes.length; _i++) {
                   var id_demande = this.mesDemandes[_i];
                   this.mesDemandesCompletees.push([this.getName(id_demande),
@@ -35,7 +36,7 @@ export class HomePage {
                                                   this.getEcole(id_demande),
                                                   this.getExperiences(id_demande),
                                                   this.getCompetences(id_demande)]);
-                }*/
+                }
   }
 
   reactionClicBouton() {
@@ -68,44 +69,55 @@ export class HomePage {
     this.navCtrl.push(ConversationPage);
   }
 
+  // AFFICHER DEMANDES
   getName(id_demande) {
-    return ;
+    var json : any = this.api.getName({"id_demande":id_demande});
+    return json.nom_prenom;
   }
 
   getAge(id_demande) {
-    return id_demande;
+    var json : any = this.api.getAge({"id_demande":id_demande})
+    return json.age;
   }
 
   getTypeEmploi(id_demande) {
-    return id_demande;
+    var json : any = this.api.getTypeEmploi({"id_demande":id_demande})
+    return json.typeEmploi;
   }
 
   getLocalisation(id_demande) {
-    return id_demande;
+    var json : any = this.api.getLocalisation({"id_demande":id_demande})
+    return json.localisation;
   }
 
   getTitre(id_demande) {
-    return id_demande;
+    var json : any = this.api.getTitre({"id_demande":id_demande})
+    return json.titre;
   }
 
   getQualite(id_demande) {
-    return id_demande;
+    var json : any = this.api.getQualite({"id_demande":id_demande})
+    return json.qualite;
   }
 
   getEcole(id_demande) {
-    return id_demande;
+    var json : any = this.api.getEcole({"id_demande":id_demande})
+    return json.ecole;
   }
 
   getEcoleDescription(id_demande) {
-    return id_demande;
+    var json : any = this.api.getEcoleDescription({"id_demande":id_demande})
+    return json.description;
   }
 
   getExperiences(id_demande) {
-    return id_demande;
+    var json : any = this.api.getExperiences({"id_demande":id_demande})
+    return json.experiences;
   }
 
   getCompetences(id_demande) {
-    return id_demande;
+    var json : any = this.api.getCompetences({"id_demande":id_demande})
+    return json.competences;
   }
 
 }
