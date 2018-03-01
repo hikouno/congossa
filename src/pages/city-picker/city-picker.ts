@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
-import {googlemaps} from 'googlemaps';
+//import {googlemaps} from 'googlemaps';
 import { MainProvider } from "../../providers/main/main";
 
 /**

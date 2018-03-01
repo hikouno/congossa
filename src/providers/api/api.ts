@@ -270,12 +270,12 @@ export class ApiProvider {
         profile.qualities=donneeUtilisateur.qualite
         var j=0
         for (var i =0 ;i<donneeUtilisateur.formation.length;i=i+3){
-          profile.formations.push({title: "newFormation"+String(j), formation:donneeUtilisateur.formation[i], period: donneeUtilisateur.formation[i+1],domaine:donneeUtilisateur.formation[i+2]})
+          profile.formations.push({title: "newFormation"+String(j), formation:donneeUtilisateur.formation[i], period: donneeUtilisateur.formation[i+2],domaine:donneeUtilisateur.formation[i+1]})
           j++
         }
         var j=0
         for (var i =0 ;i<donneeUtilisateur.experience.length;i=i+3){
-          profile.experiences.push({title: "newFormation"+String(j), experience:donneeUtilisateur.experience[i], period: donneeUtilisateur.experience[i+1],domaine:donneeUtilisateur.experience[i+2]})
+          profile.experiences.push({title: "newFormation"+String(j), experience:donneeUtilisateur.experience[i], period: donneeUtilisateur.experience[i+2],domaine:donneeUtilisateur.experience[i+1]})
           j++
         }
         nav.push(ProfilePage);
