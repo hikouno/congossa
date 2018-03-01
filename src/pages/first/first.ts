@@ -17,6 +17,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HomePage } from "../home/home";
 import { CityPickerPage } from "../city-picker/city-picker";
 import { MainProvider } from "../../providers/main/main";
+import { CameraPage } from "../camera/camera";
 
 
 
@@ -83,6 +84,10 @@ export class FirstPage {
       {
          console.dir(error);
       });*/
+   }
+
+   testCamera(){
+     this.navCtrl.push(CameraPage);
    }
 
    goToCityPickerPage(){
