@@ -60,6 +60,9 @@ export class ApiProvider {
   // requête vers le module composantProfil
 
   // requête vers le module offre
+  getOffres_path = "offres/"
+  getDemandes_path = "demandes/"
+  
   ajoutOffre = 'ajoutOffre/';
   ajoutDemande = 'ajoutDemande/';
   getlocalisation='getLocalisation/';
@@ -81,6 +84,43 @@ export class ApiProvider {
 
 
 // OFFRE
+
+    /* parse JSON offre to offre */
+  parseDemande(data)
+  {
+      return {
+      'categorie': data.categorie.intitule,
+      'typeOfJob': data.typeContrat,
+      'dateDebut': data.dateDebut,
+      'dateFin': data.dateFin,
+      'city': data.city,
+      'shortDescription': data.description,
+      'skills': "",
+      'tableSkills': [""],
+      'qualities': "",
+      'tableQualities': [""],
+      'formations': "",
+      'diplomes': "",
+      'experiences': "",
+    };
+  }
+    
+  getDemandes() {
+      this.http.get(this.serverAddress + this.offre + this.getDemandes_path)
+    .subscribe(
+      (data : any) => {
+          for (var demande of data) {
+              this.provider.addDemande( this.parseDemande(demande) );
+          }
+          
+          console.log(data);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+
+
   sendOffre(objet) {
     this.http.post(this.serverAddress + this.offre + this.ajoutOffre, objet)
     .subscribe(
@@ -382,6 +422,8 @@ export class ApiProvider {
   .subscribe(
     (data : any) => {
       if (data.success) {
+          
+          //RÉCUPÉRATION PROFIL
         donneeUtilisateur=data.userData
         console.log(donneeUtilisateur)
         profile = this.provider.get_profile();
@@ -404,6 +446,10 @@ export class ApiProvider {
           profile.experiences.push({title: "newFormation"+String(j), experience:donneeUtilisateur.experience[i], period: donneeUtilisateur.experience[i+1],domaine:donneeUtilisateur.experience[i+2]})
           j++
         }
+        
+          //RÉCUPÉRATION OFFRES
+        this.getDemandes();
+        
         nav.push(ProfilePage);
       } else {
 
