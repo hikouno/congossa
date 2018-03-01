@@ -86,8 +86,54 @@ export class ApiProvider {
 // OFFRE
 
     /* parse JSON offre to offre */
-  parseDemande(data)
+  /*parseOffre(data)
   {
+      //Skills string
+      var skills = []
+      var skills_str = "";
+      
+      for (var _i = 0; _i < data.competencesRequises.length; _i++) {
+          
+          skills.push( ' ' + data.competencesRequises[_i].contenu );
+          
+          skills_str += data.competencesRequises[_i].contenu;
+          if (_i != data.competencesRequises.length - 1) {
+              skills_str += ',';
+          }
+      }
+      
+      //Qualities string
+      var qualities = [];
+      var qualities_str = "";
+      
+      for (var _i = 0; _i < data.qualitesRequises.length; _i++) {
+          
+          qualities.push( ' ' + data.qualitesRequises[_i].contenu );
+          
+          qualities_str += data.qualitesRequises[_i].contenu;
+          if (_i != data.qualitesRequises.length - 1) {
+              qualities_str += ',';
+          }
+      }
+      
+      //Formations
+      var formations = [];
+      for (var formation of data.demandeur.formation) {
+          formations.push( {title: formation.titre, 
+            experience: ' ' + formation.titre,
+            period: formation.duree,
+            domaine: formation.domaine.intitule} );
+      }
+      
+      //Experiences
+      var experiences = [];
+      for (var exp of data.experiencesRequises) {
+          experiences.push( {title: exp.titre,
+              experience: ' ' + exp.titre,
+              period: exp.duree,
+              domaine: exp.domaine.intitule} );
+      }
+      
       return {
       'categorie': data.categorie.intitule,
       'typeOfJob': data.typeContrat,
@@ -95,17 +141,81 @@ export class ApiProvider {
       'dateFin': data.dateFin,
       'city': data.city,
       'shortDescription': data.description,
-      'skills': "",
-      'tableSkills': [""],
-      'qualities': "",
-      'tableQualities': [""],
-      'formations': "",
-      'diplomes': "",
-      'experiences': "",
+      'skills': skills_str,
+      'tableSkills': skills,
+      'qualities': qualities_str,
+      'tableQualities': qualities,
+      'formations': formations,
+      'experiences': experiences,
+    };
+  }*/
+  
+  /* parse JSON demande to demande */
+  parseDemande(data)
+  {
+      //Skills string
+      var skills = []
+      var skills_str = "";
+      
+      for (var _i = 0; _i < data.competencePossede.length; _i++) {
+          
+          skills.push( ' ' + data.competencePossede[_i].contenu );
+          
+          skills_str += data.competencePossede[_i].contenu;
+          if (_i != data.competencePossede.length - 1) {
+              skills_str += ',';
+          }
+      }
+      
+      //Qualities string
+      var qualities = [];
+      var qualities_str = "";
+      
+      for (var _i = 0; _i < data.qualitePossede.length; _i++) {
+          
+          qualities.push( ' ' + data.qualitePossede[_i].contenu );
+          
+          qualities_str += data.qualitePossede[_i].contenu;
+          if (_i != data.qualitePossede.length - 1) {
+              qualities_str += ',';
+          }
+      }
+      
+      //Formations
+      var formations = [];
+      for (var formation of data.demandeur.formation) {
+          formations.push( {title: formation.titre, 
+            experience: ' ' + formation.titre,
+            period: formation.duree,
+            domaine: formation.domaine.intitule} );
+      }
+      
+      //Experiences
+      var experiences = [];
+      for (var exp of data.experiencePossede) {
+          experiences.push( {title: exp.titre,
+              experience: ' ' + exp.titre,
+              period: exp.duree,
+              domaine: exp.domaine.intitule} );
+      }
+      
+      return {
+      'categorie': data.categorie.intitule,
+      'typeOfJob': data.typeContrat,
+      'dateDebut': data.dateDebut,
+      'dateFin': data.dateFin,
+      'city': data.city,
+      'shortDescription': data.description,
+      'skills': skills_str,
+      'tableSkills': skills,
+      'qualities': qualities_str,
+      'tableQualities': qualities,
+      'formations': formations,
+      'experiences': experiences,
     };
   }
     
-  getDemandes() {
+  loadDemandes() {
       this.http.get(this.serverAddress + this.offre + this.getDemandes_path)
     .subscribe(
       (data : any) => {
@@ -119,6 +229,22 @@ export class ApiProvider {
         console.log(error);
      });
   }
+  
+  
+  /*loadOffres() {
+      this.http.get(this.serverAddress + this.offre + this.getOffres_path)
+    .subscribe(
+      (data : any) => {
+          for (var demande of data) {
+              this.provider.addOffre( this.parseOffre(offre) );
+          }
+          
+          console.log(data);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }*/
 
 
   sendOffre(objet) {
@@ -451,8 +577,9 @@ export class ApiProvider {
           j++
         }
         
-          //RÉCUPÉRATION OFFRES
-        this.getDemandes();
+          //RÉCUPÉRATION OFFRES & DEMANDES
+        this.loadDemandes();
+        //this.loadOffres();
         
         nav.push(ProfilePage);
       } else {
