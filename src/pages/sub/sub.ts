@@ -9,6 +9,7 @@ import { ProfilePage } from '../profile/profile';
 
 import {MainProvider} from "../../providers/main/main"
 
+import { ApiProvider } from "../../providers/api/api"
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import firebase from 'firebase';
@@ -27,7 +28,9 @@ import { LoginPage } from "../login/login";
 
 
 export class SubPage {
-
+  login:any;
+  passwordConfirmation: any;
+  password:any;
   scopes: ['r_basicprofile', 'r_emailaddress', 'rw_company_admin', 'w_share'];
   /*obj: ProfileObject;*/
 
@@ -40,6 +43,7 @@ export class SubPage {
               private fire: AngularFireAuth,
               private linkedin: LinkedIn,
               private provider: MainProvider,
+              private apiProvider: ApiProvider,
               public menu: MenuController) {
         this.provider.currentView = 'SubPage';
   }
@@ -103,6 +107,26 @@ export class SubPage {
 goToProfil() {
 	this.navCtrl.push(ProfilePage);
 }
+  register(){
+    if (this.password==this.passwordConfirmation){
+      if (this.password.length<8 || this.password==this.login){
+        let alert = this.alertCtrl.create({
+         title: 'Erreur',
+         message: 'Votre mot de passe est trop cours ou est identique a votre email',
+        });
+      }else{
+         var ident= {'login': this.login,'password': this.password}
+         this.apiProvider.register(ident,this.navCtrl);
+      }
+    }else{
+      let alert = this.alertCtrl.create({
+      title: 'Erreur',
+      message: 'La confirmation ne correspond pas au bon mot de passe',
+      
+    });
+    alert.present();
+  }
+    }
 
 previous() {
   this.navCtrl.pop();

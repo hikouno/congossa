@@ -102,7 +102,7 @@ export class ProfilePage {
   }
 
   sendTelephone(){
-    this.apiProvider.changeTelephone({"newTelephone":this.profile.telephone})
+    this.apiProvider.changeTelephone({"newTelephone":this.profile.phone})
   }
 
   sendDescription(){
