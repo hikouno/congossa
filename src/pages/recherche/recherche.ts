@@ -78,11 +78,13 @@ export class RecherchePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController, private provider:MainProvider) {
     this.provider.currentView = 'RecherchePage';
+    this.provider.previousView = 'RecherchePage';
     this.menu.swipeEnable(true, 'mainMenu');
     this.loadData();
   }
 
   ionViewDidLoad() {
+    console.log(this.navCtrl.last().name);
     console.log("toto");
     this.menu.swipeEnable(true, 'mainMenu');
   }

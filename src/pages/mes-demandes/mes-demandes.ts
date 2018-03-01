@@ -32,6 +32,7 @@ export class MesDemandesPage {
 
   ionViewWillLeave() {
     console.log("tata");
+    this.provider.currentView = this.provider.previousView;
     this.menu.swipeEnable(true, 'mainMenu');
   }
 

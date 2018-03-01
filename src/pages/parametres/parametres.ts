@@ -51,6 +51,12 @@ export class ParametresPage {
     alert.present();
   }
 
+  ionViewWillLeave() {
+    console.log(this.navCtrl.last().name);
+    this.provider.currentView = this.provider.previousView;
+    this.menu.swipeEnable(true, 'mainMenu');
+  }
+
 
    // Go to profilePage
   openProfilPage(){

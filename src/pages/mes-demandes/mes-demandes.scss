@@ -1,4 +1,7 @@
 page-mes-demandes {
+  #content{
+    background-color: #F2F0F0;
+  }
 
   #image{
     height: 27px;
@@ -15,7 +18,7 @@ page-mes-demandes {
   }
 
   .cards{
-    background: #F2F0F0;
+    background: white;
     text-align: center;
     border-radius: 10px;
     padding: 0px 0px 0px 0px;
@@ -24,11 +27,11 @@ page-mes-demandes {
   }
 
   .items-header-cards{
-    background: #F2F0F0;
+    background: white;
   }
 
   .under-cards-buttons-left{
-    background: #F2F0F0;
+    background: white;
     text-align: center;
     margin: 3px 0px 25px 0px;
     width: 100%;
@@ -36,7 +39,7 @@ page-mes-demandes {
   }
 
   .under-cards-buttons-right{
-    background: #F2F0F0;
+    background: white;
     text-align: center;
     margin: 3px 0px 25px 0px;
     width: 100%;

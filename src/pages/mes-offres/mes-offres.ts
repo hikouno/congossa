@@ -66,8 +66,13 @@ export class MesOffresPage {
 
   }
 
+  ionViewDidLoad() {
+    console.log(this.navCtrl.last().name);
+  }
+
   ionViewWillLeave() {
-    console.log("tata");
+    console.log(this.navCtrl.last().name);
+    this.provider.currentView = this.provider.previousView;
     this.menu.swipeEnable(true, 'mainMenu');
   }
 
