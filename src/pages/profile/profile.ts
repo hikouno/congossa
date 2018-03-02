@@ -1,5 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { NavController, NavParams, ModalController, AlertController, MenuController} from 'ionic-angular';
+import { NavController, NavParams, ModalController, AlertController, MenuController, ToastController, Platform, ActionSheetController} from 'ionic-angular';
 
 //pages
 import { ModalViewCardPage } from "../modal-view-card/modal-view-card";
@@ -9,6 +9,9 @@ import { RecherchePage } from "../recherche/recherche";
 import {MainProvider} from "../../providers/main/main";
 import { ApiProvider } from "../../providers/api/api";
 import { ListCategoriesPage } from "../list-categories/list-categories";
+
+import { Camera } from '@ionic-native/camera';
+
 
 @Component({
   selector: 'page-profile',
@@ -25,6 +28,10 @@ export class ProfilePage {
 
   durations_experiences: any;
 
+  options:any;
+
+  public base64Image: string;
+
 
   constructor(public navCtrl: NavController,
               private navParams: NavParams,
@@ -32,7 +39,11 @@ export class ProfilePage {
               private provider:MainProvider,
               private apiProvider: ApiProvider,
               private alertCtrl: AlertController,
-              public menu: MenuController) {
+              public menu: MenuController,
+              public toastCtrl: ToastController,
+              public actionsheetCtrl: ActionSheetController,
+              public platform: Platform,
+              private camera: Camera) {
     this.provider.currentView = 'ProfilePage';
 	  this.getAll();
     this.durations_formations = [
@@ -77,6 +88,7 @@ export class ProfilePage {
   }
 ];
   }
+
 
   ionViewWillLeave() {
     console.log("tutu");
@@ -280,8 +292,8 @@ export class ProfilePage {
 
   presentConfirm_experience(i) {
     let alert = this.alertCtrl.create({
-      title: 'Supprimer cette exp�rience ?',
-      message: 'Souhaitez vous supprimer cette exp�rience ?',
+      title: 'Supprimer cette expérience ?',
+      message: 'Souhaitez vous supprimer cette expérience ?',
       buttons: [
         {
           text: 'Annuler',
@@ -301,15 +313,83 @@ export class ProfilePage {
     alert.present();
   }
 
+  showToastWithCloseButton() {
+    const toast = this.toastCtrl.create({
+      message: 'Veuillez compléter votre Prénom, Nom et Date de Naissance',
+      showCloseButton: true,
+      closeButtonText: 'Ok'
+    });
+    toast.present();
+  }
+
+  openMenu() {
+    let actionSheet = this.actionsheetCtrl.create({
+      title: 'Modifier la photo de profil',
+      cssClass: 'action-sheets-basic-page',
+      buttons: [
+        {
+          text: 'Prendre une photo',
+          icon: !this.platform.is('ios') ? 'share' : null,
+          handler: () => {
+            this.takePicture();
+          }
+        },
+        {
+          text: 'Depuis la bibliothèque',
+          icon: !this.platform.is('ios') ? 'arrow-dropright-circle' : null,
+          handler: () => {
+            console.log('Play clicked');
+          }
+        },
+        {
+          text: 'Annuler',
+          role: 'cancel', // will always sort to be on the bottom
+          icon: !this.platform.is('ios') ? 'close' : null,
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+
+  takePicture(){
+
+    this.camera.getPicture({
+      sourceType: this.camera.PictureSourceType.CAMERA,
+        destinationType: this.camera.DestinationType.DATA_URL,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE,
+        allowEdit: true,
+        targetWidth: 1000,
+        targetHeight: 1000
+    }).then((imageData) => {
+      // imageData is a base64 encoded string
+        this.base64Image = "data:image/jpeg;base64," + imageData;
+    }, (err) => {
+        console.log(err);
+    });
+
+
+  }
+
 
 
   enregistrer(){
-    this.calculateAge();
-    this.organizeSkills();
-    this.organizeQualities();
-    this.navCtrl.setRoot(RecherchePage);
-    console.log(this.profile.experiences);
-    this.apiProvider.changeExperienceFormation({"newExperience":this.profile.experiences,"newFormation":this.profile.formations})
+    if (this.profile.firstname == "" ||
+        this.profile.lastname == "" ||
+        this.profile.dateNaissance == ""){
+          this.showToastWithCloseButton();
+        }
+    else {
+      this.calculateAge();
+      this.organizeSkills();
+      this.organizeQualities();
+      this.navCtrl.setRoot(RecherchePage);
+      console.log(this.profile.experiences);
+      this.apiProvider.changeExperienceFormation({"newExperience":this.profile.experiences,"newFormation":this.profile.formations})
+    }
   }
 
 
