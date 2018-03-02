@@ -37,8 +37,11 @@
 
     <ion-card-header  class="header-card" text-wrap>
     <ion-item class="items-header-cards" style="white-space: normal;">
-      <ion-avatar item-start>
+      <ion-avatar item-start *ngIf="profile.photo == ''">
         <img src="assets/imgs/avatar.jpg">
+      </ion-avatar>
+      <ion-avatar item-start *ngIf="profile.photo != ''">
+        <img [src]="profile.photo">
       </ion-avatar>
       <strong class="header-name">{{profile.firstname}} {{profile.familyname}}</strong>
       <h2 class="header-age" *ngIf="profile.age < 110">{{profile.age}} ans</h2>

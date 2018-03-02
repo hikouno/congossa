@@ -19,6 +19,9 @@ export class HomePage {
   profile : any;
   mesDemandesCompletees : any[];
 
+  offres : any;
+  demandes : any;
+
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,  private googlePlus: GooglePlus,
               private api: ApiProvider, private main: MainProvider) {
                 var mesDemandes;
