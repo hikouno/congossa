@@ -10,9 +10,13 @@
 
     <ion-buttons end>
 
-      <button ion-button id="boutonImg" clear small icon-only (click)="openProfilPage()">
-        <img id="image" src="assets/imgs/avatar.jpg" />
-      </button>
+      <button ion-button id="boutonImg" clear icon-only *ngIf="profile.photo == ''" (click)="openProfilPage()" >
+          <img id="image" src="assets/imgs/avatar.jpg" />
+    	</button>
+
+      <button ion-button id="boutonImg" *ngIf="profile.photo != ''" (click)="openProfilPage()" >
+          <img id="image" [src]="profile.photo" />
+    	</button>
 
 
       <button id="BoutonMessage" ion-button icon-only (click)="openMessagesPage()">

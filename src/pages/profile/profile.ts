@@ -367,6 +367,7 @@ export class ProfilePage {
     }).then((imageData) => {
       // imageData is a base64 encoded string
         this.base64Image = "data:image/jpeg;base64," + imageData;
+        this.profile.photo = this.base64Image;
     }, (err) => {
         console.log(err);
     });

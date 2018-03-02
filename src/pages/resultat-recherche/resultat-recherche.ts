@@ -22,8 +22,11 @@ import { MainProvider } from "../../providers/main/main";
 })
 export class ResultatRecherchePage {
 
+  profile : any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController, private provider:MainProvider) {
     this.provider.currentView = 'ResultatRecherchePage';
+    this.profile =  this.provider.get_profile();
   }
 
   ionViewDidLoad() {

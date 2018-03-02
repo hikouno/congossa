@@ -23,7 +23,7 @@
   <ion-card-header  class="header-card" text-wrap>
   <ion-item class="items-header-cards" style="white-space: normal;">
     <ion-avatar item-start>
-      <img src="assets/imgs/avatar.jpg">
+      <img [src]="profile.photo">
     </ion-avatar>
     <strong class="header-name">{{firstname}} {{familyname}}</strong>
     <h2 *ngIf="age < 110" class="header-age">{{age}} ans</h2>

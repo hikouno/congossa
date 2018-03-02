@@ -39,6 +39,8 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 
+  profile: any;
+
   rootMenuPage:any = RecherchePage;
 
   rootPage:any = FirstPage;
@@ -54,6 +56,8 @@ export class MyApp {
       splashScreen.hide();
       keyboard.hideKeyboardAccessoryBar(false);
     });
+
+    this.profile = this.provider.get_profile();
 
     this.pages = [
       { title: 'mes-offres', component: MesOffresPage },

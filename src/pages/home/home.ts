@@ -16,11 +16,14 @@ import { ProfilePage } from '../profile/profile';
 })
 export class HomePage {
 
+  profile : any;
   mesDemandesCompletees : any[];
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,  private googlePlus: GooglePlus,
               private api: ApiProvider, private main: MainProvider) {
                 var mesDemandes;
+
+                this.profile = this.main.get_profile();
 
                 this.main.currentView = 'HomePage';
                 this.main.previousView = 'HomePage';
