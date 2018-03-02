@@ -9,11 +9,13 @@
 
 <ion-content id="View">
 
-	<button ion-button clear small icon-only style="width: 100px;height: 100px ;padding: 0px 0px 0px 0px;margin: 30px 0px 30px 34% ;">
-		<img id="image" src="assets/imgs/avatar.jpg" style="height: 100px;width: 100px;border-radius: 50%;padding: 0px 0px 0px 0px;margin: 0px 0px 0px 0px;">
+	<button ion-button id="button-image1" clear icon-only *ngIf="!base64Image" (click)="openMenu()" >
+      <img class="image" src="assets/imgs/avatar.jpg" />
 	</button>
 
-
+  <button ion-button id="button-image2" *ngIf="base64Image" (click)="openMenu()" >
+      <img class="image" [src]="base64Image" />
+	</button>
 
 	<ion-list class="listes" no-lines>
 		<div class="text-description">

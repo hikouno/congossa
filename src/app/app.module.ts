@@ -47,6 +47,9 @@ import { MultiPickerModule } from 'ion-multi-picker';
 import { CityPickerPage } from "../pages/city-picker/city-picker";
 
 import { GooglePlacesAutocompleteComponentModule } from 'ionic2-google-places-autocomplete';
+import { CameraPage } from "../pages/camera/camera";
+
+import { Camera } from '@ionic-native/camera';
 
 
 var config = {
@@ -82,7 +85,8 @@ var config = {
     ResultatRecherchePage,
     ModalViewCardPage,
     ListCategoriesPage,
-    CityPickerPage
+    CityPickerPage,
+    CameraPage
 
   ],
   imports: [
@@ -118,7 +122,8 @@ var config = {
     ResultatRecherchePage,
     ModalViewCardPage,
     ListCategoriesPage,
-    CityPickerPage
+    CityPickerPage,
+    CameraPage
 
   ],
   providers: [
@@ -130,7 +135,8 @@ var config = {
     ApiProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ChatService,
-    Keyboard
+    Keyboard,
+    Camera
   ]
 })
 export class AppModule {}
