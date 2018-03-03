@@ -20,7 +20,7 @@ export class ListCategoriesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController, private provider:MainProvider) {
     this.provider.currentView = 'ListCategoriesPage';
-    this.categories = ["agriculteur", "technicien", "plombier", "ingénieur"];
+    this.categories = ["Autre", "Agriculture", "Agro-alimentaire", "Informatique", "Mécanique (ingénieurie)", "Aéronautique", "Mathématiques", "Commerce", "Management", "Relationnel", "Électronique", "Électrotechnique", "Hydraulique", "Communication", "Télécommunications", "Chimie", "Biochimie", "Bâtiment", "Plomberie", "Service Public", "Multimédia", "Langues", "Psychologie", "Droit", "Notariat" ];
       this.callback = this.navParams.get("callback");
   }
 

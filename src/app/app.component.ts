@@ -26,6 +26,7 @@ import { SauvegardePage } from "../pages/sauvegarde/sauvegarde";
 import { ProfilePage } from "../pages/profile/profile";
 import { Keyboard } from "@ionic-native/keyboard";
 import { MainProvider } from "../providers/main/main";
+import { SlidesPage } from "../pages/slides/slides";
 
 
 

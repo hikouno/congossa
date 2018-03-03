@@ -72,12 +72,12 @@ export class HomePage {
 
   // Go to profilePage
   openProfilPage():void{
-    this.navCtrl.setRoot(ProfilePage);
+    this.navCtrl.push(ProfilePage);
   }
 
   // Go to MessagesPages
   openMessagesPage(){
-    this.navCtrl.setRoot(ListeConversationsPage);
+    this.navCtrl.push(ListeConversationsPage);
   }
 
   openConversation(id_offre, id_demande){

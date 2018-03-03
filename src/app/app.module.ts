@@ -50,6 +50,7 @@ import { GooglePlacesAutocompleteComponentModule } from 'ionic2-google-places-au
 import { CameraPage } from "../pages/camera/camera";
 
 import { Camera } from '@ionic-native/camera';
+import { SlidesPage } from "../pages/slides/slides";
 
 
 var config = {
@@ -86,7 +87,8 @@ var config = {
     ModalViewCardPage,
     ListCategoriesPage,
     CityPickerPage,
-    CameraPage
+    CameraPage,
+    SlidesPage
 
   ],
   imports: [
@@ -123,7 +125,8 @@ var config = {
     ModalViewCardPage,
     ListCategoriesPage,
     CityPickerPage,
-    CameraPage
+    CameraPage,
+    SlidesPage
 
   ],
   providers: [
