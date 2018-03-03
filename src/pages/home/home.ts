@@ -22,9 +22,13 @@ export class HomePage {
   offres : any;
   demandes : any;
 
+  offre_ou_demande: any;
+
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,  private googlePlus: GooglePlus,
               private api: ApiProvider, private main: MainProvider) {
                 var mesDemandes;
+
+                this.offre_ou_demande = "offre";
 
                 this.profile = this.main.get_profile();
 
