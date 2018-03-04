@@ -65,37 +65,38 @@
       <p text-left> {{o.description}} </p>
       <ion-row>
         <ion-col class="text-col-left">
-          <p text-left><Strong class="titres"> Formation</Strong></p>
-          <div>
-            <p text-left class="description">
-
-            </p>
-          </div>
-        </ion-col>
-        <ion-col class="text-col-right">
-          <p text-left><Strong class="titres"> Expériences </Strong></p>
-          <div>
-            <p text-left class="description">
-
-            </p>
-          </div>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="text-col-left">
           <p text-left><Strong class="titres"> Compétences </Strong></p>
-          <div>
+          <div *ngFor="let s of o.profileRecherche.tableSkills">
             <p text-left class="description">
-
+              -{{s}}
             </p>
           </div>
 
         </ion-col>
         <ion-col class="text-col-right">
           <p text-left><Strong class="titres"> Qualités </Strong></p>
-          <div>
+          <div *ngFor="let q of o.profileRecherche.tableQualities">
             <p text-left class="description">
-
+              -{{q}}
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="text-col-left">
+          <p text-left><Strong class="titres"> Expériences </Strong></p>
+          <div *ngFor="let e of o.profileRecherche.experiences">
+            <p text-left *ngIf="e.period < 1" id="description-exp">
+              - {{e.experience}} (<strong>Au minimum {{e.period * 12}} mois</strong>)
+            </p>
+            <p text-left *ngIf="e.period == 1" class="description">
+              - {{e.experience}} (<strong>Au minimum {{e.period}} an</strong>)
+            </p>
+            <p text-left *ngIf="e.period > 1 && e.period < 11" class="description">
+              - {{e.experience}} (<strong>Au minimum {{e.period}} ans</strong>)
+            </p>
+            <p text-left *ngIf="e.period > 10" class="description">
+              - {{e.experience}} (<strong>Plus de 10 ans</strong>)
             </p>
           </div>
         </ion-col>
@@ -111,7 +112,12 @@
             Résultats
           </button>
         </ion-col>
-
+        <ion-col text-center>
+          <button ion-button clear small color="orange" icon-start>
+            <ion-icon name='settings'></ion-icon>
+            modifier
+          </button>
+        </ion-col>
         <ion-col text-right>
           <button ion-button clear small color="orange" icon-start>
             <ion-icon name='trash'></ion-icon>
@@ -151,11 +157,11 @@
       </ion-card-header>
 
       <ion-card-content>
-        <p text-left> {{d.shortDescription}} </p>
+        <p text-left> {{d.profile.shortDescription}} </p>
         <ion-row>
           <ion-col class="text-col-left" col-6>
             <p text-left><Strong class="titres"> Formation</Strong></p>
-            <div *ngFor="let f of profile.formations">
+            <div *ngFor="let f of d.formations">
               <p text-left *ngIf="f.period == undefined" class="description">
                 - {{f.formation}}
               </p>
@@ -186,8 +192,17 @@
               <p text-left class="description" *ngIf="e.period == undefined">
                 -{{e.experience}}
               </p>
-              <p text-left class="description" *ngIf="e.period != undefined">
-                -{{e.experience}} (<strong>{{e.period}} mois</strong>)
+              <p text-left *ngIf="e.period < 1" class="description">
+                - {{e.experience}} (<strong>{{e.period * 12}} mois</strong>)
+              </p>
+              <p text-left *ngIf="e.period == 1" class="description">
+                - {{e.experience}} (<strong>{{e.period}} an</strong>)
+              </p>
+              <p text-left *ngIf="e.period > 1 && e.period < 11" class="description">
+                - {{e.experience}} (<strong>{{e.period}} ans</strong>)
+              </p>
+              <p text-left *ngIf="e.period > 10" class="description">
+                - {{e.experience}} (<strong>plus de 10 ans</strong>)
               </p>
             </div>
           </ion-col>
