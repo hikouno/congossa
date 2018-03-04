@@ -52,6 +52,8 @@ import { CameraPage } from "../pages/camera/camera";
 import { Camera } from '@ionic-native/camera';
 import { SlidesPage } from "../pages/slides/slides";
 
+import { IonicStorageModule } from '@ionic/storage';
+
 
 var config = {
     apiKey: "AIzaSyDP3fwr3INchk7uHfW9B8_Em3ow0J3WuMo",
@@ -98,7 +100,8 @@ var config = {
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
     MultiPickerModule,
-    GooglePlacesAutocompleteComponentModule
+    GooglePlacesAutocompleteComponentModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
