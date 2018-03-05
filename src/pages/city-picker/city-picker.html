@@ -3,6 +3,6 @@
 <ion-title>Ville</ion-title>
 </ion-navbar>
 </ion-header>
-<ion-content padding id="content">
+<ion-content id="content">
   <google-places-autocomplete (callback)="getCity($event[0])" key="AIzaSyCm3e2vYc5_hJ0uefSWQII-1YFHw3DmH0o" language="fr" types="(cities)" placeholder="Chercher une ville">{{city}}</google-places-autocomplete>
 </ion-content>

@@ -43,7 +43,7 @@
 <div *ngIf="propose_ou_cherche=='cherche'">
 
 
-  <div *ngFor="let o of offresCorrespondantes">
+  <div *ngFor="let o of offresCorrespondantes;let i of index">
 
     <ion-card class="cards">
       <ion-card-header  class="header-card" text-wrap>
@@ -102,20 +102,15 @@
     <ion-row no-padding>
         <ion-col>
           <button ion-button clear small color="orange" icon-start>
-            <ion-icon name='list-box'></ion-icon>
-            Résultats
+            <ion-icon name='text'></ion-icon>
+            Contacter
           </button>
         </ion-col>
-        <ion-col text-center>
-          <button ion-button clear small color="orange" icon-start>
-            <ion-icon name='settings'></ion-icon>
-            modifier
-          </button>
-        </ion-col>
+
         <ion-col text-right>
-          <button ion-button clear small color="orange" icon-start>
-            <ion-icon name='trash'></ion-icon>
-            Supprimer
+          <button ion-button clear small color="orange" icon-start (click)="sauvegarder_offre(i)">
+            <ion-icon name='star'></ion-icon>
+            Sauvegarder
           </button>
         </ion-col>
       </ion-row>
@@ -209,6 +204,22 @@
         </div>
       </ion-col>
     </ion-row>
+    <ion-row no-padding>
+        <ion-col>
+          <button ion-button clear small color="orange" icon-start>
+            <ion-icon name='text'></ion-icon>
+            Contacter
+          </button>
+        </ion-col>
+
+        <ion-col text-right>
+          <button ion-button clear small color="orange" icon-start (click)="sauvegarder_demande(i)">
+            <ion-icon name='star'></ion-icon>
+            Sauvegarder
+          </button>
+        </ion-col>
+      </ion-row>
+
   </ion-card-content>
 </ion-card>
 
