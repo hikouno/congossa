@@ -52,4 +52,12 @@ export class ResultatRecherchePage {
   openMessagesPage(){
     this.navCtrl.push(ListeConversationsPage);
   }
+
+  sauvegarder_demande(i){
+    this.provider.demandesSauvegardees.push(this.demandesCorrespondantes[i]);
+  }
+
+  sauvegarder_offre(i){
+    this.provider.offresSauvegardees.push(this.offresCorrespondantes[i]);
+  }
 }
