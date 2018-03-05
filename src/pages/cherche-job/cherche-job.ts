@@ -167,6 +167,7 @@ export class ChercheJobPage {
          this.showToastWithCloseButton();
     }
     else{
+     this.provider.propose_ou_cherche = "cherche";
      this.organizeSkills();
      this.organizeQualities();
      this.createDemande();

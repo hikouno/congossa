@@ -19,8 +19,16 @@ import { MainProvider } from "../../providers/main/main";
 })
 export class SauvegardePage {
 
+  offresSauvegardees : any[];
+  demandesSauvegardees : any[];
+
+  offre_ou_demande: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController, private provider:MainProvider) {
+    this.offre_ou_demande = "offre";
     this.provider.currentView = 'SauvegardePage';
+    this.offresSauvegardees = this.provider.get_offresSauvegardees();
+    this.demandesSauvegardees = this.provider.get_demandesSauvegardees();
   }
 
   ionViewDidLoad() {
@@ -40,6 +48,14 @@ export class SauvegardePage {
 	// Go to MessagesPages
   openMessagesPage(){
     this.navCtrl.setRoot(ListeConversationsPage);
+  }
+
+  supprimer_offre(i){
+    this.offresSauvegardees.splice(i,1);
+  }
+
+  supprimer_demande(i){
+    this.demandesSauvegardees.splice(i,1);
   }
 
 }

@@ -20,7 +20,7 @@ import { MainProvider } from "../../providers/main/main";
 })
 export class MesOffresPage {
 
-  mesOffres: any;
+  mesOffres: any[] = [];
 
 
 

@@ -21,7 +21,7 @@ export class MesDemandesPage {
 
   profile : any;
 
-  mesDemandes : any;
+  mesDemandes : any[] = [];
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider, public menu: MenuController) {

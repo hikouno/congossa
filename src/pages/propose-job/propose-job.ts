@@ -110,6 +110,7 @@ export class ProposeJobPage {
          this.showToastWithCloseButton();
     }
     else{
+      this.provider.propose_ou_cherche = "propose";
       this.organizeSkills();
       this.organizeQualities();
        this.createOffre();
