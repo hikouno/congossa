@@ -33,6 +33,8 @@ export class MainProvider {
 
   propose_ou_cherche: string;
 
+  demandesSauvegardees: any[] = [];
+  offresSauvegardees : any[] = [];
 
 
 
