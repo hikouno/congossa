@@ -18,6 +18,7 @@ import { HomePage } from "../home/home";
 import { CityPickerPage } from "../city-picker/city-picker";
 import { MainProvider } from "../../providers/main/main";
 import { CameraPage } from "../camera/camera";
+import { SlidesPage } from "../slides/slides";
 
 
 
@@ -88,6 +89,10 @@ export class FirstPage {
 
    testCamera(){
      this.navCtrl.push(CameraPage);
+   }
+
+   testSlides(){
+     this.navCtrl.push(SlidesPage);
    }
 
    goToCityPickerPage(){

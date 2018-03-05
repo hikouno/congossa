@@ -10,9 +10,14 @@
 
     <ion-buttons end>
 
-      <button ion-button id="boutonImg" clear small icon-only (click)="openProfilPage()">
-        <img id="image" src="https://pbs.twimg.com/profile_images/662333810185543680/0NdNCnYu_400x400.jpg" />
-      </button>
+
+  <button ion-button id="boutonImg" clear icon-only *ngIf="profile.photo == ''" (click)="openProfilPage()" >
+      <img id="image" src="assets/imgs/avatar.jpg" />
+	</button>
+
+  <button ion-button id="boutonImg" *ngIf="profile.photo != ''" (click)="openProfilPage()" >
+      <img id="image" [src]="profile.photo" />
+	</button>
 
       <button id="BoutonMessage" ion-button icon-only (click)="openMessagesPage()">
         <ion-icon name="text"></ion-icon>

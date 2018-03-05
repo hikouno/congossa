@@ -11,18 +11,7 @@
 
     <ion-title id="Title">Mes demandes</ion-title>
 
-    <ion-buttons end>
 
-      <button ion-button id="boutonImg" clear small icon-only (click)="openProfilPage()">
-        <img id="image" src="assets/imgs/avatar.jpg" />
-      </button>
-
-
-      <button id="BoutonMessage" ion-button icon-only (click)="openMessagesPage()">
-        <ion-icon name="text"></ion-icon>
-      </button>
-
-    </ion-buttons>
 
   </ion-navbar>
 
@@ -37,8 +26,11 @@
 
     <ion-card-header  class="header-card" text-wrap>
     <ion-item class="items-header-cards" style="white-space: normal;">
-      <ion-avatar item-start>
+      <ion-avatar item-start *ngIf="profile.photo == ''">
         <img src="assets/imgs/avatar.jpg">
+      </ion-avatar>
+      <ion-avatar item-start *ngIf="profile.photo != ''">
+        <img [src]="profile.photo">
       </ion-avatar>
       <strong class="header-name">{{profile.firstname}} {{profile.familyname}}</strong>
       <h2 class="header-age" *ngIf="profile.age < 110">{{profile.age}} ans</h2>
@@ -81,8 +73,17 @@
             <p text-left class="description" *ngIf="e.period == undefined">
               -{{e.experience}}
             </p>
-            <p text-left class="description" *ngIf="e.period != undefined">
-              -{{e.experience}} (<strong>{{e.period}} mois</strong>)
+            <p text-left *ngIf="e.period < 1" class="description">
+              - {{e.experience}} (<strong>{{e.period * 12}} mois</strong>)
+            </p>
+            <p text-left *ngIf="e.period == 1" class="description">
+              - {{e.experience}} (<strong>{{e.period}} an</strong>)
+            </p>
+            <p text-left *ngIf="e.period > 1 && e.period < 11" class="description">
+              - {{e.experience}} (<strong>{{e.period}} ans</strong>)
+            </p>
+            <p text-left *ngIf="e.period > 10" class="description">
+              - {{e.experience}} (<strong>plus de 10 ans</strong>)
             </p>
           </div>
         </ion-col>

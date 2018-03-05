@@ -9,12 +9,12 @@
 
 <ion-content id="View">
 
-	<button ion-button id="button-image1" clear icon-only *ngIf="!base64Image" (click)="openMenu()" >
+	<button ion-button id="button-image1" clear icon-only *ngIf="profile.photo == ''" (click)="openMenu()" >
       <img class="image" src="assets/imgs/avatar.jpg" />
 	</button>
 
-  <button ion-button id="button-image2" *ngIf="base64Image" (click)="openMenu()" >
-      <img class="image" [src]="base64Image" />
+  <button ion-button id="button-image2" *ngIf="profile.photo != ''" (click)="openMenu()" >
+      <img class="image" [src]="profile.photo" />
 	</button>
 
 	<ion-list class="listes" no-lines>

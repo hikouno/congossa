@@ -36,8 +36,10 @@ export class ProposeJobPage {
   description: any;
 
   profileRecherche: {
-    skills: string[];
-    qualities: string[];
+    skills: string;
+    tableSkills: string[];
+    qualities: string;
+    tableQualities: string[];
     experiences:any[];
   };
 
@@ -54,6 +56,7 @@ export class ProposeJobPage {
     public menu: MenuController,
     public toastCtrl: ToastController) {
     this.provider.currentView = 'ProposeJobPage';
+    this.profileRecherche = {skills : "", tableSkills: [], qualities: "", tableQualities: [], experiences: []};
     this.getAll();
     this.durations_experiences = [
     {
@@ -83,7 +86,6 @@ export class ProposeJobPage {
   }
 
   getAll(){
-    this.profileRecherche = {skills: [], qualities: [], experiences: []};
     this.profile = this.provider.get_profile();
   }
 
@@ -108,6 +110,8 @@ export class ProposeJobPage {
          this.showToastWithCloseButton();
     }
     else{
+      this.organizeSkills();
+      this.organizeQualities();
        this.createOffre();
        this.provider.addOffre(this.offre);
        //this.apiProvider.sendOffre(this.offre);
@@ -181,6 +185,28 @@ export class ProposeJobPage {
     return copy;
     }
 
+    organizeSkills(){
+      if (this.profileRecherche.skills != ""){
+        this.profileRecherche.tableSkills = this.profileRecherche.skills.split(",");
+        for (var i=0; i<this.profileRecherche.tableSkills.length; i++){
+          if (this.profileRecherche.tableSkills[i].charAt(0) != " "){
+            this.profileRecherche.tableSkills[i] = " " + this.profileRecherche.tableSkills[i];
+          }
+        }
+      }
+    }
+
+    organizeQualities(){
+      if (this.profileRecherche.qualities != ""){
+        this.profileRecherche.tableQualities = this.profileRecherche.qualities.split(",");
+        for (var i=0; i<this.profileRecherche.tableQualities.length; i++){
+          if (this.profileRecherche.tableQualities[i].charAt(0) != " "){
+            this.profileRecherche.tableQualities[i] = " " + this.profileRecherche.tableQualities[i];
+          }
+        }
+      }
+    }
+
 
 
     presentConfirm_experience(i) {
@@ -214,7 +240,8 @@ export class ProposeJobPage {
         typeOfJob: this.typeOfJob,
         dateDebut: this.dateDebut,
         dateFin: this.dateFin,
-        description: this.description
+        description: this.description,
+        profileRecherche : this.profileRecherche
       }
     }
 

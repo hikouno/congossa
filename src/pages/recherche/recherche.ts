@@ -20,6 +20,8 @@ import { MainProvider } from "../../providers/main/main"
 })
 export class RecherchePage {
 
+  profile: any;
+
   onlineMode: boolean = false;
 
   finExperience: string;
@@ -77,6 +79,7 @@ export class RecherchePage {
   experiencesCopy: Array<{title:string, experience:string, dateDebut:string, dateFin:string, period:string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController, private provider:MainProvider) {
+    this.profile = this.provider.get_profile();
     this.provider.currentView = 'RecherchePage';
     this.provider.previousView = 'RecherchePage';
     this.menu.swipeEnable(true, 'mainMenu');
