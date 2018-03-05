@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { HttpHeaders } from '@angular/common/http';
-import {MainProvider} from "../main/main"
+import {MainProvider} from "../main/main";
 
 /*
   Generated class for the ApiProvider provider.
@@ -32,6 +32,7 @@ export class ApiProvider {
   composantProfil = 'composantProfil/'
   offre = 'offre/'
   utilisateur = 'utilisateur/'
+  chat = 'chat/'
 
 
   // definition de toutes les fonctions
@@ -75,8 +76,8 @@ export class ApiProvider {
   gettypeemploi='getTypeEmploi/';
   idObtenu;
 
-  test = 'hello.php';
-
+  //chat
+  alldialoguser='allDialogUser/'
 
   constructor(public http: HttpClient,private provider:MainProvider,) {
     console.log('Hello ApiProvider Provider');
@@ -571,6 +572,14 @@ export class ApiProvider {
         console.log(error);
      });
   }
+
+  // CHAT
+  allDialogUser(objet): Promise<any> {
+    return this.http.post(this.serverAddress + this.chat + this.alldialoguser, objet)
+    .toPromise()
+    .then(data => data.dialogs);
+   }
+
   // Login request
   login(login, password, nav) {
   var donneeUtilisateur;
@@ -610,11 +619,7 @@ export class ApiProvider {
         this.loadDemandes();
         //this.loadOffres();
 
-<<<<<<< HEAD
-        nav.push(ProfilePage);
-=======
         nav.setRoot(ProfilePage);
->>>>>>> f46bfd88873a9acc8cd526168796098af08bb043
       } else {
 
       }

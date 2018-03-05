@@ -7,16 +7,16 @@
 <ion-content id="content">
 
   <ion-list>
+    <ion-item *ngFor="let conversation of mesConversations">
+      <button ion-item (click)="openConversation()">
+        <ion-avatar item-left>
+          <img src="https://pbs.twimg.com/profile_images/662333810185543680/0NdNCnYu_400x400.jpg">
+        </ion-avatar>
+        <h2>{{conversation[0]}}</h2>
+        <p>{{conversation[1]}}</p>
+      </button>
 
-    <button ion-item (click)="openConversation()">
-      <ion-avatar item-left>
-        <img src="https://pbs.twimg.com/profile_images/662333810185543680/0NdNCnYu_400x400.jpg">
-      </ion-avatar>
-      <h2>Hancock</h2>
-      <p>ST VALENTINE</p>
-    </button>
+    </ion-item>
   </ion-list>
-
-  <ion-label> {{d}} </ion-label>
 
 </ion-content>
