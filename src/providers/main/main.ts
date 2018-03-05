@@ -38,7 +38,7 @@ export class MainProvider {
       this.profile = {firstname: "",
                       familyname: "",
                       age: "",
-                      photo: undefined,
+                      photo: "",
                       dateNaissance: "",
                       email: "",
                       phone: "",

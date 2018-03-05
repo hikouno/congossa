@@ -46,6 +46,8 @@ export class ProfilePage {
               private camera: Camera) {
     this.provider.currentView = 'ProfilePage';
 	  this.getAll();
+    if (this.profile.photo != 'null')
+      this.base64Image = this.profile.photo
     this.durations_formations = [
     {
       name: 'col1',
@@ -356,20 +358,22 @@ export class ProfilePage {
 
   takePicture(){
 
-    this.camera.getPicture({
-      sourceType: this.camera.PictureSourceType.CAMERA,
+   // this.camera.getPicture({
+     /*sourceType: this.camera.PictureSourceType.CAMERA,
         destinationType: this.camera.DestinationType.DATA_URL,
         encodingType: this.camera.EncodingType.JPEG,
         mediaType: this.camera.MediaType.PICTURE,
         allowEdit: true,
         targetWidth: 1000,
-        targetHeight: 1000
-    }).then((imageData) => {
+        targetHeight: 1000*/
+   // }).then((imageData) => {
       // imageData is a base64 encoded string
-        this.base64Image = "data:image/jpeg;base64," + imageData;
-    }, (err) => {
-        console.log(err);
-    });
+        //this.base64Image = "data:image/jpeg;base64," + imageData;
+        this.base64Image="assets/imgs/photoAmestoy.jpeg"
+        this.apiProvider.sendPicture({"avatar": this.base64Image})
+  //  }, (err) => {
+    //    console.log(err);
+  //  });
 
 
   }

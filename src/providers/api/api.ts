@@ -56,6 +56,8 @@ export class ApiProvider {
   changerExperienceFormation= 'changeExperienceFormation/'
   getname='getName/';
   getage='getAge/';
+  changeAvatar= 'changeAvatar/';
+
 
   // requête vers le module composantProfil
 
@@ -576,7 +578,8 @@ export class ApiProvider {
           profile.experiences.push({title: "newFormation"+String(j), experience:donneeUtilisateur.experience[i], period: donneeUtilisateur.experience[i+2],domaine:donneeUtilisateur.experience[i+1]})
           j++
         }
-        
+        //Avatar
+        profile.photo=donneeUtilisateur.avatar
           //RÉCUPÉRATION OFFRES & DEMANDES
         this.loadDemandes();
         //this.loadOffres();
@@ -598,6 +601,17 @@ export class ApiProvider {
     .subscribe(
       (data : any) => {
         nav.push(ProfilePage);
+        console.log(data);
+        console.log(data.status);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+  sendPicture(objet) {
+    this.http.post(this.serverAddress + this.utilisateur + this.changeAvatar, objet)
+    .subscribe(
+      (data : any) => {
         console.log(data);
         console.log(data.status);
      },
