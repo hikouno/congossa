@@ -610,7 +610,11 @@ export class ApiProvider {
         this.loadDemandes();
         //this.loadOffres();
 
+<<<<<<< HEAD
         nav.push(ProfilePage);
+=======
+        nav.setRoot(ProfilePage);
+>>>>>>> f46bfd88873a9acc8cd526168796098af08bb043
       } else {
 
       }
