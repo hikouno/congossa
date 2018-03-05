@@ -33,12 +33,15 @@ export class ProposeJobPage {
   categorie: string = "Catégorie";
   dateDebut: string = "";
   dateFin: string = "";
-  description: any;
+  description: string = "";
 
   profileRecherche: {
-    skills: string[];
-    qualities: string[];
+    skills: string;
+    tableSkills: string[];
+    qualities: string;
+    tableQualities: string[];
     experiences:any[];
+    formations:any[];
   };
 
   durations_experiences: any;
@@ -54,6 +57,7 @@ export class ProposeJobPage {
     public menu: MenuController,
     public toastCtrl: ToastController) {
     this.provider.currentView = 'ProposeJobPage';
+    this.profileRecherche = {skills : "", tableSkills: [], qualities: "", tableQualities: [], experiences: []};
     this.getAll();
     this.durations_experiences = [
     {
@@ -83,7 +87,6 @@ export class ProposeJobPage {
   }
 
   getAll(){
-    this.profileRecherche = {skills: [], qualities: [], experiences: []};
     this.profile = this.provider.get_profile();
   }
 
@@ -98,7 +101,7 @@ export class ProposeJobPage {
   }
 
 
- searchProfiles(){
+ searchProfiles(){/*
    if (this.title == "" ||
        this.typeOfJob == "" ||
        this.city == "Ville" ||
@@ -107,12 +110,14 @@ export class ProposeJobPage {
        (this.typeOfJob == "Stage" && (this.dateDebut == "" || this.dateFin == ""))){
          this.showToastWithCloseButton();
     }
-    else{
-       this.createOffre();
-       this.provider.addOffre(this.offre);
-       //this.apiProvider.sendOffre(this.offre);
-       this.navCtrl.push(ResultatRecherchePage);
-    }
+    else{*/
+      this.organizeSkills();
+      this.organizeQualities();
+      this.createOffre();
+      this.provider.addOffre(this.offre);
+      this.apiProvider.sendOffre(this.offre);
+      this.navCtrl.push(ResultatRecherchePage);
+    /*}*/
  }
 
  addExperience(){
@@ -181,6 +186,28 @@ export class ProposeJobPage {
     return copy;
     }
 
+    organizeSkills(){
+      if (this.profileRecherche.skills != ""){
+        this.profileRecherche.tableSkills = this.profileRecherche.skills.split(",");
+        for (var i=0; i<this.profileRecherche.tableSkills.length; i++){
+          if (this.profileRecherche.tableSkills[i].charAt(0) != " "){
+            this.profileRecherche.tableSkills[i] = " " + this.profileRecherche.tableSkills[i];
+          }
+        }
+      }
+    }
+
+    organizeQualities(){
+      if (this.profileRecherche.qualities != ""){
+        this.profileRecherche.tableQualities = this.profileRecherche.qualities.split(",");
+        for (var i=0; i<this.profileRecherche.tableQualities.length; i++){
+          if (this.profileRecherche.tableQualities[i].charAt(0) != " "){
+            this.profileRecherche.tableQualities[i] = " " + this.profileRecherche.tableQualities[i];
+          }
+        }
+      }
+    }
+
 
 
     presentConfirm_experience(i) {
@@ -208,14 +235,40 @@ export class ProposeJobPage {
 
     createOffre(){
       this.offre = {
-        title: this.title,
-        city: this.city,
-        categorie: this.categorie,
-        typeOfJob: this.typeOfJob,
-        dateDebut: this.dateDebut,
-        dateFin: this.dateFin,
-        description: this.description
-      }
+        'title': this.title,
+        'categorie': this.categorie,
+        'typeOfJob': (this.typeOfJob == null ? "" : this.typeOfJob),
+        'dateDebut': (this.dateDebut == "" ? null : this.dateDebut),
+        'dateFin': (this.dateFin == "" ? null : this.dateFin),
+        'city': (this.city == null ? "" : this.city),
+        'description': this.description,
+
+        'skills': this.profileRecherche.skills,
+        'tableSkills': this.profileRecherche.tableSkills,
+        'qualities': this.profileRecherche.qualities,
+        'tableQualities': this.profileRecherche.tableQualities,
+        'formations': this.profileRecherche.formations,
+        'experiences': this.profileRecherche.experiences,
+      }/*
+      this.offre = {
+        'title': (this.title == "" ?
+        'categorie': this.categorie,
+        'typeOfJob': (this.typeOfJob == null ? "" : this.typeOfJob),
+        'dateDebut': (this.dateDebut == "" ? null : this.dateDebut),
+        'dateFin': (this.dateFin == "" ? null : this.dateFin),
+        'city': (this.city == null ? "" : this.city),
+        'shortDescription': this.profileCopy.shortDescription,
+        'skills': this.profileCopy.skills,
+        'tableSkills': this.profileCopy.tableSkills,
+        'qualities': this.profileCopy.qualities,
+        'tableQualities': this.profileCopy.tableQualities,
+        'formations': this.profileCopy.formations,
+        'diplomes': this.profileCopy.diplomes,
+        'experiences': this.profileCopy.experiences,
+      }*/
+      console.log("offre = ");
+      console.log(this.offre);
+      
     }
 
 }

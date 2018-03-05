@@ -594,6 +594,7 @@ export class ApiProvider {
         donneeUtilisateur=data.userData
         console.log(donneeUtilisateur)
         profile = this.provider.get_profile();
+        profile.id = donneeUtilisateur.id
         profile.firstname=donneeUtilisateur.prenom
         profile.familyname=donneeUtilisateur.nom
         profile.sexe=donneeUtilisateur.sexe
@@ -618,7 +619,7 @@ export class ApiProvider {
         this.loadDemandes();
         //this.loadOffres();
 
-        nav.push(ProfilePage);
+        nav.setRoot(ProfilePage);
       } else {
 
       }

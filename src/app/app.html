@@ -5,9 +5,15 @@
 
   <ion-content style="background-color:#E8E6E6;">
     <ion-list no-lines>
-      <button ion-button menuClose clear small icon-only style="width: 100px;height: 100px ;padding: 0px 0px 0px 0px;margin: 30px 0px 30px 34% ;" (click)="openPage('profil')">
-        <img id="image" src="assets/imgs/avatar.jpg" style="height: 100px;width: 100px;border-radius: 50%;padding: 0px 0px 0px 0px;margin: 0px 0px 0px 0px;">
-      </button>
+
+      <button ion-button menuClose clear icon-only *ngIf="profile.photo == ''" style="width: 100px;height: 100px ;padding: 0px 0px 0px 0px;margin: 30px 0px 30px 34% ;" (click)="openPage('profil')" >
+          <img id="image" src="assets/imgs/avatar.jpg" style="height: 100px;width: 100px;border-radius: 50%;padding: 0px 0px 0px 0px;margin: 0px 0px 0px 0px;" />
+    	</button>
+
+      <button ion-button menuClose clear icon-only *ngIf="profile.photo != ''" style="width: 100px;height: 100px ;padding: 0px 0px 0px 0px;margin: 30px 0px 30px 34% ;" (click)="openPage('profil')">
+          <img id="image" [src]="profile.photo" style="height: 100px;width: 100px;border-radius: 50%;padding: 0px 0px 0px 0px;margin: 0px 0px 0px 0px;" />
+    	</button>
+
       <button ion-item menuClose clear color="lightgrey" style="margin-bottom:30px" (click)="openPage('mes-matchs')">
         <ion-icon name="people" color="orange" style="margin-right:20px"></ion-icon>
         <span style="color:#FF8C00;">Mes matchs</span>

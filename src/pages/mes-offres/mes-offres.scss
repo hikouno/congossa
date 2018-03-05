@@ -69,6 +69,7 @@ page-mes-offres {
 
   .description{
     font-size: 11px;
+    width:100%;
   }
 
   .big-title{
@@ -88,6 +89,18 @@ page-mes-offres {
 
   .end-date{
     margin-top: 20px;
+  }
+
+  #description-exp{
+
+  }
+
+  .not-found-text{
+    margin-top: 80%;
+    color: #696969;
+    text-align: center;
+    width: 100%;
+    height: 100%;
   }
 
 }

@@ -6,13 +6,15 @@
       <ion-icon name="menu"></ion-icon>
     </button>
 
-    <ion-title id="Title">Mes Matchs</ion-title>
-
     <ion-buttons end>
 
-      <button ion-button id="boutonImg" clear small icon-only (click)="openProfilPage()">
-        <img id="image" src="https://pbs.twimg.com/profile_images/662333810185543680/0NdNCnYu_400x400.jpg" />
-      </button>
+      <button ion-button id="boutonImg" clear icon-only *ngIf="profile.photo == ''" (click)="openProfilPage()" >
+          <img id="image" src="assets/imgs/avatar.jpg" />
+    	</button>
+
+      <button ion-button id="boutonImg" *ngIf="profile.photo != ''" (click)="openProfilPage()" >
+          <img id="image" [src]="profile.photo" />
+    	</button>
 
 
       <button id="BoutonMessage" ion-button icon-only (click)="openMessagesPage()">
@@ -21,6 +23,17 @@
 
     </ion-buttons>
 
+    <div padding>
+      <ion-segment color="white" [(ngModel)]="offre_ou_demande">
+        <ion-segment-button value="offre">
+          Offres
+        </ion-segment-button>
+        <ion-segment-button value="demande">
+          Demandes
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
   </ion-toolbar>
 
 </ion-header>
@@ -28,9 +41,215 @@
 
 <ion-content padding id="content">
 
-  <ion-list>
-          <ion-item *ngFor="let demande of mesDemandesCompletees">
-            <ion-card class="cards" (click)="displayProfil()">
+<div [ngSwitch]="offre_ou_demande">
+
+
+  <div *ngSwitchCase="'offre'">
+
+    <div class="not-found-text" *ngIf="offres.length==0">
+      Aucune offre correspondante
+    </div>
+
+    <div  *ngFor="let o of offres; let i of index">
+
+
+    <ion-card class="cards">
+
+    <ion-item class="items-header-cards">
+
+      <h2 class="big-title"> Recherche : </h2>
+      <h2><strong>{{o.title}}</strong></h2>
+      <p><strong> {{o.typeOfJob}} - {{o.city}}</strong></p>
+
+    </ion-item>
+
+    <ion-card-content>
+      <p text-left> {{o.description}} </p>
+      <ion-row>
+        <ion-col class="text-col-left">
+          <p text-left><Strong class="titres"> Compétences </Strong></p>
+          <div *ngFor="let s of o.profileRecherche.tableSkills">
+            <p text-left class="description">
+              -{{s}}
+            </p>
+          </div>
+
+        </ion-col>
+        <ion-col class="text-col-right">
+          <p text-left><Strong class="titres"> Qualités </Strong></p>
+          <div *ngFor="let q of o.profileRecherche.tableQualities">
+            <p text-left class="description">
+              -{{q}}
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="text-col-left">
+          <p text-left><Strong class="titres"> Expériences </Strong></p>
+          <div *ngFor="let e of o.profileRecherche.experiences">
+            <p text-left *ngIf="e.period < 1" id="description-exp">
+              - {{e.experience}} (<strong>Au minimum {{e.period * 12}} mois</strong>)
+            </p>
+            <p text-left *ngIf="e.period == 1" class="description">
+              - {{e.experience}} (<strong>Au minimum {{e.period}} an</strong>)
+            </p>
+            <p text-left *ngIf="e.period > 1 && e.period < 11" class="description">
+              - {{e.experience}} (<strong>Au minimum {{e.period}} ans</strong>)
+            </p>
+            <p text-left *ngIf="e.period > 10" class="description">
+              - {{e.experience}} (<strong>Plus de 10 ans</strong>)
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+
+    <p text-left class="end-date"> <strong>À partir du  </strong> </p>
+    </ion-card-content>
+
+    <ion-row no-padding>
+        <ion-col>
+          <button ion-button clear small color="orange" icon-start>
+            <ion-icon name='text'></ion-icon>
+          Contacter
+          </button>
+        </ion-col>
+
+        <ion-col text-right>
+          <button ion-button clear small color="orange" icon-start (click)="sauvegarder_offres(i)">
+            <ion-icon name='star'></ion-icon>
+            Sauvegarder
+          </button>
+        </ion-col>
+      </ion-row>
+
+  </ion-card>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  <div *ngSwitchCase="'demande'">
+
+    <div class="not-found-text" *ngIf="demandes.length==0">
+      Aucune demande correspondante
+    </div>
+
+    <div class="main-div" *ngFor="let d of demandes; let i of index">
+
+      <ion-card class="cards">
+
+      <ion-card-header  class="header-card" text-wrap>
+      <ion-item class="items-header-cards" style="white-space: normal;">
+        <ion-avatar item-start>
+          <img src="assets/imgs/avatar.jpg">
+        </ion-avatar>
+        <strong class="header-name">{{profile.firstname}} {{profile.familyname}}</strong>
+        <h2 class="header-age" *ngIf="profile.age < 110">{{profile.age}} ans</h2>
+      </ion-item>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p text-left> {{d.profile.shortDescription}} </p>
+        <ion-row>
+          <ion-col class="text-col-left" col-6>
+            <p text-left><Strong class="titres"> Formation</Strong></p>
+            <div *ngFor="let f of d.formations">
+              <p text-left *ngIf="f.period == undefined" class="description">
+                - {{f.formation}}
+              </p>
+              <p text-left *ngIf="f.period < 1" class="description">
+                - {{f.formation}} (<strong>{{f.period * 12}} mois</strong>)
+              </p>
+              <p text-left *ngIf="f.period == 1" class="description">
+                - {{f.formation}} (<strong>{{f.period}} an</strong>)
+              </p>
+              <p text-left *ngIf="f.period > 1" class="description">
+                - {{f.formation}} (<strong>{{f.period}} ans</strong>)
+              </p>
+            </div>
+          </ion-col>
+          <ion-col class="text-col-right" col-6>
+            <p text-left><Strong class="titres"> Compétences </Strong></p>
+            <div *ngFor="let s of d.tableSkills">
+              <p text-left class="description">
+                -{{s}}
+              </p>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="text-col-left" col-6>
+            <p text-left><Strong class="titres"> Expériences </Strong></p>
+            <div *ngFor="let e of d.experiences">
+              <p text-left class="description" *ngIf="e.period == undefined">
+                -{{e.experience}}
+              </p>
+              <p text-left *ngIf="e.period < 1" class="description">
+                - {{e.experience}} (<strong>{{e.period * 12}} mois</strong>)
+              </p>
+              <p text-left *ngIf="e.period == 1" class="description">
+                - {{e.experience}} (<strong>{{e.period}} an</strong>)
+              </p>
+              <p text-left *ngIf="e.period > 1 && e.period < 11" class="description">
+                - {{e.experience}} (<strong>{{e.period}} ans</strong>)
+              </p>
+              <p text-left *ngIf="e.period > 10" class="description">
+                - {{e.experience}} (<strong>plus de 10 ans</strong>)
+              </p>
+            </div>
+          </ion-col>
+          <ion-col class="text-col-right" col-6>
+            <p text-left><Strong class="titres"> Qualités </Strong></p>
+            <div *ngFor="let q of d.tableQualities">
+              <p text-left class="description">
+                -{{q}}
+              </p>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+
+      <ion-row no-padding>
+          <ion-col>
+            <button ion-button clear small color="orange" icon-start>
+              <ion-icon name='text'></ion-icon>
+            Contacter
+            </button>
+          </ion-col>
+
+          <ion-col text-right>
+            <button ion-button clear small color="orange" icon-start (click)="sauvegarder_demandes(i)">
+              <ion-icon name='star'></ion-icon>
+              Sauvegarder
+            </button>
+          </ion-col>
+        </ion-row>
+    </ion-card>
+
+    </div>
+
+
+  </div>
+
+
+</div>
+
+
+
+
+
+<!-->
+
+  <ion-list no-lines>
+          <ion-item class="main-item" *ngFor="let demande of mesDemandesCompletees">
+            <ion-card class="cards">
 
             <ion-item class="items-header-cards">
               <ion-avatar item-start>
@@ -73,29 +292,33 @@
                   </p>
                 </ion-col>
               </ion-row>
+              <ion-row no-padding>
+                  <ion-col>
+                    <button ion-button clear small color="orange" icon-start>
+                      <ion-icon name='list-box'></ion-icon>
+                      Résultats
+                    </button>
+                  </ion-col>
+                  <ion-col text-center>
+                    <button ion-button clear small color="orange" icon-start>
+                      <ion-icon name='settings'></ion-icon>
+                      modifier
+                    </button>
+                  </ion-col>
+                  <ion-col text-right>
+                    <button ion-button clear small color="orange" icon-start>
+                      <ion-icon name='trash'></ion-icon>
+                      Supprimer
+                    </button>
+                  </ion-col>
+                </ion-row>
             </ion-card-content>
 
             </ion-card>
 
-            <ion-row>
-              <ion-col>
-              <ion-card class="under-cards-buttons-left">
-                <button ion-button class="buttons" clear icon-left color="orange" click="openConversation()">
-                  <ion-icon name="text" color="orange"></ion-icon>
-                  <div><span text-color="orange">Contacter</span></div>
-                </button>
-              </ion-card>
-              </ion-col>
-              <ion-col>
-              <ion-card class="under-cards-buttons-right">
-                <button ion-button class="buttons" icon-left color="orange" clear>
-                  <ion-icon name="star" color="orange"></ion-icon>
-                  <div>Enregistrer</div>
-                </button>
-              </ion-card>
-              </ion-col>
-            </ion-row>
+
           </ion-item>
       </ion-list>
+  </-->
 
 </ion-content>

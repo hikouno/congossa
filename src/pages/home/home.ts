@@ -16,11 +16,21 @@ import { ProfilePage } from '../profile/profile';
 })
 export class HomePage {
 
+  profile : any;
   mesDemandesCompletees : any[];
+
+  offres : any[] = [];
+  demandes : any[] = [];
+
+  offre_ou_demande: any;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,  private googlePlus: GooglePlus,
               private api: ApiProvider, private main: MainProvider) {
                 var mesDemandes;
+
+                this.offre_ou_demande = "offre";
+
+                this.profile = this.main.get_profile();
 
                 this.main.currentView = 'HomePage';
                 this.main.previousView = 'HomePage';
@@ -62,12 +72,12 @@ export class HomePage {
 
   // Go to profilePage
   openProfilPage():void{
-    this.navCtrl.setRoot(ProfilePage);
+    this.navCtrl.push(ProfilePage);
   }
 
   // Go to MessagesPages
   openMessagesPage(){
-    this.navCtrl.setRoot(ListeConversationsPage);
+    this.navCtrl.push(ListeConversationsPage);
   }
 
   openConversation(id_offre, id_demande){
@@ -133,6 +143,14 @@ export class HomePage {
     var competences : any = this.api.getCompetences({"id_demande":id_demande})
     //return competences;
     return "competences";
+  }
+
+  sauvegarder_offres(i){
+    this.main.offresSauvegardees.push(this.offres[i]);
+  }
+
+  sauvegarder_demandes(i){
+    this.main.demandesSauvegardees.push(this.demandes[i]);
   }
 
 }

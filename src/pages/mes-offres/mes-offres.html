@@ -10,18 +10,7 @@
 
     <ion-title id="Title">Mes offres</ion-title>
 
-    <ion-buttons end>
 
-      <button ion-button id="boutonImg" clear small icon-only (click)="openProfilPage()">
-        <img id="image" src="assets/imgs/avatar.jpg" />
-      </button>
-
-
-      <button id="BoutonMessage" ion-button icon-only (click)="openMessagesPage()">
-        <ion-icon name="text"></ion-icon>
-      </button>
-
-    </ion-buttons>
 
   </ion-navbar>
 
@@ -30,55 +19,58 @@
 
 <ion-content padding id="content">
 
-
+  <div class="not-found-text" *ngIf="mesOffres.length==0">
+    Aucune demande de job
+  </div>
 
   <div *ngFor="let o of mesOffres">
 
     <ion-card class="cards">
+      <ion-card-header  class="header-card" text-wrap>
+      <ion-item class="items-header-cards" style="white-space: normal;">
+        <h2 class="big-title"> Recherche : </h2>
+        <h2><strong>{{o.title}}</strong></h2>
+        <p><strong> {{o.typeOfJob}} - {{o.city}}</strong></p>
+      </ion-item>
+      </ion-card-header>
 
-    <ion-item class="items-header-cards">
-
-      <h2 class="big-title"> Recherche : </h2>
-      <h2><strong>{{o.title}}</strong></h2>
-      <p><strong> {{o.typeOfJob}} - {{o.city}}</strong></p>
-
-    </ion-item>
 
     <ion-card-content>
       <p text-left> {{o.description}} </p>
       <ion-row>
         <ion-col class="text-col-left">
-          <p text-left><Strong class="titres"> Formation</Strong></p>
-          <div>
-            <p text-left class="description">
-
-            </p>
-          </div>
-        </ion-col>
-        <ion-col class="text-col-right">
-          <p text-left><Strong class="titres"> Expériences </Strong></p>
-          <div>
-            <p text-left class="description">
-
-            </p>
-          </div>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="text-col-left">
           <p text-left><Strong class="titres"> Compétences </Strong></p>
-          <div>
+          <div *ngFor="let s of o.profileRecherche.tableSkills">
             <p text-left class="description">
-
+              -{{s}}
             </p>
           </div>
 
         </ion-col>
         <ion-col class="text-col-right">
           <p text-left><Strong class="titres"> Qualités </Strong></p>
-          <div>
+          <div *ngFor="let q of o.profileRecherche.tableQualities">
             <p text-left class="description">
-
+              -{{q}}
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="text-col-left">
+          <p text-left><Strong class="titres"> Expériences </Strong></p>
+          <div *ngFor="let e of o.profileRecherche.experiences">
+            <p text-left *ngIf="e.period < 1" id="description-exp">
+              - {{e.experience}} (<strong>Au minimum {{e.period * 12}} mois</strong>)
+            </p>
+            <p text-left *ngIf="e.period == 1" class="description">
+              - {{e.experience}} (<strong>Au minimum {{e.period}} an</strong>)
+            </p>
+            <p text-left *ngIf="e.period > 1 && e.period < 11" class="description">
+              - {{e.experience}} (<strong>Au minimum {{e.period}} ans</strong>)
+            </p>
+            <p text-left *ngIf="e.period > 10" class="description">
+              - {{e.experience}} (<strong>Plus de 10 ans</strong>)
             </p>
           </div>
         </ion-col>

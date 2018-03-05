@@ -31,6 +31,10 @@ export class MainProvider {
 
   currentView: string;
 
+  propose_ou_cherche: string;
+
+
+
 
   constructor(public http: HttpClient) {
     console.log('Hello MainProvider Provider');
@@ -38,7 +42,7 @@ export class MainProvider {
       this.profile = {firstname: "",
                       familyname: "",
                       age: "",
-                      photo: undefined,
+                      photo: "",
                       dateNaissance: "",
                       email: "",
                       phone: "",
@@ -49,7 +53,8 @@ export class MainProvider {
                       tableSkills: [],
                       tableQualities: [],
                       qualities: "",
-                      skills: ""}
+                      skills: "",
+                      id: undefined}
     }
   }
 
@@ -192,6 +197,14 @@ export class MainProvider {
 
   get_mesDemandes(){
     return this.mesDemandes;
+  }
+
+  get_offresSauvegardees(){
+    return this.offresSauvegardees;
+  }
+
+  get_demandesSauvegardees(){
+    return this.demandesSauvegardees;
   }
 
   get_currentView(){

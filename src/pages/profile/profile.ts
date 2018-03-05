@@ -367,6 +367,7 @@ export class ProfilePage {
     }).then((imageData) => {
       // imageData is a base64 encoded string
         this.base64Image = "data:image/jpeg;base64," + imageData;
+        this.profile.photo = this.base64Image;
     }, (err) => {
         console.log(err);
     });
@@ -374,7 +375,18 @@ export class ProfilePage {
 
   }
 
-
+  removeUselessVariables(){
+    for (var i=0; i<this.profile.experiences.length; i++){
+      if (this.profile.experiences[i].experience == ""){
+        this.profile.experiences.splice(i,1);
+      }
+    }
+    for (var i=0; i<this.profile.formations.length; i++){
+      if (this.profile.formations[i].formation == ""){
+        this.profile.formations.splice(i,1);
+      }
+    }
+  }
 
   enregistrer(){
     if (this.profile.firstname == "" ||
@@ -383,6 +395,7 @@ export class ProfilePage {
           this.showToastWithCloseButton();
         }
     else {
+      this.removeUselessVariables();
       this.calculateAge();
       this.organizeSkills();
       this.organizeQualities();

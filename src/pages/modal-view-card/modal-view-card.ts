@@ -14,6 +14,8 @@ import { MainProvider } from "../../providers/main/main";
   templateUrl: 'modal-view-card.html',
 })
 export class ModalViewCardPage {
+  profile: any;
+
   firstname: string;
   familyname: string;
   age: number;
@@ -26,6 +28,7 @@ export class ModalViewCardPage {
   experiences: Array<{title:string, experience:string, dateDebut:string, dateFin:string, period:string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public menu: MenuController, private provider:MainProvider) {
+    this.profile = this.provider.get_profile();
     this.provider.currentView = 'ModalViewCardPage';
     this.firstname = navParams.get("firstname");
     this.familyname = navParams.get("familyname");

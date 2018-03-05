@@ -22,8 +22,17 @@ import { MainProvider } from "../../providers/main/main";
 })
 export class ResultatRecherchePage {
 
+  profile : any;
+  offresCorrespondantes: any[] = [];
+  demandesCorrespondantes: any[] = [];
+
+  propose_ou_cherche: string = "";
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController, private provider:MainProvider) {
     this.provider.currentView = 'ResultatRecherchePage';
+    this.provider.previousView = 'ResultatRecherchePage';
+    this.profile =  this.provider.get_profile();
+    this.propose_ou_cherche = this.provider.propose_ou_cherche;
   }
 
   ionViewDidLoad() {
@@ -33,18 +42,14 @@ export class ResultatRecherchePage {
     this.menu.swipeEnable(false, 'mainMenu');
   }
 
-  displayProfil() {
-    this.navCtrl.push(ProfilePage);
-  }
-
 
   // Go to profilePage
   openProfilPage():void{
-    this.navCtrl.setRoot(ProfilePage);
+    this.navCtrl.push(ProfilePage);
   }
 
   // Go to MessagesPages
   openMessagesPage(){
-    this.navCtrl.setRoot(ListeConversationsPage);
+    this.navCtrl.push(ListeConversationsPage);
   }
 }
