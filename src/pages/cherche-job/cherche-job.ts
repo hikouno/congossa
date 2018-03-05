@@ -158,9 +158,6 @@ export class ChercheJobPage {
    toast.present();
  }
 
-<<<<<<< HEAD
- searchProfiles(){/*
-=======
  removeUselessVariables(){
    for (var i=0; i<this.profileCopy.experiences.length; i++){
      if (this.profileCopy.experiences[i].experience == ""){
@@ -170,7 +167,6 @@ export class ChercheJobPage {
  }
 
  searchProfiles(){
->>>>>>> b75087ae69a10bbd1be5aac35df2a18e9e28fb2f
    if (this.typeOfJob == "" ||
        this.city == "Ville" ||
        (this.typeOfJob == "CDI" && this.dateDebut == "") ||
@@ -178,20 +174,16 @@ export class ChercheJobPage {
        (this.typeOfJob == "Stage" && (this.dateDebut == "" || this.dateFin == ""))){
          this.showToastWithCloseButton();
     }
-<<<<<<< HEAD
-    else{ */
-=======
     else{
      this.provider.propose_ou_cherche = "cherche";
      this.removeUselessVariables();
->>>>>>> b75087ae69a10bbd1be5aac35df2a18e9e28fb2f
      this.organizeSkills();
      this.organizeQualities();
      this.createDemande();
      this.apiProvider.sendDemande(this.demande);
      this.provider.addDemande(this.demande);
      this.navCtrl.push(ResultatRecherchePage);
-    /*}*/
+    }
  }
 
  showCategories_experience(i){
@@ -252,7 +244,7 @@ export class ChercheJobPage {
       'dateFin': (this.dateFin == "" ? null : this.dateFin),
       'city': (this.city == null ? "" : this.city),
       'shortDescription': this.profileCopy.shortDescription,
-      
+
       'skills': this.profileCopy.skills,
       'tableSkills': this.profileCopy.tableSkills,
       'qualities': this.profileCopy.qualities,
