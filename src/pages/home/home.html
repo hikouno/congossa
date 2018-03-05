@@ -46,9 +46,11 @@
 
   <div *ngSwitchCase="'offre'">
 
-    Il faut récupérer les offres correspondantes ici, ne pas changer le design, juste les variables
+    <div class="not-found-text" *ngIf="offres.length==0">
+      Aucune offre correspondante
+    </div>
 
-    <div  *ngFor="let o of Offres">
+    <div  *ngFor="let o of offres; let i of index">
 
 
     <ion-card class="cards">
@@ -108,20 +110,15 @@
     <ion-row no-padding>
         <ion-col>
           <button ion-button clear small color="orange" icon-start>
-            <ion-icon name='list-box'></ion-icon>
-            Résultats
+            <ion-icon name='text'></ion-icon>
+          Contacter
           </button>
         </ion-col>
-        <ion-col text-center>
-          <button ion-button clear small color="orange" icon-start>
-            <ion-icon name='settings'></ion-icon>
-            modifier
-          </button>
-        </ion-col>
+
         <ion-col text-right>
-          <button ion-button clear small color="orange" icon-start>
-            <ion-icon name='trash'></ion-icon>
-            Supprimer
+          <button ion-button clear small color="orange" icon-start (click)="sauvegarder_offres(i)">
+            <ion-icon name='star'></ion-icon>
+            Sauvegarder
           </button>
         </ion-col>
       </ion-row>
@@ -140,7 +137,9 @@
 
   <div *ngSwitchCase="'demande'">
 
-    Il faut récupérer les demandes correspondantes ici, ne pas changer le design, juste les variables
+    <div class="not-found-text" *ngIf="demandes.length==0">
+      Aucune demande correspondante
+    </div>
 
     <div class="main-div" *ngFor="let d of demandes; let i of index">
 
@@ -216,6 +215,22 @@
           </ion-col>
         </ion-row>
       </ion-card-content>
+
+      <ion-row no-padding>
+          <ion-col>
+            <button ion-button clear small color="orange" icon-start>
+              <ion-icon name='text'></ion-icon>
+            Contacter
+            </button>
+          </ion-col>
+
+          <ion-col text-right>
+            <button ion-button clear small color="orange" icon-start (click)="sauvegarder_demandes(i)">
+              <ion-icon name='star'></ion-icon>
+              Sauvegarder
+            </button>
+          </ion-col>
+        </ion-row>
     </ion-card>
 
     </div>

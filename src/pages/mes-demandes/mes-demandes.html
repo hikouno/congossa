@@ -20,6 +20,10 @@
 
 <ion-content padding id="content">
 
+  <div class="not-found-text" *ngIf="mesDemandes.length==0">
+    Aucune demande de job
+  </div>
+
   <div class="main-div" *ngFor="let d of mesDemandes; let i of index">
 
     <ion-card class="cards">

@@ -19,8 +19,8 @@ export class HomePage {
   profile : any;
   mesDemandesCompletees : any[];
 
-  offres : any;
-  demandes : any;
+  offres : any[] = [];
+  demandes : any[] = [];
 
   offre_ou_demande: any;
 
@@ -143,6 +143,14 @@ export class HomePage {
     var competences : any = this.api.getCompetences({"id_demande":id_demande})
     //return competences;
     return "competences";
+  }
+
+  sauvegarder_offres(i){
+    this.main.offresSauvegardees.push(this.offres[i]);
+  }
+
+  sauvegarder_demandes(i){
+    this.main.demandesSauvegardees.push(this.demandes[i]);
   }
 
 }
