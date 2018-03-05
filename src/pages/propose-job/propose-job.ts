@@ -184,8 +184,8 @@ export class ProposeJobPage {
       }
     }
     return copy;
-    }
-
+  }
+  
     organizeSkills(){
       if (this.profileRecherche.skills != ""){
         this.profileRecherche.tableSkills = this.profileRecherche.skills.split(",");
@@ -268,7 +268,7 @@ export class ProposeJobPage {
       }*/
       console.log("offre = ");
       console.log(this.offre);
-      
+
     }
 
 }
