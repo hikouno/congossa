@@ -240,16 +240,16 @@ export class ChercheJobPage {
     this.demande = {
       'categorie': this.categorie,
       'typeOfJob': (this.typeOfJob == null ? "" : this.typeOfJob),
-      'dateDebut': (this.dateDebut == null ? null : this.dateDebut),
-      'dateFin': (this.dateFin == null ? null : this.dateFin),
+      'dateDebut': (this.dateDebut == "" ? null : this.dateDebut),
+      'dateFin': (this.dateFin == "" ? null : this.dateFin),
       'city': (this.city == null ? "" : this.city),
       'shortDescription': this.profileCopy.shortDescription,
+
       'skills': this.profileCopy.skills,
       'tableSkills': this.profileCopy.tableSkills,
       'qualities': this.profileCopy.qualities,
       'tableQualities': this.profileCopy.tableQualities,
       'formations': this.profileCopy.formations,
-      'diplomes': this.profileCopy.diplomes,
       'experiences': this.profileCopy.experiences,
     }
     console.log("demande = ");
