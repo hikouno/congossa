@@ -99,6 +99,13 @@ export class ProposeJobPage {
     toast.present();
   }
 
+  removeUselessVariables(){
+    for (var i=0; i<this.profileRecherche.experiences.length; i++){
+      if (this.profileRecherche.experiences[i].experience == ""){
+        this.profileRecherche.experiences.splice(i,1);
+      }
+    }
+  }
 
  searchProfiles(){
    if (this.title == "" ||
@@ -111,6 +118,7 @@ export class ProposeJobPage {
     }
     else{
       this.provider.propose_ou_cherche = "propose";
+      this.removeUselessVariables();
       this.organizeSkills();
       this.organizeQualities();
        this.createOffre();

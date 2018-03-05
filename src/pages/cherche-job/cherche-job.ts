@@ -158,6 +158,14 @@ export class ChercheJobPage {
    toast.present();
  }
 
+ removeUselessVariables(){
+   for (var i=0; i<this.profileCopy.experiences.length; i++){
+     if (this.profileCopy.experiences[i].experience == ""){
+       this.profileCopy.experiences.splice(i,1);
+     }
+   }
+ }
+
  searchProfiles(){
    if (this.typeOfJob == "" ||
        this.city == "Ville" ||
@@ -168,6 +176,7 @@ export class ChercheJobPage {
     }
     else{
      this.provider.propose_ou_cherche = "cherche";
+     this.removeUselessVariables();
      this.organizeSkills();
      this.organizeQualities();
      this.createDemande();

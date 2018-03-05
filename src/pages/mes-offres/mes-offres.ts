@@ -27,33 +27,8 @@ export class MesOffresPage {
 
   qualities: string;
 
-  skills: string;
-
-  phone: string;
-
-  email: string;
-
-  date: string;
-
-  familynameCopy: string;
-
-  firstname: string;
-
-  age: number;
-
   shortDescription: string;
 
-  photo: any;
-
-  tableSkills: any;
-
-  tableQualities: any;
-
-  formations: Array<{title:string, formation:string}>;
-
-  diplomes: Array<{title:string, diplome:string}>;
-
-  experiences: Array<{title:string, experience:string, dateDebut:string, dateFin:string, period:string}>;
 
 
 
