@@ -158,7 +158,7 @@ export class ChercheJobPage {
    toast.present();
  }
 
- searchProfiles(){
+ searchProfiles(){/*
    if (this.typeOfJob == "" ||
        this.city == "Ville" ||
        (this.typeOfJob == "CDI" && this.dateDebut == "") ||
@@ -166,14 +166,14 @@ export class ChercheJobPage {
        (this.typeOfJob == "Stage" && (this.dateDebut == "" || this.dateFin == ""))){
          this.showToastWithCloseButton();
     }
-    else{
+    else{ */
      this.organizeSkills();
      this.organizeQualities();
      this.createDemande();
      this.apiProvider.sendDemande(this.demande);
      this.provider.addDemande(this.demande);
      this.navCtrl.push(ResultatRecherchePage);
-    }
+    /*}*/
  }
 
  showCategories_experience(i){
@@ -230,16 +230,16 @@ export class ChercheJobPage {
     this.demande = {
       'categorie': this.categorie,
       'typeOfJob': (this.typeOfJob == null ? "" : this.typeOfJob),
-      'dateDebut': (this.dateDebut == null ? null : this.dateDebut),
-      'dateFin': (this.dateFin == null ? null : this.dateFin),
+      'dateDebut': (this.dateDebut == "" ? null : this.dateDebut),
+      'dateFin': (this.dateFin == "" ? null : this.dateFin),
       'city': (this.city == null ? "" : this.city),
       'shortDescription': this.profileCopy.shortDescription,
+      
       'skills': this.profileCopy.skills,
       'tableSkills': this.profileCopy.tableSkills,
       'qualities': this.profileCopy.qualities,
       'tableQualities': this.profileCopy.tableQualities,
       'formations': this.profileCopy.formations,
-      'diplomes': this.profileCopy.diplomes,
       'experiences': this.profileCopy.experiences,
     }
     console.log("demande = ");
