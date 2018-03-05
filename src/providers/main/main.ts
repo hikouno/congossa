@@ -25,7 +25,7 @@ export class MainProvider {
 
 
   mesOffres: any[] = [];
-  mesDemandes: any[] = [1];
+  mesDemandes: any[] = [];
 
   previousView: string;
 
