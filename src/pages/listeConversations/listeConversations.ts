@@ -6,6 +6,7 @@ import { ProfilePage } from '../profile/profile';
 import { ApiProvider } from '../../providers/api/api';
 import { MainProvider } from "../../providers/main/main";
 
+
 @Component({
   selector: 'page-liste-conversations',
   templateUrl: 'listeConversations.html'
@@ -25,7 +26,7 @@ export class ListeConversationsPage {
   }
 
   async ngOnInit(): Promise<void> {
-    this.mesConversations = await this.api.allDialogUser({"id_user":id_user}); // A MODIFIER
+    this.mesConversations = await this.api.allDialogUser({"id_user":this.provider.id_user}); // A MODIFIER
   }
 
   ionViewWillLeave() {

@@ -96,13 +96,13 @@ export class ProfilePage {
     this.provider.currentView = this.provider.previousView;
   }
 
-  sendPrename(){
+  sendPrename() {
     this.apiProvider.changePrenom({"newPrenom":this.profile.firstname})
   }
-  sendName(){
+  sendName() {
     this.apiProvider.changeNom({"newNom":this.profile.familyname})
   }
-  sendSexe(){
+  sendSexe() {
     this.apiProvider.changeSexe({"newSexe":this.profile.sexe})
   }
   sendEmail(){
