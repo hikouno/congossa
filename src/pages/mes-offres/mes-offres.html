@@ -19,7 +19,9 @@
 
 <ion-content padding id="content">
 
-
+  <div class="not-found-text" *ngIf="mesOffres.length==0">
+    Aucune demande de job
+  </div>
 
   <div *ngFor="let o of mesOffres">
 
