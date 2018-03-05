@@ -56,7 +56,8 @@ export class MainProvider {
                       tableSkills: [],
                       tableQualities: [],
                       qualities: "",
-                      skills: ""}
+                      skills: "",
+                      id: undefined}
     }
   }
 
