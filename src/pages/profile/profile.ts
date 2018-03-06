@@ -9,7 +9,6 @@ import { RecherchePage } from "../recherche/recherche";
 import {MainProvider} from "../../providers/main/main";
 import { ApiProvider } from "../../providers/api/api";
 import { ListCategoriesPage } from "../list-categories/list-categories";
-import { File } from '@ionic-native/file';
 import { Camera } from '@ionic-native/camera';
 
 
