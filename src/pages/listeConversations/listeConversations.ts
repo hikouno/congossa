@@ -13,7 +13,7 @@ import { MainProvider } from "../../providers/main/main";
 export class ListeConversationsPage {
 
   toUser : {toUserId: string, toUserName: string};
-  mesConversations : any;
+  mesConversations : any = [];
   nbConversations : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private api: ApiProvider, public menu:MenuController, private provider:MainProvider) {
@@ -28,9 +28,9 @@ export class ListeConversationsPage {
   }, 50);
   }
 
-  async ngOnInit(): Promise<void> {
-    this.mesConversations = await this.api.allDialogUser({"id_user":this.provider.profile.id}); // A MODIFIER
-  }
+  //async ngOnInit(): Promise<void> {
+  //  this.mesConversations = await this.api.allDialogUser({"id_user":this.provider.profile.id}); // A MODIFIER
+//}
 
   ionViewWillLeave() {
       this.menu.swipeEnable(true, 'mainMenu');
