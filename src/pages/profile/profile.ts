@@ -9,7 +9,7 @@ import { RecherchePage } from "../recherche/recherche";
 import {MainProvider} from "../../providers/main/main";
 import { ApiProvider } from "../../providers/api/api";
 import { ListCategoriesPage } from "../list-categories/list-categories";
-
+import { File } from '@ionic-native/file';
 import { Camera } from '@ionic-native/camera';
 
 
@@ -46,6 +46,7 @@ export class ProfilePage {
               private camera: Camera) {
     this.provider.currentView = 'ProfilePage';
 	  this.getAll();
+
     this.durations_formations = [
     {
       name: 'col1',
@@ -112,7 +113,7 @@ export class ProfilePage {
   }
 
   sendTelephone(){
-    this.apiProvider.changeTelephone({"newTelephone":this.profile.telephone})
+    this.apiProvider.changeTelephone({"newTelephone":this.profile.phone})
   }
 
   sendDescription(){
@@ -367,12 +368,14 @@ export class ProfilePage {
       // imageData is a base64 encoded string
         this.base64Image = "data:image/jpeg;base64," + imageData;
         this.profile.photo = this.base64Image;
+        this.apiProvider.sendPicture({"newAvatar":this.profile.photo})
     }, (err) => {
         console.log(err);
     });
 
 
   }
+
 
   removeUselessVariables(){
     for (var i=0; i<this.profile.experiences.length; i++){

@@ -38,7 +38,7 @@ export class ApiProvider {
   // definition de toutes les fonctions
   // requête vers le module utilisateur
   login_path = 'login/';
-  register = 'register';
+  register_path='register/'
   consulterSonProfil = 'consulterSonProfil';
   editerSonProfil = 'editerSonProfil';
   changerMdp = 'changerMdp';
@@ -57,6 +57,8 @@ export class ApiProvider {
   changerExperienceFormation= 'changeExperienceFormation/'
   getname='getName/';
   getage='getAge/';
+  changeAvatar= 'changeAvatar/';
+
 
   // requête vers le module composantProfil
 
@@ -589,7 +591,6 @@ export class ApiProvider {
   .subscribe(
     (data : any) => {
       if (data.success) {
-
           //RÉCUPÉRATION PROFIL
         donneeUtilisateur=data.userData
         console.log(donneeUtilisateur)
@@ -600,22 +601,27 @@ export class ApiProvider {
         profile.sexe=donneeUtilisateur.sexe
         profile.dateNaissance=donneeUtilisateur.dateDeNaissance
         profile.email=donneeUtilisateur.email
-        profile.phone=+donneeUtilisateur.telephone
+        // Necessaire car number enleve le 0 devant
+        if (donneeUtilisateur.telephone.charAt(0)=='0'){
+          profile.phone='0' + Number(donneeUtilisateur.telephone)
+          }else{
+          profile.phone=Number(donneeUtilisateur.telephone)
+        }
         profile.shortDescription=donneeUtilisateur.description
         profile.skills=donneeUtilisateur.competence
         profile.qualities=donneeUtilisateur.qualite
         var j=0
         for (var i =0 ;i<donneeUtilisateur.formation.length;i=i+3){
-          profile.formations.push({title: "newFormation"+String(j), formation:donneeUtilisateur.formation[i], period: donneeUtilisateur.formation[i+1],domaine:donneeUtilisateur.formation[i+2]})
+          profile.formations.push({title: "newFormation"+String(j), formation:donneeUtilisateur.formation[i], period: donneeUtilisateur.formation[i+2],domaine:donneeUtilisateur.formation[i+1]})
           j++
         }
-        var j=0
-        for (var i =0 ;i<donneeUtilisateur.experience.length;i=i+3){
-          profile.experiences.push({title: "newFormation"+String(j), experience:donneeUtilisateur.experience[i], period: donneeUtilisateur.experience[i+1],domaine:donneeUtilisateur.experience[i+2]})
+        j=0
+        for (i =0 ;i<donneeUtilisateur.experience.length;i=i+3){
+          profile.experiences.push({title: "newFormation"+String(j), experience:donneeUtilisateur.experience[i], period: donneeUtilisateur.experience[i+2],domaine:donneeUtilisateur.experience[i+1]})
           j++
         }
-
-          //RÉCUPÉRATION OFFRES & DEMANDES
+        if (donneeUtilisateur.avatar!='null')
+        profile.photo=donneeUtilisateur.avatar
         this.loadDemandes();
         //this.loadOffres();
 
@@ -628,6 +634,30 @@ export class ApiProvider {
    (error : any) => {
       console.log(error);
    });
+    
 
+  }
+  register(objet,nav) {
+    this.http.post(this.serverAddress + this.utilisateur + this.register_path, objet)
+    .subscribe(
+      (data : any) => {
+        nav.push(ProfilePage);
+        console.log(data);
+        console.log(data.status);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+  sendPicture(objet) {
+    this.http.post(this.serverAddress + this.utilisateur + this.changeAvatar, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+        console.log(data.status);
+     },
+     (error : any) => {
+        console.log(error);
+     });
   }
 }
