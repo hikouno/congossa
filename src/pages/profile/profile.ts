@@ -9,7 +9,7 @@ import { RecherchePage } from "../recherche/recherche";
 import {MainProvider} from "../../providers/main/main";
 import { ApiProvider } from "../../providers/api/api";
 import { ListCategoriesPage } from "../list-categories/list-categories";
-import { Camera } from '@ionic-native/camera';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 
 @Component({
@@ -330,14 +330,14 @@ export class ProfilePage {
           text: 'Prendre une photo',
           icon: !this.platform.is('ios') ? 'share' : null,
           handler: () => {
-            this.takePicture();
+            this.takePhoto(1);
           }
         },
         {
           text: 'Depuis la bibliothèque',
           icon: !this.platform.is('ios') ? 'arrow-dropright-circle' : null,
           handler: () => {
-            console.log('Play clicked');
+            this.takePhoto(0);
           }
         },
         {
@@ -373,6 +373,27 @@ export class ProfilePage {
     });
 
 
+  }
+
+  takePhoto(sourceType:number) {
+    const options: CameraOptions = {
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      allowEdit: true,
+      targetWidth: 1000,
+      targetHeight: 1000,
+      correctOrientation: true,
+      sourceType:sourceType,
+    }
+
+    this.camera.getPicture(options).then((imageData) => {
+      this.base64Image = "data:image/jpeg;base64," + imageData;
+      this.profile.photo = this.base64Image;
+      this.apiProvider.sendPicture({"newAvatar":this.profile.photo})
+    }, (err) => {
+      // Handle error
+    });
   }
 
 
