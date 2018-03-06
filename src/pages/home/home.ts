@@ -25,7 +25,7 @@ export class HomePage {
   offre_ou_demande: any;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,  private googlePlus: GooglePlus,
-              private api: ApiProvider, private main: MainProvider) {
+              private api: ApiProvider, private main: MainProvider, public menu: MenuController) {
                 var mesDemandes;
 
                 this.offre_ou_demande = "offre";
@@ -33,7 +33,6 @@ export class HomePage {
                 this.profile = this.main.get_profile();
 
                 this.main.currentView = 'HomePage';
-                this.main.previousView = 'HomePage';
                 this.mesDemandesCompletees = [];
                 mesDemandes=this.main.get_mesDemandes();
                 console.log(mesDemandes.length);
@@ -53,6 +52,10 @@ export class HomePage {
                                                   this.getExperiences(id_demande),
                                                   this.getCompetences(id_demande)]);
                 }
+                setTimeout(() => {
+                  console.log("toto");
+                  this.menu.swipeEnable(true, 'mainMenu');
+              }, 50);
   }
 
   reactionClicBouton() {

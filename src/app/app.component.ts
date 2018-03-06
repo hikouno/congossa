@@ -103,25 +103,22 @@ export class MyApp {
 
   openPage(title) {
 	if (title == 'recherche' && this.provider.currentView != 'RecherchePage') {
-		this.nav.push(RecherchePage);
+		this.nav.setRoot(RecherchePage);
     this.menu.swipeEnable(true, 'mainMenu');
 	} else if (title == 'mes-offres' && this.provider.currentView != 'MesOffresPage'){
-      this.nav.push(MesOffresPage);
-      this.menu.swipeEnable(false, 'mainMenu');
+      this.nav.setRoot(MesOffresPage);
+      this.menu.swipeEnable(true, 'mainMenu');
     }else if (title == 'mes-demandes' && this.provider.currentView != 'MesDemandesPage'){
-      this.nav.push(MesDemandesPage);
-      this.menu.swipeEnable(false, 'mainMenu');
+      this.nav.setRoot(MesDemandesPage);
+      this.menu.swipeEnable(true, 'mainMenu');
     }else if (title == 'sauvegarde' && this.provider.currentView != 'SauvegardePage'){
-      this.nav.push(SauvegardePage);
-      this.menu.swipeEnable(false, 'mainMenu');
+      this.nav.setRoot(SauvegardePage);
+      this.menu.swipeEnable(true, 'mainMenu');
     }else if (title == 'messagerie' && this.provider.currentView != 'ListeConversationsPage'){
       this.nav.push(ListeConversationsPage);
       this.menu.swipeEnable(false, 'mainMenu');
-    }else if (title == 'profil' && this.provider.currentView != 'ProfilePage'){
-      this.nav.push(ProfilePage);
-      this.menu.swipeEnable(false, 'mainMenu');
     }else if (title == 'parametres' && this.provider.currentView != 'ParametresPage'){
-      this.nav.push(ParametresPage);
+      this.nav.setRoot(ParametresPage);
       this.menu.swipeEnable(false, 'mainMenu');
     }else if (title == 'mes-matchs' && this.provider.currentView != 'HomePage'){
       this.nav.setRoot(HomePage);
@@ -136,7 +133,7 @@ export class MyApp {
   logoutOfFacebook() {
     this.fire.auth.signOut();
     console.log("this.fire.auth.signOut() OK.")
-
+    this.menu.swipeEnable(false, 'mainMenu');
     this.nav.push(LoginPage);
   }
 }

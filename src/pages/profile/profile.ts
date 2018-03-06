@@ -93,7 +93,6 @@ export class ProfilePage {
   ionViewWillLeave() {
     console.log("tutu");
     this.menu.swipeEnable(true, 'mainMenu');
-    this.provider.currentView = this.provider.previousView;
   }
 
   sendPrename(){

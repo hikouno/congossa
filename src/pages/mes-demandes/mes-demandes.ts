@@ -27,13 +27,16 @@ export class MesDemandesPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider, public menu: MenuController) {
     this.provider.currentView = 'MesDemandesPage';
     this.profile = this.provider.get_profile();
-    this.mesDemandes = this.provider.get_mesDemandes()
+    this.mesDemandes = this.provider.get_mesDemandes();
+    setTimeout(() => {
+      console.log("toto");
+      this.menu.swipeEnable(true, 'mainMenu');
+  }, 50);
   }
 
   ionViewWillLeave() {
-    console.log("tata");
-    this.provider.currentView = this.provider.previousView;
-    this.menu.swipeEnable(true, 'mainMenu');
+    console.log("tutu");
+    this.menu.swipeEnable(false, 'mainMenu');
   }
 
    // Go to profilePage

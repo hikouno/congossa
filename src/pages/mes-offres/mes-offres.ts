@@ -35,9 +35,16 @@ export class MesOffresPage {
   categorie: string = "Catégorie";
   typeOfJob: any;
 
+  profile:any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider, public menu: MenuController) {
     this.provider.currentView = 'MesOffresPage';
-    this.mesOffres = this.provider.get_mesOffres()
+    this.mesOffres = this.provider.get_mesOffres();
+    this.profile = this.provider.profile;
+    setTimeout(() => {
+      console.log("toto");
+      this.menu.swipeEnable(true, 'mainMenu');
+  }, 50);
 
   }
 
@@ -47,8 +54,7 @@ export class MesOffresPage {
 
   ionViewWillLeave() {
     console.log(this.navCtrl.last().name);
-    this.provider.currentView = this.provider.previousView;
-    this.menu.swipeEnable(true, 'mainMenu');
+    this.menu.swipeEnable(false, 'mainMenu');
   }
 
    // Go to profilePage

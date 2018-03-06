@@ -22,15 +22,18 @@ export class ListeConversationsPage {
       toUserId:'210000198410281948',
       toUserName:'Hancock'
     }
+    setTimeout(() => {
+      console.log("toto");
+      this.menu.swipeEnable(false, 'mainMenu');
+  }, 50);
   }
 
   async ngOnInit(): Promise<void> {
-    this.mesConversations = await this.api.allDialogUser({"id_user":id_user}); // A MODIFIER
+    this.mesConversations = await this.api.allDialogUser({"id_user":this.provider.profile.id}); // A MODIFIER
   }
 
   ionViewWillLeave() {
       this.menu.swipeEnable(true, 'mainMenu');
-      this.provider.currentView = this.provider.previousView;
     }
 
   openConversation() {

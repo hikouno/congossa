@@ -5,7 +5,11 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar id="navbar" color="orange">
+  <ion-toolbar id="navbar" color="orange">
+
+    <button id="BoutonMenu" ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
 
     <ion-segment color="white" [(ngModel)]="offre_ou_demande">
       <ion-segment-button value="offre">
@@ -15,7 +19,24 @@
         Demandes
       </ion-segment-button>
     </ion-segment>
-  </ion-navbar>
+
+    <ion-buttons end>
+
+
+  <button ion-button id="boutonImg" clear icon-only *ngIf="profile.photo == ''" (click)="openProfilPage()" >
+      <img id="image" src="assets/imgs/avatar.jpg" />
+	</button>
+
+  <button ion-button id="boutonImg" *ngIf="profile.photo != ''" (click)="openProfilPage()" >
+      <img id="image" [src]="profile.photo" />
+	</button>
+
+      <button id="BoutonMessage" ion-button icon-only (click)="openMessagesPage()">
+        <ion-icon name="text"></ion-icon>
+      </button>
+
+    </ion-buttons>
+  </ion-toolbar>
 
 
 
