@@ -6,6 +6,8 @@ import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angul
 import { ProfilePage } from '../profile/profile';
 import { ListeConversationsPage } from '../listeConversations/listeConversations';
 import { MainProvider } from "../../providers/main/main";
+import { ApiProvider } from "../../providers/api/api"
+
 
 /**
  * Generated class for the MesOffresPage page.
@@ -33,9 +35,12 @@ export class MesOffresPage {
 
   profile:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider, public menu: MenuController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private provider: MainProvider, public menu: MenuController,
+              private api : ApiProvider) {
     this.provider.currentView = 'MesOffresPage';
-    this.mesOffres = this.provider.get_mesOffres();
+    this.mesOffres = this.provider.mesOffres;
+    console.log(this.mesOffres);
     this.profile = this.provider.profile;
     setTimeout(() => {
       console.log("toto");

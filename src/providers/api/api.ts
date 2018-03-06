@@ -89,7 +89,7 @@ export class ApiProvider {
 // OFFRE
 
     /* parse JSON offre to offre */
-  /*parseOffre(data)
+  parseOffre(data)
   {
       //Skills string
       var skills = []
@@ -121,7 +121,7 @@ export class ApiProvider {
 
       //Formations
       var formations = [];
-      for (var formation of data.demandeur.formation) {
+      for (var formation of data.recruteur.formation) {
           formations.push( {title: formation.titre,
             experience: ' ' + formation.titre,
             period: formation.duree,
@@ -138,6 +138,7 @@ export class ApiProvider {
       }
 
       return {
+      'title': data.titre,
       'categorie': data.categorie.intitule,
       'typeOfJob': data.typeContrat,
       'dateDebut': data.dateDebut,
@@ -151,7 +152,7 @@ export class ApiProvider {
       'formations': formations,
       'experiences': experiences,
     };
-  }*/
+  }
 
   /* parse JSON demande to demande */
   parseDemande(data)
@@ -223,9 +224,8 @@ export class ApiProvider {
     .subscribe(
       (data : any) => {
           for (var demande of data) {
-              this.provider.addDemande( this.parseDemande(demande) );
+            this.provider.addDemande( this.parseDemande(demande) );
           }
-
           console.log(data);
      },
      (error : any) => {
@@ -234,20 +234,19 @@ export class ApiProvider {
   }
 
 
-  /*loadOffres() {
+  loadOffres() {
       this.http.get(this.serverAddress + this.offre + this.getOffres_path)
     .subscribe(
       (data : any) => {
-          for (var demande of data) {
-              this.provider.addOffre( this.parseOffre(offre) );
+          for (var offre of data) {
+            this.provider.addOffre( this.parseOffre(offre) );
           }
-
           console.log(data);
      },
      (error : any) => {
         console.log(error);
      });
-  }*/
+  }
 
 
   sendOffre(objet) {
@@ -623,7 +622,7 @@ export class ApiProvider {
         if (donneeUtilisateur.avatar!='null')
         profile.photo=donneeUtilisateur.avatar
         this.loadDemandes();
-        //this.loadOffres();
+        this.loadOffres();
 
         nav.setRoot(ProfilePage);
       } else {
@@ -634,7 +633,7 @@ export class ApiProvider {
    (error : any) => {
       console.log(error);
    });
-    
+
 
   }
   register(objet,nav) {

@@ -5,6 +5,8 @@ import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angul
 import { ProfilePage } from '../profile/profile';
 import { ListeConversationsPage } from '../listeConversations/listeConversations';
 import { MainProvider } from "../../providers/main/main";
+import { ApiProvider } from "../../providers/api/api"
+
 
 /**
  * Generated class for the MesDemandesPage page.
@@ -24,10 +26,12 @@ export class MesDemandesPage {
   mesDemandes : any[] = [];
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider, public menu: MenuController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private provider: MainProvider, public menu: MenuController,
+              private api: ApiProvider) {
     this.provider.currentView = 'MesDemandesPage';
     this.profile = this.provider.get_profile();
-    this.mesDemandes = this.provider.get_mesDemandes();
+    this.mesDemandes = this.provider.mesDemandes;
     setTimeout(() => {
       console.log("toto");
       this.menu.swipeEnable(true, 'mainMenu');

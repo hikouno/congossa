@@ -100,7 +100,7 @@ export class ProposeJobPage {
   }
 
 
- searchProfiles(){/*
+ searchProfiles(){
    if (this.title == "" ||
        this.typeOfJob == "" ||
        this.city == "Ville" ||
@@ -109,14 +109,14 @@ export class ProposeJobPage {
        (this.typeOfJob == "Stage" && (this.dateDebut == "" || this.dateFin == ""))){
          this.showToastWithCloseButton();
     }
-    else{*/
+    else{
       this.organizeSkills();
       this.organizeQualities();
       this.createOffre();
       this.provider.addOffre(this.offre);
       this.apiProvider.sendOffre(this.offre);
       this.navCtrl.push(ResultatRecherchePage);
-    /*}*/
+    }
  }
 
  addExperience(){
