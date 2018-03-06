@@ -25,10 +25,6 @@ export class MesOffresPage {
 
 
 
-  qualities: string;
-
-  shortDescription: string;
-
 
 
 
@@ -49,7 +45,6 @@ export class MesOffresPage {
   }
 
   ionViewDidLoad() {
-    console.log(this.navCtrl.last().name);
   }
 
   ionViewWillLeave() {
@@ -67,8 +62,4 @@ export class MesOffresPage {
     this.navCtrl.push(ListeConversationsPage);
   }
 
-  allocateData(){
-    this.qualities = this.mesOffres[0].qualities;
-    this.shortDescription = this.mesOffres[0].shortDescription;
-  }
 }
