@@ -25,7 +25,7 @@ export class ListeConversationsPage {
   }
 
   async ngOnInit(): Promise<void> {
-    this.mesConversations = await this.api.allDialogUser({"id_user":id_user}); // A MODIFIER
+    this.mesConversations = await this.api.allDialogUser({"id_user":this.provider.profile.id}); // A MODIFIER
   }
 
   ionViewWillLeave() {
