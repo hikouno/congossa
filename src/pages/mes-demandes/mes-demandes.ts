@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, AlertController } from 'ionic-angular';
 
 //Pages
 import { ProfilePage } from '../profile/profile';
@@ -24,7 +24,7 @@ export class MesDemandesPage {
   mesDemandes : any[] = [];
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider, public menu: MenuController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider, public menu: MenuController, private alertCtrl: AlertController) {
     this.provider.currentView = 'MesDemandesPage';
     this.profile = this.provider.get_profile();
     this.mesDemandes = this.provider.get_mesDemandes();
@@ -47,6 +47,33 @@ export class MesDemandesPage {
 	// Go to MessagesPages
   openMessagesPage(){
     this.navCtrl.push(ListeConversationsPage);
+  }
+
+  presentConfirm(i) {
+    let alert = this.alertCtrl.create({
+      title: 'Supprimer cette demande ?',
+      message: 'Souhaitez vous supprimer cette demande ?',
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Supprimer',
+          handler: () => {
+            this.supprimer(i);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  supprimer(i){
+    this.mesDemandes.splice(i,1);
   }
 
 }

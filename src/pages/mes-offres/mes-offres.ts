@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, AlertController } from 'ionic-angular';
 
 
 //Pages
@@ -33,7 +33,7 @@ export class MesOffresPage {
 
   profile:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider, public menu: MenuController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider, public menu: MenuController, private alertCtrl: AlertController) {
     this.provider.currentView = 'MesOffresPage';
     this.mesOffres = this.provider.get_mesOffres();
     this.profile = this.provider.profile;
@@ -60,6 +60,29 @@ export class MesOffresPage {
 	// Go to MessagesPages
   openMessagesPage(){
     this.navCtrl.push(ListeConversationsPage);
+  }
+
+  presentConfirm(i) {
+    let alert = this.alertCtrl.create({
+      title: 'Supprimer cette offre ?',
+      message: 'Souhaitez vous supprimer cette offre ?',
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Supprimer',
+          handler: () => {
+            this.supprimer(i);
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
   supprimer(i){
