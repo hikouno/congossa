@@ -119,6 +119,21 @@
         </ion-col>
       </ion-row>
     </ion-card-content>
+
+    <ion-row no-padding>
+        <ion-col text-left>
+          <button ion-button clear  color="orange" icon-start>
+            <ion-icon name='list-box'></ion-icon>
+            Résultats
+          </button>
+        </ion-col>
+        <ion-col text-right>
+          <button ion-button clear  color="orange" icon-start (click)="presentConfirm(i)">
+            <ion-icon name='trash'></ion-icon>
+            Supprimer
+          </button>
+        </ion-col>
+      </ion-row>
   </ion-card>
 
   </div>
