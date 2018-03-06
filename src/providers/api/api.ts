@@ -620,6 +620,8 @@ export class ApiProvider {
           profile.experiences.push({title: "newFormation"+String(j), experience:donneeUtilisateur.experience[i], period: donneeUtilisateur.experience[i+2],domaine:donneeUtilisateur.experience[i+1]})
           j++
         }
+        if (donneeUtilisateur.avatar!='null')
+        profile.photo=donneeUtilisateur.avatar
         this.loadDemandes();
         //this.loadOffres();
 
