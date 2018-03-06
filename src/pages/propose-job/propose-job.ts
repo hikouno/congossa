@@ -41,7 +41,6 @@ export class ProposeJobPage {
     qualities: string;
     tableQualities: string[];
     experiences:any[];
-    formations:any[];
   };
 
   durations_experiences: any;
@@ -184,7 +183,7 @@ export class ProposeJobPage {
       }
     }
     return copy;
-    }
+  }
 
     organizeSkills(){
       if (this.profileRecherche.skills != ""){
@@ -268,7 +267,7 @@ export class ProposeJobPage {
       }*/
       console.log("offre = ");
       console.log(this.offre);
-      
+
     }
 
 }
