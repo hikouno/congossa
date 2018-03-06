@@ -246,7 +246,6 @@ export class ProposeJobPage {
         'tableSkills': this.profileRecherche.tableSkills,
         'qualities': this.profileRecherche.qualities,
         'tableQualities': this.profileRecherche.tableQualities,
-        'formations': this.profileRecherche.formations,
         'experiences': this.profileRecherche.experiences,
       }/*
       this.offre = {
