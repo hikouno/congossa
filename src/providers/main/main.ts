@@ -27,9 +27,6 @@ export class MainProvider {
   mesOffres: any[] = [];
   mesDemandes: any[] = [];
 
-  offresSauvegardees: any[] = [];
-  demandesSauvegardees: any[] = [];
-
   previousView: string;
 
   currentView: string;
@@ -56,7 +53,8 @@ export class MainProvider {
                       tableSkills: [],
                       tableQualities: [],
                       qualities: "",
-                      skills: ""}
+                      skills: "",
+                      id: undefined}
     }
   }
 

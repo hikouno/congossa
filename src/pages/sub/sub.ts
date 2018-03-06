@@ -105,7 +105,7 @@ export class SubPage {
 }
 
 goToProfil() {
-	this.navCtrl.push(ProfilePage);
+	this.navCtrl.setRoot(ProfilePage);
 }
   register(){
     if (this.password==this.passwordConfirmation){

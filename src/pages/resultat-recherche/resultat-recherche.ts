@@ -30,6 +30,7 @@ export class ResultatRecherchePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController, private provider:MainProvider) {
     this.provider.currentView = 'ResultatRecherchePage';
+    this.provider.previousView = 'ResultatRecherchePage';
     this.profile =  this.provider.get_profile();
     this.propose_ou_cherche = this.provider.propose_ou_cherche;
   }
@@ -50,5 +51,13 @@ export class ResultatRecherchePage {
   // Go to MessagesPages
   openMessagesPage(){
     this.navCtrl.push(ListeConversationsPage);
+  }
+
+  sauvegarder_demande(i){
+    this.provider.demandesSauvegardees.push(this.demandesCorrespondantes[i]);
+  }
+
+  sauvegarder_offre(i){
+    this.provider.offresSauvegardees.push(this.offresCorrespondantes[i]);
   }
 }

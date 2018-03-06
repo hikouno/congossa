@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController} from 'ionic-angular';
 //pages
 import { ConversationPage } from '../conversation/conversation';
@@ -13,7 +13,8 @@ import { MainProvider } from "../../providers/main/main";
 export class ListeConversationsPage {
 
   toUser : {toUserId: string, toUserName: string};
-  d : any;
+  mesConversations : any;
+  nbConversations : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private api: ApiProvider, public menu:MenuController, private provider:MainProvider) {
     this.provider.currentView = 'ListeConversationsPage';
@@ -21,23 +22,19 @@ export class ListeConversationsPage {
       toUserId:'210000198410281948',
       toUserName:'Hancock'
     }
+  }
 
-    var ids = {table: []};
-    ids.table.push({idoffre: 1, iddemande:2});
-    var json_ids = JSON.stringify(ids);
-
-    //this.d = this.api.allDialogUser(json_ids).length
+  async ngOnInit(): Promise<void> {
+    this.mesConversations = await this.api.allDialogUser({"id_user":id_user}); // A MODIFIER
   }
 
   ionViewWillLeave() {
-      console.log("tutu");
       this.menu.swipeEnable(true, 'mainMenu');
       this.provider.currentView = this.provider.previousView;
     }
 
-  openConversation(){
+  openConversation() {
     this.navCtrl.push(ConversationPage, this.toUser);
   }
-
 
 }
