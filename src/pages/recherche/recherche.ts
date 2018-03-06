@@ -34,7 +34,7 @@ export class RecherchePage {
     setTimeout(() => {
       console.log("toto");
       this.menu.swipeEnable(true, 'mainMenu');
-  }, 50);
+  }, 80);
   }
 
 

@@ -31,7 +31,7 @@ export class MesDemandesPage {
     setTimeout(() => {
       console.log("toto");
       this.menu.swipeEnable(true, 'mainMenu');
-  }, 50);
+  }, 80);
   }
 
   ionViewWillLeave() {
