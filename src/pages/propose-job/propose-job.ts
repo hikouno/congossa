@@ -41,7 +41,6 @@ export class ProposeJobPage {
     qualities: string;
     tableQualities: string[];
     experiences:any[];
-    formations:any[];
   };
 
   durations_experiences: any;
@@ -185,7 +184,7 @@ export class ProposeJobPage {
     }
     return copy;
   }
-  
+
     organizeSkills(){
       if (this.profileRecherche.skills != ""){
         this.profileRecherche.tableSkills = this.profileRecherche.skills.split(",");
