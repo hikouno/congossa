@@ -42,7 +42,7 @@
     Aucune demande de job
   </div>
 
-  <div *ngFor="let o of mesOffres">
+  <div *ngFor="let o of mesOffres; let i of index">
 
     <ion-card class="cards">
       <ion-card-header  class="header-card" text-wrap>
@@ -105,14 +105,8 @@
             Résultats
           </button>
         </ion-col>
-        <ion-col text-center>
-          <button ion-button clear small color="orange" icon-start>
-            <ion-icon name='settings'></ion-icon>
-            modifier
-          </button>
-        </ion-col>
         <ion-col text-right>
-          <button ion-button clear small color="orange" icon-start>
+          <button ion-button clear small color="orange" icon-start (click)="supprimer(i)">
             <ion-icon name='trash'></ion-icon>
             Supprimer
           </button>

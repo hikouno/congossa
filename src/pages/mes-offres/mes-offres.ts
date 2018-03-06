@@ -62,4 +62,8 @@ export class MesOffresPage {
     this.navCtrl.push(ListeConversationsPage);
   }
 
+  supprimer(i){
+    this.mesOffres.splice(i,1);
+  }
+
 }
