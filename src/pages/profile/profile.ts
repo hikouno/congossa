@@ -353,27 +353,6 @@ export class ProfilePage {
     actionSheet.present();
   }
 
-  takePicture(){
-
-    this.camera.getPicture({
-      sourceType: this.camera.PictureSourceType.CAMERA,
-        destinationType: this.camera.DestinationType.DATA_URL,
-        encodingType: this.camera.EncodingType.JPEG,
-        mediaType: this.camera.MediaType.PICTURE,
-        allowEdit: true,
-        targetWidth: 1000,
-        targetHeight: 1000
-    }).then((imageData) => {
-      // imageData is a base64 encoded string
-        this.base64Image = "data:image/jpeg;base64," + imageData;
-        this.profile.photo = this.base64Image;
-        this.apiProvider.sendPicture({"newAvatar":this.profile.photo})
-    }, (err) => {
-        console.log(err);
-    });
-
-
-  }
 
   takePhoto(sourceType:number) {
     const options: CameraOptions = {
