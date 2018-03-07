@@ -27,10 +27,13 @@ export class MainProvider {
   mesOffres: any[] = [];
   mesDemandes: any[] = [];
 
+
+  //For Home.html
   // Offers and Demands that match with all mine
   mesMatchOffres: any[] = [];
   mesMatchDemandes: any[] = [];
 
+  // For ResultatRecherche.html
   // Offers and Demands that match with my specific one
   mesMatchSpecificOffres: any[] = [];
   mesMatchSpecificDemandes: any[] = [];
