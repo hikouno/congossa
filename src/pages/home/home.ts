@@ -52,6 +52,10 @@ export class HomePage {
                                                   this.getExperiences(id_demande),
                                                   this.getCompetences(id_demande)]);
                 }
+
+                //Load all matches from server
+                this.api.loadMatches();
+
                 setTimeout(() => {
                   console.log("toto");
                   this.menu.swipeEnable(true, 'mainMenu');

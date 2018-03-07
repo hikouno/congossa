@@ -258,11 +258,9 @@ export class ApiProvider {
       (data : any) => {
           for (var offre of data.offres) {
             this.provider.addMatchOffre( this.parseOffre(offre) );
-            console.log(this.parseOffre(offre))
           }
           for (var demande of data.demandes) {
             this.provider.addMatchDemande( this.parseDemande(demande) );
-            console.log(this.parseDemande(demande))
           }
 
           console.log("data loaded ? ")
@@ -605,7 +603,7 @@ export class ApiProvider {
   allDialogUser(objet): Promise<any> {
     return this.http.post(this.serverAddress + this.chat + this.alldialoguser, objet)
     .toPromise()
-    //.then(data => data.dialogs);
+    .then(data => data.dialogs);
    }
 
    addMessage(objet) {
