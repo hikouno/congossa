@@ -32,7 +32,6 @@
 
 <ion-content padding id="content">
 
-  <button ion-button (click)="test()">test</button>
 
   <div class="not-found-text" *ngIf="propose_ou_cherche=='cherche' && provider.mesMatchOffres.length==0">
     Aucune offre correspondante
@@ -42,10 +41,11 @@
     Aucune demande correspondante
   </div>
 
+
 <div *ngIf="propose_ou_cherche=='cherche'">
 
 
-  <div *ngFor="let o of provider.mesMatchOffres;let i of index">
+  <div *ngFor="let o of provider.mesMatchOffres;let i = index">
 
     <ion-card class="cards">
       <ion-card-header  class="header-card" text-wrap>
@@ -62,7 +62,7 @@
       <ion-row>
         <ion-col class="text-col-left">
           <p text-left><Strong class="titres"> Compétences </Strong></p>
-          <div *ngFor="let s of o.profileRecherche.tableSkills">
+          <div *ngFor="let s of o.tableSkills">
             <p text-left class="description">
               -{{s}}
             </p>
@@ -71,7 +71,7 @@
         </ion-col>
         <ion-col class="text-col-right">
           <p text-left><Strong class="titres"> Qualités </Strong></p>
-          <div *ngFor="let q of o.profileRecherche.tableQualities">
+          <div *ngFor="let q of o.tableQualities">
             <p text-left class="description">
               -{{q}}
             </p>
@@ -81,7 +81,7 @@
       <ion-row>
         <ion-col class="text-col-left">
           <p text-left><Strong class="titres"> Expériences </Strong></p>
-          <div *ngFor="let e of o.profileRecherche.experiences">
+          <div *ngFor="let e of o.experiences">
             <p text-left *ngIf="e.period < 1" id="description-exp">
               - {{e.experience}} (<strong>Au minimum {{e.period * 12}} mois</strong>)
             </p>
@@ -98,7 +98,6 @@
         </ion-col>
       </ion-row>
 
-    <p text-left class="end-date"> <strong>À partir du  </strong> </p>
     </ion-card-content>
 
     <ion-row no-padding>
@@ -130,7 +129,9 @@
 
 <div *ngIf="propose_ou_cherche=='propose'">
 
-<div class="main-div" *ngFor="let d of provider.mesMatchDemandes; let i of index">
+<div class="main-div" *ngFor="let d of provider.mesMatchDemandes; let i = index">
+
+
 
   <ion-card class="cards">
 

@@ -149,11 +149,24 @@ export class HomePage {
   }
 
   sauvegarder_offres(i){
-    this.main.offresSauvegardees.push(this.offres[i]);
+    var _offre = this.clone(this.main.mesMatchOffres[i]);
+    this.main.offresSauvegardees.push(_offre);
   }
 
   sauvegarder_demandes(i){
-    this.main.demandesSauvegardees.push(this.demandes[i]);
+    var _demande = this.clone(this.main.mesMatchDemandes[i])
+    this.main.demandesSauvegardees.push(_demande);
   }
+
+  clone(obj){
+    if (obj != undefined){
+      try{
+          var copy = JSON.parse(JSON.stringify(obj));
+      } catch(ex){
+          alert("Vous utilisez un vieux navigateur bien pourri, qui n'est pas pris en charge par ce site");
+      }
+    }
+    return copy;
+    }
 
 }

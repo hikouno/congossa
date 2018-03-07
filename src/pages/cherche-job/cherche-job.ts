@@ -51,6 +51,7 @@ export class ChercheJobPage {
     public menu: MenuController,
     public toastCtrl: ToastController) {
       this.provider.currentView = 'ChercheJobPage';
+      this.provider.propose_ou_cherche = "cherche";
       this.getAll();
       this.profileCopy = this.clone(this.profile);
       this.durations_experiences = [

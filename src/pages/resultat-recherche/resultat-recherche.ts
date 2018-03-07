@@ -37,7 +37,7 @@ export class ResultatRecherchePage {
     this.profile =  this.provider.get_profile();
     this.propose_ou_cherche = this.provider.propose_ou_cherche;
 
-    this.api.loadMatches();
+    //this.api.loadMatches();
     console.log("Matches loaded");
     console.log("offresCorrespondantes");
     console.log(this.offresCorrespondantes);
@@ -56,6 +56,8 @@ export class ResultatRecherchePage {
 
   ionViewWillLeave() {
     this.menu.swipeEnable(false, 'mainMenu');
+    this.provider.mesMatchOffres = [];
+    this.provider.mesMatchDemandes = [];
   }
 
 
@@ -70,14 +72,23 @@ export class ResultatRecherchePage {
   }
 
   sauvegarder_demande(i){
-    this.provider.demandesSauvegardees.push(this.demandesCorrespondantes[i]);
+    var _demande = this.clone(this.provider.mesMatchDemandes[i])
+    this.provider.demandesSauvegardees.push(_demande);
   }
 
   sauvegarder_offre(i){
-    this.provider.offresSauvegardees.push(this.offresCorrespondantes[i]);
+    var _offre = this.clone(this.provider.mesMatchOffres[i]);
+    this.provider.offresSauvegardees.push(_offre);
   }
 
-  test(){
-    console.log(this.provider.mesMatchDemandes[0]);
-  }
+  clone(obj){
+    if (obj != undefined){
+      try{
+          var copy = JSON.parse(JSON.stringify(obj));
+      } catch(ex){
+          alert("Vous utilisez un vieux navigateur bien pourri, qui n'est pas pris en charge par ce site");
+      }
+    }
+    return copy;
+    }
 }

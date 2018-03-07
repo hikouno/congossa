@@ -76,7 +76,7 @@
       <ion-row>
         <ion-col class="text-col-left">
           <p text-left><Strong class="titres"> Compétences </Strong></p>
-          <div *ngFor="let s of o.profileRecherche.tableSkills">
+          <div *ngFor="let s of o.tableSkills">
             <p text-left class="description">
               -{{s}}
             </p>
@@ -85,7 +85,7 @@
         </ion-col>
         <ion-col class="text-col-right">
           <p text-left><Strong class="titres"> Qualités </Strong></p>
-          <div *ngFor="let q of o.profileRecherche.tableQualities">
+          <div *ngFor="let q of o.tableQualities">
             <p text-left class="description">
               -{{q}}
             </p>
@@ -95,7 +95,7 @@
       <ion-row>
         <ion-col class="text-col-left">
           <p text-left><Strong class="titres"> Expériences </Strong></p>
-          <div *ngFor="let e of o.profileRecherche.experiences">
+          <div *ngFor="let e of o.experiences">
             <p text-left *ngIf="e.period < 1" id="description-exp">
               - {{e.experience}} (<strong>Au minimum {{e.period * 12}} mois</strong>)
             </p>
@@ -149,7 +149,7 @@
       Aucune demande sauvegardée
     </div>
 
-    <div class="main-div" *ngFor="let d of demandesSauvegardees; let i of index">
+    <div class="main-div" *ngFor="let d of demandesSauvegardees; let i = index">
 
       <ion-card class="cards">
 

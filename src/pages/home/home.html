@@ -50,7 +50,7 @@
       Aucune offre correspondante
     </div>
 
-    <div  *ngFor="let o of main.mesMatchOffres; let i of index">
+    <div  *ngFor="let o of main.mesMatchOffres; let i = index">
 
 
     <ion-card class="cards">
@@ -68,7 +68,7 @@
       <ion-row>
         <ion-col class="text-col-left">
           <p text-left><Strong class="titres"> Compétences </Strong></p>
-          <div *ngFor="let s of o.profileRecherche.tableSkills">
+          <div *ngFor="let s of o.tableSkills">
             <p text-left class="description">
               -{{s}}
             </p>
@@ -77,7 +77,7 @@
         </ion-col>
         <ion-col class="text-col-right">
           <p text-left><Strong class="titres"> Qualités </Strong></p>
-          <div *ngFor="let q of o.profileRecherche.tableQualities">
+          <div *ngFor="let q of o.tableQualities">
             <p text-left class="description">
               -{{q}}
             </p>
@@ -87,7 +87,7 @@
       <ion-row>
         <ion-col class="text-col-left">
           <p text-left><Strong class="titres"> Expériences </Strong></p>
-          <div *ngFor="let e of o.profileRecherche.experiences">
+          <div *ngFor="let e of o.experiences">
             <p text-left *ngIf="e.period < 1" id="description-exp">
               - {{e.experience}} (<strong>Au minimum {{e.period * 12}} mois</strong>)
             </p>
@@ -104,7 +104,6 @@
         </ion-col>
       </ion-row>
 
-    <p text-left class="end-date"> <strong>À partir du  </strong> </p>
     </ion-card-content>
 
     <ion-row no-padding>
@@ -141,7 +140,7 @@
       Aucune demande correspondante
     </div>
 
-    <div class="main-div" *ngFor="let d of main.mesMatchDemandes; let i of index">
+    <div class="main-div" *ngFor="let d of main.mesMatchDemandes; let i = index">
 
       <ion-card class="cards">
 
@@ -217,15 +216,15 @@
       </ion-card-content>
 
       <ion-row no-padding>
-          <ion-col>
-            <button ion-button small color="orange" icon-start>
+          <ion-col id="button-left" text-left>
+            <button ion-button color="orange" icon-start>
               <ion-icon name='text'></ion-icon>
             Contacter
             </button>
           </ion-col>
 
           <ion-col text-right>
-            <button ion-button small color="orange" icon-start (click)="sauvegarder_demandes(i)">
+            <button ion-button color="orange" icon-start (click)="sauvegarder_demandes(i)">
               <ion-icon name='star'></ion-icon>
               Sauvegarder
             </button>

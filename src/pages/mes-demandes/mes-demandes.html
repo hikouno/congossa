@@ -42,7 +42,7 @@
     Aucune demande de job
   </div>
 
-  <div class="main-div" *ngFor="let d of mesDemandes; let i of index">
+  <div class="main-div" *ngFor="let d of mesDemandes; let i = index">
 
     <ion-card class="cards">
 
@@ -124,7 +124,7 @@
         <ion-col text-left>
           <button ion-button clear  color="orange" icon-start>
             <ion-icon name='list-box'></ion-icon>
-            Résultats
+          Résultats
           </button>
         </ion-col>
         <ion-col text-right>
