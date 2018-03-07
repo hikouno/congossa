@@ -47,7 +47,11 @@ export class ResultatRecherchePage {
     setTimeout(() => {
       console.log("toto");
       this.menu.swipeEnable(true, 'mainMenu');
-    }, 50);
+      console.log("offresCorrespondantes");
+      console.log(this.provider.mesMatchOffres);
+      console.log("demandesCorrespondantes");
+      console.log(this.provider.mesMatchDemandes);
+    }, 5000);
   }
 
   ionViewWillLeave() {
