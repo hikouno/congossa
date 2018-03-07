@@ -56,6 +56,7 @@ export class ProposeJobPage {
     public menu: MenuController,
     public toastCtrl: ToastController) {
     this.provider.currentView = 'ProposeJobPage';
+    this.provider.propose_ou_cherche = "propose";
     this.profileRecherche = {skills : "", tableSkills: [], qualities: "", tableQualities: [], experiences: []};
     this.getAll();
     this.durations_experiences = [

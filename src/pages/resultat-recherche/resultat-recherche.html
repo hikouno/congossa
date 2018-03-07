@@ -33,6 +33,7 @@
 <ion-content padding id="content">
 
   <button ion-button (click)="test()">test</button>
+  {{provider.test}}
 
   <div class="not-found-text" *ngIf="propose_ou_cherche=='cherche' && provider.mesMatchOffres.length==0">
     Aucune offre correspondante

@@ -36,21 +36,11 @@ export class ResultatRecherchePage {
     this.provider.currentView = 'ResultatRecherchePage';
     this.profile =  this.provider.get_profile();
     this.propose_ou_cherche = this.provider.propose_ou_cherche;
-
     this.api.loadMatches();
-    console.log("Matches loaded");
-    console.log("offresCorrespondantes");
-    console.log(this.offresCorrespondantes);
-    console.log("demandesCorrespondantes");
-    console.log(this.demandesCorrespondantes);
 
     setTimeout(() => {
       console.log("toto");
       this.menu.swipeEnable(true, 'mainMenu');
-      console.log("offresCorrespondantes");
-      console.log(this.provider.mesMatchOffres);
-      console.log("demandesCorrespondantes");
-      console.log(this.provider.mesMatchDemandes);
     }, 5000);
   }
 
