@@ -65,6 +65,7 @@ export class ApiProvider {
   // requête vers le module offre
   getOffres_path = "offres/"
   getDemandes_path = "demandes/"
+  getMatches_path = "matches/"
 
   ajoutOffre = 'ajoutOffre/';
   ajoutDemande = 'ajoutDemande/';
@@ -242,6 +243,29 @@ export class ApiProvider {
             this.provider.addOffre( this.parseOffre(offre) );
           }
           console.log(data);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+
+
+  //Retrival of offers and demands that match with current profile
+  loadMatches() {
+      this.http.get(this.serverAddress + this.offre + this.getMatches_path)
+    .subscribe(
+      (data : any) => {
+          for (var offre of data.offres) {
+            this.provider.addMatchOffre( this.parseOffre(offre) );
+          }
+          for (var demande of data.demandes) {
+            this.provider.addMatchDemande( this.parseDemande(demande) );
+          }
+
+          console.log("data loaded ? ")
+          console.log(data);
+
+
      },
      (error : any) => {
         console.log(error);
@@ -619,8 +643,9 @@ export class ApiProvider {
           profile.experiences.push({title: "newFormation"+String(j), experience:donneeUtilisateur.experience[i], period: donneeUtilisateur.experience[i+2],domaine:donneeUtilisateur.experience[i+1]})
           j++
         }
-        if (donneeUtilisateur.avatar!='null')
-        profile.photo=donneeUtilisateur.avatar
+        if (donneeUtilisateur.avatar!='null') {
+          profile.photo=donneeUtilisateur.avatar;
+        }
         this.loadDemandes();
         this.loadOffres();
 

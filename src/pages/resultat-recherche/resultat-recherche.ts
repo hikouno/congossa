@@ -8,6 +8,8 @@ import { ListeConversationsPage } from '../listeConversations/listeConversations
 import { ConversationPage } from "../conversation/conversation"
 import { ChatService, ChatMessage, UserInfo } from "../../providers/chat/chat-service";
 import { MainProvider } from "../../providers/main/main";
+import { ApiProvider } from "../../providers/api/api"
+
 
 /**
  * Generated class for the ResultatRecherchePage page.
@@ -28,14 +30,24 @@ export class ResultatRecherchePage {
 
   propose_ou_cherche: string = "";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController, private provider:MainProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              public menu: MenuController, private provider:MainProvider,
+              private api: ApiProvider) {
     this.provider.currentView = 'ResultatRecherchePage';
     this.profile =  this.provider.get_profile();
     this.propose_ou_cherche = this.provider.propose_ou_cherche;
+
+    this.api.loadMatches();
+    console.log("Matches loaded");
+    console.log("offresCorrespondantes");
+    console.log(this.offresCorrespondantes);
+    console.log("demandesCorrespondantes");
+    console.log(this.demandesCorrespondantes);
+
     setTimeout(() => {
       console.log("toto");
       this.menu.swipeEnable(true, 'mainMenu');
-  }, 50);
+    }, 50);
   }
 
   ionViewWillLeave() {

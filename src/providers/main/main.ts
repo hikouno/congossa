@@ -23,9 +23,13 @@ export class MainProvider {
   timezone: string; //worldwide localization
   accessToken: string;
 
-
+  // Offers and Demands of mine
   mesOffres: any[] = [];
   mesDemandes: any[] = [];
+
+  // Offers and Demands that match with mine
+  mesMatchOffres: any[] = [];
+  mesMatchDemandes: any[] = [];
 
 
   currentView: string;
@@ -223,4 +227,17 @@ export class MainProvider {
   addDemande(data){
     this.mesDemandes.push(data);
   }
+
+  //Add an offer to the list of MatchOffre
+  addMatchOffre(data){
+    this.mesMatchOffres.push(data);
+  }
+
+  //Add an demand to the list of MatchDemand
+  addMatchDemande(data){
+    this.mesMatchDemandes.push(data);
+  }
+
+
+
 }
