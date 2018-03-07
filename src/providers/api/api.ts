@@ -646,7 +646,7 @@ export class ApiProvider {
         profile.shortDescription=donneeUtilisateur.description
         profile.skills=donneeUtilisateur.competence
         profile.qualities=donneeUtilisateur.qualite
-        var j=0
+        var j=0    (data : any) => {
         for (var i =0 ;i<donneeUtilisateur.formation.length;i=i+3){
           profile.formations.push({title: "newFormation"+String(j), formation:donneeUtilisateur.formation[i], period: donneeUtilisateur.formation[i+2],domaine:donneeUtilisateur.formation[i+1]})
           j++
@@ -662,7 +662,7 @@ export class ApiProvider {
         this.loadDemandes();
         this.loadOffres();
 
-        nav.setRoot(ProfilePage);
+        nav.push(ProfilePage);
       } else {
 
       }
