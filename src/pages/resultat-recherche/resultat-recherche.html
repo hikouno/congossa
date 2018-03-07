@@ -32,18 +32,18 @@
 
 <ion-content padding id="content">
 
-  <div class="not-found-text" *ngIf="propose_ou_cherche=='cherche' && offresCorrespondantes.length==0">
+  <div class="not-found-text" *ngIf="propose_ou_cherche=='cherche' && provider.mesMatchOffres.length==0">
     Aucune offre correspondante
   </div>
 
-  <div class="not-found-text" *ngIf="propose_ou_cherche=='propose' && demandesCorrespondantes.length==0">
+  <div class="not-found-text" *ngIf="propose_ou_cherche=='propose' && provider.mesMatchDemandes.length==0">
     Aucune demande correspondante
   </div>
 
 <div *ngIf="propose_ou_cherche=='cherche'">
 
 
-  <div *ngFor="let o of offresCorrespondantes;let i of index">
+  <div *ngFor="let o of provider.mesMatchOffres;let i of index">
 
     <ion-card class="cards">
       <ion-card-header  class="header-card" text-wrap>
@@ -128,7 +128,7 @@
 
 <div *ngIf="propose_ou_cherche=='propose'">
 
-<div class="main-div" *ngFor="let d of demandesCorrespondantes; let i of index">
+<div class="main-div" *ngFor="let d of provider.mesMatchDemandes; let i of index">
 
   <ion-card class="cards">
 
