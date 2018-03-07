@@ -95,13 +95,13 @@ export class ProfilePage {
     this.menu.swipeEnable(true, 'mainMenu');
   }
 
-  sendPrename(){
+  sendPrename() {
     this.apiProvider.changePrenom({"newPrenom":this.profile.firstname})
   }
-  sendName(){
+  sendName() {
     this.apiProvider.changeNom({"newNom":this.profile.familyname})
   }
-  sendSexe(){
+  sendSexe() {
     this.apiProvider.changeSexe({"newSexe":this.profile.sexe})
   }
   sendEmail(){
