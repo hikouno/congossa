@@ -242,6 +242,7 @@ export class ApiProvider {
       (data : any) => {
           for (var offre of data) {
             this.provider.addOffre( this.parseOffre(offre) );
+            console.log(offre);
           }
           console.log(data);
      },
@@ -279,6 +280,10 @@ export class ApiProvider {
     .subscribe(
       (data : any) => {
         console.log(data);
+        for (var demande of data.matchingDemandes) {
+          this.provider.addSpecificMatchDemande( this.parseDemande(demande) );
+          this.provider.addSpecificDemander(demande.demandeur);
+        }
      },
      (error : any) => {
         console.log(error);

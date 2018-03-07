@@ -27,9 +27,20 @@ export class MainProvider {
   mesOffres: any[] = [];
   mesDemandes: any[] = [];
 
-  // Offers and Demands that match with mine
+  // Offers and Demands that match with all mine
   mesMatchOffres: any[] = [];
   mesMatchDemandes: any[] = [];
+
+  // Offers and Demands that match with my specific one
+  mesMatchSpecificOffres: any[] = [];
+  mesMatchSpecificDemandes: any[] = [];
+
+  //List of mesMatchSpecificDemandes' Demanders
+  matchesDemanders: any[] = [];
+
+
+
+
 
   test: string = "coucou";
 
@@ -235,6 +246,22 @@ export class MainProvider {
   //Add an demand to the list of MatchDemand
   addMatchDemande(data){
     this.mesMatchDemandes.push(data);
+  }
+
+  // Add an demand to the list of MatchSpecificDemand
+  addSpecificMatchDemande(data) {
+    this.mesMatchSpecificDemandes.push(data);
+  }
+
+  // Add an offer to the list of MatchSpecificOffre
+  addSpecificMatchOffre(data) {
+    this.mesMatchSpecificOffres.push(data);
+  }
+
+
+  addSpecificDemander(data) {
+    this.matchesDemanders.push(data);
+
   }
 
 
