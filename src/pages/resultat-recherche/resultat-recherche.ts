@@ -36,7 +36,6 @@ export class ResultatRecherchePage {
     this.provider.currentView = 'ResultatRecherchePage';
     this.profile =  this.provider.get_profile();
     this.propose_ou_cherche = this.provider.propose_ou_cherche;
-    this.api.loadMatches();
 
     setTimeout(() => {
       console.log("toto");

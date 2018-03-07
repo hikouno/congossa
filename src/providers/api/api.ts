@@ -603,7 +603,7 @@ export class ApiProvider {
   allDialogUser(objet): Promise<any> {
     return this.http.post(this.serverAddress + this.chat + this.alldialoguser, objet)
     .toPromise()
-    //.then(data => data.dialogs);
+    .then(data => data.dialogs);
    }
 
    addMessage(objet) {
