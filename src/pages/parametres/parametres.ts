@@ -24,6 +24,11 @@ export class ParametresPage {
     this.gps_enabled = true;
     this.distance_max = 40;
 
+    setTimeout(() => {
+      console.log("toto");
+      this.menu.swipeEnable(true, 'mainMenu');
+  }, 50);
+
 
     /*
     //TEST NODEJS HTTP REQUEST TO API
@@ -53,19 +58,18 @@ export class ParametresPage {
 
   ionViewWillLeave() {
     console.log(this.navCtrl.last().name);
-    this.provider.currentView = this.provider.previousView;
     this.menu.swipeEnable(true, 'mainMenu');
   }
 
 
    // Go to profilePage
   openProfilPage(){
-    this.navCtrl.setRoot(ProfilePage);
+    this.navCtrl.push(ProfilePage);
   }
 
 	// Go to MessagesPages
   openMessagesPage(){
-    this.navCtrl.setRoot(ListeConversationsPage);
+    this.navCtrl.push(ListeConversationsPage);
   }
 
 }

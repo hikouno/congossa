@@ -38,7 +38,7 @@ export class ApiProvider {
   // definition de toutes les fonctions
   // requête vers le module utilisateur
   login_path = 'login/';
-  register = 'register';
+  register_path='register/'
   consulterSonProfil = 'consulterSonProfil';
   editerSonProfil = 'editerSonProfil';
   changerMdp = 'changerMdp';
@@ -57,6 +57,8 @@ export class ApiProvider {
   changerExperienceFormation= 'changeExperienceFormation/'
   getname='getName/';
   getage='getAge/';
+  changeAvatar= 'changeAvatar/';
+
 
   // requête vers le module composantProfil
 
@@ -88,7 +90,7 @@ export class ApiProvider {
 // OFFRE
 
     /* parse JSON offre to offre */
-  /*parseOffre(data)
+  parseOffre(data)
   {
       //Skills string
       var skills = []
@@ -120,7 +122,7 @@ export class ApiProvider {
 
       //Formations
       var formations = [];
-      for (var formation of data.demandeur.formation) {
+      for (var formation of data.recruteur.formation) {
           formations.push( {title: formation.titre,
             experience: ' ' + formation.titre,
             period: formation.duree,
@@ -137,6 +139,7 @@ export class ApiProvider {
       }
 
       return {
+      'title': data.titre,
       'categorie': data.categorie.intitule,
       'typeOfJob': data.typeContrat,
       'dateDebut': data.dateDebut,
@@ -150,7 +153,7 @@ export class ApiProvider {
       'formations': formations,
       'experiences': experiences,
     };
-  }*/
+  }
 
   /* parse JSON demande to demande */
   parseDemande(data)
@@ -222,9 +225,8 @@ export class ApiProvider {
     .subscribe(
       (data : any) => {
           for (var demande of data) {
-              this.provider.addDemande( this.parseDemande(demande) );
+            this.provider.addDemande( this.parseDemande(demande) );
           }
-
           console.log(data);
      },
      (error : any) => {
@@ -233,20 +235,19 @@ export class ApiProvider {
   }
 
 
-  /*loadOffres() {
+  loadOffres() {
       this.http.get(this.serverAddress + this.offre + this.getOffres_path)
     .subscribe(
       (data : any) => {
-          for (var demande of data) {
-              this.provider.addOffre( this.parseOffre(offre) );
+          for (var offre of data) {
+            this.provider.addOffre( this.parseOffre(offre) );
           }
-
           console.log(data);
      },
      (error : any) => {
         console.log(error);
      });
-  }*/
+  }
 
 
   sendOffre(objet) {
@@ -578,7 +579,7 @@ export class ApiProvider {
   allDialogUser(objet): Promise<any> {
     return this.http.post(this.serverAddress + this.chat + this.alldialoguser, objet)
     .toPromise()
-    .then(data => data.dialogs);
+    //.then(data => data.dialogs);
    }
 
    addMessage(objet) {
@@ -594,7 +595,6 @@ export class ApiProvider {
   .subscribe(
     (data : any) => {
       if (data.success) {
-
           //RÉCUPÉRATION PROFIL
         donneeUtilisateur=data.userData
         console.log(donneeUtilisateur)
@@ -605,24 +605,29 @@ export class ApiProvider {
         profile.sexe=donneeUtilisateur.sexe
         profile.dateNaissance=donneeUtilisateur.dateDeNaissance
         profile.email=donneeUtilisateur.email
-        profile.phone=+donneeUtilisateur.telephone
+        // Necessaire car number enleve le 0 devant
+        if (donneeUtilisateur.telephone.charAt(0)=='0'){
+          profile.phone='0' + Number(donneeUtilisateur.telephone)
+          }else{
+          profile.phone=Number(donneeUtilisateur.telephone)
+        }
         profile.shortDescription=donneeUtilisateur.description
         profile.skills=donneeUtilisateur.competence
         profile.qualities=donneeUtilisateur.qualite
         var j=0
         for (var i =0 ;i<donneeUtilisateur.formation.length;i=i+3){
-          profile.formations.push({title: "newFormation"+String(j), formation:donneeUtilisateur.formation[i], period: donneeUtilisateur.formation[i+1],domaine:donneeUtilisateur.formation[i+2]})
+          profile.formations.push({title: "newFormation"+String(j), formation:donneeUtilisateur.formation[i], period: donneeUtilisateur.formation[i+2],domaine:donneeUtilisateur.formation[i+1]})
           j++
         }
-        var j=0
-        for (var i =0 ;i<donneeUtilisateur.experience.length;i=i+3){
-          profile.experiences.push({title: "newFormation"+String(j), experience:donneeUtilisateur.experience[i], period: donneeUtilisateur.experience[i+1],domaine:donneeUtilisateur.experience[i+2]})
+        j=0
+        for (i =0 ;i<donneeUtilisateur.experience.length;i=i+3){
+          profile.experiences.push({title: "newFormation"+String(j), experience:donneeUtilisateur.experience[i], period: donneeUtilisateur.experience[i+2],domaine:donneeUtilisateur.experience[i+1]})
           j++
         }
-
-          //RÉCUPÉRATION OFFRES & DEMANDES
+        if (donneeUtilisateur.avatar!='null')
+        profile.photo=donneeUtilisateur.avatar
         this.loadDemandes();
-        //this.loadOffres();
+        this.loadOffres();
 
         nav.setRoot(ProfilePage);
       } else {
@@ -634,5 +639,29 @@ export class ApiProvider {
       console.log(error);
    });
 
+
+  }
+  register(objet,nav) {
+    this.http.post(this.serverAddress + this.utilisateur + this.register_path, objet)
+    .subscribe(
+      (data : any) => {
+        nav.push(ProfilePage);
+        console.log(data);
+        console.log(data.status);
+     },
+     (error : any) => {
+        console.log(error);
+     });
+  }
+  sendPicture(objet) {
+    this.http.post(this.serverAddress + this.utilisateur + this.changeAvatar, objet)
+    .subscribe(
+      (data : any) => {
+        console.log(data);
+        console.log(data.status);
+     },
+     (error : any) => {
+        console.log(error);
+     });
   }
 }

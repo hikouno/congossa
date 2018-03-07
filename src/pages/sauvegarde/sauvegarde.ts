@@ -24,11 +24,18 @@ export class SauvegardePage {
 
   offre_ou_demande: any;
 
+  profile : any
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController, private provider:MainProvider) {
     this.offre_ou_demande = "offre";
     this.provider.currentView = 'SauvegardePage';
+    this.profile = this.provider.profile;
     this.offresSauvegardees = this.provider.get_offresSauvegardees();
     this.demandesSauvegardees = this.provider.get_demandesSauvegardees();
+    setTimeout(() => {
+      console.log("toto");
+      this.menu.swipeEnable(true, 'mainMenu');
+  }, 50);
   }
 
   ionViewDidLoad() {
@@ -36,18 +43,17 @@ export class SauvegardePage {
   }
   ionViewWillLeave() {
     console.log(this.navCtrl.last().name);
-    this.provider.currentView = this.provider.previousView;
-    this.menu.swipeEnable(true, 'mainMenu');
+    this.menu.swipeEnable(false, 'mainMenu');
   }
 
    // Go to profilePage
   openProfilPage(){
-    this.navCtrl.setRoot(ProfilePage);
+    this.navCtrl.push(ProfilePage);
   }
 
 	// Go to MessagesPages
   openMessagesPage(){
-    this.navCtrl.setRoot(ListeConversationsPage);
+    this.navCtrl.push(ListeConversationsPage);
   }
 
   supprimer_offre(i){

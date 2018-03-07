@@ -5,14 +5,33 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar color="orange">
+  <ion-toolbar color="orange">
 
+    <button id="BoutonMenu" ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
 
     <ion-title id="Title">Mes offres</ion-title>
 
+    <ion-buttons end>
 
 
-  </ion-navbar>
+  <button ion-button id="boutonImg" clear icon-only *ngIf="profile.photo == ''" (click)="openProfilPage()" >
+      <img id="image" src="assets/imgs/avatar.jpg" />
+	</button>
+
+  <button ion-button id="boutonImg" *ngIf="profile.photo != ''" (click)="openProfilPage()" >
+      <img id="image" [src]="profile.photo" />
+	</button>
+
+      <button id="BoutonMessage" ion-button icon-only (click)="openMessagesPage()">
+        <ion-icon name="text"></ion-icon>
+      </button>
+
+    </ion-buttons>
+
+
+  </ion-toolbar>
 
 </ion-header>
 
@@ -20,10 +39,10 @@
 <ion-content padding id="content">
 
   <div class="not-found-text" *ngIf="mesOffres.length==0">
-    Aucune demande de job
+    Aucune offre de job
   </div>
 
-  <div *ngFor="let o of mesOffres">
+  <div *ngFor="let o of mesOffres; let i of index">
 
     <ion-card class="cards">
       <ion-card-header  class="header-card" text-wrap>
@@ -40,7 +59,7 @@
       <ion-row>
         <ion-col class="text-col-left">
           <p text-left><Strong class="titres"> Compétences </Strong></p>
-          <div *ngFor="let s of o.profileRecherche.tableSkills">
+          <div *ngFor="let s of o.tableSkills">
             <p text-left class="description">
               -{{s}}
             </p>
@@ -49,7 +68,7 @@
         </ion-col>
         <ion-col class="text-col-right">
           <p text-left><Strong class="titres"> Qualités </Strong></p>
-          <div *ngFor="let q of o.profileRecherche.tableQualities">
+          <div *ngFor="let q of o.tableQualities">
             <p text-left class="description">
               -{{q}}
             </p>
@@ -59,7 +78,7 @@
       <ion-row>
         <ion-col class="text-col-left">
           <p text-left><Strong class="titres"> Expériences </Strong></p>
-          <div *ngFor="let e of o.profileRecherche.experiences">
+          <div *ngFor="let e of o.experiences">
             <p text-left *ngIf="e.period < 1" id="description-exp">
               - {{e.experience}} (<strong>Au minimum {{e.period * 12}} mois</strong>)
             </p>
@@ -80,20 +99,14 @@
     </ion-card-content>
 
     <ion-row no-padding>
-        <ion-col>
-          <button ion-button clear small color="orange" icon-start>
+        <ion-col text-left>
+          <button ion-button clear color="orange" icon-start>
             <ion-icon name='list-box'></ion-icon>
             Résultats
           </button>
         </ion-col>
-        <ion-col text-center>
-          <button ion-button clear small color="orange" icon-start>
-            <ion-icon name='settings'></ion-icon>
-            modifier
-          </button>
-        </ion-col>
         <ion-col text-right>
-          <button ion-button clear small color="orange" icon-start>
+          <button ion-button clear color="orange" icon-start (click)="presentConfirm(i)">
             <ion-icon name='trash'></ion-icon>
             Supprimer
           </button>

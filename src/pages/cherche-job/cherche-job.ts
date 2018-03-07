@@ -242,7 +242,7 @@ export class ChercheJobPage {
       'typeOfJob': (this.typeOfJob == null ? "" : this.typeOfJob),
       'dateDebut': (this.dateDebut == "" ? null : this.dateDebut),
       'dateFin': (this.dateFin == "" ? null : this.dateFin),
-      'city': (this.city == null ? "" : this.city),
+      'city': (this.city == "Ville" ? "" : this.city),
       'shortDescription': this.profileCopy.shortDescription,
 
       'skills': this.profileCopy.skills,

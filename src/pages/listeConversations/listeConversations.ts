@@ -13,7 +13,8 @@ import { MainProvider } from "../../providers/main/main";
 })
 export class ListeConversationsPage {
 
-  mesConversations : any;
+  toUser : {toUserId: string, toUserName: string};
+  mesConversations : any = [];
   nbConversations : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private api: ApiProvider, public menu:MenuController, private provider:MainProvider) {
@@ -28,7 +29,6 @@ export class ListeConversationsPage {
   // Quitter la page
   ionViewWillLeave() {
       this.menu.swipeEnable(true, 'mainMenu');
-      this.provider.currentView = this.provider.previousView;
     }
 
   // Ouvrir une conversation

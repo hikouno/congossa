@@ -5,7 +5,11 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar id="navbar" color="orange">
+  <ion-toolbar id="navbar" color="orange">
+
+    <button id="BoutonMenu" ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
 
     <ion-segment color="white" [(ngModel)]="offre_ou_demande">
       <ion-segment-button value="offre">
@@ -15,7 +19,24 @@
         Demandes
       </ion-segment-button>
     </ion-segment>
-  </ion-navbar>
+
+    <ion-buttons end>
+
+
+  <button ion-button id="boutonImg" clear icon-only *ngIf="profile.photo == ''" (click)="openProfilPage()" >
+      <img id="image" src="assets/imgs/avatar.jpg" />
+	</button>
+
+  <button ion-button id="boutonImg" *ngIf="profile.photo != ''" (click)="openProfilPage()" >
+      <img id="image" [src]="profile.photo" />
+	</button>
+
+      <button id="BoutonMessage" ion-button icon-only (click)="openMessagesPage()">
+        <ion-icon name="text"></ion-icon>
+      </button>
+
+    </ion-buttons>
+  </ion-toolbar>
 
 
 
@@ -96,14 +117,14 @@
 
     <ion-row no-padding>
         <ion-col>
-          <button ion-button clear small color="orange" icon-start>
+          <button ion-button clear color="orange" icon-start>
             <ion-icon name='text'></ion-icon>
-          Contacter
+          Résultats
           </button>
         </ion-col>
 
         <ion-col text-right>
-          <button ion-button clear small color="orange" icon-start (click)="supprimer_offre(i)">
+          <button ion-button clear color="orange" icon-start (click)="supprimer_offre(i)">
             <ion-icon name='star'></ion-icon>
             Supprimer
           </button>
@@ -205,14 +226,14 @@
 
       <ion-row no-padding>
           <ion-col>
-            <button ion-button clear small color="orange" icon-start>
+            <button ion-button clear color="orange" icon-start>
               <ion-icon name='text'></ion-icon>
-            Contacter
+            Résultats
             </button>
           </ion-col>
 
           <ion-col text-right>
-            <button ion-button clear small color="orange" icon-start (click)="supprimer_demande(i)">
+            <button ion-button clear color="orange" icon-start (click)="supprimer_demande(i)">
               <ion-icon name='star'></ion-icon>
               Supprimer
             </button>

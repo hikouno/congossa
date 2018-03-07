@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, AlertController } from 'ionic-angular';
 
 //Pages
 import { ProfilePage } from '../profile/profile';
 import { ListeConversationsPage } from '../listeConversations/listeConversations';
 import { MainProvider } from "../../providers/main/main";
+import { ApiProvider } from "../../providers/api/api"
+
 
 /**
  * Generated class for the MesDemandesPage page.
@@ -24,16 +26,21 @@ export class MesDemandesPage {
   mesDemandes : any[] = [];
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider, public menu: MenuController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private provider: MainProvider, public menu: MenuController,
+              private api: ApiProvider, private alertCtrl: AlertController) {
     this.provider.currentView = 'MesDemandesPage';
     this.profile = this.provider.get_profile();
-    this.mesDemandes = this.provider.get_mesDemandes()
+    this.mesDemandes = this.provider.mesDemandes;
+    setTimeout(() => {
+      console.log("toto");
+      this.menu.swipeEnable(true, 'mainMenu');
+  }, 80);
   }
 
   ionViewWillLeave() {
-    console.log("tata");
-    this.provider.currentView = this.provider.previousView;
-    this.menu.swipeEnable(true, 'mainMenu');
+    console.log("tutu");
+    this.menu.swipeEnable(false, 'mainMenu');
   }
 
    // Go to profilePage
@@ -44,6 +51,33 @@ export class MesDemandesPage {
 	// Go to MessagesPages
   openMessagesPage(){
     this.navCtrl.push(ListeConversationsPage);
+  }
+
+  presentConfirm(i) {
+    let alert = this.alertCtrl.create({
+      title: 'Supprimer cette demande ?',
+      message: 'Souhaitez vous supprimer cette demande ?',
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Supprimer',
+          handler: () => {
+            this.supprimer(i);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  supprimer(i){
+    this.mesDemandes.splice(i,1);
   }
 
 }

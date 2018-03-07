@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, AlertController } from 'ionic-angular';
 
 
 //Pages
 import { ProfilePage } from '../profile/profile';
 import { ListeConversationsPage } from '../listeConversations/listeConversations';
 import { MainProvider } from "../../providers/main/main";
+import { ApiProvider } from "../../providers/api/api"
+
 
 /**
  * Generated class for the MesOffresPage page.
@@ -25,30 +27,34 @@ export class MesOffresPage {
 
 
 
-  qualities: string;
-
-  shortDescription: string;
-
 
 
 
   categorie: string = "Catégorie";
   typeOfJob: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private provider: MainProvider, public menu: MenuController) {
+  profile:any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private provider: MainProvider, public menu: MenuController,
+              private api : ApiProvider, private alertCtrl: AlertController) {
     this.provider.currentView = 'MesOffresPage';
-    this.mesOffres = this.provider.get_mesOffres()
+    this.mesOffres = this.provider.mesOffres;
+    console.log(this.mesOffres);
+    this.profile = this.provider.profile;
+    setTimeout(() => {
+      console.log("toto");
+      this.menu.swipeEnable(true, 'mainMenu');
+  }, 80);
 
   }
 
   ionViewDidLoad() {
-    console.log(this.navCtrl.last().name);
   }
 
   ionViewWillLeave() {
     console.log(this.navCtrl.last().name);
-    this.provider.currentView = this.provider.previousView;
-    this.menu.swipeEnable(true, 'mainMenu');
+    this.menu.swipeEnable(false, 'mainMenu');
   }
 
    // Go to profilePage
@@ -61,8 +67,31 @@ export class MesOffresPage {
     this.navCtrl.push(ListeConversationsPage);
   }
 
-  allocateData(){
-    this.qualities = this.mesOffres[0].qualities;
-    this.shortDescription = this.mesOffres[0].shortDescription;
+  presentConfirm(i) {
+    let alert = this.alertCtrl.create({
+      title: 'Supprimer cette offre ?',
+      message: 'Souhaitez vous supprimer cette offre ?',
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Supprimer',
+          handler: () => {
+            this.supprimer(i);
+          }
+        }
+      ]
+    });
+    alert.present();
   }
+
+  supprimer(i){
+    this.mesOffres.splice(i,1);
+  }
+
 }
