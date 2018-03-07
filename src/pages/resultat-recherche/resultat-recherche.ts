@@ -72,4 +72,8 @@ export class ResultatRecherchePage {
   sauvegarder_offre(i){
     this.provider.offresSauvegardees.push(this.offresCorrespondantes[i]);
   }
+
+  test(){
+    console.log(this.provider.mesMatchDemandes[0]);
+  }
 }
