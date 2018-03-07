@@ -31,7 +31,6 @@ export class MainProvider {
   mesMatchOffres: any[] = [];
   mesMatchDemandes: any[] = [];
 
-  test: string = "coucou";
 
   currentView: string;
 
