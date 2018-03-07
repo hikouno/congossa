@@ -56,7 +56,7 @@ export class MainProvider {
                       tableQualities: [],
                       qualities: "",
                       skills: "",
-                      id: undefined}
+                      id_user: undefined}
     }
   }
 
@@ -105,8 +105,6 @@ export class MainProvider {
     this.accessToken = data;
     return this.accessToken;
   }
-
-
 
 
 

@@ -8,14 +8,13 @@
 
   <ion-list>
     <ion-item *ngFor="let conversation of mesConversations">
-      <button ion-item (click)="openConversation()">
+      <button ion-item (click)="openConversation(conversation[0], conversation[1], conversation[2])">
         <ion-avatar item-left>
           <img src="https://pbs.twimg.com/profile_images/662333810185543680/0NdNCnYu_400x400.jpg">
         </ion-avatar>
-        <h2>{{conversation[0]}}</h2>
-        <p>{{conversation[1]}}</p>
+        <h2>{{conversation[2]}}</h2>
+        <p>{{conversation[3]}}</p>
       </button>
-
     </ion-item>
   </ion-list>
 

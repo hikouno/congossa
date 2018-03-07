@@ -78,6 +78,7 @@ export class ApiProvider {
 
   //chat
   alldialoguser='allDialogUser/'
+  addmessage='addMessage/'
 
   constructor(public http: HttpClient,private provider:MainProvider,) {
     console.log('Hello ApiProvider Provider');
@@ -580,6 +581,10 @@ export class ApiProvider {
     .then(data => data.dialogs);
    }
 
+   addMessage(objet) {
+     return this.http.post(this.serverAddress + this.chat + this.addmessage, objet)
+   }
+
   // Login request
   login(login, password, nav) {
   var donneeUtilisateur;
@@ -594,7 +599,7 @@ export class ApiProvider {
         donneeUtilisateur=data.userData
         console.log(donneeUtilisateur)
         profile = this.provider.get_profile();
-        profile.id = donneeUtilisateur.id
+        profile.id = donneeUtilisateur.id_user
         profile.firstname=donneeUtilisateur.prenom
         profile.familyname=donneeUtilisateur.nom
         profile.sexe=donneeUtilisateur.sexe

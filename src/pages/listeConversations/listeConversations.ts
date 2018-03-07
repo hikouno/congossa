@@ -13,29 +13,28 @@ import { MainProvider } from "../../providers/main/main";
 })
 export class ListeConversationsPage {
 
-  toUser : {toUserId: string, toUserName: string};
   mesConversations : any;
   nbConversations : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private api: ApiProvider, public menu:MenuController, private provider:MainProvider) {
     this.provider.currentView = 'ListeConversationsPage';
-    this.toUser = {
-      toUserId:'210000198410281948',
-      toUserName:'Hancock'
-    }
   }
 
+  // Pour afficher la liste des conversations
   async ngOnInit(): Promise<void> {
-    this.mesConversations = await this.api.allDialogUser({"id_user":this.provider.id_user}); // A MODIFIER
+    this.mesConversations = await this.api.allDialogUser({"id_user":this.provider.profile.id}); // récupère l'id de l'offre, de la demande, le nom de l'autre utilisateur et le dernier message
   }
 
+  // Quitter la page
   ionViewWillLeave() {
       this.menu.swipeEnable(true, 'mainMenu');
       this.provider.currentView = this.provider.previousView;
     }
 
-  openConversation() {
-    this.navCtrl.push(ConversationPage, this.toUser);
+  // Ouvrir une conversation
+  openConversation(offre_id, demande_id, name_opponent, ownerOfOffre) {
+    var to = {offreId: offre_id, demande_id: demande_id, name_opponent:name_opponent, ownerOfOffre:ownerOfOffre}
+    this.navCtrl.push(ConversationPage, to);
   }
 
 }
