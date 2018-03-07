@@ -45,8 +45,9 @@ export class ResultatRecherchePage {
 
   ionViewWillLeave() {
     this.menu.swipeEnable(false, 'mainMenu');
-    this.provider.mesMatchOffres = [];
-    this.provider.mesMatchDemandes = [];
+    this.provider.mesMatchSpecificOffres = [];
+    this.provider.mesMatchSpecificDemandes = [];
+    this.provider.matchesDemanders = [];
   }
 
 
@@ -61,12 +62,12 @@ export class ResultatRecherchePage {
   }
 
   sauvegarder_demande(i){
-    var _demande = this.clone(this.provider.mesMatchDemandes[i])
+    var _demande = this.clone(this.provider.mesMatchSpecificDemandes[i])
     this.provider.demandesSauvegardees.push(_demande);
   }
 
   sauvegarder_offre(i){
-    var _offre = this.clone(this.provider.mesMatchOffres[i]);
+    var _offre = this.clone(this.provider.mesMatchSpecificOffres[i]);
     this.provider.offresSauvegardees.push(_offre);
   }
 
