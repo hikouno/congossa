@@ -45,7 +45,7 @@
 <div *ngIf="propose_ou_cherche=='cherche'">
 
 
-  <div *ngFor="let o of provider.mesMatchOffres;let i = index">
+  <div *ngFor="let o of provider.mesMatchSpecificOffres;let i = index">
 
     <ion-card class="cards">
       <ion-card-header  class="header-card" text-wrap>
@@ -129,7 +129,7 @@
 
 <div *ngIf="propose_ou_cherche=='propose'">
 
-<div class="main-div" *ngFor="let d of provider.mesMatchDemandes; let i = index">
+<div class="main-div" *ngFor="let d of provider.mesMatchSpecificDemandes; let i = index; let demander of provider.matchesDemanders">
 
 
 
@@ -143,8 +143,8 @@
     <ion-avatar item-start *ngIf="profile.photo != ''">
       <img [src]="profile.photo">
     </ion-avatar>
-    <strong class="header-name">{{profile.firstname}} {{profile.familyname}}</strong>
-    <h2 class="header-age" *ngIf="profile.age < 110">{{profile.age}} ans</h2>
+    <strong class="header-name">{{demander.firstname}} {{demander.familyname}}</strong>
+    <h2 class="header-age" *ngIf="profile.age < 110">{{demander.age}} ans</h2>
   </ion-item>
   </ion-card-header>
 
