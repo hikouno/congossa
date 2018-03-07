@@ -296,6 +296,9 @@ export class ApiProvider {
     .subscribe(
       (data : any) => {
         console.log(data);
+        for (var offre of data.matchingOffres) {
+          this.provider.addSpecificMatchOffre( this.parseOffre(offre) );
+        }
      },
      (error : any) => {
         console.log(error);
