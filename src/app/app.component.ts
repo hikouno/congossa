@@ -131,6 +131,8 @@ export class MyApp {
 
   // Log out from Facebook
   logoutOfFacebook() {
+    this.provider.mesOffres = [];
+    this.provider.mesDemandes = [];
     this.fire.auth.signOut();
     console.log("this.fire.auth.signOut() OK.")
     this.menu.swipeEnable(false, 'mainMenu');
