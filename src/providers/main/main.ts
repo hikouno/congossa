@@ -258,6 +258,8 @@ export class MainProvider {
   //Add an demander to the list of MatchDemander
   addMatchDemander(data){
     this.mesMatchesDemander.push(data);
+    console.log("mesMatchesDemander = ");
+    console.log(this.mesMatchesDemander);
   }
 
   // Add an demand to the list of MatchSpecificDemand

@@ -280,11 +280,17 @@ export class ApiProvider {
           }
           for (var demande of data.demandes) {
             this.provider.addMatchDemande( this.parseDemande(demande) );
-            this.provider.addMatchDemander(demande.demander);
+            this.provider.addMatchDemander(demande.demandeur);
+
+            console.log("demande.demandeur = ");
+            console.log(demande.demandeur);
           }
 
           console.log("data loaded ? ")
           console.log(data);
+
+
+
 
 
      },
@@ -630,7 +636,7 @@ export class ApiProvider {
   allDialogUser(objet): Promise<any> {
     return this.http.post(this.serverAddress + this.chat + this.alldialoguser, objet)
     .toPromise()
-    .then(data => data.dialogs);
+    //.then(data => data.dialogs);
    }
 
    addMessage(objet) {
