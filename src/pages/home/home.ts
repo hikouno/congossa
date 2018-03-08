@@ -72,9 +72,9 @@ export class HomePage {
   }
 
   ionViewWillLeave() {
-    this.provider.mesMatchOffres = [];
-    this.provider.mesMatchDemandes = [];
-    this.provider.mesMatchesDemander = [];
+    this.main.mesMatchOffres = [];
+    this.main.mesMatchDemandes = [];
+    this.main.mesMatchesDemander = [];
   }
 
   glogin(){

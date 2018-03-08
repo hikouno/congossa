@@ -97,46 +97,54 @@ export class ApiProvider {
       var skills = []
       var skills_str = "";
 
-      for (var _i = 0; _i < data.competencesRequises.length; _i++) {
+      if ( data.competencesRequises !== undefined) {
+        for (var _i = 0; _i < data.competencesRequises.length; _i++) {
 
-          skills.push( ' ' + data.competencesRequises[_i].contenu );
+            skills.push( ' ' + data.competencesRequises[_i].contenu );
 
-          skills_str += data.competencesRequises[_i].contenu;
-          if (_i != data.competencesRequises.length - 1) {
-              skills_str += ',';
-          }
+            skills_str += data.competencesRequises[_i].contenu;
+            if (_i != data.competencesRequises.length - 1) {
+                skills_str += ',';
+            }
+        }
       }
 
       //Qualities string
       var qualities = [];
       var qualities_str = "";
 
-      for (var _i = 0; _i < data.qualitesRequises.length; _i++) {
+      if ( data.qualitesRequises !== undefined) {
+        for (var _i = 0; _i < data.qualitesRequises.length; _i++) {
 
-          qualities.push( ' ' + data.qualitesRequises[_i].contenu );
+            qualities.push( ' ' + data.qualitesRequises[_i].contenu );
 
-          qualities_str += data.qualitesRequises[_i].contenu;
-          if (_i != data.qualitesRequises.length - 1) {
-              qualities_str += ',';
-          }
+            qualities_str += data.qualitesRequises[_i].contenu;
+            if (_i != data.qualitesRequises.length - 1) {
+                qualities_str += ',';
+            }
+        }
       }
 
       //Formations
       var formations = [];
-      for (var formation of data.recruteur.formation) {
-          formations.push( {title: formation.titre,
-            experience: ' ' + formation.titre,
-            period: formation.duree,
-            domaine: formation.domaine.intitule} );
+      if ( data.recruteur.formation !== undefined) {
+        for (var formation of data.recruteur.formation) {
+            formations.push( {title: formation.titre,
+              experience: ' ' + formation.titre,
+              period: formation.duree,
+              domaine: formation.domaine.intitule} );
+        }
       }
 
       //Experiences
       var experiences = [];
-      for (var exp of data.experiencesRequises) {
-          experiences.push( {title: exp.titre,
-              experience: ' ' + exp.titre,
-              period: exp.duree,
-              domaine: exp.domaine.intitule} );
+      if ( data.experiencesRequises !== undefined) {
+        for (var exp of data.experiencesRequises) {
+            experiences.push( {title: exp.titre,
+                experience: ' ' + exp.titre,
+                period: exp.duree,
+                domaine: exp.domaine.intitule} );
+        }
       }
 
       return {
@@ -163,46 +171,56 @@ export class ApiProvider {
       var skills = []
       var skills_str = "";
 
-      for (var _i = 0; _i < data.competencePossede.length; _i++) {
+      if ( data.competencePossede !== undefined) {
+        for (var _i = 0; _i < data.competencePossede.length; _i++) {
 
-          skills.push( ' ' + data.competencePossede[_i].contenu );
+            skills.push( ' ' + data.competencePossede[_i].contenu );
 
-          skills_str += data.competencePossede[_i].contenu;
-          if (_i != data.competencePossede.length - 1) {
-              skills_str += ',';
-          }
+            skills_str += data.competencePossede[_i].contenu;
+            if (_i != data.competencePossede.length - 1) {
+                skills_str += ',';
+            }
+        }
       }
 
       //Qualities string
       var qualities = [];
       var qualities_str = "";
 
-      for (var _i = 0; _i < data.qualitePossede.length; _i++) {
+      if ( data.qualitePossede !== undefined) {
+        for (var _i = 0; _i < data.qualitePossede.length; _i++) {
 
-          qualities.push( ' ' + data.qualitePossede[_i].contenu );
+            qualities.push( ' ' + data.qualitePossede[_i].contenu );
 
-          qualities_str += data.qualitePossede[_i].contenu;
-          if (_i != data.qualitePossede.length - 1) {
-              qualities_str += ',';
-          }
+            qualities_str += data.qualitePossede[_i].contenu;
+            if (_i != data.qualitePossede.length - 1) {
+                qualities_str += ',';
+            }
+        }
       }
 
       //Formations
       var formations = [];
-      for (var formation of data.demandeur.formation) {
-          formations.push( {title: formation.titre,
-            experience: ' ' + formation.titre,
-            period: formation.duree,
-            domaine: formation.domaine.intitule} );
+
+      if ( data.demandeur.formation !== undefined) {
+        for (var formation of data.demandeur.formation) {
+            formations.push( {title: formation.titre,
+              experience: ' ' + formation.titre,
+              period: formation.duree,
+              domaine: formation.domaine.intitule} );
+        }
       }
 
       //Experiences
       var experiences = [];
-      for (var exp of data.experiencePossede) {
-          experiences.push( {title: exp.titre,
-              experience: ' ' + exp.titre,
-              period: exp.duree,
-              domaine: exp.domaine.intitule} );
+
+      if ( data.experiencePossede !== undefined) {
+        for (var exp of data.experiencePossede) {
+            experiences.push( {title: exp.titre,
+                experience: ' ' + exp.titre,
+                period: exp.duree,
+                domaine: exp.domaine.intitule} );
+        }
       }
 
       return {
