@@ -46,7 +46,7 @@
 
   <div *ngSwitchCase="'offre'">
 
-    <div class="not-found-text" *ngIf="offres.length==0">
+    <div class="not-found-text" *ngIf="main.mesMatchOffres.length==0">
       Aucune offre correspondante
     </div>
 
@@ -136,7 +136,7 @@
 
   <div *ngSwitchCase="'demande'">
 
-    <div class="not-found-text" *ngIf="demandes.length==0">
+    <div class="not-found-text" *ngIf="main.mesMatchDemandes.length==0">
       Aucune demande correspondante
     </div>
 

@@ -71,6 +71,12 @@ export class HomePage {
         alert.present();
   }
 
+  ionViewWillLeave() {
+    this.provider.mesMatchOffres = [];
+    this.provider.mesMatchDemandes = [];
+    this.provider.mesMatchesDemander = [];
+  }
+
   glogin(){
     this.googlePlus.login({})
     .then(res => {console.log(res); alert("success "+JSON.stringify(res)); })

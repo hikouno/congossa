@@ -33,11 +33,11 @@
 <ion-content padding id="content">
 
 
-  <div class="not-found-text" *ngIf="propose_ou_cherche=='cherche' && provider.mesMatchOffres.length==0">
+  <div class="not-found-text" *ngIf="propose_ou_cherche=='cherche' && provider.mesMatchSpecificOffres.length==0">
     Aucune offre correspondante
   </div>
 
-  <div class="not-found-text" *ngIf="propose_ou_cherche=='propose' && provider.mesMatchDemandes.length==0">
+  <div class="not-found-text" *ngIf="propose_ou_cherche=='propose' && provider.mesMatchSpecificDemandes.length==0">
     Aucune demande correspondante
   </div>
 
@@ -129,7 +129,7 @@
 
 <div *ngIf="propose_ou_cherche=='propose'">
 
-<div class="main-div" *ngFor="let d of provider.mesMatchSpecificDemandes; let i = index; let demander of provider.matchesDemanders">
+<div class="main-div" *ngFor="let d of provider.mesMatchSpecificDemandes; let i = index; let demander of provider.mesMatchesSpecificDemander">
 
 
 

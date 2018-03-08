@@ -47,7 +47,7 @@ export class ResultatRecherchePage {
     this.menu.swipeEnable(false, 'mainMenu');
     this.provider.mesMatchSpecificOffres = [];
     this.provider.mesMatchSpecificDemandes = [];
-    this.provider.mesMatchesDemander = [];
+    this.provider.mesMatchesSpecificDemander = [];
   }
 
 
