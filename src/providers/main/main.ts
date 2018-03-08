@@ -28,18 +28,28 @@ export class MainProvider {
   mesDemandes: any[] = [];
 
 
+
+
   //For Home.html
   // Offers and Demands that match with all mine
   mesMatchOffres: any[] = [];
   mesMatchDemandes: any[] = [];
+
+  //For Home.html
+  //List of Demanders
+  mesMatchesDemander: any[] = [];
 
   // For ResultatRecherche.html
   // Offers and Demands that match with my specific one
   mesMatchSpecificOffres: any[] = [];
   mesMatchSpecificDemandes: any[] = [];
 
+  // For ResultatRecherche.html
   //List of mesMatchSpecificDemandes' Demanders
-  matchesDemanders: any[] = [];
+  mesMatchesSpecificDemander: any[] = [];
+
+
+
 
   currentView: string;
 
@@ -245,6 +255,11 @@ export class MainProvider {
     this.mesMatchDemandes.push(data);
   }
 
+  //Add an demander to the list of MatchDemander
+  addMatchDemander(data){
+    this.mesMatchesDemander.push(data);
+  }
+
   // Add an demand to the list of MatchSpecificDemand
   addSpecificMatchDemande(data) {
     this.mesMatchSpecificDemandes.push(data);
@@ -257,7 +272,7 @@ export class MainProvider {
 
 
   addSpecificDemander(data) {
-    this.matchesDemanders.push(data);
+    this.mesMatchesSpecificDemander.push(data);
 
   }
 

@@ -262,6 +262,7 @@ export class ApiProvider {
           }
           for (var demande of data.demandes) {
             this.provider.addMatchDemande( this.parseDemande(demande) );
+            this.provider.addMatchDemander(demande.demander);
           }
 
           console.log("data loaded ? ")
@@ -646,7 +647,7 @@ export class ApiProvider {
         profile.shortDescription=donneeUtilisateur.description
         profile.skills=donneeUtilisateur.competence
         profile.qualities=donneeUtilisateur.qualite
-        var j=0    (data : any) => {
+        var j=0
         for (var i =0 ;i<donneeUtilisateur.formation.length;i=i+3){
           profile.formations.push({title: "newFormation"+String(j), formation:donneeUtilisateur.formation[i], period: donneeUtilisateur.formation[i+2],domaine:donneeUtilisateur.formation[i+1]})
           j++
