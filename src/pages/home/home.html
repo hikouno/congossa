@@ -140,7 +140,7 @@
       Aucune demande correspondante
     </div>
 
-    <div class="main-div" *ngFor="let d of main.mesMatchDemandes; let i = index ; let demander of main.mesMatchesDemander">
+    <div class="main-div" *ngFor="let d of main.mesMatchDemandes; let i = index ">
 
       <ion-card class="cards">
 
@@ -149,8 +149,8 @@
         <ion-avatar item-start>
           <img src="assets/imgs/avatar.jpg">
         </ion-avatar>
-        <strong class="header-name">{{demander.first_name}} {{demander.last_name}}</strong>
-        <h2 class="header-age" *ngIf="profile.age < 110">{{demander.age}} ans</h2>
+        <strong class="header-name">{{main.mesMatchesDemander[i].first_name}} {{main.mesMatchesDemander[i].last_name}}</strong>
+        <h2 class="header-age" *ngIf="profile.age < 110">{{main.mesMatchesDemander[i].age}} ans</h2>
       </ion-item>
       </ion-card-header>
 
@@ -217,14 +217,14 @@
 
       <ion-row no-padding>
           <ion-col id="button-left" text-left>
-            <button ion-button color="orange" icon-start>
+            <button clear ion-button color="orange" icon-start>
               <ion-icon name='text'></ion-icon>
             Contacter
             </button>
           </ion-col>
 
           <ion-col text-right>
-            <button ion-button color="orange" icon-start (click)="sauvegarder_demandes(i)">
+            <button  clear ion-button color="orange" icon-start (click)="sauvegarder_demandes(i)">
               <ion-icon name='star'></ion-icon>
               Sauvegarder
             </button>

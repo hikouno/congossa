@@ -59,6 +59,8 @@ export class MainProvider {
   offresSauvegardees : any[] = [];
 
 
+  demandeurSauvegarde: any[] = [];
+
 
   constructor(public http: HttpClient) {
     console.log('Hello MainProvider Provider');

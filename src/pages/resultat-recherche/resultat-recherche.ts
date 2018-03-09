@@ -64,6 +64,9 @@ export class ResultatRecherchePage {
   sauvegarder_demande(i){
     var _demande = this.clone(this.provider.mesMatchSpecificDemandes[i])
     this.provider.demandesSauvegardees.push(_demande);
+
+    var _demandeur = this.clone(this.provider.mesMatchesSpecificDemander[i])
+    this.provider.demandeurSauvegarde.push(_demandeur);
   }
 
   sauvegarder_offre(i){

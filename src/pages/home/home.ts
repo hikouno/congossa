@@ -165,7 +165,9 @@ export class HomePage {
 
   sauvegarder_demandes(i){
     var _demande = this.clone(this.main.mesMatchDemandes[i])
+    var _demandeur = this.clone(this.main.mesMatchesDemander[i])
     this.main.demandesSauvegardees.push(_demande);
+    this.main.demandeurSauvegarde.push(_demandeur);
   }
 
   clone(obj){

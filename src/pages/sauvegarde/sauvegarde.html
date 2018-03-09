@@ -158,13 +158,13 @@
         <ion-avatar item-start>
           <img src="assets/imgs/avatar.jpg">
         </ion-avatar>
-        <strong class="header-name">{{profile.firstname}} {{profile.familyname}}</strong>
-        <h2 class="header-age" *ngIf="profile.age < 110">{{profile.age}} ans</h2>
+        <strong class="header-name">{{provider.demandeurSauvegarde[i].first_name}} {{provider.demandeurSauvegarde[i].last_name}}</strong>
+        <h2 class="header-age" *ngIf="profile.age < 110">{{provider.demandeurSauvegarde[i].age}} ans</h2>
       </ion-item>
       </ion-card-header>
 
       <ion-card-content>
-        <p text-left> {{d.profile.shortDescription}} </p>
+        <p text-left> {{d.shortDescription}} </p>
         <ion-row>
           <ion-col class="text-col-left" col-6>
             <p text-left><Strong class="titres"> Formation</Strong></p>
